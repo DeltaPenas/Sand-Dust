@@ -1,0 +1,62 @@
+# =============== #
+# Unity / Geral   #
+# =============== #
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+sysinfo.txt
+
+# =============== #
+# Asset Store     #
+# =============== #
+*.unitypackage
+
+# =============== #
+# IDEs            #
+# =============== #
+
+# VSCode
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# =============== #
+# Unity Cache     #
+# =============== #
+*.pidb.meta
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# =============== #
+# Sistema         #
+# =============== #
+.DS_Store
+Thumbs.db
+
+# =============== #
+# Configuração    #
+# =============== #
+ProjectSettings/GraphicsSettings.asset
+ProjectSettings/QualitySettings.asset
