@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     public float forçadash = 20;
     public Vector2 movimento;
     public Rigidbody2D rig;
-
+    public float cooldownDash = 0;
+    public float intervaloDash;
     public Vector2 ultimadireção;
     private bool querDash;
 
@@ -20,6 +21,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
+        if(cooldownDash > 0)
+        {
+           cooldownDash -= Time.deltaTime; 
+        }
+
+
         movimento = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (movimento != Vector2.zero)
@@ -27,9 +35,11 @@ public class PlayerController : MonoBehaviour
             ultimadireção = movimento.normalized;
         }
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && cooldownDash <= 0)
         {
             querDash = true;
+
+            cooldownDash = intervaloDash;
         }
 
 
