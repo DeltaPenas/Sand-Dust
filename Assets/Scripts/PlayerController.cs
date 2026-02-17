@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public float intervaloDash;
     public Vector2 ultimadireção;
     private bool querDash;
+    private bool iframeAtivo;
+    
 
     void Start()
     {
