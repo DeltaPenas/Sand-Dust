@@ -42,10 +42,6 @@ public class PlayerController : MonoBehaviour
             cooldownDash = intervaloDash;
         }
 
-
-
-
-
     }
 
     void FixedUpdate()
@@ -59,7 +55,6 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-
 
     void mover()
     {
@@ -82,11 +77,5 @@ public class PlayerController : MonoBehaviour
         {
             rig.AddForce(Vector2.up * forçadash, ForceMode2D.Impulse);
         }
-        
-        
-        
     }
-
-
-
 }

@@ -151,7 +151,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 3
-  rig: {fileID: 268198594}
+  podeMover: 1
+  "for\xE7adash": 50
+  movimento: {x: 0, y: 0}
+  rig: {fileID: 0}
+  cooldownDash: 1.5
+  intervaloDash: 2
+  "ultimadire\xE7\xE3o": {x: 0, y: 0}
 --- !u!50 &268198594
 Rigidbody2D:
   serializedVersion: 5
