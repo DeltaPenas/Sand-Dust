@@ -1,5 +1,9 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,16 +13,24 @@ public class PlayerController : MonoBehaviour
     public float forçadash = 20;
     public Vector2 movimento;
     public Rigidbody2D rig;
+    public BoxCollider2D boxCollider2D;
     public float cooldownDash = 0;
     public float intervaloDash;
     public Vector2 ultimadireção;
     private bool querDash;
-    private bool iframeAtivo;
-    
+    public float iframetempo = 0.3F;
+
+    public float iframeTempoBuff = 0;
+    private bool iframeAtivo = false;
+
+
+
+
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -40,6 +52,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && cooldownDash <= 0)
         {
             querDash = true;
+            StartCoroutine(Iframe());
 
             cooldownDash = intervaloDash;
         }
@@ -54,6 +67,8 @@ public class PlayerController : MonoBehaviour
         {
            dash();
            querDash = false; 
+           
+           
         }
         
     }
@@ -79,6 +94,39 @@ public class PlayerController : MonoBehaviour
         {
             rig.AddForce(Vector2.up * forçadash, ForceMode2D.Impulse);
         }
+        
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+{
+    if (collision.gameObject.CompareTag("inimigo") && iframeAtivo)
+    {
+        Debug.Log("não colidiu");
+    }
+
+    if (collision.gameObject.CompareTag("inimigo") && !iframeAtivo)
+    {
+        Debug.Log("colidiu");
+    }
+}
+
+    IEnumerator Iframe()
+    {
+        iframeAtivo = true;
+        boxCollider2D.enabled = false;
+
+        Debug.Log("ativou o iframe");
+
+        yield return new WaitForSeconds(iframetempo + iframeTempoBuff);
+
+        iframeAtivo = false;
+        boxCollider2D.enabled = true;
+
+        Debug.Log("desativou o iframe");
+
+
+    }
+
+
 }
