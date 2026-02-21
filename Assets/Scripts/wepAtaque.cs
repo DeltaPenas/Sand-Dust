@@ -5,6 +5,11 @@ public class wepAtaque : MonoBehaviour
     public float cooldown = 0.5f;
     private float tempoProximoTiro;
 
+    public GameObject prefabTiro;
+
+    public Transform pontoInicialDoTiro;
+
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -24,6 +29,12 @@ public class wepAtaque : MonoBehaviour
 
     void Atacar()
     {
-        Debug.Log("Ataque executado");
+        Debug.Log("atirou");
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+        Vector2 direcao = mousePos - pontoInicialDoTiro.position;
+
+        GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
+        projetil.GetComponent<Projetil>().definirDireção(direcao);
     }
 }

@@ -25,6 +25,11 @@ public class Projetil : MonoBehaviour
             vida.receberDano(dano);
         }
 
-        Destroy(gameObject);
+        
+        if (!alvo.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }
