@@ -13,6 +13,6 @@ public class MiraPlayer : MonoBehaviour
         direçãoMouse = mousePos - transform.position.normalized;
 
 
-        Debug.Log("nova posição:" + mousePos);
+        
     }
 }
