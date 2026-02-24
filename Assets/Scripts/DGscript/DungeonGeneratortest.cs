@@ -1,19 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
+ 
 
 public class DungeonGeneratortest : MonoBehaviour
 {   
+
+
     
 
     void Start()
     {
 
-        List<Vector2Int> salas = new List<Vector2Int>();
+        List<SalaNode> salas = new List<SalaNode>();
         int qtdSalas = Random.Range(6,11);
         
         
-        
-
         Vector2Int[] direções = new Vector2Int[]
         {
             new Vector2Int(1,0),
@@ -23,17 +25,28 @@ public class DungeonGeneratortest : MonoBehaviour
         };
 
 
-        salas.Add(new Vector2Int(0,0));
+        salas.Add(new SalaNode(Vector2Int.zero));
 
         while (salas.Count < qtdSalas)
         {
-            Vector2Int salaAleatoria = salas[Random.Range(0, salas.Count)];
+            SalaNode salaAleatoria = salas[Random.Range(0, salas.Count)];
             Vector2Int direcaoAleatoria = direções[Random.Range(0, direções.Length)];
-            Vector2Int novaPosicao = salaAleatoria + direcaoAleatoria;
-            if (!salas.Contains(novaPosicao))
-        {
-            salas.Add(novaPosicao);
-        }
+            Vector2Int novaPosicao = salaAleatoria.Posicao + direcaoAleatoria;
+
+            bool existe = false;
+
+            if (salaAleatoria.Posicao == novaPosicao)
+            {
+                existe = true;
+                break;
+            }
+            else
+            {
+                salas.Add(new SalaNode(novaPosicao));
+            }
+        
+            
+        
             
             
         }
@@ -41,9 +54,9 @@ public class DungeonGeneratortest : MonoBehaviour
         int maiorDistancia = 0;
         Vector2Int posBoss = Vector2Int.zero;
 
-        foreach (Vector2Int sala in salas)
+        foreach (SalaNode sala in salas)
         {
-            if(sala == Vector2Int.zero) continue;
+            if(sala == SalaNode.zero) continue;
 
             int distancia = Mathf.Abs(sala.x) + Mathf.Abs(sala.y);
 
@@ -65,7 +78,7 @@ public class DungeonGeneratortest : MonoBehaviour
             if (sala == posBoss) continue;
             salasValidas.Add(sala);
         }
-        
+
         posSalaBau = salasValidas[Random.Range(0, salasValidas.Count)];
 
         foreach (Vector2Int sala in salas)
@@ -79,6 +92,8 @@ public class DungeonGeneratortest : MonoBehaviour
         Debug.Log("sala do báu" + posSalaBau);
         
     }
+
+    
 
     
 }
