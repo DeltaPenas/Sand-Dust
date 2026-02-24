@@ -12,6 +12,7 @@ public class DungeonGeneratortest : MonoBehaviour
         int qtdSalas = Random.Range(6,11);
         
         
+        
 
         Vector2Int[] direções = new Vector2Int[]
         {
@@ -54,7 +55,18 @@ public class DungeonGeneratortest : MonoBehaviour
             
             
         }
+
+        List<Vector2Int> salasValidas = new List<Vector2Int>();
+        Vector2Int posSalaBau = Vector2Int.zero;
+
+        foreach (Vector2Int sala in salas)
+        {
+            if (sala == Vector2Int.zero) continue;
+            if (sala == posBoss) continue;
+            salasValidas.Add(sala);
+        }
         
+        posSalaBau = salasValidas[Random.Range(0, salasValidas.Count)];
 
         foreach (Vector2Int sala in salas)
     {
@@ -64,6 +76,7 @@ public class DungeonGeneratortest : MonoBehaviour
         
     }
         Debug.Log("sala do boss:" + posBoss );
+        Debug.Log("sala do báu" + posSalaBau);
         
     }
 
