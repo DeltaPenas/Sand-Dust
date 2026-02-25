@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
- 
+using Unity.VisualScripting;
+
 
 public class DungeonGeneratortest : MonoBehaviour
 {   
-
+    public int qtdminSalas;
+    public int qtdmaxSalas;
 
     
 
@@ -13,7 +15,13 @@ public class DungeonGeneratortest : MonoBehaviour
     {
 
         List<SalaNode> salas = new List<SalaNode>();
-        int qtdSalas = Random.Range(6,11);
+        int qtdSalas = Random.Range(qtdminSalas,qtdmaxSalas);
+
+        if (qtdmaxSalas <= 4 ||qtdminSalas <= 4 || qtdminSalas > qtdmaxSalas )
+        {
+            Debug.Log("quantidade de salas invalida");
+            return;
+        }
         
         
         Vector2Int[] direções = new Vector2Int[]
@@ -93,12 +101,9 @@ public class DungeonGeneratortest : MonoBehaviour
         foreach (SalaNode sala in salas)
     {
          Debug.Log(sala.Posicao + " - " + sala.tipo);
-        
-        
-        
-    }
-        
-        
+    
+    } 
+
     }
 
 }
