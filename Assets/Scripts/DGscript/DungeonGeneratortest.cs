@@ -25,7 +25,10 @@ public class DungeonGeneratortest : MonoBehaviour
         };
 
 
-        salas.Add(new SalaNode(Vector2Int.zero));
+        SalaNode salainicial = new SalaNode(Vector2Int.zero);
+        salas.Add(salainicial);
+        
+        salainicial.tipo = TipoSala.Inicial;
 
         while (salas.Count < qtdSalas)
         {
@@ -35,65 +38,67 @@ public class DungeonGeneratortest : MonoBehaviour
 
             bool existe = false;
 
-            if (salaAleatoria.Posicao == novaPosicao)
+        foreach (SalaNode sala in salas)
             {
-                existe = true;
-                break;
-            }
-            else
+            if (sala.Posicao == novaPosicao)
             {
-                salas.Add(new SalaNode(novaPosicao));
+            existe = true;
+            break;
             }
-        
-            
-        
-            
-            
+        }
+
+        if (!existe)
+        {
+            salas.Add(new SalaNode(novaPosicao));
+        }
+          
         }
 
         int maiorDistancia = 0;
-        Vector2Int posBoss = Vector2Int.zero;
+        SalaNode salaBoss = null;
 
         foreach (SalaNode sala in salas)
         {
-            if(sala == SalaNode.zero) continue;
+            if(sala.Posicao == Vector2Int.zero) continue;
 
-            int distancia = Mathf.Abs(sala.x) + Mathf.Abs(sala.y);
+            int distancia = Mathf.Abs(sala.Posicao.x) + Mathf.Abs(sala.Posicao.y);
 
             if (distancia > maiorDistancia)
             {
                 maiorDistancia = distancia;
-                posBoss = sala;
+                salaBoss = sala;
             }
             
             
         }
 
-        List<Vector2Int> salasValidas = new List<Vector2Int>();
+        if (salaBoss != null)
+        {
+            salaBoss.tipo = TipoSala.Boss;
+        }
+
+        List<SalaNode> salasValidas = new List<SalaNode>();
         Vector2Int posSalaBau = Vector2Int.zero;
 
-        foreach (Vector2Int sala in salas)
+        foreach (SalaNode sala in salas)
         {
-            if (sala == Vector2Int.zero) continue;
-            if (sala == posBoss) continue;
+            if (sala.Posicao == Vector2Int.zero) continue;
+            if (sala.Posicao == salaBoss.Posicao) continue;
             salasValidas.Add(sala);
         }
 
-        posSalaBau = salasValidas[Random.Range(0, salasValidas.Count)];
+        SalaNode salaBau = salasValidas[Random.Range(0, salasValidas.Count)];
+        salaBau.tipo = TipoSala.Tesouro;
 
-        foreach (Vector2Int sala in salas)
+        foreach (SalaNode sala in salas)
     {
-        Debug.Log(sala);
+         Debug.Log(sala.Posicao + " - " + sala.tipo);
         
         
         
     }
-        Debug.Log("sala do boss:" + posBoss );
-        Debug.Log("sala do báu" + posSalaBau);
+        
         
     }
 
-    
-
-    
 }
