@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53aad385a13cd314094f8b8740019321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  qtdminSalas: 6
+  qtdmaxSalas: 11
 --- !u!4 &22206300
 Transform:
   m_ObjectHideFlags: 0

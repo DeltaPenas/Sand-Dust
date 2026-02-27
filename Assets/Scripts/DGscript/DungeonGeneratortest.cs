@@ -14,6 +14,13 @@ public class DungeonGeneratortest : MonoBehaviour
     void Start()
     {
 
+        gerarSala();
+
+        
+
+    }
+    void gerarSala()
+    {
         List<SalaNode> salas = new List<SalaNode>();
         int qtdSalas = Random.Range(qtdminSalas,qtdmaxSalas);
 
@@ -88,21 +95,49 @@ public class DungeonGeneratortest : MonoBehaviour
         List<SalaNode> salasValidas = new List<SalaNode>();
         Vector2Int posSalaBau = Vector2Int.zero;
 
-        foreach (SalaNode sala in salas)
+        if (qtdSalas > 6)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                foreach (SalaNode sala in salas)
         {
             if (sala.Posicao == Vector2Int.zero) continue;
             if (sala.Posicao == salaBoss.Posicao) continue;
+            
+
+            salasValidas.Add(sala);
+        }
+
+            SalaNode salaBau = salasValidas[Random.Range(0, salasValidas.Count)];
+            salaBau.tipo = TipoSala.Tesouro;
+                
+            }
+
+            
+            
+        }else if (qtdSalas <= 6)
+        {
+            foreach (SalaNode sala in salas)
+        {
+            if (sala.Posicao == Vector2Int.zero) continue;
+            if (sala.Posicao == salaBoss.Posicao) continue;
+            
+
             salasValidas.Add(sala);
         }
 
         SalaNode salaBau = salasValidas[Random.Range(0, salasValidas.Count)];
         salaBau.tipo = TipoSala.Tesouro;
+        }
+
+        
 
         foreach (SalaNode sala in salas)
     {
          Debug.Log(sala.Posicao + " - " + sala.tipo);
     
     } 
+        
 
     }
 

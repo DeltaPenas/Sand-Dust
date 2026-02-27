@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\delta\\Desktop\\Sand\u0026Dust\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\delta\\Desktop\\Sand\u0026Dust\\Assets\\Scripts\\DGscript\\DungeonGeneratortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\DGscript\\DungeonGeneratortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\delta\\Desktop\\Sand\u0026Dust\\Assets\\Scripts\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\delta\\Desktop\\Sand\u0026Dust\\Assets\\Scripts\\cameraSeguir.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\cameraSeguir.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +27,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DungeonGeneratortest.cs",
+              "DocumentMoniker": "C:\\Users\\delta\\Desktop\\Sand\u0026Dust\\Assets\\Scripts\\DGscript\\DungeonGeneratortest.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DGscript\\DungeonGeneratortest.cs",
+              "ToolTip": "C:\\Users\\delta\\Desktop\\Sand\u0026Dust\\Assets\\Scripts\\DGscript\\DungeonGeneratortest.cs*",
+              "RelativeToolTip": "Assets\\Scripts\\DGscript\\DungeonGeneratortest.cs*",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGYAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T00:16:55.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\delta\\Desktop\\Sand\u0026Dust\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\delta\\Desktop\\Sand\u0026Dust\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T00:16:50.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "cameraSeguir.cs",
               "DocumentMoniker": "C:\\Users\\delta\\Desktop\\Sand\u0026Dust\\Assets\\Scripts\\cameraSeguir.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\cameraSeguir.cs",
