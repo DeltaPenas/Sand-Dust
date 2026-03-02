@@ -2,20 +2,41 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
 using Unity.VisualScripting;
+using JetBrains.Annotations;
 public class DungeonGeneratortest : MonoBehaviour
 {   
     public int qtdminSalas;
     public int qtdmaxSalas;
+    public int andar;
+    public int layer;
+    public Transform DungeonParent;
+
+    List<SalaNode> salas = new List<SalaNode>();
+    //GameObject salaGO = Instantiate(prefabSala, posicaoMundo, Quaternion.identity);
+    //salaGO.transform.parent = dungeonParent;
+
     void Start()
     {
         gerarSala();
     }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            //descerAndar();
+        }
+    }
+
     void gerarSala()
     {
-        List<SalaNode> salas = new List<SalaNode>();
+        
+
         int qtdSalas = Random.Range(qtdminSalas,qtdmaxSalas);
+
         if (qtdmaxSalas <= 4 ||qtdminSalas <= 4 || qtdminSalas > qtdmaxSalas )
         {
+
             Debug.Log("quantidade de salas invalida");
             return;
         }
@@ -26,15 +47,22 @@ public class DungeonGeneratortest : MonoBehaviour
             new Vector2Int(0,1),
             new Vector2Int(0,-1)
         };
+
         SalaNode salainicial = new SalaNode(Vector2Int.zero);
         salas.Add(salainicial);
         salainicial.tipo = TipoSala.Inicial;
+        andar += 1;
+        Debug.Log("andar atual: " + andar);
+        
+
+
         while (salas.Count < qtdSalas)
         {
             SalaNode salaAleatoria = salas[Random.Range(0, salas.Count)];
             Vector2Int direcaoAleatoria = direções[Random.Range(0, direções.Length)];
             Vector2Int novaPosicao = salaAleatoria.Posicao + direcaoAleatoria;
             bool existe = false;
+
         foreach (SalaNode sala in salas)
             {
             if (sala.Posicao == novaPosicao)
@@ -48,8 +76,10 @@ public class DungeonGeneratortest : MonoBehaviour
             salas.Add(new SalaNode(novaPosicao));
         }
         }
+
         int maiorDistancia = 0;
         SalaNode salaProxLayer = null;
+
         foreach (SalaNode sala in salas)
         {
             if(sala.Posicao == Vector2Int.zero) continue;
@@ -95,6 +125,19 @@ public class DungeonGeneratortest : MonoBehaviour
         foreach (SalaNode sala in salas)
     {
          Debug.Log(sala.Posicao + " - " + sala.tipo);
-    }        
     }
+               
+    }
+
+    void LimparDungeon()
+    {
+        //foreach (Transform filho in dungeonParent)
+        //{
+        //Destroy(filho.gameObject);
+        //}
+
+    //salas.Clear();
+    }
+    
+    
 }

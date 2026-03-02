@@ -7,7 +7,8 @@ enum TipoSala
         Tesouro,
         SalaProxLayer,
         Loja,
-        Secreta
+        Secreta,
+        SalaBoss
 
     
     }
