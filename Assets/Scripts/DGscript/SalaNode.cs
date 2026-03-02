@@ -5,7 +5,7 @@ enum TipoSala
         Inicial,
         Normal,
         Tesouro,
-        Boss,
+        SalaProxLayer,
         Loja,
         Secreta
 

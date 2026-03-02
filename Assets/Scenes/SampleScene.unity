@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qtdminSalas: 6
-  qtdmaxSalas: 11
+  qtdmaxSalas: 6
 --- !u!4 &22206300
 Transform:
   m_ObjectHideFlags: 0

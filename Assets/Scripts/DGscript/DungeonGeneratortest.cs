@@ -2,35 +2,23 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
 using Unity.VisualScripting;
-
-
 public class DungeonGeneratortest : MonoBehaviour
 {   
     public int qtdminSalas;
     public int qtdmaxSalas;
-
-    
-
     void Start()
     {
-
         gerarSala();
-
-        
-
     }
     void gerarSala()
     {
         List<SalaNode> salas = new List<SalaNode>();
         int qtdSalas = Random.Range(qtdminSalas,qtdmaxSalas);
-
         if (qtdmaxSalas <= 4 ||qtdminSalas <= 4 || qtdminSalas > qtdmaxSalas )
         {
             Debug.Log("quantidade de salas invalida");
             return;
         }
-        
-        
         Vector2Int[] direções = new Vector2Int[]
         {
             new Vector2Int(1,0),
@@ -38,21 +26,15 @@ public class DungeonGeneratortest : MonoBehaviour
             new Vector2Int(0,1),
             new Vector2Int(0,-1)
         };
-
-
         SalaNode salainicial = new SalaNode(Vector2Int.zero);
         salas.Add(salainicial);
-        
         salainicial.tipo = TipoSala.Inicial;
-
         while (salas.Count < qtdSalas)
         {
             SalaNode salaAleatoria = salas[Random.Range(0, salas.Count)];
             Vector2Int direcaoAleatoria = direções[Random.Range(0, direções.Length)];
             Vector2Int novaPosicao = salaAleatoria.Posicao + direcaoAleatoria;
-
             bool existe = false;
-
         foreach (SalaNode sala in salas)
             {
             if (sala.Posicao == novaPosicao)
@@ -61,40 +43,29 @@ public class DungeonGeneratortest : MonoBehaviour
             break;
             }
         }
-
         if (!existe)
         {
             salas.Add(new SalaNode(novaPosicao));
         }
-          
         }
-
         int maiorDistancia = 0;
-        SalaNode salaBoss = null;
-
+        SalaNode salaProxLayer = null;
         foreach (SalaNode sala in salas)
         {
             if(sala.Posicao == Vector2Int.zero) continue;
-
             int distancia = Mathf.Abs(sala.Posicao.x) + Mathf.Abs(sala.Posicao.y);
-
             if (distancia > maiorDistancia)
             {
                 maiorDistancia = distancia;
-                salaBoss = sala;
+                salaProxLayer = sala;
             }
-            
-            
         }
-
-        if (salaBoss != null)
+        if (salaProxLayer != null)
         {
-            salaBoss.tipo = TipoSala.Boss;
+            salaProxLayer.tipo = TipoSala.SalaProxLayer;
         }
-
         List<SalaNode> salasValidas = new List<SalaNode>();
         Vector2Int posSalaBau = Vector2Int.zero;
-
         if (qtdSalas > 6)
         {
             for (int i = 0; i < 2; i++)
@@ -102,43 +73,28 @@ public class DungeonGeneratortest : MonoBehaviour
                 foreach (SalaNode sala in salas)
         {
             if (sala.Posicao == Vector2Int.zero) continue;
-            if (sala.Posicao == salaBoss.Posicao) continue;
-            
-
+            if (sala.Posicao == salaProxLayer.Posicao) continue;
             salasValidas.Add(sala);
         }
 
             SalaNode salaBau = salasValidas[Random.Range(0, salasValidas.Count)];
             salaBau.tipo = TipoSala.Tesouro;
                 
-            }
-
-            
-            
+            }  
         }else if (qtdSalas <= 6)
         {
             foreach (SalaNode sala in salas)
         {
             if (sala.Posicao == Vector2Int.zero) continue;
-            if (sala.Posicao == salaBoss.Posicao) continue;
-            
-
+            if (sala.Posicao == salaProxLayer.Posicao) continue;
             salasValidas.Add(sala);
         }
-
         SalaNode salaBau = salasValidas[Random.Range(0, salasValidas.Count)];
         salaBau.tipo = TipoSala.Tesouro;
         }
-
-        
-
         foreach (SalaNode sala in salas)
     {
          Debug.Log(sala.Posicao + " - " + sala.tipo);
-    
-    } 
-        
-
+    }        
     }
-
 }
