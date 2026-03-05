@@ -21,7 +21,7 @@ public class DungeonGeneratortest : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
         if (Input.GetMouseButtonDown(1))
         {
             //descerAndar();
