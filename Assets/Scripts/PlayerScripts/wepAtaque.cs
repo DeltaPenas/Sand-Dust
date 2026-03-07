@@ -4,17 +4,33 @@ public class wepAtaque : MonoBehaviour
 {
     public float cooldown = 0.5f;
     private float tempoProximoTiro;
-
+    private float meleeTimer;
+    public int meleeDano;
+    public float meleeRange = 1;
+    public float meleeCooldown;
+    public LayerMask layerInimigos;
     public GameObject prefabTiro;
-
     public Transform pontoInicialDoTiro;
+    public Transform pontoInicialDoMelee;
 
 
-    void Update()
+
+    void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
             TentarAtacar();
+        }
+
+        if (meleeTimer > 0)
+        {
+            meleeRange -= Time.deltaTime;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            AtacarMelee();
+            meleeTimer = meleeCooldown;
         }
     }
 
@@ -36,5 +52,34 @@ public class wepAtaque : MonoBehaviour
 
         GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
         projetil.GetComponent<Projetil>().definirDireção(direcao);
+    }
+    void AtacarMelee()
+    {
+        Collider2D[] hitAlvos = Physics2D.OverlapCircleAll(
+            pontoInicialDoMelee.position,
+            meleeRange,
+            layerInimigos
+        );
+
+        foreach (Collider2D alvos in hitAlvos)
+        {
+            Debug.Log("acertou o " + alvos.name);
+            Vida vida = alvos.GetComponent<Vida>();
+
+            if (vida != null)
+            {
+                vida.receberDano(meleeDano);
+            }
+
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (pontoInicialDoMelee == null) return;
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(pontoInicialDoMelee.position, meleeRange);
+        }
     }
 }

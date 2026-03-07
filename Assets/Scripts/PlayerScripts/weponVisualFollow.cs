@@ -13,7 +13,7 @@ public class weponVisualFollow : MonoBehaviour
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
