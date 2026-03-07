@@ -10,27 +10,52 @@ public class wepAtaque : MonoBehaviour
     public float meleeCooldown;
     public LayerMask layerInimigos;
     public GameObject prefabTiro;
+    public GameObject rangedWep;
+    public GameObject meleeWep;
     public Transform pontoInicialDoTiro;
     public Transform pontoInicialDoMelee;
+    public bool taRanged = true;
 
 
-
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && taRanged)
         {
             TentarAtacar();
         }
 
         if (meleeTimer > 0)
         {
-            meleeRange -= Time.deltaTime;
+            meleeTimer -= Time.deltaTime;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !taRanged)
         {
             AtacarMelee();
             meleeTimer = meleeCooldown;
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            TrocarArma();
+            
+        }
+    }
+
+    void TrocarArma()
+    {
+        if (taRanged)
+        {
+            taRanged = false;
+            rangedWep.SetActive(false);
+            meleeWep.SetActive(true);
+            
+        }else if (!taRanged)
+        {
+            taRanged = true;
+            rangedWep.SetActive(true);
+            meleeWep.SetActive(false);
+            
+            
         }
     }
 
