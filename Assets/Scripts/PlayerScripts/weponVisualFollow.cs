@@ -13,26 +13,25 @@ public class weponVisualFollow : MonoBehaviour
     }
 
     
-    void FixedUpdate()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
+ void Update()
+{
+    Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    mousePos.z = 0f;
 
-        Vector2 direction = (mousePos - rotacaoVisual.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    Vector2 direction = mousePos - rotacaoVisual.position;
 
-        rotacaoVisual.rotation = Quaternion.Euler(0f, 0f, angle);
+    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (mousePos.x < 0)
-        {
-            sp.flipY = true;
-        }
-        else if (mousePos.x > 0)
-        {
-            sp.flipY = false;
-        }
-        
-        
-    }
+    rotacaoVisual.rotation = Quaternion.Euler(0f, 0f, angle);
+
+    Vector3 scale = rotacaoVisual.localScale;
+
+    if (direction.x < 0)
+        scale.y = -1;
+    else
+        scale.y = 1;
+
+    rotacaoVisual.localScale = scale;
+}
 
 }
