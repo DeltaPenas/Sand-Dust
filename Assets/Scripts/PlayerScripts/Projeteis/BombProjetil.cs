@@ -25,7 +25,7 @@ public class BombProjetil : MonoBehaviour
 
     IEnumerator explodir()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         Collider2D[] alvos = Physics2D.OverlapCircleAll(transform.position, 2f);
 
