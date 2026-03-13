@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public SkillBase skillBase;
     public float velocidade;
     public bool podeMover = true;
     public float forçadash = 20;
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public float iframeTempoBuff = 0;
     private bool iframeAtivo = false;
+
 
 
 
@@ -55,6 +56,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Iframe());
 
             cooldownDash = intervaloDash;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            skillBase.tentaUsar();
         }
 
     }

@@ -6,10 +6,10 @@ public class Projetil : MonoBehaviour
     public int dano = 1;
     private Vector2 direcao;
 
-    // --- NOVA FUNÇÃO START ---
+    
     void Start()
     {
-        // Destrói este objeto automaticamente após 3 segundos para não lotar a memória
+        
         Destroy(gameObject, 3f); 
     }
 
