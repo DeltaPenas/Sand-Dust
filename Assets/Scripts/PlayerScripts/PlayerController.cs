@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             ultimadireção = movimento.normalized;
         }
         
-        if (Input.GetKeyDown(KeyCode.Space) && cooldownDash <= 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && cooldownDash <= 0)
         {
             querDash = true;
             StartCoroutine(Iframe());

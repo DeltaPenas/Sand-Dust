@@ -16,6 +16,15 @@ public class wepAtaque : MonoBehaviour
     public Transform pontoInicialDoMelee;
     public bool taRanged = true;
 
+    // --- NOVAS VARIÁVEIS DE MUNIÇÃO ---
+    public int municaoMaxima = 10; // Quantidade máxima de balas
+    private int municaoAtual;      // Quantidade de balas no momento
+
+    void Start()
+    {
+        // Enche a arma quando o jogo começa
+        municaoAtual = municaoMaxima;
+    }
 
     void Update()
     {
@@ -34,10 +43,16 @@ public class wepAtaque : MonoBehaviour
             AtacarMelee();
             meleeTimer = meleeCooldown;
         }
-        if (Input.GetKeyDown(KeyCode.R))
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             TrocarArma();
-            
+        }
+
+        // --- NOVO COMANDO PARA RECARREGAR ---
+        if (Input.GetKeyDown(KeyCode.R) && taRanged)
+        {
+            Recarregar();
         }
     }
 
@@ -48,29 +63,33 @@ public class wepAtaque : MonoBehaviour
             taRanged = false;
             rangedWep.SetActive(false);
             meleeWep.SetActive(true);
-            
-        }else if (!taRanged)
+        }
+        else if (!taRanged)
         {
             taRanged = true;
             rangedWep.SetActive(true);
             meleeWep.SetActive(false);
-            
-            
         }
     }
 
     void TentarAtacar()
     {
-        if (Time.time >= tempoProximoTiro)
+        // --- ADICIONADO A CHECAGEM DE MUNIÇÃO (municaoAtual > 0) ---
+        if (Time.time >= tempoProximoTiro && municaoAtual > 0)
         {
             Atacar();
+            municaoAtual--; // Gasta uma bala
+            Debug.Log("Balas restantes: " + municaoAtual); // Mostra no console
             tempoProximoTiro = Time.time + cooldown;
+        }
+        else if (municaoAtual <= 0)
+        {
+            Debug.Log("Sem munição! Aperte R para recarregar.");
         }
     }
 
     void Atacar()
     {
-        Debug.Log("atirou");
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
         Vector2 direcao = mousePos - pontoInicialDoTiro.position;
@@ -78,6 +97,7 @@ public class wepAtaque : MonoBehaviour
         GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
         projetil.GetComponent<Projetil>().definirDireção(direcao);
     }
+
     void AtacarMelee()
     {
         Collider2D[] hitAlvos = Physics2D.OverlapCircleAll(
@@ -88,15 +108,19 @@ public class wepAtaque : MonoBehaviour
 
         foreach (Collider2D alvos in hitAlvos)
         {
-            Debug.Log("acertou o " + alvos.name);
             Vida vida = alvos.GetComponent<Vida>();
-
             if (vida != null)
             {
                 vida.receberDano(meleeDano);
             }
-
         }
+    }
+
+    // --- NOVA FUNÇÃO PARA RECARREGAR ---
+    void Recarregar()
+    {
+        municaoAtual = municaoMaxima;
+        Debug.Log("Arma Recarregada!");
     }
 
     void OnDrawGizmosSelected()
