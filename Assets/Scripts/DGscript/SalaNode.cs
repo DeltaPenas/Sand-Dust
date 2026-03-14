@@ -1,6 +1,6 @@
 using UnityEngine;
 
-enum TipoSala
+internal enum TipoSala
     {
         Inicial,
         Normal,
@@ -12,7 +12,7 @@ enum TipoSala
 
     
     }
-    class SalaNode
+internal class SalaNode
     {
         public Vector2Int Posicao;
         public TipoSala tipo;

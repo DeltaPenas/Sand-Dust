@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class wepAtaque : MonoBehaviour
+public class WepAtaque : MonoBehaviour
 {
     public float cooldown = 0.5f;
     private float tempoProximoTiro;
@@ -20,13 +20,13 @@ public class wepAtaque : MonoBehaviour
     public int municaoMaxima = 10; // Quantidade máxima de balas
     private int municaoAtual;      // Quantidade de balas no momento
 
-    void Start()
+    private void Start()
     {
         // Enche a arma quando o jogo começa
         municaoAtual = municaoMaxima;
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0) && taRanged)
         {
@@ -56,7 +56,7 @@ public class wepAtaque : MonoBehaviour
         }
     }
 
-    void TrocarArma()
+    private void TrocarArma()
     {
         if (taRanged)
         {
@@ -72,7 +72,7 @@ public class wepAtaque : MonoBehaviour
         }
     }
 
-    void TentarAtacar()
+    private void TentarAtacar()
     {
         // --- ADICIONADO A CHECAGEM DE MUNIÇÃO (municaoAtual > 0) ---
         if (Time.time >= tempoProximoTiro && municaoAtual > 0)
@@ -88,7 +88,7 @@ public class wepAtaque : MonoBehaviour
         }
     }
 
-    void Atacar()
+    private void Atacar()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
@@ -98,7 +98,7 @@ public class wepAtaque : MonoBehaviour
         projetil.GetComponent<Projetil>().definirDireção(direcao);
     }
 
-    void AtacarMelee()
+    private void AtacarMelee()
     {
         Collider2D[] hitAlvos = Physics2D.OverlapCircleAll(
             pontoInicialDoMelee.position,
@@ -117,13 +117,13 @@ public class wepAtaque : MonoBehaviour
     }
 
     // --- NOVA FUNÇÃO PARA RECARREGAR ---
-    void Recarregar()
+    private void Recarregar()
     {
         municaoAtual = municaoMaxima;
         Debug.Log("Arma Recarregada!");
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         if (pontoInicialDoMelee == null) return;
         {

@@ -6,15 +6,18 @@ public class BombProjetil : MonoBehaviour
     public float forcaL = 3;
     public int dano = 5;
     public Vector2 direcao;
-
+    public Vector2 posBala;
+    public Transform balaPos;
     public Rigidbody2D rig;
+    public SkillBomb bmb;
+    public float raioExp;
 
     public void definirDirecao(Vector2 novaDirecao)
     {
         direcao = novaDirecao.normalized;
     }
 
-    void Start()
+    private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
 
@@ -23,11 +26,11 @@ public class BombProjetil : MonoBehaviour
         StartCoroutine(explodir());
     }
 
-    IEnumerator explodir()
+    private IEnumerator explodir()
     {
         yield return new WaitForSeconds(0.5f);
 
-        Collider2D[] alvos = Physics2D.OverlapCircleAll(transform.position, 2f);
+        Collider2D[] alvos = Physics2D.OverlapCircleAll(transform.position, raioExp);
 
         foreach (Collider2D alvo in alvos)
         {
@@ -40,5 +43,12 @@ public class BombProjetil : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    void OnDrawGizmos()
+    {
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, raioExp);
     }
 }

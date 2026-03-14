@@ -6,7 +6,9 @@ public abstract class SkillBase : MonoBehaviour
     public float skillDmg;
     public float cooldown;
     public float ultimoUso;
-    
+    public int stacksAtual;
+    public int maxStacks;
+    public WepAtaque wp;
 
     
     

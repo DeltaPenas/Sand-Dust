@@ -11,16 +11,16 @@ public class DungeonGeneratortest : MonoBehaviour
     public int layer;
     public Transform DungeonParent;
 
-    List<SalaNode> salas = new List<SalaNode>();
+    private List<SalaNode> salas = new List<SalaNode>();
     //GameObject salaGO = Instantiate(prefabSala, posicaoMundo, Quaternion.identity);
     //salaGO.transform.parent = dungeonParent;
 
-    void Start()
+    private void Start()
     {
         gerarSala();
     }
 
-    void Update()
+    private void Update()
     {   
         if (Input.GetMouseButtonDown(1))
         {
@@ -28,7 +28,7 @@ public class DungeonGeneratortest : MonoBehaviour
         }
     }
 
-    void gerarSala()
+    private void gerarSala()
     {
         
 
@@ -129,7 +129,7 @@ public class DungeonGeneratortest : MonoBehaviour
                
     }
 
-    void LimparDungeon()
+    private void LimparDungeon()
     {
         //foreach (Transform filho in dungeonParent)
         //{

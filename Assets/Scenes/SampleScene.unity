@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecccfbecdb76114e8ac892732001d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillBase: {fileID: 0}
+  skillBase: {fileID: 268198600}
   velocidade: 3
   podeMover: 1
   "for\xE7adash": 50
@@ -516,12 +516,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3741593e7c853c7498cb151708c5d10f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillRange: 10
+  skillRange: 5
   skillDmg: 5
-  cooldown: 0
+  cooldown: 1
   ultimoUso: 0
-  bombPrefab: {fileID: 8475600191985149976, guid: e9f021fd3b123d04d97972b7a79acace, type: 3}
-  "pontoLan\xE7amento": {fileID: 268198596}
+  bombPrefab: {fileID: 5030242313746046103, guid: 43b87744df36ccd4d8ae3215b307c057, type: 3}
+  "pontoLan\xE7amento": {fileID: 1187954809}
 --- !u!1 &450597247
 GameObject:
   m_ObjectHideFlags: 0

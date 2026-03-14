@@ -4,6 +4,7 @@ public class SkillBomb : SkillBase
 {
     public GameObject bombPrefab;
     public Transform pontoLançamento;
+    public BombProjetil bmb;
     protected override void useSkill()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -13,6 +14,14 @@ public class SkillBomb : SkillBase
 
         GameObject bombProjetil = Instantiate(bombPrefab, pontoLançamento.position, Quaternion.identity);
         bombProjetil.GetComponent<BombProjetil>().definirDirecao(direcao);
+
+        bmb.raioExp = skillRange;
+
+        
         
     }
+
+    
+
+    
 }

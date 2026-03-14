@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5030242313746046103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5918145, y: -1.7601686, z: -0.03609378}
+  m_LocalPosition: {x: -3.8156686, y: -1.9542819, z: -0.03609378}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -168,4 +168,7 @@ MonoBehaviour:
   forcaL: 5
   dano: 5
   direcao: {x: 0, y: 0}
+  posBala: {x: 0, y: 0}
+  balaPos: {fileID: 5040481176934458356}
   rig: {fileID: 0}
+  bmb: {fileID: 0}

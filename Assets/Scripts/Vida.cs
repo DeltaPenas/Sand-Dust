@@ -7,7 +7,7 @@ public class Vida : MonoBehaviour
 
 
 
-    void Start()
+    private void Start()
     {
         vidaAtual = vidaTotal;
     }
@@ -22,7 +22,7 @@ public class Vida : MonoBehaviour
         }
     }
 
-    void morrer()
+    private void morrer()
     {
         Destroy(gameObject);
         

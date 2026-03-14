@@ -6,7 +6,7 @@ public class MiraPlayer : MonoBehaviour
     public UnityEngine.Vector3 mousePos;
     public UnityEngine.Vector2 direçãoMouse;
 
-    void Update()
+    private void Update()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;

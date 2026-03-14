@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void Start()
+    private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         mover();
 
@@ -79,12 +79,12 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void mover()
+    private void mover()
     {
         rig.linearVelocity = movimento * velocidade;
     }
 
-    void dash()
+    private void dash()
     {
         
         
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
     }
 }
 
-    IEnumerator Iframe()
+    private IEnumerator Iframe()
     {
         iframeAtivo = true;
         boxCollider2D.enabled = false;

@@ -6,14 +6,14 @@ public class weponVisualFollow : MonoBehaviour
 {
     public Transform rotacaoVisual;
     public SpriteRenderer sp;
-   
-    void Start()
+
+    private void Start()
     {
         sp = GetComponent<SpriteRenderer>();
     }
 
-    
- void Update()
+
+    private void Update()
 {
     Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     mousePos.z = 0f;

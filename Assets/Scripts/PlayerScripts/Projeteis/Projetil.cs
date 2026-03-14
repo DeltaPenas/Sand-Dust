@@ -6,8 +6,8 @@ public class Projetil : MonoBehaviour
     public int dano = 1;
     private Vector2 direcao;
 
-    
-    void Start()
+
+    private void Start()
     {
         
         Destroy(gameObject, 3f); 
@@ -18,12 +18,12 @@ public class Projetil : MonoBehaviour
         direcao = novaDireção.normalized;
     }
 
-    void Update()
+    private void Update()
     {
         transform.Translate(direcao * velocidade * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D alvo)
+    private void OnTriggerEnter2D(Collider2D alvo)
     {
         Vida vida = alvo.GetComponent<Vida>();
 
