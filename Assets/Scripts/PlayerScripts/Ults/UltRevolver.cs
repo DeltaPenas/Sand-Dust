@@ -10,6 +10,18 @@ public class UltRevolver : UltBase
     public GameObject ultProjetilPrefab;
     protected override void tentaUsarUlt()
     {
+        // debug da ult
+        if (wep == null)
+        {
+            Debug.LogError("O script WepAtaque não foi atribuído no UltRevolver.", this);
+            return;
+        }
+        
+        if(wep.rangedWep == null || wep.meleeWep == null)
+        {
+            Debug.LogError("As referências para as armas de ataque à distância não foram atribuídas no script WepAtaque.", this);
+            return;
+        }
         //saca a arma automaticamente, dps fazer uma função bonitinha pra isso
         wep.taRanged = true;
         wep.rangedWep.SetActive(true);
@@ -39,7 +51,7 @@ public class UltRevolver : UltBase
 
         }
 
-        IEnumerator()
+        
         
     }
 
