@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 268198598}
   - component: {fileID: 268198599}
   - component: {fileID: 268198600}
+  - component: {fileID: 268198601}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -307,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillBase: {fileID: 268198600}
+  ultBase: {fileID: 268198601}
   velocidade: 3
   podeMover: 1
   "for\xE7adash": 50
@@ -390,7 +392,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1472946655, guid: 77e725e56539c3b42a41ce9327cf853f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -516,12 +518,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3741593e7c853c7498cb151708c5d10f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillRange: 5
+  skillRange: 1.5
   skillDmg: 5
   cooldown: 1
   ultimoUso: 0
+  stacksAtual: 0
+  maxStacks: 0
+  wp: {fileID: 0}
   bombPrefab: {fileID: 5030242313746046103, guid: 43b87744df36ccd4d8ae3215b307c057, type: 3}
   "pontoLan\xE7amento": {fileID: 1187954809}
+  bmb: {fileID: 5557724236593507770, guid: 43b87744df36ccd4d8ae3215b307c057, type: 3}
+--- !u!114 &268198601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268198592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83605635433dbb24da52d8f3c56b0a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ultRange: 5
+  ultDmg: 5
+  ultCooldown: 0
+  ultimoUso: 0
+  posPlayer: {fileID: 268198596}
+  layerInimigos:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &450597247
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +998,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1523495166, guid: 77e725e56539c3b42a41ce9327cf853f, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1135,7 +1161,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1523495166, guid: 77e725e56539c3b42a41ce9327cf853f, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

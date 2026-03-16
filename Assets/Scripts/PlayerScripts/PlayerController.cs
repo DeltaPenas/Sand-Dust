@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public SkillBase skillBase;
+    public UltBase ultBase;
     public float velocidade;
     public bool podeMover = true;
     public float forçadash = 20;
@@ -61,6 +62,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             skillBase.tentaUsar();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ultBase.tentaUsar();
         }
 
     }

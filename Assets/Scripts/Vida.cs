@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Vida : MonoBehaviour
 {
-    public int vidaTotal = 5;
-    public int vidaAtual;
+    public float vidaTotal = 5;
+    public float vidaAtual;
 
 
 
