@@ -49,11 +49,7 @@ public class WepAtaque : MonoBehaviour
             TrocarArma();
         }
 
-        // --- NOVO COMANDO PARA RECARREGAR ---
-        if (Input.GetKeyDown(KeyCode.R) && taRanged)
-        {
-            Recarregar();
-        }
+      
     }
 
     private void TrocarArma()
@@ -116,12 +112,7 @@ public class WepAtaque : MonoBehaviour
         }
     }
 
-    // --- NOVA FUNÇÃO PARA RECARREGAR ---
-    private void Recarregar()
-    {
-        municaoAtual = municaoMaxima;
-        Debug.Log("Arma Recarregada!");
-    }
+    
 
     private void OnDrawGizmosSelected()
     {
