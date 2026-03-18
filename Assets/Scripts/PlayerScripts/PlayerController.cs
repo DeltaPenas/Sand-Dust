@@ -9,42 +9,28 @@ public class PlayerController : MonoBehaviour
 {
     public SkillBase skillBase;
     public UltBase ultBase;
+    public DashBase dashBase;
     public float velocidade;
     public bool podeMover = true;
-    public float forçadash = 20;
     public Vector2 movimento;
     public Rigidbody2D rig;
     public BoxCollider2D boxCollider2D;
     public Animator anim;
-    public float cooldownDash = 0;
-    public float intervaloDash;
     public Vector2 ultimadireção;
-    private bool querDash;
     public float iframetempo = 0.3F;
-
     public float iframeTempoBuff = 0;
-    private bool iframeAtivo = false;
-
-
-
-
+    public bool iframeAtivo = false;
 
 
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
-        anim = GetComponent<>(Animator);
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-
-        if(cooldownDash > 0)
-        {
-           cooldownDash -= Time.deltaTime; 
-        }
-
 
         movimento = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
@@ -53,12 +39,9 @@ public class PlayerController : MonoBehaviour
             ultimadireção = movimento.normalized;
         }
         
-        if (Input.GetKeyDown(KeyCode.LeftShift) && cooldownDash <= 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            querDash = true;
-            StartCoroutine(Iframe());
-
-            cooldownDash = intervaloDash;
+            dashBase.tentaUsarDash();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -76,40 +59,13 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         mover();
-
-        if (querDash)
-        {
-           dash();
-           querDash = false; 
-           
-           
-        }
-        
     }
 
     private void mover()
     {
-        rig.linearVelocity = movimento * velocidade;
-    }
+    if (!podeMover) return;
 
-    private void dash()
-    {
-        
-        
-        if (movimento != Vector2.zero)
-        {
-            rig.AddForce(movimento.normalized * forçadash, ForceMode2D.Impulse);
-        }
-        else if (ultimadireção != Vector2.zero)
-        {
-             rig.AddForce(ultimadireção * forçadash, ForceMode2D.Impulse);
-        }
-        else
-        {
-            rig.AddForce(Vector2.up * forçadash, ForceMode2D.Impulse);
-        }
-        
-
+    rig.linearVelocity = movimento * velocidade;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -124,23 +80,5 @@ public class PlayerController : MonoBehaviour
         Debug.Log("colidiu");
     }
 }
-
-    private IEnumerator Iframe()
-    {
-        iframeAtivo = true;
-        boxCollider2D.enabled = false;
-
-        Debug.Log("ativou o iframe");
-
-        yield return new WaitForSeconds(iframetempo + iframeTempoBuff);
-
-        iframeAtivo = false;
-        boxCollider2D.enabled = true;
-
-        Debug.Log("desativou o iframe");
-
-
-    }
-
 
 }
