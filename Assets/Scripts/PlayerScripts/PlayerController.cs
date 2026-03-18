@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 movimento;
     public Rigidbody2D rig;
     public BoxCollider2D boxCollider2D;
+    public Animator anim;
     public float cooldownDash = 0;
     public float intervaloDash;
     public Vector2 ultimadireção;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        anim = GetComponent<>(Animator);
     }
 
     private void Update()
