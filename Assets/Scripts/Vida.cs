@@ -4,7 +4,8 @@ public class Vida : MonoBehaviour
 {
     public float vidaTotal = 5;
     public float vidaAtual;
-
+    public bool isEnvenenado;
+    public bool isQueimando;
 
 
     private void Start()
