@@ -26,21 +26,31 @@ public class UltRevolver : UltBase
         wep.taRanged = true;
         wep.rangedWep.SetActive(true);
         wep.meleeWep.SetActive(false);
-        
-        Collider2D[] hitAlvosUlt = Physics2D.OverlapCircleAll(
-            posPlayer.position,
-            ultRange,
-            layerInimigos
-        );
 
-        foreach (Collider2D alvos in hitAlvosUlt)
+        StartCoroutine(atirarCadenciado());
+        
+        
+        IEnumerator atirarCadenciado()
+        {
+            Collider2D[] hitAlvosUlt = Physics2D.OverlapCircleAll(
+                posPlayer.position,
+                ultRange,
+                layerInimigos
+            );
+
+            foreach (Collider2D alvos in hitAlvosUlt)
         {
             Vector2 posAlvos = alvos.bounds.center; //Vector2 posAlvos = alvos.transform.position;
             Vector2 direcaoUlt = (posAlvos - (Vector2)posPlayer.position).normalized;
-            
+            yield return new WaitForSeconds(0.1f);
             atirarProjetil(posAlvos, direcaoUlt);
         }
 
+        }
+
+       
+
+        
         void atirarProjetil(Vector2 alvoPos, Vector2 direcaoAlvos)
         {
             GameObject projetil = Instantiate(ultProjetilPrefab, posPlayer.position, Quaternion.identity);
