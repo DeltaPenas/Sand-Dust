@@ -11,6 +11,7 @@ public class BombProjetil : MonoBehaviour
     public Rigidbody2D rig;
     public SkillBomb bmb;
     public float raioExp;
+    public GameObject explosionVFX;
 
     public void definirDirecao(Vector2 novaDirecao)
     {
@@ -29,6 +30,13 @@ public class BombProjetil : MonoBehaviour
     private IEnumerator explodir()
     {
         yield return new WaitForSeconds(0.5f);
+
+        GameObject exp = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        SpriteRenderer sr = exp.GetComponent<SpriteRenderer>();
+        float tamanhoAtual = sr.bounds.size.x;
+        float escala = (raioExp * 0.5f)  / tamanhoAtual;
+
+        exp.transform.localScale = Vector3.one * escala;
 
         Collider2D[] alvos = Physics2D.OverlapCircleAll(transform.position, raioExp);
 
