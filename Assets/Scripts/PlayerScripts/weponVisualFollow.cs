@@ -6,6 +6,9 @@ public class weponVisualFollow : MonoBehaviour
 {
     public Transform rotacaoVisual;
     public SpriteRenderer sp;
+    public PlayerController pc;
+    public SpriteRenderer spritewep;
+    public SpriteRenderer playerSprite;
 
     private void Start()
     {
@@ -32,6 +35,27 @@ public class weponVisualFollow : MonoBehaviour
         scale.y = 1;
 
     rotacaoVisual.localScale = scale;
+
+        if (pc.movimento.y > 0)
+        {
+            spritewep.sortingOrder = playerSprite.sortingOrder - 1;
+        }else if (pc.movimento.y < 0)
+        {
+            spritewep.sortingOrder = playerSprite.sortingOrder + 1;
+        }
+
+        if (pc.movimento.x > 0)
+        {
+            spritewep.sortingOrder = playerSprite.sortingOrder +1;
+        }else if (pc.movimento.x <0)
+        {
+            spritewep.sortingOrder = playerSprite.sortingOrder -1;
+        }   
+
+        if (pc.movimento.magnitude <= 0)
+        {
+            spritewep.sortingOrder = playerSprite.sortingOrder + 1;
+        }
 }
 
 }

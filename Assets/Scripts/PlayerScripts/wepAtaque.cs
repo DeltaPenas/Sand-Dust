@@ -15,6 +15,7 @@ public class WepAtaque : MonoBehaviour
     public Transform pontoInicialDoTiro;
     public Transform pontoInicialDoMelee;
     public bool taRanged = true;
+   
 
     // --- NOVAS VARIÁVEIS DE MUNIÇÃO ---
     public int municaoMaxima = 10; // Quantidade máxima de balas
@@ -111,9 +112,6 @@ public class WepAtaque : MonoBehaviour
             }
         }
     }
-
-    
-
     private void OnDrawGizmosSelected()
     {
         if (pontoInicialDoMelee == null) return;
