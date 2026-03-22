@@ -22,7 +22,7 @@ public class UltRevolver : UltBase
             Debug.LogError("As referências para as armas de ataque à distância não foram atribuídas no script WepAtaque.", this);
             return;
         }
-        //saca a arma automaticamente, dps fazer uma função bonitinha pra isso
+        
         wep.taRanged = true;
         wep.rangedWep.SetActive(true);
         wep.meleeWep.SetActive(false);
@@ -39,19 +39,19 @@ public class UltRevolver : UltBase
             );
 
             foreach (Collider2D alvos in hitAlvosUlt)
-        {
-            Vector2 posAlvos = alvos.bounds.center; //Vector2 posAlvos = alvos.transform.position;
-            Vector2 direcaoUlt = (posAlvos - (Vector2)posPlayer.position).normalized;
-            yield return new WaitForSeconds(0.1f);
-            atirarProjetil(posAlvos, direcaoUlt);
-        }
+            {
+                Vector2 posAlvos = alvos.bounds.center; //Vector2 posAlvos = alvos.transform.position;
+                Vector2 direcaoUlt = (posAlvos - (Vector2)posPlayer.position).normalized;
+                yield return new WaitForSeconds(0.1f);
+                AtirarProjetil(posAlvos, direcaoUlt);
+            }
 
         }
 
        
 
         
-        void atirarProjetil(Vector2 alvoPos, Vector2 direcaoAlvos)
+        void AtirarProjetil(Vector2 alvoPos, Vector2 direcaoAlvos)
         {
             GameObject projetil = Instantiate(ultProjetilPrefab, posPlayer.position, Quaternion.identity);
             RevolverUltProjetil scriptProjetil = projetil.GetComponent<RevolverUltProjetil>();

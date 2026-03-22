@@ -20,19 +20,22 @@ public class PlayerController : MonoBehaviour
     public float iframetempo = 0.3F;
     public float iframeTempoBuff = 0;
     public bool iframeAtivo = false;
+    
+    
 
 
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
     {
 
         movimento = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        
 
         if (movimento != Vector2.zero)
         {
@@ -65,7 +68,10 @@ public class PlayerController : MonoBehaviour
     {
     if (!podeMover) return;
 
-    rig.linearVelocity = movimento * velocidade;
+        anim.SetFloat("Horizontal", movimento.x);
+        anim.SetFloat("Vertical", movimento.y);
+        anim.SetFloat("Speed", movimento.magnitude);
+        rig.linearVelocity = movimento * velocidade;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
