@@ -16,7 +16,7 @@ public class Vida : MonoBehaviour
     public void receberDano(int dano)
     {
         vidaAtual -= dano;
-
+        Debug.Log(gameObject.name + " recebeu dano. Vida atual: " + vidaAtual);
         if (vidaAtual <= 0)
         {
             morrer();
