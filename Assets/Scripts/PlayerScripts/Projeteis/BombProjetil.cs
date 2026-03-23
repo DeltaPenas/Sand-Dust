@@ -12,6 +12,7 @@ public class BombProjetil : MonoBehaviour
     public SkillBomb bmb;
     public float raioExp;
     public GameObject explosionVFX;
+    
 
     public void definirDirecao(Vector2 novaDirecao)
     {

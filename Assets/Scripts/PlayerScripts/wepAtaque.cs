@@ -15,6 +15,7 @@ public class WepAtaque : MonoBehaviour
     public Transform pontoInicialDoTiro;
     public Transform pontoInicialDoMelee;
     public bool taRanged = true;
+    public PlayerController pc;
    
 
     // --- NOVAS VARIÁVEIS DE MUNIÇÃO ---
@@ -44,12 +45,12 @@ public class WepAtaque : MonoBehaviour
             AtacarMelee();
             meleeTimer = meleeCooldown;
         }
-
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TrocarArma();
         }
-
+        */
       
     }
 
