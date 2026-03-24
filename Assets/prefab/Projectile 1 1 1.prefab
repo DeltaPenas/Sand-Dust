@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d066ac7e01ee7e4e9c5e18ee94249f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BombProjetil
-  forcaL: 3
+  forcaL: 8
   dano: 5
   direcao: {x: 0, y: 0}
   posBala: {x: 0, y: 0}

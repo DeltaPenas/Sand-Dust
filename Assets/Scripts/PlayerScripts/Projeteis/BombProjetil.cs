@@ -60,4 +60,14 @@ public class BombProjetil : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, raioExp);
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("inimigo"))
+        {
+            explodir();
+        }
+    }
 }
+
+    

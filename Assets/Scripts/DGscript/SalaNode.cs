@@ -8,7 +8,8 @@ internal enum TipoSala
         SalaProxLayer,
         Loja,
         Secreta,
-        SalaBoss
+        SalaBoss,
+        evento
 
     
     }
