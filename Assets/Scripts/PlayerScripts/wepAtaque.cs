@@ -16,6 +16,7 @@ public class WepAtaque : MonoBehaviour
     public Transform pontoInicialDoMelee;
     public bool taRanged = true;
     public PlayerController pc;
+    public AudioClip fireSoundEffcet;
    
 
     // --- NOVAS VARIÁVEIS DE MUNIÇÃO ---
@@ -30,59 +31,40 @@ public class WepAtaque : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && taRanged)
+        Vector3 mouseatq = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseatq.z = 0f;
+        Vector2 direcaoatq = mouseatq - pontoInicialDoTiro.position;
+        pc.anim.SetFloat("mousePosHorizontal",direcaoatq.x);
+        pc.anim.SetFloat("mousePosVertical", direcaoatq.y);
+        
+
+        if (Input.GetMouseButtonDown(0))
         {
+            
             TentarAtacar();
         }
 
         if (meleeTimer > 0)
         {
             meleeTimer -= Time.deltaTime;
+            //// meleeTimer = meleeCooldown;
         }
 
-        if (Input.GetMouseButton(0) && !taRanged)
+        if (Input.GetMouseButtonDown(1) && pc.movimento.magnitude == 0)
         {
+            
             AtacarMelee();
             meleeTimer = meleeCooldown;
-        }
-        /*
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TrocarArma();
-        }
-        */
-      
-    }
-
-    private void TrocarArma()
-    {
-        if (taRanged)
-        {
-            taRanged = false;
-            rangedWep.SetActive(false);
-            meleeWep.SetActive(true);
-        }
-        else if (!taRanged)
-        {
-            taRanged = true;
-            rangedWep.SetActive(true);
-            meleeWep.SetActive(false);
         }
     }
 
     private void TentarAtacar()
     {
-        // --- ADICIONADO A CHECAGEM DE MUNIÇÃO (municaoAtual > 0) ---
-        if (Time.time >= tempoProximoTiro && municaoAtual > 0)
+        
+        if (Time.time >= tempoProximoTiro)
         {
             Atacar();
-            municaoAtual--; // Gasta uma bala
-            Debug.Log("Balas restantes: " + municaoAtual); // Mostra no console
             tempoProximoTiro = Time.time + cooldown;
-        }
-        else if (municaoAtual <= 0)
-        {
-            Debug.Log("Sem munição! Aperte R para recarregar.");
         }
     }
 
@@ -91,13 +73,17 @@ public class WepAtaque : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
         Vector2 direcao = mousePos - pontoInicialDoTiro.position;
+    
 
         GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
         projetil.GetComponent<Projetil>().definirDireção(direcao);
+        AudioSource.PlayClipAtPoint(fireSoundEffcet, transform.position);
     }
 
     private void AtacarMelee()
+
     {
+        rangedWep.SetActive(false);
         Collider2D[] hitAlvos = Physics2D.OverlapCircleAll(
             pontoInicialDoMelee.position,
             meleeRange,
@@ -112,13 +98,22 @@ public class WepAtaque : MonoBehaviour
                 vida.receberDano(meleeDano);
             }
         }
+        pc.anim.SetTrigger("attack"); 
+        Invoke("AtivarArma", 0.6f);
     }
     private void OnDrawGizmosSelected()
     {
+        
         if (pontoInicialDoMelee == null) return;
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(pontoInicialDoMelee.position, meleeRange);
         }
     }
+
+    public void AtivarArma()
+    {
+        rangedWep.SetActive(true);
+    }
+    
 }

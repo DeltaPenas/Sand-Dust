@@ -8,6 +8,7 @@ public class UltRevolver : UltBase
     public LayerMask layerInimigos; //seleciona a layer "inimigos", ou algo assim sla
     public WepAtaque wep;
     public GameObject ultProjetilPrefab;
+    public AudioClip fireSoundClip;    
     protected override void tentaUsarUlt()
     {
         // debug da ult
@@ -43,6 +44,7 @@ public class UltRevolver : UltBase
                 Vector2 posAlvos = alvos.bounds.center; //Vector2 posAlvos = alvos.transform.position;
                 Vector2 direcaoUlt = (posAlvos - (Vector2)posPlayer.position).normalized;
                 yield return new WaitForSeconds(0.1f);
+                AudioSource.PlayClipAtPoint(fireSoundClip, transform.position);
                 AtirarProjetil(posAlvos, direcaoUlt);
             }
 
