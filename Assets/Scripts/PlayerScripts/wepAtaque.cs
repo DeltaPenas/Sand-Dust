@@ -18,17 +18,6 @@ public class WepAtaque : MonoBehaviour
     public PlayerController pc;
     public AudioClip fireSoundEffcet;
    
-
-    // --- NOVAS VARIÁVEIS DE MUNIÇÃO ---
-    public int municaoMaxima = 10; // Quantidade máxima de balas
-    private int municaoAtual;      // Quantidade de balas no momento
-
-    private void Start()
-    {
-        // Enche a arma quando o jogo começa
-        municaoAtual = municaoMaxima;
-    }
-
     private void Update()
     {
         Vector3 mouseatq = Camera.main.ScreenToWorldPoint(Input.mousePosition);
