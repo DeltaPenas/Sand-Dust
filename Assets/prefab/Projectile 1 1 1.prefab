@@ -178,3 +178,4 @@ MonoBehaviour:
   bmb: {fileID: 0}
   raioExp: 1.5
   explosionVFX: {fileID: 3734534056077496601, guid: 497c9b2a08adaa84ba7e8ae072e82bf1, type: 3}
+  explosionSFX: {fileID: 8300000, guid: 2c1bd58f25a7dda40b378d32929ff577, type: 3}

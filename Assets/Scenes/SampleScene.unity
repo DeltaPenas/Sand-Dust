@@ -318,7 +318,7 @@ MonoBehaviour:
   skillBase: {fileID: 268198600}
   ultBase: {fileID: 268198601}
   dashBase: {fileID: 268198602}
-  velocidade: 3
+  velocidade: 5
   podeMover: 1
   movimento: {x: 0, y: 0}
   rig: {fileID: 268198594}
@@ -518,8 +518,8 @@ MonoBehaviour:
   pontoInicialDoTiro: {fileID: 1187954809}
   pontoInicialDoMelee: {fileID: 450597248}
   taRanged: 1
-  pc: {fileID: 0}
-  municaoMaxima: 10
+  pc: {fileID: 268198593}
+  fireSoundEffcet: {fileID: 8300000, guid: f26e3be32f229cf4d84d8925ec85c540, type: 3}
 --- !u!114 &268198600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +564,7 @@ MonoBehaviour:
     m_Bits: 8
   wep: {fileID: 268198599}
   ultProjetilPrefab: {fileID: 8781395042819672185, guid: 15a0fbec3d400b34787ffc69b12591c8, type: 3}
+  fireSoundClip: {fileID: 8300000, guid: f26e3be32f229cf4d84d8925ec85c540, type: 3}
 --- !u!114 &268198602
 MonoBehaviour:
   m_ObjectHideFlags: 0

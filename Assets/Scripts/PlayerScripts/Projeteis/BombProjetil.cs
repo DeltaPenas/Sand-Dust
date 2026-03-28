@@ -12,6 +12,7 @@ public class BombProjetil : MonoBehaviour
     public SkillBomb bmb;
     public float raioExp;
     public GameObject explosionVFX;
+    public AudioClip explosionSFX;
     
 
     public void definirDirecao(Vector2 novaDirecao)
@@ -50,7 +51,7 @@ public class BombProjetil : MonoBehaviour
                 vida.receberDano(dano);
             }
         }
-
+        AudioSource.PlayClipAtPoint(explosionSFX, transform.position);
         Destroy(gameObject);
     }
 
