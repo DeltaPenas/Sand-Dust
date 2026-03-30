@@ -4,6 +4,7 @@ public class WepAtaque : MonoBehaviour
 {
     public float cooldown = 0.5f;
     private float tempoProximoTiro;
+    private float tempoProximoMelee;
     private float meleeTimer;
     public int meleeDano;
     public float meleeRange = 1;
@@ -17,6 +18,7 @@ public class WepAtaque : MonoBehaviour
     public bool taRanged = true;
     public PlayerController pc;
     public AudioClip fireSoundEffcet;
+    public AudioClip meleeSoundEffect;
    
     private void Update()
     {
@@ -33,17 +35,10 @@ public class WepAtaque : MonoBehaviour
             TentarAtacar();
         }
 
-        if (meleeTimer > 0)
-        {
-            meleeTimer -= Time.deltaTime;
-            //// meleeTimer = meleeCooldown;
-        }
-
         if (Input.GetMouseButtonDown(1) && pc.movimento.magnitude == 0)
         {
             
-            AtacarMelee();
-            meleeTimer = meleeCooldown;
+            TentaAtacarMelee();
         }
     }
 
@@ -54,6 +49,15 @@ public class WepAtaque : MonoBehaviour
         {
             Atacar();
             tempoProximoTiro = Time.time + cooldown;
+        }
+    }
+    private void TentaAtacarMelee()
+    {
+        if (Time.time >= tempoProximoMelee)
+        {   
+            AtacarMelee();
+            tempoProximoMelee = Time.time + meleeCooldown;
+            
         }
     }
 
@@ -88,6 +92,7 @@ public class WepAtaque : MonoBehaviour
             }
         }
         pc.anim.SetTrigger("attack"); 
+        pc.audioSource.PlayOneShot(meleeSoundEffect, 1f);
         Invoke("AtivarArma", 0.6f);
     }
     private void OnDrawGizmosSelected()

@@ -324,6 +324,7 @@ MonoBehaviour:
   rig: {fileID: 268198594}
   boxCollider2D: {fileID: 0}
   anim: {fileID: 464669649}
+  passosSfx: {fileID: 8300000, guid: 26933132075c15f4db04fa7eb50b2ef8, type: 3}
   "ultimadire\xE7\xE3o": {x: 0, y: 0}
   iframetempo: 0.3
   iframeTempoBuff: 0
@@ -624,8 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbd39767937ae24999dd8e257a7d193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundController
-  passosSfx: {fileID: 8300000, guid: 26933132075c15f4db04fa7eb50b2ef8, type: 3}
-  pc: {fileID: 268198593}
+  passosSfx: {fileID: 0}
+  pc: {fileID: 0}
 --- !u!1 &450597247
 GameObject:
   m_ObjectHideFlags: 0

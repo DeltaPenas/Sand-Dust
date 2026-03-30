@@ -16,10 +16,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rig;
     public BoxCollider2D boxCollider2D;
     public Animator anim;
+    public AudioClip passosSfx;
     public Vector2 ultimadireção;
     public float iframetempo = 0.3F;
     public float iframeTempoBuff = 0;
     public bool iframeAtivo = false;
+    public AudioSource audioSource;
     
     
 
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         anim = GetComponentInChildren<Animator>();
+        StartCoroutine(TocarPassos());
     }
 
     private void Update()
@@ -73,6 +76,19 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Vertical", movimento.y);
         anim.SetFloat("Speed", movimento.magnitude);
         rig.linearVelocity = movimento * velocidade;
+    }
+
+    IEnumerator TocarPassos()
+    {
+        while (true)
+        {
+            if (movimento.magnitude > 0.01f)
+            {
+                audioSource.PlayOneShot(passosSfx, 1f);
+            }
+            yield return new WaitForSeconds(0.40f);
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

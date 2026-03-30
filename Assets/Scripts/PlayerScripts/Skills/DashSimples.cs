@@ -1,9 +1,12 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class DashSimples : DashBase
 {
+    public AudioClip dashSound;
     protected override void usadash()
     {
+        
         Vector2 direcao;
 
         if (pc.movimento != Vector2.zero)
@@ -20,5 +23,6 @@ public class DashSimples : DashBase
         }
 
         pc.rig.linearVelocity = direcao * forçaDash;
+        pc.audioSource.PlayOneShot(dashSound, 0.7f);
     }
 }
