@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class UltBase : MonoBehaviour
@@ -6,11 +5,16 @@ public abstract class UltBase : MonoBehaviour
     public float ultRange;
     public int ultDmg;
     public float ultCooldown;
-    public float ultimoUso;
-    
+    public float ultimoUsoUlt;
+    public SoundController sc;
+
+    private void Start()
+{
+    ultimoUsoUlt = -ultCooldown;
+}
     public virtual bool podeUsarUlt()
     {
-        if(Time.time < ultimoUso + ultCooldown) return false;
+        if(Time.time < ultimoUsoUlt + ultCooldown) return false;
 
         return true;
     }
@@ -20,7 +24,7 @@ public abstract class UltBase : MonoBehaviour
         if (podeUsarUlt())
         {
             tentaUsarUlt();
-            ultimoUso = Time.time;
+            ultimoUsoUlt = Time.time;
         }
     }
 

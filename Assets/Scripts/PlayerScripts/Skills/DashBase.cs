@@ -3,16 +3,17 @@ using UnityEngine;
 
 public abstract class DashBase : MonoBehaviour
 {
+    public SoundController soundController;
     public float forçaDash = 10f;
     public float duracaoDash = 0.2f;
     public float cooldown = 1f;
-
     protected float ultimoUso;
     protected PlayerController pc;
 
     protected virtual void Start()
     {
         pc = GetComponent<PlayerController>();
+        soundController = GetComponent<SoundController>();
     }
 
     public virtual bool podeUsarDash()

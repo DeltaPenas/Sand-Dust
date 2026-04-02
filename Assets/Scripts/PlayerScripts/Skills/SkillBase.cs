@@ -9,10 +9,14 @@ public abstract class SkillBase : MonoBehaviour
     public int stacksAtual;
     public int maxStacks;
     public WepAtaque wp;
+    public PlayerController pc;
 
-    
-    
 
+
+    public void Start()
+    {
+        ultimoUso -= cooldown;
+    }
     public virtual bool podeUsar()
     {
         

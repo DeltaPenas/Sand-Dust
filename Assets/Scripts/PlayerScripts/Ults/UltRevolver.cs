@@ -8,22 +8,13 @@ public class UltRevolver : UltBase
     public LayerMask layerInimigos; //seleciona a layer "inimigos", ou algo assim sla
     public WepAtaque wep;
     public GameObject ultProjetilPrefab;
-    public AudioClip fireSoundClip;    
+    public GameObject MarkPrefab;
+    public AudioClip fireSoundClip;
+    public PlayerController pc;
+
     protected override void tentaUsarUlt()
     {
-        // debug da ult
-        if (wep == null)
-        {
-            Debug.LogError("O script WepAtaque não foi atribuído no UltRevolver.", this);
-            return;
-        }
-        
-        if(wep.rangedWep == null || wep.meleeWep == null)
-        {
-            Debug.LogError("As referências para as armas de ataque à distância não foram atribuídas no script WepAtaque.", this);
-            return;
-        }
-        
+        SoundController soundController = FindAnyObjectByType<SoundController>();
         wep.taRanged = true;
         wep.rangedWep.SetActive(true);
         wep.meleeWep.SetActive(false);
@@ -33,35 +24,37 @@ public class UltRevolver : UltBase
         
         IEnumerator atirarCadenciado()
         {
+            GameObject mira;
+
             Collider2D[] hitAlvosUlt = Physics2D.OverlapCircleAll(
                 posPlayer.position,
                 ultRange,
                 layerInimigos
             );
-
-            foreach (Collider2D alvos in hitAlvosUlt)
+            
+                foreach (Collider2D alvos in hitAlvosUlt)
             {
-                Vector2 posAlvos = alvos.bounds.center; //Vector2 posAlvos = alvos.transform.position;
-                Vector2 direcaoUlt = (posAlvos - (Vector2)posPlayer.position).normalized;
+                
+                Vector2 posAlvos = alvos.transform.position;
+                mira = Instantiate(MarkPrefab, posAlvos, Quaternion.identity);
                 yield return new WaitForSeconds(0.1f);
-                AudioSource.PlayClipAtPoint(fireSoundClip, transform.position);
-                AtirarProjetil(posAlvos, direcaoUlt);
+                
+                Vida vida = alvos.GetComponent<Vida>();
+                if(vida != null)
+                    {
+                        vida.receberDano(ultDmg);
+                    }
+                soundController.TocarSom(fireSoundClip);
+                
+                Destroy(mira);
             }
+            
+            
 
         }
-
-       
 
         
-        void AtirarProjetil(Vector2 alvoPos, Vector2 direcaoAlvos)
-        {
-            GameObject projetil = Instantiate(ultProjetilPrefab, posPlayer.position, Quaternion.identity);
-            RevolverUltProjetil scriptProjetil = projetil.GetComponent<RevolverUltProjetil>();
-
-            scriptProjetil.definirDireção(direcaoAlvos);
-            scriptProjetil.ult = this;
-
-        }
+       
 
         
         

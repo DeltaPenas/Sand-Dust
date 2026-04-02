@@ -4,6 +4,9 @@ using UnityEngine;
 public class DashSimples : DashBase
 {
     public AudioClip dashSound;
+    
+
+    
     protected override void usadash()
     {
         
@@ -23,6 +26,7 @@ public class DashSimples : DashBase
         }
 
         pc.rig.linearVelocity = direcao * forçaDash;
-        pc.audioSource.PlayOneShot(dashSound, 0.7f);
+        soundController.TocarSom(dashSound);
+        
     }
 }

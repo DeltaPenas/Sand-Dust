@@ -46,10 +46,10 @@ public class weponVisualFollow : MonoBehaviour
 
         if (pc.movimento.x > 0)
         {
-            spritewep.sortingOrder = playerSprite.sortingOrder +1;
+            spritewep.sortingOrder = playerSprite.sortingOrder -1;
         }else if (pc.movimento.x <0)
         {
-            spritewep.sortingOrder = playerSprite.sortingOrder -1;
+            spritewep.sortingOrder = playerSprite.sortingOrder +1;
         }   
 
         if (pc.movimento.magnitude <= 0)

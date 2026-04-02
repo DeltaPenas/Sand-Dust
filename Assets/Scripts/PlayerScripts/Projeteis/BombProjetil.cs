@@ -27,10 +27,12 @@ public class BombProjetil : MonoBehaviour
         rig.AddForce(direcao * forcaL, ForceMode2D.Impulse);
 
         StartCoroutine(explodir());
+        SoundController soundController = FindObjectOfType<SoundController>();
     }
 
     private IEnumerator explodir()
     {
+        SoundController soundController = FindObjectOfType<SoundController>();
         yield return new WaitForSeconds(0.5f);
 
         GameObject exp = Instantiate(explosionVFX, transform.position, Quaternion.identity);
@@ -51,7 +53,9 @@ public class BombProjetil : MonoBehaviour
                 vida.receberDano(dano);
             }
         }
-        AudioSource.PlayClipAtPoint(explosionSFX, transform.position);
+        
+        soundController.TocarSom(explosionSFX);
+        //AudioSource.PlayClipAtPoint(explosionSFX, transform.position, bmb.sc.globalSoundVolume);
         Destroy(gameObject);
     }
 

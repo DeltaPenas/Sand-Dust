@@ -21,13 +21,15 @@ public class PlayerController : MonoBehaviour
     public float iframetempo = 0.3F;
     public float iframeTempoBuff = 0;
     public bool iframeAtivo = false;
-    public AudioSource audioSource;
+    public SoundController soundController;
+    
     
     
 
 
     private void Start()
     {
+         soundController = FindAnyObjectByType<SoundController>();
         rig = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         anim = GetComponentInChildren<Animator>();
@@ -84,7 +86,7 @@ public class PlayerController : MonoBehaviour
         {
             if (movimento.magnitude > 0.01f)
             {
-                audioSource.PlayOneShot(passosSfx, 1f);
+                soundController.TocarSom(passosSfx);
             }
             yield return new WaitForSeconds(0.40f);
         }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class WepAtaque : MonoBehaviour
 {
@@ -19,7 +20,14 @@ public class WepAtaque : MonoBehaviour
     public PlayerController pc;
     public AudioClip fireSoundEffcet;
     public AudioClip meleeSoundEffect;
-   
+    public SoundController soundController;
+
+    public void Start()
+    {
+       soundController  = GetComponent<SoundController>();
+    }
+
+
     private void Update()
     {
         Vector3 mouseatq = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -70,11 +78,11 @@ public class WepAtaque : MonoBehaviour
 
         GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
         projetil.GetComponent<Projetil>().definirDireção(direcao);
-        AudioSource.PlayClipAtPoint(fireSoundEffcet, transform.position);
+        soundController.TocarSom(fireSoundEffcet);
+        
     }
 
     private void AtacarMelee()
-
     {
         rangedWep.SetActive(false);
         Collider2D[] hitAlvos = Physics2D.OverlapCircleAll(
@@ -91,8 +99,9 @@ public class WepAtaque : MonoBehaviour
                 vida.receberDano(meleeDano);
             }
         }
+
         pc.anim.SetTrigger("attack"); 
-        pc.audioSource.PlayOneShot(meleeSoundEffect, 1f);
+        soundController.TocarSom(meleeSoundEffect);
         Invoke("AtivarArma", 0.6f);
     }
     private void OnDrawGizmosSelected()

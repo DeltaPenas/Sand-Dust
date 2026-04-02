@@ -5,6 +5,7 @@ public class SkillBomb : SkillBase
     public GameObject bombPrefab;
     public Transform pontoLançamento;
     public BombProjetil bmb;
+    public SoundController sc;
     protected override void useSkill()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
