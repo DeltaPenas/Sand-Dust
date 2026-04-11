@@ -538,7 +538,7 @@ MonoBehaviour:
   iframetempo: 0.3
   iframeTempoBuff: 0
   iframeAtivo: 0
-  audioSource: {fileID: 268198603}
+  soundController: {fileID: 268198604}
 --- !u!50 &268198594
 Rigidbody2D:
   serializedVersion: 5
@@ -717,7 +717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.5
-  sc: {fileID: 268198604}
   meleeDano: 2
   meleeRange: 0.6
   meleeCooldown: 0.5
@@ -733,6 +732,7 @@ MonoBehaviour:
   pc: {fileID: 268198593}
   fireSoundEffcet: {fileID: 8300000, guid: cedd8ec88e3614d43a5e860cce62d0bb, type: 3}
   meleeSoundEffect: {fileID: 8300000, guid: 1dd08ebe9b4f96a4b916539bba03d401, type: 3}
+  soundController: {fileID: 268198604}
 --- !u!114 &268198600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillRange: 1.5
   skillDmg: 5
-  cooldown: 10
+  cooldown: 6
   ultimoUso: 0
   stacksAtual: 0
   maxStacks: 0
@@ -769,10 +769,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83605635433dbb24da52d8f3c56b0a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ultRange: 5
+  ultRange: 8
   ultDmg: 5
-  ultCooldown: 10
-  ultimoUso: 0
+  ultCooldown: 15
+  ultimoUsoUlt: 0
   sc: {fileID: 268198604}
   posPlayer: {fileID: 1187954809}
   layerInimigos:
@@ -795,10 +795,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fcb449ca402cc344b0012b73e58c361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashSimples
-  "for\xE7aDash": 20
-  duracaoDash: 0.2
+  soundController: {fileID: 0}
+  "for\xE7aDash": 10
+  duracaoDash: 0.3
   cooldown: 1
-  sc: {fileID: 268198604}
   dashSound: {fileID: 8300000, guid: 3d9ed2b78f4421a41a2ed6136eee1421, type: 3}
 --- !u!82 &268198603
 AudioSource:

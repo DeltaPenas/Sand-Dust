@@ -7,7 +7,7 @@ public abstract class DashBase : MonoBehaviour
     public float forçaDash = 10f;
     public float duracaoDash = 0.2f;
     public float cooldown = 1f;
-    protected float ultimoUso;
+    public float ultimoUso;
     protected PlayerController pc;
 
     protected virtual void Start()
