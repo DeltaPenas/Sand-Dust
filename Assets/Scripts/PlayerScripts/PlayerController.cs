@@ -7,19 +7,26 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Skills, Ult e Dash")]
     public SkillBase skillBase;
     public UltBase ultBase;
     public DashBase dashBase;
+    [Header("Atributos")]
+    public int vida;
     public float velocidade;
+    public Vector2 ultimadireção;
+    public float iframetempo = 0.3F;
+    public float iframeTempoBuff = 0;
+
+
+    
     public bool podeMover = true;
     public Vector2 movimento;
     public Rigidbody2D rig;
     public BoxCollider2D boxCollider2D;
     public Animator anim;
     public AudioClip passosSfx;
-    public Vector2 ultimadireção;
-    public float iframetempo = 0.3F;
-    public float iframeTempoBuff = 0;
+    
     public bool iframeAtivo = false;
     public SoundController soundController;
     
@@ -29,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-         soundController = FindAnyObjectByType<SoundController>();
+        soundController = FindAnyObjectByType<SoundController>();
         rig = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         anim = GetComponentInChildren<Animator>();
