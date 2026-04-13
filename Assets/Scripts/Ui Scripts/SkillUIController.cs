@@ -9,6 +9,8 @@ public class SkillUIController : MonoBehaviour
     [SerializeField] private DashBase dash;
     [SerializeField] private SkillBase skill;
     [SerializeField] private UltBase ult;
+    
+
 
     void Update()
     {

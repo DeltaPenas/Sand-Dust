@@ -45,6 +45,7 @@ public class UltRevolver : UltBase
                         vida.receberDano(ultDmg);
                     }
                 soundController.TocarSom(fireSoundClip);
+                Camera.main.GetComponent<CameraShake>().ShakeCamera(0.2f, 0.2f);
                 
                 Destroy(mira);
             }

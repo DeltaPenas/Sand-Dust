@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    
     [Header("Skills, Ult e Dash")]
     public SkillBase skillBase;
     public UltBase ultBase;
@@ -17,9 +18,6 @@ public class PlayerController : MonoBehaviour
     public Vector2 ultimadireção;
     public float iframetempo = 0.3F;
     public float iframeTempoBuff = 0;
-
-
-    
     public bool podeMover = true;
     public Vector2 movimento;
     public Rigidbody2D rig;
@@ -29,13 +27,12 @@ public class PlayerController : MonoBehaviour
     
     public bool iframeAtivo = false;
     public SoundController soundController;
-    
-    
-    
-
-
+    private PlayerVida pv;
+  
     private void Start()
     {
+        
+        pv = FindAnyObjectByType<PlayerVida>();
         soundController = FindAnyObjectByType<SoundController>();
         rig = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
@@ -68,6 +65,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ultBase.tentaUsar();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            pv.DarDanoPlayer(1);
         }
 
     }

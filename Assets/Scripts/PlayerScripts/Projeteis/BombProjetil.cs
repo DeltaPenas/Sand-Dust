@@ -30,6 +30,37 @@ public class BombProjetil : MonoBehaviour
         SoundController soundController = FindObjectOfType<SoundController>();
     }
 
+    private void OnTriggerEnter2D(Collider2D alvo)
+    {
+       
+        if (!alvo.CompareTag("Player"))
+        {
+        
+        SoundController soundController = FindObjectOfType<SoundController>();
+        GameObject exp = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        SpriteRenderer sr = exp.GetComponent<SpriteRenderer>();
+        float tamanhoAtual = sr.bounds.size.x;
+        float escala = (raioExp * 0.5f)  / tamanhoAtual;
+
+        exp.transform.localScale = Vector3.one * escala;
+
+        Collider2D[] alvos = Physics2D.OverlapCircleAll(transform.position, raioExp);
+
+        foreach (Collider2D objAlvo in alvos)
+        {
+            Vida vida = objAlvo.GetComponent<Vida>();
+
+            if (vida != null)
+            {
+                vida.receberDano(dano);
+            }
+        }
+        Camera.main.GetComponent<CameraShake>().ShakeCamera(0.5f, 0.1f);
+        soundController.TocarSom(explosionSFX);
+        Destroy(gameObject);
+        }
+    }
+
     private IEnumerator explodir()
     {
         SoundController soundController = FindObjectOfType<SoundController>();

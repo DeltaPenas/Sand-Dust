@@ -22,11 +22,12 @@ public class PlayerVida : MonoBehaviour
     {
         playerVidaAtual -=dano;
 
-        if (playerVidaTotal <= 0)
+        if (playerVidaAtual <= 0)
         {
             morrer();
         }
         heartUi.UpdateHearts(playerVidaAtual, playerVidaTotal);
+        Camera.main.GetComponent<CameraShake>().ShakeCamera(0.2f, 0.1f);
     }
     public void CurarPlayer(int cura)
     {

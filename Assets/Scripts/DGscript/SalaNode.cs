@@ -1,27 +1,25 @@
 using UnityEngine;
 
-internal enum TipoSala
+public enum TipoSala
+{
+    Inicial,
+    Normal,
+    Tesouro,
+    SalaProxLayer,
+    Loja,
+    Secreta,
+    SalaBoss,
+    Evento
+}
+
+public class SalaNode
+{
+    public Vector2Int Posicao;
+    public TipoSala tipo;
+
+    public SalaNode(Vector2Int pos)
     {
-        Inicial,
-        Normal,
-        Tesouro,
-        SalaProxLayer,
-        Loja,
-        Secreta,
-        SalaBoss,
-        evento
-
-    
+        Posicao = pos;
+        tipo = TipoSala.Normal;
     }
-internal class SalaNode
-    {
-        public Vector2Int Posicao;
-        public TipoSala tipo;
-
-        public SalaNode(Vector2Int pos)
-        {
-            Posicao = pos;
-            tipo = TipoSala.Normal;
-        }
-
-    }
+}

@@ -1,143 +1,203 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor;
-using Unity.VisualScripting;
-using JetBrains.Annotations;
+
 public class DungeonGeneratortest : MonoBehaviour
-{   
-    public int qtdminSalas;
-    public int qtdmaxSalas;
-    public int andar;
-    public int layer;
+{
+    [Header("Configuração")]
+    public int qtdminSalas = 5;
+    public int qtdmaxSalas = 10;
+    public int andar = 0;
+
+    [Header("Prefab")]
+    public GameObject prefabSalaTeste;
     public Transform DungeonParent;
+    public float distanciaEntreSalas = 10f;
 
     private List<SalaNode> salas = new List<SalaNode>();
-    //GameObject salaGO = Instantiate(prefabSala, posicaoMundo, Quaternion.identity);
-    //salaGO.transform.parent = dungeonParent;
 
     private void Start()
     {
-        gerarSala();
+        GerarDungeon();
     }
 
     private void Update()
-    {   
+    {
         if (Input.GetMouseButtonDown(1))
         {
-            //descerAndar();
+            // futura lógica para trocar de andar
         }
     }
 
-    private void gerarSala()
+    private void GerarDungeon()
     {
-        
-
-        int qtdSalas = Random.Range(qtdminSalas,qtdmaxSalas);
-
-        if (qtdmaxSalas <= 4 ||qtdminSalas <= 4 || qtdminSalas > qtdmaxSalas )
-        {
-
-            Debug.Log("quantidade de salas invalida");
+        if (!ValidarParametros())
             return;
-        }
-        Vector2Int[] direções = new Vector2Int[]
+
+        salas.Clear();
+        andar++;
+
+        Debug.Log("Andar atual: " + andar);
+
+        GerarLayout();
+        DefinirSalaFinal();
+        DefinirSalasEspeciais();
+
+        DebugSalas();
+
+        InstanciarSalas();
+    }
+
+    private bool ValidarParametros()
+    {
+        if (qtdmaxSalas <= 4 || qtdminSalas <= 4 || qtdminSalas > qtdmaxSalas)
         {
-            new Vector2Int(1,0),
-            new Vector2Int(-1,0),
-            new Vector2Int(0,1),
-            new Vector2Int(0,-1)
+            Debug.Log("Quantidade de salas inválida");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void GerarLayout()
+    {
+        int qtdSalas = Random.Range(qtdminSalas, qtdmaxSalas + 1);
+
+        Vector2Int[] direcoes =
+        {
+            Vector2Int.right,
+            Vector2Int.left,
+            Vector2Int.up,
+            Vector2Int.down
         };
 
-        SalaNode salainicial = new SalaNode(Vector2Int.zero);
-        salas.Add(salainicial);
-        salainicial.tipo = TipoSala.Inicial;
-        andar += 1;
-        Debug.Log("andar atual: " + andar);
-        
-
+        SalaNode salaInicial = new SalaNode(Vector2Int.zero);
+        salaInicial.tipo = TipoSala.Inicial;
+        salas.Add(salaInicial);
 
         while (salas.Count < qtdSalas)
         {
-            SalaNode salaAleatoria = salas[Random.Range(0, salas.Count)];
-            Vector2Int direcaoAleatoria = direções[Random.Range(0, direções.Length)];
-            Vector2Int novaPosicao = salaAleatoria.Posicao + direcaoAleatoria;
-            bool existe = false;
+            SalaNode salaOrigem = salas[Random.Range(0, salas.Count)];
+            Vector2Int direcao = direcoes[Random.Range(0, direcoes.Length)];
+            Vector2Int novaPosicao = salaOrigem.Posicao + direcao;
 
-        foreach (SalaNode sala in salas)
+            if (!ExisteSala(novaPosicao))
             {
-            if (sala.Posicao == novaPosicao)
-            {
-            existe = true;
-            break;
+                salas.Add(new SalaNode(novaPosicao));
             }
         }
-        if (!existe)
-        {
-            salas.Add(new SalaNode(novaPosicao));
-        }
-        }
+    }
 
+    private void DefinirSalaFinal()
+    {
         int maiorDistancia = 0;
-        SalaNode salaProxLayer = null;
+        SalaNode salaFinal = null;
 
         foreach (SalaNode sala in salas)
         {
-            if(sala.Posicao == Vector2Int.zero) continue;
+            if (sala.tipo == TipoSala.Inicial)
+                continue;
+
             int distancia = Mathf.Abs(sala.Posicao.x) + Mathf.Abs(sala.Posicao.y);
+
             if (distancia > maiorDistancia)
             {
                 maiorDistancia = distancia;
-                salaProxLayer = sala;
+                salaFinal = sala;
             }
         }
-        if (salaProxLayer != null)
+
+        if (salaFinal != null)
         {
-            salaProxLayer.tipo = TipoSala.SalaProxLayer;
+            salaFinal.tipo = TipoSala.SalaProxLayer;
         }
+    }
+
+    private void DefinirSalasEspeciais()
+    {
         List<SalaNode> salasValidas = new List<SalaNode>();
-        Vector2Int posSalaBau = Vector2Int.zero;
-        if (qtdSalas > 6)
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                foreach (SalaNode sala in salas)
-        {
-            if (sala.Posicao == Vector2Int.zero) continue;
-            if (sala.Posicao == salaProxLayer.Posicao) continue;
-            salasValidas.Add(sala);
-        }
 
-            SalaNode salaBau = salasValidas[Random.Range(0, salasValidas.Count)];
-            salaBau.tipo = TipoSala.Tesouro;
-                
-            }  
-        }else if (qtdSalas <= 6)
-        {
-            foreach (SalaNode sala in salas)
-        {
-            if (sala.Posicao == Vector2Int.zero) continue;
-            if (sala.Posicao == salaProxLayer.Posicao) continue;
-            salasValidas.Add(sala);
-        }
-        SalaNode salaBau = salasValidas[Random.Range(0, salasValidas.Count)];
-        salaBau.tipo = TipoSala.Tesouro;
-        }
         foreach (SalaNode sala in salas)
-    {
-         Debug.Log(sala.Posicao + " - " + sala.tipo);
-    }
-               
+        {
+            if (sala.tipo == TipoSala.Inicial)
+                continue;
+
+            if (sala.tipo == TipoSala.SalaProxLayer)
+                continue;
+
+            salasValidas.Add(sala);
+        }
+
+        int qtdTesouros = salas.Count > 6 ? 2 : 1;
+
+        for (int i = 0; i < qtdTesouros; i++)
+        {
+            if (salasValidas.Count == 0)
+                break;
+
+            int index = Random.Range(0, salasValidas.Count);
+
+            salasValidas[index].tipo = TipoSala.Tesouro;
+
+            salasValidas.RemoveAt(index);
+        }
     }
 
-    private void LimparDungeon()
+    private void InstanciarSalas()
     {
-        //foreach (Transform filho in dungeonParent)
-        //{
-        //Destroy(filho.gameObject);
-        //}
+        foreach (SalaNode sala in salas)
+        {
+            Vector3 posicaoMundo = new Vector3(
+                sala.Posicao.x * distanciaEntreSalas,
+                sala.Posicao.y * distanciaEntreSalas,
+                0
+            );
 
-    //salas.Clear();
+            GameObject salaGO = Instantiate(
+                prefabSalaTeste,
+                posicaoMundo,
+                Quaternion.identity,
+                DungeonParent
+            );
+
+            salaGO.name = $"Sala_{sala.tipo}_{sala.Posicao}";
+
+            SalaController controller = salaGO.GetComponent<SalaController>();
+
+            if (controller != null) 
+            {
+                controller.ConfigurarSala(sala.tipo);
+                //definr as portas
+                bool cima = ExisteSala(sala.Posicao + Vector2Int.up);
+                bool baixo = ExisteSala(sala.Posicao + Vector2Int.down);
+                bool esquerda = ExisteSala(sala.Posicao + Vector2Int.left);
+                bool direita = ExisteSala(sala.Posicao + Vector2Int.right);
+
+                controller.ConfigurarPortas(
+                    cima,
+                    baixo,
+                    esquerda,
+                    direita
+                );
+            }
+        }
     }
-    
-    
+
+    private bool ExisteSala(Vector2Int posicao)
+    {
+        foreach (SalaNode sala in salas)
+        {
+            if (sala.Posicao == posicao)
+                return true;
+        }
+
+        return false;
+    }
+
+    private void DebugSalas()
+    {
+        foreach (SalaNode sala in salas)
+        {
+            Debug.Log($"{sala.Posicao} - {sala.tipo}");
+        }
+    }
 }
