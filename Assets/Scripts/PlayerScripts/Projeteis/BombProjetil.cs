@@ -86,7 +86,7 @@ public class BombProjetil : MonoBehaviour
         }
         
         soundController.TocarSom(explosionSFX);
-        //AudioSource.PlayClipAtPoint(explosionSFX, transform.position, bmb.sc.globalSoundVolume);
+        Camera.main.GetComponent<CameraShake>().ShakeCamera(0.5f, 0.1f);
         Destroy(gameObject);
     }
 

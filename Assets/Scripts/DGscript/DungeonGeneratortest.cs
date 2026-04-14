@@ -165,7 +165,7 @@ public class DungeonGeneratortest : MonoBehaviour
 
             if (controller != null) 
             {
-                controller.ConfigurarSala(sala.tipo);
+                controller.ConfigurarSala(sala);
                 //definr as portas
                 bool cima = ExisteSala(sala.Posicao + Vector2Int.up);
                 bool baixo = ExisteSala(sala.Posicao + Vector2Int.down);
@@ -190,6 +190,15 @@ public class DungeonGeneratortest : MonoBehaviour
                 return true;
         }
 
+        return false;
+    }
+
+    public bool ExisteSalaNessaDirecao(Vector2Int posicao)
+    {
+        foreach (SalaNode sala in salas)
+        {
+            if(sala.Posicao == posicao) return true;
+        }
         return false;
     }
 

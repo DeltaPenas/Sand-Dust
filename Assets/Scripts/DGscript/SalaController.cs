@@ -7,12 +7,15 @@ public class SalaController : MonoBehaviour
     public GameObject portaBaixo;
     public GameObject portaEsquerda;
     public GameObject portaDireita;
-
     public TipoSala tipoSala;
+    public Vector2Int posicaoGrid;
 
-    public void ConfigurarSala(TipoSala tipo)
+   
+
+    public void ConfigurarSala(SalaNode sala)
     {
-        tipoSala = tipo;
+        tipoSala = sala.tipo;
+        posicaoGrid = sala.Posicao; 
     }
 
     public void ConfigurarPortas(

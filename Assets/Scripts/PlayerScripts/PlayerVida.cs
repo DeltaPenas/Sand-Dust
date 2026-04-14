@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class PlayerVida : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerVida : MonoBehaviour
     public int playerVidaAtual;
     public bool playerIsEnvenenado;
     public bool playerIsQueimando;
+    
     void Start()
     {
         player = FindAnyObjectByType<PlayerController>();
@@ -36,8 +38,8 @@ public class PlayerVida : MonoBehaviour
     }
    public void morrer()
     {
-        Destroy(gameObject);
-        //puxar o menu e resetar os bang
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
 }
