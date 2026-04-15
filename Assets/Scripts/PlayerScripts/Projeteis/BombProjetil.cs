@@ -33,7 +33,7 @@ public class BombProjetil : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D alvo)
     {
        
-        if (!alvo.CompareTag("Player"))
+        if (!alvo.CompareTag("Player") && !alvo.CompareTag("Chão"))
         {
         
         SoundController soundController = FindObjectOfType<SoundController>();

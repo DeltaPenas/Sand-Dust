@@ -206,7 +206,21 @@ public class DungeonGeneratortest : MonoBehaviour
     {
         foreach (SalaNode sala in salas)
         {
-            Debug.Log($"{sala.Posicao} - {sala.tipo}");
+            //Debug.Log($"{sala.Posicao} - {sala.tipo}");
         }
     }
+
+    public SalaController BuscarSalaPorPosicao(Vector2Int posicao)
+    {
+    SalaController[] salas =
+        FindObjectsOfType<SalaController>();
+
+    foreach (SalaController sala in salas)
+    {
+        if (sala.posicaoGrid == posicao)
+            return sala;
+    }
+
+    return null;
+}
 }

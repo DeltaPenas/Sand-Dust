@@ -7,7 +7,7 @@ public class PortaTrigger : MonoBehaviour
     public float distanciaEntreSalasVertical;
     public float offsetPlayer = 1.5f;
 
-    private bool podeTeleportar = true;
+    private bool podeTeleportar = false;
     private SalaController salaAtual;
     private DungeonGeneratortest dungeon;
     private PlayerController player;
