@@ -13,6 +13,7 @@ public class TriggerSala : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Entrou no trigger: " + transform.parent.name);
+        Debug.Log("Quantidade de inimigos: " + sala.qtdInimigosVivos);
 
         if (!other.CompareTag("Player"))
             return;
@@ -23,10 +24,15 @@ public class TriggerSala : MonoBehaviour
             return;
         }
 
-        // evita ativar sala repetida
         if (sala.entrou || sala.salaLimpa)
             return;
 
         sala.AtivarSala();
+
+         if (sala.salaLimpa)
+        {
+        sala.LiberarPortas();
+        }
+
     }
 }

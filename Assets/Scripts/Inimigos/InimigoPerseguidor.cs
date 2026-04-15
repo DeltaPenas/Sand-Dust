@@ -6,6 +6,8 @@ public class InimigoPerseguidor : MonoBehaviour
     public Transform player;
     private Vida vidaDoPlayer;
     private Rigidbody2D rb;
+    private SalaController salaOrigem;
+    private Vida vida;
 
     [Header("Movimento")]
     public float velocidade = 1f;
@@ -29,7 +31,9 @@ public class InimigoPerseguidor : MonoBehaviour
 
     private void Start()
     {
+        //salaOrigem = FindAnyObjectByType<SalaController>();
         rb = GetComponent<Rigidbody2D>();
+        vida = GetComponent<Vida>();
 
         if (player == null)
         {
@@ -77,6 +81,21 @@ public class InimigoPerseguidor : MonoBehaviour
             Vector2 novaPosicao = rb.position + direcaoEscolhida * velocidade * Time.fixedDeltaTime;
             rb.MovePosition(novaPosicao);
         }
+    }
+    public void DefinirSalaOrigem(SalaController sala)
+    {
+        salaOrigem = sala;
+    }
+
+    public void contabilizarPerda()
+    {
+    if (salaOrigem == null)
+    {
+        Debug.LogError("Sala origem não definida");
+        return;
+    }
+
+    salaOrigem.InimigoDerrotado();
     }
 
     private Vector2 ObterDirecaoDeMovimento()

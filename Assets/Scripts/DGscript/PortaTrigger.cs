@@ -7,10 +7,11 @@ public class PortaTrigger : MonoBehaviour
     public float distanciaEntreSalasVertical;
     public float offsetPlayer = 1.5f;
 
-    private bool podeTeleportar = false;
+    public bool podeTeleportar = false;
     private SalaController salaAtual;
     private DungeonGeneratortest dungeon;
     private PlayerController player;
+    private bool emCooldown;
 
     private void Start()
     {
@@ -21,24 +22,23 @@ public class PortaTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
+{
+    if (!podeTeleportar) return;
+    if (!other.CompareTag("Player")) return;
+
+    Vector2Int direcaoGrid = ObterDirecaoGrid();
+    Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
+
+    if (!dungeon.ExisteSalaNessaDirecao(proximaSala))
     {
-        if (!podeTeleportar) return;
-        if (!other.CompareTag("Player")) return;
-
-        Vector2Int direcaoGrid = ObterDirecaoGrid();
-        Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
-
-        if (!dungeon.ExisteSalaNessaDirecao(proximaSala))
-        {
-            Debug.Log("Não existe sala nessa direção");
-            return;
-        }
-        podeTeleportar = false;
-        Teleportar(other.transform);
-
-        
-        Invoke(nameof(ReativarTrigger), 0.5f);
+        Debug.Log("Não existe sala nessa direção");
+        return;
     }
+
+    emCooldown = true;
+
+    Teleportar(other.transform);
+}
 
     private Vector2Int ObterDirecaoGrid()
     {
@@ -127,5 +127,9 @@ public class PortaTrigger : MonoBehaviour
     private void ReativarTrigger()
     {
         podeTeleportar = true;
+    }
+    private void ReativarCooldown()
+    {
+        emCooldown = false;
     }
 }

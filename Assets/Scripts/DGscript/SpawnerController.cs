@@ -17,32 +17,44 @@ public class SpawnerController : MonoBehaviour
     
 
 
-    public void SpawnarInimigos()
+public int SpawnarInimigos()
 {
-    if (catalogoInimigos.inimigos.Count == 0)
-        return;
+    int total = 0;
+
+    SalaController sala = GetComponentInParent<SalaController>();
 
     for (int i = 0; i < qtdInimigos; i++)
     {
         int indice = Random.Range(0, catalogoInimigos.inimigos.Count);
 
-        GameObject inimigoEscolhido =
+        GameObject prefab =
             catalogoInimigos.inimigos[indice];
 
         float x = Random.Range(areaMin.x, areaMax.x);
         float y = Random.Range(areaMin.y, areaMax.y);
 
-        Vector3 posicaoLocal = new Vector3(x, y, 0);
-
         Vector3 posicaoFinal =
-            transform.position + posicaoLocal;
+            transform.position + new Vector3(x, y, 0);
 
-        Instantiate(
-            inimigoEscolhido,
+        GameObject inimigo = Instantiate(
+            prefab,
             posicaoFinal,
-            Quaternion.identity
+            Quaternion.identity,
+            transform
         );
+
+        InimigoPerseguidor ip =
+            inimigo.GetComponent<InimigoPerseguidor>();
+
+        if (ip != null)
+        {
+            ip.DefinirSalaOrigem(sala);
+        }
+
+        total++;
     }
+
+    return total;
 }
 
     public void SpawnarProps()

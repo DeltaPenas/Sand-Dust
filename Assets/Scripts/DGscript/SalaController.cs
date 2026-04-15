@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
 
 public class SalaController : MonoBehaviour
@@ -19,8 +20,9 @@ public class SalaController : MonoBehaviour
     public Vector2Int posicaoGrid;
     public bool entrou = false;
     public bool salaLimpa = false;
-    public int qtdInimigos;
+    public int qtdInimigosVivos;
     private SpawnerController spawner;
+    private PortaTrigger[] portas;
     
     
 
@@ -28,10 +30,20 @@ public class SalaController : MonoBehaviour
     private void Awake()
     {
         spawner = GetComponentInChildren<SpawnerController>();
+        portas = GetComponentsInChildren<PortaTrigger>();
+    }
+    public void Update()
+    {
+         if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log("Bixos vivos: " + qtdInimigosVivos);
+            
+            
+            
+        }
     }
 
-    
-    
+
     public void ConfigurarSala(SalaNode sala)
     {
         tipoSala = sala.tipo;
@@ -53,16 +65,42 @@ public class SalaController : MonoBehaviour
     }
     public void AtivarSala()
     {
-        spawner.SpawnarInimigos();
-        spawner.SpawnarProps();
+    if (entrou || salaLimpa)
+        return;
 
         entrou = true;
 
-        
+        spawner.SpawnarProps();
+        qtdInimigosVivos = spawner.SpawnarInimigos();
+
+        Debug.Log("Inimigos na sala: " + qtdInimigosVivos);
     }
-    public void SalaConcluida()
+    public void InimigoDerrotado()
     {
-        
+    qtdInimigosVivos--;
+    Debug.Log("Inimigo derrotado. Restam: " + qtdInimigosVivos);
+
+    if (qtdInimigosVivos <= 0)
+    {
+        Debug.Log("Sala limpa! Liberando portas.");
+        salaLimpa = true;
+
+        foreach (PortaTrigger porta in portas)
+        {
+            Debug.Log("Liberando porta: " + porta.name);
+            porta.podeTeleportar = true;
+        }
+    }
+    }
+
+    public void LiberarPortas()
+    {
+        foreach (PortaTrigger porta in portas)
+        {
+        porta.podeTeleportar = true;
+        }
+
+        Debug.Log("Portas reativadas");
     }
 
 }
