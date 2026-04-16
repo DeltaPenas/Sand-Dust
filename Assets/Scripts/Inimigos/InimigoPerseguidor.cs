@@ -4,7 +4,7 @@ public class InimigoPerseguidor : MonoBehaviour
 {
     [Header("Referências")]
     public Transform player;
-    private Vida vidaDoPlayer;
+    private PlayerVida vidaDoPlayer;
     private Rigidbody2D rb;
     private SalaController salaOrigem;
     private InimigoController ic;
@@ -12,7 +12,7 @@ public class InimigoPerseguidor : MonoBehaviour
 
     [Header("Movimento")]
     public float velocidade = 1f;
-    public float distanciaParada = 1.5f; // distância necessária para que o inimigo fique parado perto do player
+    public float distanciaParada = 0.9f; // distância necessária para que o inimigo fique parado perto do player
 
     [Header("Desvio Local")]
     public float distanciaDeteccaoObstaculo = 1.5f;
@@ -47,7 +47,7 @@ public class InimigoPerseguidor : MonoBehaviour
 
         if (player != null)
         {
-            vidaDoPlayer = player.GetComponent<Vida>();
+            vidaDoPlayer = player.GetComponent<PlayerVida>();
         }
         else
         {
@@ -201,7 +201,7 @@ public class InimigoPerseguidor : MonoBehaviour
     {
         if (vidaDoPlayer != null)
         {
-            vidaDoPlayer.receberDano(dano);
+            vidaDoPlayer.DarDanoPlayer(dano);
             Debug.Log("Inimigo atacou o player! Dano causado: " + dano);
         }
     }
