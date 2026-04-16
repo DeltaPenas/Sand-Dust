@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -12,26 +13,32 @@ public class UltRevolver : UltBase
     public AudioClip fireSoundClip;
     public PlayerController pc;
 
-    protected override void tentaUsarUlt()
+    protected override bool tentaUsarUlt()
     {
         SoundController soundController = FindAnyObjectByType<SoundController>();
         wep.taRanged = true;
         wep.rangedWep.SetActive(true);
         wep.meleeWep.SetActive(false);
 
-        StartCoroutine(atirarCadenciado());
-        
-        
-        IEnumerator atirarCadenciado()
-        {
-            GameObject mira;
+        GameObject mira;
 
             Collider2D[] hitAlvosUlt = Physics2D.OverlapCircleAll(
                 posPlayer.position,
                 ultRange,
                 layerInimigos
             );
-            
+
+            if (hitAlvosUlt.Length == 0)
+            {
+                return false;
+            }
+
+            StartCoroutine(atirarCadenciado());
+            return true;
+       
+        IEnumerator atirarCadenciado()
+        {
+
                 foreach (Collider2D alvos in hitAlvosUlt)
             {
                 
@@ -50,15 +57,8 @@ public class UltRevolver : UltBase
                 Destroy(mira);
             }
             
-            
-
         }
-
-        
-       
-
-        
-        
+ 
     }
 
     void OnDrawGizmos()

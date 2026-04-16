@@ -44,7 +44,7 @@ public class SalaController : MonoBehaviour
         tipoSala = sala.tipo;
         posicaoGrid = sala.Posicao; 
 
-        if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro)
+        if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer)
         {
             salaLimpa = true;
             LiberarPortas();

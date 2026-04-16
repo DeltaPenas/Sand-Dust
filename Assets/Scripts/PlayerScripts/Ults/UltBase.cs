@@ -6,27 +6,32 @@ public abstract class UltBase : MonoBehaviour
     public int ultDmg;
     public float ultCooldown;
     public float ultimoUsoUlt;
-    public SoundController sc;
 
     private void Start()
-{
-    ultimoUsoUlt = -ultCooldown;
-}
+    {
+        ultimoUsoUlt = -ultCooldown;
+    }
+
     public virtual bool podeUsarUlt()
     {
-        if(Time.time < ultimoUsoUlt + ultCooldown) return false;
-
-        return true;
+        return Time.time >= ultimoUsoUlt + ultCooldown;
     }
 
     public void tentaUsar()
     {
         if (podeUsarUlt())
         {
-            tentaUsarUlt();
-            ultimoUsoUlt = Time.time;
+            
+            bool conseguiuUsar = tentaUsarUlt();
+
+            
+            if (conseguiuUsar)
+            {
+                ultimoUsoUlt = Time.time;
+            }
         }
     }
 
-    protected abstract void tentaUsarUlt();
+    
+    protected abstract bool tentaUsarUlt();
 }
