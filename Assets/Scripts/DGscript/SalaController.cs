@@ -23,26 +23,20 @@ public class SalaController : MonoBehaviour
     public int qtdInimigosVivos;
     private SpawnerController spawner;
     private PortaTrigger[] portas;
+    private PropSpawner[] props;
     
     
 
 
     private void Awake()
     {
+        props = GetComponentsInChildren<PropSpawner>();
         spawner = GetComponentInChildren<SpawnerController>();
         portas = GetComponentsInChildren<PortaTrigger>();
-    }
-    public void Update()
-    {
-         if (Input.GetKeyDown(KeyCode.C))
-        {
-            Debug.Log("Bixos vivos: " + qtdInimigosVivos);
-            
-            
-            
-        }
-    }
+        
 
+    }
+    
 
     public void ConfigurarSala(SalaNode sala)
     {
@@ -69,9 +63,12 @@ public class SalaController : MonoBehaviour
         return;
 
         entrou = true;
-
-        spawner.SpawnarProps();
         qtdInimigosVivos = spawner.SpawnarInimigos();
+        
+        foreach (PropSpawner prop in props)
+            {
+                prop.SpawnarProp();
+            }
 
         Debug.Log("Inimigos na sala: " + qtdInimigosVivos);
     }
@@ -90,6 +87,7 @@ public class SalaController : MonoBehaviour
             Debug.Log("Liberando porta: " + porta.name);
             porta.podeTeleportar = true;
         }
+            
     }
     }
 

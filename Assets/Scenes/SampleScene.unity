@@ -385,7 +385,7 @@ RectTransform:
   m_GameObject: {fileID: 189589464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.77322793, y: 0.77322793, z: 0.77322793}
+  m_LocalScale: {x: 0.68438405, y: 0.68438405, z: 0.68438405}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 467986235}
@@ -395,7 +395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -646, y: -325.78003}
+  m_AnchoredPosition: {x: -364, y: -172.38}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &189589466
@@ -2193,7 +2193,7 @@ RectTransform:
   m_GameObject: {fileID: 1496331015}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.77322793, y: 0.77322793, z: 0.77322793}
+  m_LocalScale: {x: 0.68438405, y: 0.68438405, z: 0.68438405}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1708250545}
@@ -2203,7 +2203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -645.7793, y: -238.09}
+  m_AnchoredPosition: {x: -363.8, y: -94.769}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1496331018
@@ -2621,7 +2621,7 @@ RectTransform:
   m_GameObject: {fileID: 1862799236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.77322793, y: 0.77322793, z: 0.77322793}
+  m_LocalScale: {x: 0.68438405, y: 0.68438405, z: 0.68438405}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1730869382}
@@ -2631,7 +2631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -325.78}
+  m_AnchoredPosition: {x: 0, y: -172.38}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1862799238
