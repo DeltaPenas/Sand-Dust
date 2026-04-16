@@ -9,11 +9,11 @@ public class DungeonGeneratortest : MonoBehaviour
     public int andar = 0;
 
     [Header("Prefab")]
-    public GameObject prefabSalaTeste;
     public Transform DungeonParent;
     public float distanciaEntreSalas = 10f;
 
     private List<SalaNode> salas = new List<SalaNode>();
+    public CatalogoSalas catalogoSalas;
 
     private void Start()
     {
@@ -41,10 +41,8 @@ public class DungeonGeneratortest : MonoBehaviour
         GerarLayout();
         DefinirSalaFinal();
         DefinirSalasEspeciais();
-
-        DebugSalas();
-
         InstanciarSalas();
+        DebugSalas();
     }
 
     private bool ValidarParametros()
@@ -152,8 +150,11 @@ public class DungeonGeneratortest : MonoBehaviour
                 0
             );
 
+            GameObject prefabEscolhido = EscolherPrefabSala(sala.tipo);
+            if (prefabEscolhido == null) continue;
+
             GameObject salaGO = Instantiate(
-                prefabSalaTeste,
+                prefabEscolhido,
                 posicaoMundo,
                 Quaternion.identity,
                 DungeonParent
@@ -181,6 +182,54 @@ public class DungeonGeneratortest : MonoBehaviour
             }
         }
     }
+        private GameObject EscolherPrefabSala(TipoSala tipo)
+        {
+            List<GameObject> lista = null;
+
+            switch (tipo)
+            {
+            case TipoSala.Inicial:
+                lista = catalogoSalas.salasIniciais;
+                break;
+
+            case TipoSala.Normal:
+                lista = catalogoSalas.salasNormais;
+                break;
+
+            case TipoSala.Tesouro:
+                lista = catalogoSalas.salasTesouro;
+                break;
+
+            case TipoSala.SalaProxLayer:
+                lista = catalogoSalas.salasProxLayer;
+                break;
+
+            case TipoSala.Loja:
+                lista = catalogoSalas.salaLojas;
+                break;
+
+            case TipoSala.Secreta:
+                lista = catalogoSalas.salasSecretas;
+                break;
+
+            case TipoSala.SalaBoss:
+                lista = catalogoSalas.salasBoss;
+                break;
+
+            case TipoSala.Evento:
+                lista = catalogoSalas.salasEvento;
+                break;
+            }
+
+            if (lista == null || lista.Count == 0)
+            {
+                Debug.LogError("Lista de salas vazia para: " + tipo);
+                return null;
+            }
+
+        int indice = Random.Range(0, lista.Count);
+        return lista[indice];
+        }
 
     private bool ExisteSala(Vector2Int posicao)
     {
@@ -202,18 +251,9 @@ public class DungeonGeneratortest : MonoBehaviour
         return false;
     }
 
-    private void DebugSalas()
-    {
-        foreach (SalaNode sala in salas)
-        {
-            //Debug.Log($"{sala.Posicao} - {sala.tipo}");
-        }
-    }
-
     public SalaController BuscarSalaPorPosicao(Vector2Int posicao)
     {
-    SalaController[] salas =
-        FindObjectsOfType<SalaController>();
+    SalaController[] salas = FindObjectsOfType<SalaController>();
 
     foreach (SalaController sala in salas)
     {
@@ -222,5 +262,13 @@ public class DungeonGeneratortest : MonoBehaviour
     }
 
     return null;
-}
+    }
+    private void DebugSalas()
+    {
+        foreach (SalaNode sala in salas)
+        {
+            Debug.Log($"{sala.Posicao} - {sala.tipo}");
+        }
+    }
+
 }

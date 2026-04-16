@@ -26,6 +26,7 @@ public class SalaController : MonoBehaviour
     private PropSpawner[] props;
     
     
+    
 
 
     private void Awake()
@@ -42,6 +43,12 @@ public class SalaController : MonoBehaviour
     {
         tipoSala = sala.tipo;
         posicaoGrid = sala.Posicao; 
+
+        if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro)
+        {
+            salaLimpa = true;
+            LiberarPortas();
+        }
         
     }
 
@@ -64,7 +71,7 @@ public class SalaController : MonoBehaviour
 
         entrou = true;
         qtdInimigosVivos = spawner.SpawnarInimigos();
-        
+
         foreach (PropSpawner prop in props)
             {
                 prop.SpawnarProp();

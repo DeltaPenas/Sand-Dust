@@ -5,4 +5,23 @@ using UnityEngine;
 public class CatalogoSalas
 {
     public List<GameObject> salasIniciais;
+    public List<GameObject> salasNormais;
+    public List<GameObject> salasTesouro;
+    public List<GameObject> salasProxLayer;
+    public List<GameObject> salaLojas;
+    public List<GameObject> salasSecretas;
+    public List<GameObject> salasBoss;
+    public List<GameObject> salasEvento;
+
+    /*
+    Inicial,
+    Normal,
+    Tesouro,
+    SalaProxLayer,
+    Loja,
+    Secreta,
+    SalaBoss,
+    Evento
+    */
+
 }

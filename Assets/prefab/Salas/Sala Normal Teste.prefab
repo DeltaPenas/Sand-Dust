@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 6229873310551371465}
   - component: {fileID: 5780465877981447149}
   m_Layer: 0
-  m_Name: SalaInicial01
+  m_Name: Sala Normal Teste
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 582236416703253144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8541803, y: -5.58076, z: -0.0454054}
+  m_LocalPosition: {x: 33.12011, y: -5.7901974, z: -0.0454054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -8,12 +8,16 @@ public class TriggerSala : MonoBehaviour
     {
         sala = GetComponentInParent<SalaController>();
         Debug.Log("Sala encontrada: " + sala);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Entrou no trigger: " + transform.parent.name);
         Debug.Log("Quantidade de inimigos: " + sala.qtdInimigosVivos);
+
+        
+        
 
         if (!other.CompareTag("Player"))
             return;
@@ -24,15 +28,15 @@ public class TriggerSala : MonoBehaviour
             return;
         }
 
-        if (sala.entrou || sala.salaLimpa)
-            return;
+        if (sala.entrou || sala.salaLimpa) return;
 
         sala.AtivarSala();
 
-         if (sala.salaLimpa)
-        {
+        if (sala.salaLimpa){
         sala.LiberarPortas();
         }
+
+        
 
     }
 }
