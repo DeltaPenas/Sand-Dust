@@ -1,70 +1,70 @@
 fileFormatVersion: 2
-guid: 9eb11af1e65b6f542a88445f3b17afae
+guid: 96cf7ff32693077458ba6d4d59cde16f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -726669816104008266
-    second: Sprite Mimic Chest_0
+      213: 3717251628411819413
+    second: Sprite Mimic Chest-Sheet_0
   - first:
-      213: 3231770940739902560
-    second: Sprite Mimic Chest_1
+      213: -5060979261802097212
+    second: Sprite Mimic Chest-Sheet_1
   - first:
-      213: 4749876082951281163
-    second: Sprite Mimic Chest_2
+      213: 3500934771429367336
+    second: Sprite Mimic Chest-Sheet_2
   - first:
-      213: -7904693327740152232
-    second: Sprite Mimic Chest_3
+      213: 797927213055094794
+    second: Sprite Mimic Chest-Sheet_3
   - first:
-      213: 6674453836125161723
-    second: Sprite Mimic Chest_4
+      213: -1856795557656822056
+    second: Sprite Mimic Chest-Sheet_4
   - first:
-      213: 3439760164159939313
-    second: Sprite Mimic Chest_5
+      213: -7835517472087656236
+    second: Sprite Mimic Chest-Sheet_5
   - first:
-      213: -5532378539051494916
-    second: Sprite Mimic Chest_6
+      213: -7047112719892932502
+    second: Sprite Mimic Chest-Sheet_6
   - first:
-      213: 8625300675815319550
-    second: Sprite Mimic Chest_7
+      213: -631920807221542
+    second: Sprite Mimic Chest-Sheet_7
   - first:
-      213: -3180627561227682224
-    second: Sprite Mimic Chest_8
+      213: 4297824979939712673
+    second: Sprite Mimic Chest-Sheet_8
   - first:
-      213: -8758797157888328914
-    second: Sprite Mimic Chest_9
+      213: -1059838410116594496
+    second: Sprite Mimic Chest-Sheet_9
   - first:
-      213: 4937680113533416245
-    second: Sprite Mimic Chest_10
+      213: 7121522209388649005
+    second: Sprite Mimic Chest-Sheet_10
   - first:
-      213: 4841253548611915667
-    second: Sprite Mimic Chest_11
+      213: 6981799845183186036
+    second: Sprite Mimic Chest-Sheet_11
   - first:
-      213: 5781763663728917731
-    second: Sprite Mimic Chest_12
+      213: 8354945335507274245
+    second: Sprite Mimic Chest-Sheet_12
   - first:
-      213: -8252001366914010840
-    second: Sprite Mimic Chest_13
+      213: 3779850579070820481
+    second: Sprite Mimic Chest-Sheet_13
   - first:
-      213: -4679892888575484019
-    second: Sprite Mimic Chest_14
+      213: -8156929781417082426
+    second: Sprite Mimic Chest-Sheet_14
   - first:
-      213: 1020481150822325748
-    second: Sprite Mimic Chest_15
+      213: -8550753459484313561
+    second: Sprite Mimic Chest-Sheet_15
   - first:
-      213: -7283587850319238484
-    second: Sprite Mimic Chest_16
+      213: -5339092461717942132
+    second: Sprite Mimic Chest-Sheet_16
   - first:
-      213: 2381369564926042253
-    second: Sprite Mimic Chest_17
+      213: 837437027783039286
+    second: Sprite Mimic Chest-Sheet_17
   - first:
-      213: 6204928572157953210
-    second: Sprite Mimic Chest_18
+      213: -7847713040328299522
+    second: Sprite Mimic Chest-Sheet_18
   - first:
-      213: -5448368359942772270
-    second: Sprite Mimic Chest_19
+      213: -6634579441744527622
+    second: Sprite Mimic Chest-Sheet_19
   - first:
-      213: -4739372833468030383
-    second: Sprite Mimic Chest_20
+      213: 1905786911239541051
+    second: Sprite Mimic Chest-Sheet_20
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -160,7 +160,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite Mimic Chest_0
+      name: Sprite Mimic Chest-Sheet_0
       rect:
         serializedVersion: 2
         x: 126
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b54f1ef6a95ae5f0800000000000000
-      internalID: -726669816104008266
+      spriteID: 5959a3449a4569330800000000000000
+      internalID: 3717251628411819413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_1
+      name: Sprite Mimic Chest-Sheet_1
       rect:
         serializedVersion: 2
         x: 446
@@ -197,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 06c5b364c8e89dc20800000000000000
-      internalID: 3231770940739902560
+      spriteID: 4c5daa4fc2ac3c9b0800000000000000
+      internalID: -5060979261802097212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_2
+      name: Sprite Mimic Chest-Sheet_2
       rect:
         serializedVersion: 2
         x: 766
@@ -219,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b0a5f6ba123fae140800000000000000
-      internalID: 4749876082951281163
+      spriteID: 82e5cd830a1d59030800000000000000
+      internalID: 3500934771429367336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_3
+      name: Sprite Mimic Chest-Sheet_3
       rect:
         serializedVersion: 2
         x: 1086
@@ -241,14 +241,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 856d5ad9c43ec4290800000000000000
-      internalID: -7904693327740152232
+      spriteID: a0034ca929ec21b00800000000000000
+      internalID: 797927213055094794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_4
+      name: Sprite Mimic Chest-Sheet_4
       rect:
         serializedVersion: 2
         x: 1406
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf8cbf3b66c60ac50800000000000000
-      internalID: 6674453836125161723
+      spriteID: 8de775d27465b36e0800000000000000
+      internalID: -1856795557656822056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_5
+      name: Sprite Mimic Chest-Sheet_5
       rect:
         serializedVersion: 2
         x: 1732
@@ -285,14 +285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f2ea4905ab7cbf20800000000000000
-      internalID: 3439760164159939313
+      spriteID: 4d839dc9f56a24390800000000000000
+      internalID: -7835517472087656236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_6
+      name: Sprite Mimic Chest-Sheet_6
       rect:
         serializedVersion: 2
         x: 2046
@@ -307,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf157d0d70b0933b0800000000000000
-      internalID: -5532378539051494916
+      spriteID: a6815a68150a33e90800000000000000
+      internalID: -7047112719892932502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_7
+      name: Sprite Mimic Chest-Sheet_7
       rect:
         serializedVersion: 2
         x: 2366
@@ -329,14 +329,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef7a8ee044933b770800000000000000
-      internalID: 8625300675815319550
+      spriteID: ad662c87541cdfff0800000000000000
+      internalID: -631920807221542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_8
+      name: Sprite Mimic Chest-Sheet_8
       rect:
         serializedVersion: 2
         x: 2686
@@ -351,14 +351,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05ef432b5142cd3d0800000000000000
-      internalID: -3180627561227682224
+      spriteID: 1ae5b146c01f4ab30800000000000000
+      internalID: 4297824979939712673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_9
+      name: Sprite Mimic Chest-Sheet_9
       rect:
         serializedVersion: 2
         x: 3006
@@ -373,14 +373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2b7d581460827680800000000000000
-      internalID: -8758797157888328914
+      spriteID: 0c48fadc492ba41f0800000000000000
+      internalID: -1059838410116594496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_10
+      name: Sprite Mimic Chest-Sheet_10
       rect:
         serializedVersion: 2
         x: 3326
@@ -395,14 +395,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5337badf6e9268440800000000000000
-      internalID: 4937680113533416245
+      spriteID: d2a5aaec7bab4d260800000000000000
+      internalID: 7121522209388649005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_11
+      name: Sprite Mimic Chest-Sheet_11
       rect:
         serializedVersion: 2
         x: 3646
@@ -417,14 +417,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39fcc90d3769f2340800000000000000
-      internalID: 4841253548611915667
+      spriteID: 4746501d7f554e060800000000000000
+      internalID: 6981799845183186036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_12
+      name: Sprite Mimic Chest-Sheet_12
       rect:
         serializedVersion: 2
         x: 3966
@@ -439,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ecb2d74b63fc3050800000000000000
-      internalID: 5781763663728917731
+      spriteID: 50ac7b8248ab2f370800000000000000
+      internalID: 8354945335507274245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_13
+      name: Sprite Mimic Chest-Sheet_13
       rect:
         serializedVersion: 2
         x: 1703
@@ -461,14 +461,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8217d0f4a700b7d80800000000000000
-      internalID: -8252001366914010840
+      spriteID: 180229d331ab47430800000000000000
+      internalID: 3779850579070820481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_14
+      name: Sprite Mimic Chest-Sheet_14
       rect:
         serializedVersion: 2
         x: 1726
@@ -483,14 +483,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8fd495863ead0fb0800000000000000
-      internalID: -4679892888575484019
+      spriteID: 6c184d0c493ccce80800000000000000
+      internalID: -8156929781417082426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_15
+      name: Sprite Mimic Chest-Sheet_15
       rect:
         serializedVersion: 2
         x: 1800
@@ -505,14 +505,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4fd1fbe233a792e00800000000000000
-      internalID: 1020481150822325748
+      spriteID: 728be7d480f955980800000000000000
+      internalID: -8550753459484313561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_16
+      name: Sprite Mimic Chest-Sheet_16
       rect:
         serializedVersion: 2
         x: 4286
@@ -527,14 +527,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: caaee53b07f7bea90800000000000000
-      internalID: -7283587850319238484
+      spriteID: c80165c91bbb7e5b0800000000000000
+      internalID: -5339092461717942132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_17
+      name: Sprite Mimic Chest-Sheet_17
       rect:
         serializedVersion: 2
         x: 4606
@@ -549,14 +549,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d80e75490035c0120800000000000000
-      internalID: 2381369564926042253
+      spriteID: 63954c23a8c2f9b00800000000000000
+      internalID: 837437027783039286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_18
+      name: Sprite Mimic Chest-Sheet_18
       rect:
         serializedVersion: 2
         x: 5246
@@ -571,14 +571,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab4852849a55c1650800000000000000
-      internalID: 6204928572157953210
+      spriteID: efbe70c9192571390800000000000000
+      internalID: -7847713040328299522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_19
+      name: Sprite Mimic Chest-Sheet_19
       rect:
         serializedVersion: 2
         x: 5886
@@ -593,14 +593,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d92224e7d18364b0800000000000000
-      internalID: -5448368359942772270
+      spriteID: afe35b4362d3de3a0800000000000000
+      internalID: -6634579441744527622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest_20
+      name: Sprite Mimic Chest-Sheet_20
       rect:
         serializedVersion: 2
         x: 6526
@@ -615,8 +615,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 152600ba48d5a3eb0800000000000000
-      internalID: -4739372833468030383
+      spriteID: b3195063917b27a10800000000000000
+      internalID: 1905786911239541051
       vertices: []
       indices: 
       edges: []
@@ -635,27 +635,27 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sprite Mimic Chest_0: -726669816104008266
-      Sprite Mimic Chest_1: 3231770940739902560
-      Sprite Mimic Chest_10: 4937680113533416245
-      Sprite Mimic Chest_11: 4841253548611915667
-      Sprite Mimic Chest_12: 5781763663728917731
-      Sprite Mimic Chest_13: -8252001366914010840
-      Sprite Mimic Chest_14: -4679892888575484019
-      Sprite Mimic Chest_15: 1020481150822325748
-      Sprite Mimic Chest_16: -7283587850319238484
-      Sprite Mimic Chest_17: 2381369564926042253
-      Sprite Mimic Chest_18: 6204928572157953210
-      Sprite Mimic Chest_19: -5448368359942772270
-      Sprite Mimic Chest_2: 4749876082951281163
-      Sprite Mimic Chest_20: -4739372833468030383
-      Sprite Mimic Chest_3: -7904693327740152232
-      Sprite Mimic Chest_4: 6674453836125161723
-      Sprite Mimic Chest_5: 3439760164159939313
-      Sprite Mimic Chest_6: -5532378539051494916
-      Sprite Mimic Chest_7: 8625300675815319550
-      Sprite Mimic Chest_8: -3180627561227682224
-      Sprite Mimic Chest_9: -8758797157888328914
+      Sprite Mimic Chest-Sheet_0: 3717251628411819413
+      Sprite Mimic Chest-Sheet_1: -5060979261802097212
+      Sprite Mimic Chest-Sheet_10: 7121522209388649005
+      Sprite Mimic Chest-Sheet_11: 6981799845183186036
+      Sprite Mimic Chest-Sheet_12: 8354945335507274245
+      Sprite Mimic Chest-Sheet_13: 3779850579070820481
+      Sprite Mimic Chest-Sheet_14: -8156929781417082426
+      Sprite Mimic Chest-Sheet_15: -8550753459484313561
+      Sprite Mimic Chest-Sheet_16: -5339092461717942132
+      Sprite Mimic Chest-Sheet_17: 837437027783039286
+      Sprite Mimic Chest-Sheet_18: -7847713040328299522
+      Sprite Mimic Chest-Sheet_19: -6634579441744527622
+      Sprite Mimic Chest-Sheet_2: 3500934771429367336
+      Sprite Mimic Chest-Sheet_20: 1905786911239541051
+      Sprite Mimic Chest-Sheet_3: 797927213055094794
+      Sprite Mimic Chest-Sheet_4: -1856795557656822056
+      Sprite Mimic Chest-Sheet_5: -7835517472087656236
+      Sprite Mimic Chest-Sheet_6: -7047112719892932502
+      Sprite Mimic Chest-Sheet_7: -631920807221542
+      Sprite Mimic Chest-Sheet_8: 4297824979939712673
+      Sprite Mimic Chest-Sheet_9: -1059838410116594496
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

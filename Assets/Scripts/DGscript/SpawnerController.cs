@@ -38,12 +38,12 @@ public int SpawnarInimigos()
             transform
         );
 
-        InimigoPerseguidor ip =
-            inimigo.GetComponent<InimigoPerseguidor>();
+        InimigoController ic =
+            inimigo.GetComponent<InimigoController>();
 
-        if (ip != null)
+        if (ic != null)
         {
-            ip.DefinirSalaOrigem(sala);
+            ic.DefinirSalaOrigem(sala);
         }
 
         total++;

@@ -6,11 +6,11 @@ public class Vida : MonoBehaviour
     public float vidaAtual;
     private bool morreu;
 
-    private InimigoPerseguidor ip;
+    private InimigoController ic;
 
     private void Start()
     {
-        ip = GetComponent<InimigoPerseguidor>();
+        ic = GetComponent<InimigoController>();
         vidaAtual = vidaTotal;
     }
 
@@ -27,9 +27,9 @@ public class Vida : MonoBehaviour
     {
         morreu = true;
 
-        if (ip != null)
+        if (ic != null)
         {
-            ip.contabilizarPerda();
+            ic.contabilizarPerda();
         }
 
         morrer();
