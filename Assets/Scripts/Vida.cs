@@ -27,6 +27,8 @@ public class Vida : MonoBehaviour
     {
         morreu = true;
 
+        
+
         if (ic != null)
         {
             ic.contabilizarPerda();

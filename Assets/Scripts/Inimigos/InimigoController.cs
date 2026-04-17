@@ -6,6 +6,8 @@ public class InimigoController : MonoBehaviour
    private Vida vidaInimigo;
    private SalaController salaOrigem;
    
+   
+   
    void Start()
     {
         vidaInimigo = GetComponent<Vida>();
@@ -18,12 +20,10 @@ public class InimigoController : MonoBehaviour
 
     public void contabilizarPerda()
     {
-    if (salaOrigem == null)
-    {
-        Debug.LogError("Sala origem não definida");
-        return;
-    }
 
+    
+    if (salaOrigem == null)return;
+    
     salaOrigem.InimigoDerrotado();
     }
 }

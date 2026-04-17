@@ -1,70 +1,61 @@
 fileFormatVersion: 2
-guid: 96cf7ff32693077458ba6d4d59cde16f
+guid: 0faa79449d162d24ba313a409d89adf0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3717251628411819413
-    second: Sprite Mimic Chest-Sheet_0
+      213: -2494837269238721307
+    second: Mimico-Sheet_0
   - first:
-      213: -5060979261802097212
-    second: Sprite Mimic Chest-Sheet_1
+      213: 9032557747378471291
+    second: Mimico-Sheet_1
   - first:
-      213: 3500934771429367336
-    second: Sprite Mimic Chest-Sheet_2
+      213: 972230207785576948
+    second: Mimico-Sheet_2
   - first:
-      213: 797927213055094794
-    second: Sprite Mimic Chest-Sheet_3
+      213: -7442565711557578376
+    second: Mimico-Sheet_3
   - first:
-      213: -1856795557656822056
-    second: Sprite Mimic Chest-Sheet_4
+      213: 8268704212020780802
+    second: Mimico-Sheet_4
   - first:
-      213: -7835517472087656236
-    second: Sprite Mimic Chest-Sheet_5
+      213: -1730711434376272620
+    second: Mimico-Sheet_5
   - first:
-      213: -7047112719892932502
-    second: Sprite Mimic Chest-Sheet_6
+      213: 8752860286711497090
+    second: Mimico-Sheet_6
   - first:
-      213: -631920807221542
-    second: Sprite Mimic Chest-Sheet_7
+      213: -149823173074654825
+    second: Mimico-Sheet_7
   - first:
-      213: 4297824979939712673
-    second: Sprite Mimic Chest-Sheet_8
+      213: -318293934527334935
+    second: Mimico-Sheet_8
   - first:
-      213: -1059838410116594496
-    second: Sprite Mimic Chest-Sheet_9
+      213: -5067098414729911707
+    second: Mimico-Sheet_9
   - first:
-      213: 7121522209388649005
-    second: Sprite Mimic Chest-Sheet_10
+      213: -5325596663227855623
+    second: Mimico-Sheet_10
   - first:
-      213: 6981799845183186036
-    second: Sprite Mimic Chest-Sheet_11
+      213: -5452347086784294799
+    second: Mimico-Sheet_11
   - first:
-      213: 8354945335507274245
-    second: Sprite Mimic Chest-Sheet_12
+      213: 8530234450895110454
+    second: Mimico-Sheet_12
   - first:
-      213: 3779850579070820481
-    second: Sprite Mimic Chest-Sheet_13
+      213: 5811392171325390578
+    second: Mimico-Sheet_13
   - first:
-      213: -8156929781417082426
-    second: Sprite Mimic Chest-Sheet_14
+      213: 7997634554153833910
+    second: Mimico-Sheet_14
   - first:
-      213: -8550753459484313561
-    second: Sprite Mimic Chest-Sheet_15
+      213: -4270107124765307467
+    second: Mimico-Sheet_15
   - first:
-      213: -5339092461717942132
-    second: Sprite Mimic Chest-Sheet_16
+      213: -4646222942760689558
+    second: Mimico-Sheet_16
   - first:
-      213: 837437027783039286
-    second: Sprite Mimic Chest-Sheet_17
-  - first:
-      213: -7847713040328299522
-    second: Sprite Mimic Chest-Sheet_18
-  - first:
-      213: -6634579441744527622
-    second: Sprite Mimic Chest-Sheet_19
-  - first:
-      213: 1905786911239541051
-    second: Sprite Mimic Chest-Sheet_20
+      213: -2359763749320104553
+    second: Mimico-Sheet_17
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +88,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -135,7 +126,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -160,13 +151,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_0
+      name: Mimico-Sheet_0
       rect:
         serializedVersion: 2
-        x: 126
-        y: 99
+        x: 11
+        y: 0
         width: 70
-        height: 67
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5959a3449a4569330800000000000000
-      internalID: 3717251628411819413
+      spriteID: 5e4de9ac8be806dd0800000000000000
+      internalID: -2494837269238721307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_1
+      name: Mimico-Sheet_1
       rect:
         serializedVersion: 2
-        x: 446
-        y: 99
+        x: 101
+        y: 0
         width: 70
-        height: 61
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +188,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c5daa4fc2ac3c9b0800000000000000
-      internalID: -5060979261802097212
+      spriteID: b7142b92a671a5d70800000000000000
+      internalID: 9032557747378471291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_2
+      name: Mimico-Sheet_2
       rect:
         serializedVersion: 2
-        x: 766
-        y: 99
+        x: 191
+        y: 0
         width: 70
-        height: 83
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,20 +210,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82e5cd830a1d59030800000000000000
-      internalID: 3500934771429367336
+      spriteID: 4f9a6fe093e0e7d00800000000000000
+      internalID: 972230207785576948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_3
+      name: Mimico-Sheet_3
       rect:
         serializedVersion: 2
-        x: 1086
-        y: 99
+        x: 281
+        y: 0
         width: 70
-        height: 67
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,20 +232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0034ca929ec21b00800000000000000
-      internalID: 797927213055094794
+      spriteID: 871bb11fae1b6b890800000000000000
+      internalID: -7442565711557578376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_4
+      name: Mimico-Sheet_4
       rect:
         serializedVersion: 2
-        x: 1406
-        y: 99
+        x: 371
+        y: 0
         width: 70
-        height: 57
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,282 +254,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8de775d27465b36e0800000000000000
-      internalID: -1856795557656822056
+      spriteID: 20f564edba650c270800000000000000
+      internalID: 8268704212020780802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_5
+      name: Mimico-Sheet_5
       rect:
         serializedVersion: 2
-        x: 1732
-        y: 153
-        width: 12
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4d839dc9f56a24390800000000000000
-      internalID: -7835517472087656236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 2046
-        y: 99
-        width: 70
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a6815a68150a33e90800000000000000
-      internalID: -7047112719892932502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 2366
-        y: 99
-        width: 70
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad662c87541cdfff0800000000000000
-      internalID: -631920807221542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 2686
-        y: 99
-        width: 70
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ae5b146c01f4ab30800000000000000
-      internalID: 4297824979939712673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 3006
-        y: 99
-        width: 70
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0c48fadc492ba41f0800000000000000
-      internalID: -1059838410116594496
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 3326
-        y: 99
-        width: 70
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d2a5aaec7bab4d260800000000000000
-      internalID: 7121522209388649005
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 3646
-        y: 99
-        width: 70
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4746501d7f554e060800000000000000
-      internalID: 6981799845183186036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 3966
-        y: 99
-        width: 70
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 50ac7b8248ab2f370800000000000000
-      internalID: 8354945335507274245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 1703
-        y: 127
-        width: 19
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 180229d331ab47430800000000000000
-      internalID: 3779850579070820481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 1726
-        y: 99
-        width: 70
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6c184d0c493ccce80800000000000000
-      internalID: -8156929781417082426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 1800
-        y: 132
-        width: 19
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 728be7d480f955980800000000000000
-      internalID: -8550753459484313561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 4286
-        y: 99
-        width: 70
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c80165c91bbb7e5b0800000000000000
-      internalID: -5339092461717942132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_17
-      rect:
-        serializedVersion: 2
-        x: 4606
-        y: 99
+        x: 461
+        y: 0
         width: 70
         height: 45
       alignment: 0
@@ -549,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63954c23a8c2f9b00800000000000000
-      internalID: 837437027783039286
+      spriteID: 415ab41ce174bf7e0800000000000000
+      internalID: -1730711434376272620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_18
+      name: Mimico-Sheet_6
       rect:
         serializedVersion: 2
-        x: 5246
-        y: 99
+        x: 551
+        y: 0
         width: 70
-        height: 45
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -571,20 +298,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efbe70c9192571390800000000000000
-      internalID: -7847713040328299522
+      spriteID: 281001e5e08687970800000000000000
+      internalID: 8752860286711497090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_19
+      name: Mimico-Sheet_7
       rect:
         serializedVersion: 2
-        x: 5886
-        y: 99
+        x: 641
+        y: 0
         width: 70
-        height: 45
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -593,20 +320,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: afe35b4362d3de3a0800000000000000
-      internalID: -6634579441744527622
+      spriteID: 79963cd2e98bbedf0800000000000000
+      internalID: -149823173074654825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Mimic Chest-Sheet_20
+      name: Mimico-Sheet_8
       rect:
         serializedVersion: 2
-        x: 6526
-        y: 99
+        x: 731
+        y: 0
         width: 70
-        height: 45
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,8 +342,206 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3195063917b27a10800000000000000
-      internalID: 1905786911239541051
+      spriteID: 9e5365a5a51359bf0800000000000000
+      internalID: -318293934527334935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimico-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 0
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5622414a6dc0ea9b0800000000000000
+      internalID: -5067098414729911707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimico-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 0
+        width: 70
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc4c4f0d0ea716b0800000000000000
+      internalID: -5325596663227855623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimico-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 0
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170161c563f5554b0800000000000000
+      internalID: -5452347086784294799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimico-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 0
+        width: 70
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6310768b90b716670800000000000000
+      internalID: 8530234450895110454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimico-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 0
+        width: 70
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fef556c36636a050800000000000000
+      internalID: 5811392171325390578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimico-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 0
+        width: 70
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b59ab3f04e4dfe60800000000000000
+      internalID: 7997634554153833910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimico-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 0
+        width: 70
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bdcf7ba1388db4c0800000000000000
+      internalID: -4270107124765307467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimico-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 0
+        width: 70
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a60aa7da9dc458fb0800000000000000
+      internalID: -4646222942760689558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimico-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1811
+        y: 0
+        width: 70
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7956eef5f5f604fd0800000000000000
+      internalID: -2359763749320104553
       vertices: []
       indices: 
       edges: []
@@ -635,27 +560,24 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sprite Mimic Chest-Sheet_0: 3717251628411819413
-      Sprite Mimic Chest-Sheet_1: -5060979261802097212
-      Sprite Mimic Chest-Sheet_10: 7121522209388649005
-      Sprite Mimic Chest-Sheet_11: 6981799845183186036
-      Sprite Mimic Chest-Sheet_12: 8354945335507274245
-      Sprite Mimic Chest-Sheet_13: 3779850579070820481
-      Sprite Mimic Chest-Sheet_14: -8156929781417082426
-      Sprite Mimic Chest-Sheet_15: -8550753459484313561
-      Sprite Mimic Chest-Sheet_16: -5339092461717942132
-      Sprite Mimic Chest-Sheet_17: 837437027783039286
-      Sprite Mimic Chest-Sheet_18: -7847713040328299522
-      Sprite Mimic Chest-Sheet_19: -6634579441744527622
-      Sprite Mimic Chest-Sheet_2: 3500934771429367336
-      Sprite Mimic Chest-Sheet_20: 1905786911239541051
-      Sprite Mimic Chest-Sheet_3: 797927213055094794
-      Sprite Mimic Chest-Sheet_4: -1856795557656822056
-      Sprite Mimic Chest-Sheet_5: -7835517472087656236
-      Sprite Mimic Chest-Sheet_6: -7047112719892932502
-      Sprite Mimic Chest-Sheet_7: -631920807221542
-      Sprite Mimic Chest-Sheet_8: 4297824979939712673
-      Sprite Mimic Chest-Sheet_9: -1059838410116594496
+      Mimico-Sheet_0: -2494837269238721307
+      Mimico-Sheet_1: 9032557747378471291
+      Mimico-Sheet_10: -5325596663227855623
+      Mimico-Sheet_11: -5452347086784294799
+      Mimico-Sheet_12: 8530234450895110454
+      Mimico-Sheet_13: 5811392171325390578
+      Mimico-Sheet_14: 7997634554153833910
+      Mimico-Sheet_15: -4270107124765307467
+      Mimico-Sheet_16: -4646222942760689558
+      Mimico-Sheet_17: -2359763749320104553
+      Mimico-Sheet_2: 972230207785576948
+      Mimico-Sheet_3: -7442565711557578376
+      Mimico-Sheet_4: 8268704212020780802
+      Mimico-Sheet_5: -1730711434376272620
+      Mimico-Sheet_6: 8752860286711497090
+      Mimico-Sheet_7: -149823173074654825
+      Mimico-Sheet_8: -318293934527334935
+      Mimico-Sheet_9: -5067098414729911707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
