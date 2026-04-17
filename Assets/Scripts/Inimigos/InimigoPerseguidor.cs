@@ -11,6 +11,8 @@ public class InimigoPerseguidor : MonoBehaviour
     private Vida vida;
 
     [Header("Movimento")]
+    [SerializeField] private float forçaDashInimigo;
+    public bool capazDash;
     public float velocidade = 1f;
     public float distanciaParada = 0.9f; // distância necessária para que o inimigo fique parado perto do player
 
@@ -61,9 +63,11 @@ public class InimigoPerseguidor : MonoBehaviour
 
         float distancia = Vector2.Distance(transform.position, player.position);
 
+
         if (distancia <= alcanceDano && Time.time >= proximoAtaque)
         {
             Atacar();
+            DashInimigo();
             proximoAtaque = Time.time + intervaloDano;
         }
     }
@@ -80,23 +84,7 @@ public class InimigoPerseguidor : MonoBehaviour
             rb.MovePosition(novaPosicao);
         }
     }
-    /*
-    public void DefinirSalaOrigem(SalaController sala)
-    {
-        salaOrigem = sala;
-    }
 
-    public void contabilizarPerda()
-    {
-    if (salaOrigem == null)
-    {
-        Debug.LogError("Sala origem não definida");
-        return;
-    }
-
-    salaOrigem.InimigoDerrotado();
-    }
-    */
 
     private Vector2 ObterDirecaoDeMovimento()
     {
@@ -197,11 +185,25 @@ public class InimigoPerseguidor : MonoBehaviour
 
     private void Atacar()
     {
-        if (vidaDoPlayer != null)
+        if (vidaDoPlayer != null && vida.vidaAtual > 0)
         {
             vidaDoPlayer.DarDanoPlayer(dano);
             Debug.Log("Inimigo atacou o player! Dano causado: " + dano);
         }
+    }
+    private void DashInimigo()
+    {
+        if (vida.vidaAtual > 0)
+        {
+        Vector2 direcaoParaPlayerDash = ((Vector2)player.position - rb.position).normalized;
+        if (capazDash)
+        {
+            rb.linearVelocity = direcaoParaPlayerDash * forçaDashInimigo;
+        }
+        }
+        
+        
+        
     }
 
     private void OnDrawGizmosSelected()

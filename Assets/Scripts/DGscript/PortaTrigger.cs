@@ -13,6 +13,7 @@ public class PortaTrigger : MonoBehaviour
     private PlayerController player;
     private bool emCooldown;
 
+    [System.Obsolete]
     private void Start()
     {
         salaAtual = GetComponentInParent<SalaController>();

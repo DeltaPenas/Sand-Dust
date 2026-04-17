@@ -5,10 +5,15 @@ public class InimigoController : MonoBehaviour
    
    private Vida vidaInimigo;
    private SalaController salaOrigem;
+   private Rigidbody2D rigidbody2D;
+   
+   
    
    void Start()
     {
         vidaInimigo = GetComponent<Vida>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+    
     }
 
     public void DefinirSalaOrigem(SalaController sala)
@@ -18,12 +23,14 @@ public class InimigoController : MonoBehaviour
 
     public void contabilizarPerda()
     {
-    if (salaOrigem == null)
-    {
-        Debug.LogError("Sala origem não definida");
-        return;
-    }
 
+    
+    if (salaOrigem == null)return;
+    
     salaOrigem.InimigoDerrotado();
+    }
+    public void inimigoMorrendo()
+    {
+        rigidbody2D.simulated = false;
     }
 }
