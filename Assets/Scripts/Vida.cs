@@ -32,9 +32,11 @@ public class Vida : MonoBehaviour
         if (ic != null)
         {
             ic.contabilizarPerda();
+            ic.inimigoMorrendo();
+            Invoke("morrer", 1f);
+            return;
         }
-
-        morrer();
+        morrer(); //gambiarra pra separar inimigos de props
     }
     }
 
