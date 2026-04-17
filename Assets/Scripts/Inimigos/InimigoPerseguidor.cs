@@ -74,10 +74,8 @@ public class InimigoPerseguidor : MonoBehaviour
 
         float distancia = Vector2.Distance(rb.position, player.position);
 
-        if (distancia > distanciaParada)
-        {
+        if (distancia > alcanceDano){
             Vector2 direcaoEscolhida = ObterDirecaoDeMovimento();
-
             Vector2 novaPosicao = rb.position + direcaoEscolhida * velocidade * Time.fixedDeltaTime;
             rb.MovePosition(novaPosicao);
         }
