@@ -7,26 +7,48 @@ public class ChestMimicController : MonoBehaviour
     [SerializeField] private GameObject mimico;
     public int num = 20;
     public bool taDentro = false;
+    public bool éMimico;
+    private Vida vida;
 
 
-
+    void Start(){
+        definirMimico();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && taDentro)
             {
-                int definirMimico = UnityEngine.Random.Range(0, num);
-
-                if(definirMimico >= 10)
-                {
-                    GameObject mimicoInimigo = Instantiate(
-                        mimico,
-                        transform.position,
-                        quaternion.identity
-                    );
-                }
+            if (!éMimico)
+            {
                 Destroy(gameObject);
             }
+                invocarMimico();
+            }
+    }
+
+    private void definirMimico()
+    {
+        int definirMimico = UnityEngine.Random.Range(1,10);
+        Debug.Log(definirMimico);
+
+        if(definirMimico >= 8)
+        {
+            éMimico = true;
+        }
+    }
+    private void invocarMimico()
+    {
+        if (éMimico)
+        {
+            GameObject mimicoInimigo = Instantiate(
+            mimico,
+            transform.position,
+            quaternion.identity
+        );
+        Destroy(gameObject);
+        }
+        
     }
 
 
