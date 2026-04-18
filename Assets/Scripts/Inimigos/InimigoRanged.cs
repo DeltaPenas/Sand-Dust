@@ -49,13 +49,13 @@ public abstract class InimigoRanged : MonoBehaviour
         
         if (distancia < distanciaParada)// deixa o inimigo parado apartir de certa distancia do player 
         {
-            Vector2 direcaoEscolhida = ObterDirecaoDeMovimento();
-            
-            Vector2 novaPosicao = rb.position + direcaoEscolhida * velocidade * Time.fixedDeltaTime;
-            rb.MovePosition(novaPosicao);
+            rb.velocity = Vector2.zero;
         } 
         else
-        { // se não estiver loge para de se mover 
+        {
+            Vector2 direcaoEscolhida = ObterDirecaoDeMovimento();
+            Vector2 novaPosicao = rb.position + direcaoEscolhida * velocidade * Time.fixedDeltaTime;
+            rb.MovePosition(novaPosicao);
         } 
     }
 
