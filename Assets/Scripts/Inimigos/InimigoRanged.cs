@@ -49,7 +49,7 @@ public abstract class InimigoRanged : MonoBehaviour
         
         if (distancia < distanciaParada)// deixa o inimigo parado apartir de certa distancia do player 
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         } 
         else
         {

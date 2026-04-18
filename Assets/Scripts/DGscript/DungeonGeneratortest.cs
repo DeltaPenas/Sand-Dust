@@ -14,6 +14,7 @@ public class DungeonGeneratortest : MonoBehaviour
 
     private List<SalaNode> salas = new List<SalaNode>();
     public CatalogoSalas catalogoSalas;
+    public CatalogoInimigos CatalogoInimigos;
 
     private void Start()
     {

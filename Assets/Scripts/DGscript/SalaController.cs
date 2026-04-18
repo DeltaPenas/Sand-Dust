@@ -24,6 +24,7 @@ public class SalaController : MonoBehaviour
     private SpawnerController spawner;
     private PortaTrigger[] portas;
     private PropSpawner[] props;
+    public DungeonGeneratortest dg;
     
     
     
@@ -31,6 +32,7 @@ public class SalaController : MonoBehaviour
 
     private void Awake()
     {
+        dg = GetComponentInParent<DungeonGeneratortest>();
         props = GetComponentsInChildren<PropSpawner>();
         spawner = GetComponentInChildren<SpawnerController>();
         portas = GetComponentsInChildren<PortaTrigger>();
