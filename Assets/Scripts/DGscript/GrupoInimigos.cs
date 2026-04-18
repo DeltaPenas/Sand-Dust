@@ -5,4 +5,5 @@ using UnityEngine;
 public class CatalogoInimigos 
 {
     public List<GameObject> inimigos;
+    public List <GameObject> inimigosInvocaveisPeloInvocadordeInimigos;
 }

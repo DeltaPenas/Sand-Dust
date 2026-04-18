@@ -2,7 +2,8 @@ using UnityEngine;
 public class InimigoInvocador : InimigoRanged
 { 
     [Header("Invocação")]
-    public GameObject inimigoPrefab;
+    
+    public CatalogoInimigos catalogoInimigos;
     public Transform pontoInvocacao; 
     public int quantidadeInvocada = 1;
     public int maxInimigos = 5;
@@ -26,6 +27,11 @@ public class InimigoInvocador : InimigoRanged
             {
                 posicaoSpawn = (Vector2)transform.position + Random.insideUnitCircle * 1.5f;
             }
+            
+
+            int indice = Random.Range(0, catalogoInimigos.inimigosInvocaveisPeloInvocadordeInimigos.Count);
+
+            GameObject inimigoPrefab = catalogoInimigos.inimigosInvocaveisPeloInvocadordeInimigos[indice];
 
             GameObject novo = Instantiate(inimigoPrefab, posicaoSpawn, Quaternion.identity);
 
