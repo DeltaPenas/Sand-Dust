@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class InimigoController : MonoBehaviour
@@ -6,6 +7,8 @@ public class InimigoController : MonoBehaviour
    private Vida vidaInimigo;
    private SalaController salaOrigem;
    private Rigidbody2D rigidbody2D;
+   private SpriteRenderer spriteRenderer;
+   public Animator anim;
    
    
    
@@ -13,6 +16,8 @@ public class InimigoController : MonoBehaviour
     {
         vidaInimigo = GetComponent<Vida>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
     
     }
 
@@ -32,5 +37,23 @@ public class InimigoController : MonoBehaviour
     public void inimigoMorrendo()
     {
         rigidbody2D.simulated = false;
+        StartCoroutine(Piscar());
+        
     }
+    private IEnumerator Piscar()
+    {
+        if(anim != null)
+        {
+            anim.SetTrigger("Morreu");
+        }
+        yield return new WaitForSeconds(1f);
+    
+    for (int i = 0; i < 20; i++) 
+    {
+        spriteRenderer.enabled = !spriteRenderer.enabled;
+        yield return new WaitForSeconds(0.3f);
+    }
+    spriteRenderer.enabled = true; 
+    }
+    
 }

@@ -1,5 +1,5 @@
 using UnityEngine; 
-public class InimigoInvocador : InimigoBase_Ranged
+public class InimigoInvocador : InimigoRanged
 { 
     [Header("Invocação")]
     public GameObject inimigoPrefab;
@@ -30,22 +30,17 @@ public class InimigoInvocador : InimigoBase_Ranged
             GameObject novo = Instantiate(inimigoPrefab, posicaoSpawn, Quaternion.identity);
 
             // pega o script do inimigo que foi invocado
-            Inimigo inv = novo.GetComponent<Inimigo>();
+            InimigoRanged inv = novo.GetComponent<InimigoRanged>();
 
-            // se tiver o script, conecta com o invocador
-            if (inv != null)
-            {
-                inv.invocador = this;
-            }
 
             inimigosAtuais++;
         } 
     }
     protected override void Comportamento()
     {
-                float distancia = Vector2.Distance(transform.position, player.position);
+        float distancia = Vector2.Distance(transform.position, player.position);
 
-        if (distancia <= 4f && distancia > distanciaParada && Time.time >= proximaInvocacao)
+        if (distancia <= 4f && Time.time >= proximaInvocacao)
         {
             Invocar();
             proximaInvocacao = Time.time + intervaloInvocacao;

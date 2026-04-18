@@ -1,6 +1,6 @@
 using UnityEngine; 
 
-public class InimigoBase_Ranged : MonoBehaviour
+public abstract class InimigoRanged : MonoBehaviour
 {
     [Header("Referências")] 
     protected Transform player; 
@@ -47,12 +47,12 @@ public class InimigoBase_Ranged : MonoBehaviour
         
         float distancia = Vector2.Distance(rb.position, player.position);
         
-        if (distancia < 4f && distancia > distanciaParada)// deixa o inimigo parado apartir de certa distancia do player 
+        if (distancia < distanciaParada)// deixa o inimigo parado apartir de certa distancia do player 
         {
             Vector2 direcaoEscolhida = ObterDirecaoDeMovimento();
             
             Vector2 novaPosicao = rb.position + direcaoEscolhida * velocidade * Time.fixedDeltaTime;
-              rb.MovePosition(novaPosicao);
+            rb.MovePosition(novaPosicao);
         } 
         else
         { // se não estiver loge para de se mover 
@@ -67,19 +67,19 @@ public class InimigoBase_Ranged : MonoBehaviour
             return direcaoDesvioAtual; 
         } 
         // Direção principal: do inimigo até o player 
-        Vector2 direcaofuga = (rb.position - (Vector2)player.position).normalized;
+        Vector2 direcaoParaLongeDoPlayer  = (rb.position - (Vector2)player.position).normalized;
         
         // Testa se há obstáculo exatamente na frente
         float raio = 0.3f; // tamanho do "corpo" do inimigo 
-        RaycastHit2D hitFrente = Physics2D.CircleCast( rb.position, raio, direcaofuga, distanciaDeteccaoObstaculo, layerObstaculos ); // Se não bateu em nada, segue reto 
+        RaycastHit2D hitFrente = Physics2D.CircleCast( rb.position, raio, direcaoParaLongeDoPlayer , distanciaDeteccaoObstaculo, layerObstaculos ); // Se não bateu em nada, segue reto 
                if (hitFrente.collider == null) 
                 { 
-                return direcaofuga; 
+                return direcaoParaLongeDoPlayer ; 
                 } 
 
         // Cria duas direções perpendiculares 
-        Vector2 direcaoEsquerda = new Vector2(-direcaofuga.y, direcaofuga.x).normalized; 
-        Vector2 direcaoDireita = new Vector2(direcaofuga.y, -direcaofuga.x).normalized; 
+        Vector2 direcaoEsquerda = new Vector2(-direcaoParaLongeDoPlayer .y, direcaoParaLongeDoPlayer .x).normalized; 
+        Vector2 direcaoDireita = new Vector2(direcaoParaLongeDoPlayer .y, -direcaoParaLongeDoPlayer .x).normalized; 
                
         Vector2 origemEsquerda = rb.position + direcaoEsquerda * 0.2f;
         Vector2 origemDireita = rb.position + direcaoDireita * 0.2f; 

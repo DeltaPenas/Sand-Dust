@@ -4,7 +4,9 @@ public class Vida : MonoBehaviour
 {
     public float vidaTotal = 5;
     public float vidaAtual;
-    private bool morreu;
+    public bool morreu;
+    
+    
 
     private InimigoController ic;
 
@@ -33,7 +35,7 @@ public class Vida : MonoBehaviour
         {
             ic.contabilizarPerda();
             ic.inimigoMorrendo();
-            Invoke("morrer", 1f);
+            Invoke("morrer", 3f);
             return;
         }
         morrer(); //gambiarra pra separar inimigos de props

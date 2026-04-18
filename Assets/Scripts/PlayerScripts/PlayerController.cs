@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Horizontal", movimento.x);
         anim.SetFloat("Vertical", movimento.y);
         anim.SetFloat("Speed", movimento.magnitude);
-        rig.linearVelocity = movimento * velocidade;
+        rig.linearVelocity = movimento.normalized * velocidade;
     }
 
     IEnumerator TocarPassos()
