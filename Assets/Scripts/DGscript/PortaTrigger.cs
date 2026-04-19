@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PortaTrigger : MonoBehaviour
@@ -11,13 +13,16 @@ public class PortaTrigger : MonoBehaviour
     private SalaController salaAtual;
     private DungeonGeneratortest dungeon;
     private PlayerController player;
+    private TriggerDeTransicao tt;
     private bool emCooldown;
 
     [System.Obsolete]
     private void Start()
     {
+        tt = FindAnyObjectByType<TriggerDeTransicao>();
         salaAtual = GetComponentInParent<SalaController>();
         dungeon = FindObjectOfType<DungeonGeneratortest>();
+        player = FindAnyObjectByType<PlayerController>();
         Debug.Log("Sala atual: " + salaAtual);
         Debug.Log("Dungeon: " + dungeon);
     }
@@ -35,10 +40,9 @@ public class PortaTrigger : MonoBehaviour
         Debug.Log("Não existe sala nessa direção");
         return;
     }
-
-    emCooldown = true;
-
-    Teleportar(other.transform);
+    
+    
+    StartCoroutine(SequenciaTeleporte(other.transform));
 }
 
     private Vector2Int ObterDirecaoGrid()
@@ -122,6 +126,20 @@ public class PortaTrigger : MonoBehaviour
 
                 break;
         }
+        
+
+    }
+    IEnumerator SequenciaTeleporte(Transform alvo)
+    {
+    emCooldown = true;
+    player.rig.bodyType = RigidbodyType2D.Static;
+    tt.FadeOut();
+
+    
+    yield return new WaitForSeconds(0.80f);
+
+    Teleportar(alvo);
+    player.rig.bodyType = RigidbodyType2D.Dynamic;
 
     }
 

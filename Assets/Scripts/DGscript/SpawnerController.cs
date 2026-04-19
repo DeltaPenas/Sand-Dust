@@ -19,9 +19,10 @@ public class SpawnerController : MonoBehaviour
     public int SpawnarInimigos()
     {
         int total = 0;
-
-        SalaController sala = GetComponentInParent<SalaController>();
-
+        if (dg != null)
+        {
+            SalaController sala = GetComponentInParent<SalaController>();
+        
         for (int i = 0; i < dg.qtdInimigos; i++)
         {
             int indice = Random.Range(0, sc.dg.CatalogoInimigos.inimigos.Count);
@@ -52,6 +53,8 @@ public class SpawnerController : MonoBehaviour
 
             total++;
         }
+        }
+        
 
             return total;
     }
