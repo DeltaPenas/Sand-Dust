@@ -13,15 +13,12 @@ public class InimigoInvocador : InimigoRanged
     [Header("Cooldown De Invocação")]
     public float intervaloInvocacao = 3f;
     private float proximaInvocacao;
-
-    private void Start()
-    {
-        vida = GetComponent<Vida>();
-    }
+    
+    
 
     void Invocar()
     {
-        if (inimigosAtuais >= maxInimigos && vida.vidaAtual > 0) return;
+        if (inimigosAtuais >= maxInimigos) return;
 
         for (int i = 0; i < quantidadeInvocada; i++)
         {
