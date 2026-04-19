@@ -14,7 +14,11 @@ public class DungeonGeneratortest : MonoBehaviour
 
     private List<SalaNode> salas = new List<SalaNode>();
     public CatalogoSalas catalogoSalas;
+    [Header("Objetos das salas")]
     public CatalogoInimigos CatalogoInimigos;
+    public CatalogoProps catalogoProps;
+    public int qtdInimigos;
+
 
     private void Start()
     {

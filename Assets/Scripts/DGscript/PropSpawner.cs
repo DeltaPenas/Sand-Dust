@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PropSpawner : MonoBehaviour
 {
-    public CatalogoProps catalogoProps;
+    public DungeonGeneratortest dg;
     void Start()
     {
-        
+        dg = FindAnyObjectByType<DungeonGeneratortest>();
     }
 
     public void SpawnarProp()
     {
-        if(catalogoProps.props.Count ==0) return;
+        if(dg.catalogoProps.props.Count ==0) return;
 
-        int indice = UnityEngine.Random.Range(0, catalogoProps.props.Count);
+        int indice = UnityEngine.Random.Range(0, dg.catalogoProps.props.Count);
 
-        GameObject prefab = catalogoProps.props[indice];
+        GameObject prefab = dg.catalogoProps.props[indice];
 
         GameObject prop = Instantiate(
             prefab,

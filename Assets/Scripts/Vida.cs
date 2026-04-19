@@ -44,6 +44,6 @@ public class Vida : MonoBehaviour
 
     private void morrer()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 }

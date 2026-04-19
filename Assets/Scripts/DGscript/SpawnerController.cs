@@ -5,12 +5,13 @@ public class SpawnerController : MonoBehaviour
 {
     public Vector2 areaMin;
     public Vector2 areaMax;
-    public int qtdInimigos;
     private SalaController sc;
+    private DungeonGeneratortest dg;
 
 
     public void Start()
     {
+        dg = GetComponentInParent<DungeonGeneratortest>();
         sc = GetComponent<SalaController>();
     }
 
@@ -21,7 +22,7 @@ public class SpawnerController : MonoBehaviour
 
         SalaController sala = GetComponentInParent<SalaController>();
 
-        for (int i = 0; i < qtdInimigos; i++)
+        for (int i = 0; i < dg.qtdInimigos; i++)
         {
             int indice = Random.Range(0, sc.dg.CatalogoInimigos.inimigos.Count);
 

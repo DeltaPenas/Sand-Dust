@@ -1,8 +1,10 @@
+using System.Runtime.CompilerServices;
 using UnityEngine; 
 public class InimigoInvocador : InimigoRanged
 { 
+    private Vida vida;
+
     [Header("Invocação")]
-    
     public CatalogoInimigos catalogoInimigos;
     public Transform pontoInvocacao; 
     public int quantidadeInvocada = 1;
@@ -11,9 +13,15 @@ public class InimigoInvocador : InimigoRanged
     [Header("Cooldown De Invocação")]
     public float intervaloInvocacao = 3f;
     private float proximaInvocacao;
+
+    private void Start()
+    {
+        vida = GetComponent<Vida>();
+    }
+
     void Invocar()
     {
-        if (inimigosAtuais >= maxInimigos) return;
+        if (inimigosAtuais >= maxInimigos && vida.vidaAtual > 0) return;
 
         for (int i = 0; i < quantidadeInvocada; i++)
         {
@@ -25,7 +33,7 @@ public class InimigoInvocador : InimigoRanged
             }
             else
             {
-                posicaoSpawn = (Vector2)transform.position + Random.insideUnitCircle * 1.5f;
+                posicaoSpawn = (Vector2)transform.position + Random.insideUnitCircle * (1.5f + 2f);
             }
             
 
