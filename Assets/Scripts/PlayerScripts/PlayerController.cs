@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool iframeAtivo = false;
     public SoundController soundController;
     private PlayerVida pv;
+    public bool emTeleporte;
   
     private void Start()
     {

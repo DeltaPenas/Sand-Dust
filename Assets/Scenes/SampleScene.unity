@@ -802,6 +802,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: lm.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -846,6 +850,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoInimigos.inimigos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salaLojas.Array.data[0]'
       value: 
       objectReference: {fileID: 582236416703253144, guid: df0ef3e0d8094e44fb645f8d5d974982, type: 3}
@@ -870,6 +878,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1821935942732819040, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigos.inimigos.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigos.inimigos.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasProxLayer.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -893,6 +909,22 @@ PrefabInstance:
       propertyPath: 'catalogoSalas.salasProxLayer.Array.data[0]'
       value: 
       objectReference: {fileID: 582236416703253144, guid: bbe153ab28770914f9ceeda5653606d9, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoInimigos.inimigosDeElite.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigos.inimigosDeElite.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1821935942732819040, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoInimigos.inimigosInvocaveisPeloInvocadordeInimigos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigos.inimigosInvocaveisPeloInvocadordeInimigos.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
     - target: {fileID: 8252068834370362281, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_Name
       value: gerador de salas
@@ -903,7 +935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8252068834370362281, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_TagString
-      value: inimigo
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8544379804306696528, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2509,6 +2541,7 @@ MonoBehaviour:
   passosSfx: {fileID: 8300000, guid: 26933132075c15f4db04fa7eb50b2ef8, type: 3}
   iframeAtivo: 0
   soundController: {fileID: 1722042929}
+  emTeleporte: 0
 --- !u!114 &1722042929
 MonoBehaviour:
   m_ObjectHideFlags: 0

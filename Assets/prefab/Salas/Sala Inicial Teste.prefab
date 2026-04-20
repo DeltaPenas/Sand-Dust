@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 582236416703253144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2833257, y: -13.4184065, z: -0.0454054}
+  m_LocalPosition: {x: -36.66374, y: 0.13451576, z: -0.0454054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61,6 +61,7 @@ MonoBehaviour:
   entrou: 0
   salaLimpa: 0
   qtdInimigosVivos: 0
+  dg: {fileID: 0}
 --- !u!114 &5780465877981447149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,15 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f2105563ae70440a33a0321574b7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
-  inimigoTeste1: {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
-  inimigoTeste2: {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
   areaMin: {x: -2, y: -2}
   areaMax: {x: 2, y: 2}
-  qtdInimigos: 0
-  catalogoInimigos:
-    inimigos:
-    - {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
-    - {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
 --- !u!1 &1848733997081448205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,7 +1380,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.050031275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1396,7 +1390,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.1000626}
   m_EdgeRadius: 0
 --- !u!114 &4114394262597863074
 MonoBehaviour:
@@ -1415,6 +1409,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &3851559032254808048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,7 +1537,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.026828289}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1552,7 +1547,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.0536566}
   m_EdgeRadius: 0
 --- !u!114 &2895403307933686418
 MonoBehaviour:
@@ -1571,6 +1566,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &3946131490816676156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,7 +2372,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.03482461}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2386,7 +2382,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.0696491}
   m_EdgeRadius: 0
 --- !u!114 &2072478704506094277
 MonoBehaviour:
@@ -2405,6 +2401,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &5286138733669779906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,7 +2529,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.031098723}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2542,7 +2539,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.0621974}
   m_EdgeRadius: 0
 --- !u!114 &2677192967862834778
 MonoBehaviour:
@@ -2561,6 +2558,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &6322185506314844601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,6 +2864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaTotal: 1
   vidaAtual: 0
+  morreu: 0
 --- !u!50 &1062210736500980003
 Rigidbody2D:
   serializedVersion: 5

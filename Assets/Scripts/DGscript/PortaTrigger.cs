@@ -9,12 +9,13 @@ public class PortaTrigger : MonoBehaviour
     public float distanciaEntreSalasVertical;
     public float offsetPlayer = 1.5f;
 
-    public bool podeTeleportar = false;
+    public bool podeTeleportar;
+    public bool emTransicao;
     private SalaController salaAtual;
     private DungeonGeneratortest dungeon;
     private PlayerController player;
     private TriggerDeTransicao tt;
-    private bool emCooldown;
+    
 
     [System.Obsolete]
     private void Start()
@@ -31,6 +32,9 @@ public class PortaTrigger : MonoBehaviour
 {
     if (!podeTeleportar) return;
     if (!other.CompareTag("Player")) return;
+    if (emTransicao) return;
+    if (player.emTeleporte) return;
+    
 
     Vector2Int direcaoGrid = ObterDirecaoGrid();
     Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
@@ -40,8 +44,10 @@ public class PortaTrigger : MonoBehaviour
         Debug.Log("Não existe sala nessa direção");
         return;
     }
-    
-    
+
+    podeTeleportar = false;
+    emTransicao = true;
+
     StartCoroutine(SequenciaTeleporte(other.transform));
 }
 
@@ -131,28 +137,27 @@ public class PortaTrigger : MonoBehaviour
     }
     IEnumerator SequenciaTeleporte(Transform alvo)
     {
-    emCooldown = true;
+    player.emTeleporte = true;
     player.iframeAtivo = true;
     player.podeMover = false;
+
     tt.FadeOut();
 
-    
-    yield return new WaitForSeconds(0.80f);
+    yield return new WaitForSeconds(0.8f);
 
     Teleportar(alvo);
-    yield return new WaitForSeconds(0.50f);
+
+    yield return new WaitForSeconds(0.5f);
+
     player.iframeAtivo = false;
     player.podeMover = true;
-    
+    player.emTeleporte = false;
 
+    emTransicao = false;
     }
 
     private void ReativarTrigger()
     {
         podeTeleportar = true;
-    }
-    private void ReativarCooldown()
-    {
-        emCooldown = false;
     }
 }

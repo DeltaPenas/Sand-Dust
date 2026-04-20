@@ -28,6 +28,13 @@ public class TriggerSala : MonoBehaviour
             return;
         }
 
+        if (sala.salaLimpa)
+        {
+            sala.LiberarPortas();
+        }
+        if (sala.entrou)return;
+
+
         if (sala.entrou || sala.salaLimpa) return;
 
         sala.AtivarSala();
