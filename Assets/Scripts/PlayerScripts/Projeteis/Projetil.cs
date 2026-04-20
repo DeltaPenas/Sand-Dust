@@ -5,11 +5,12 @@ public class Projetil : MonoBehaviour
     public float velocidade = 150f;
     public int dano = 1;
     private Vector2 direcao;
+    private WepAtaque wp;
 
 
     private void Start()
     {
-        
+        wp = FindAnyObjectByType<WepAtaque>();
         Destroy(gameObject, 3f); 
     }
 
@@ -29,7 +30,7 @@ public class Projetil : MonoBehaviour
 
         if (vida != null)
         {
-            vida.receberDano(dano);
+            vida.receberDano(wp.rangedDano);
         }
 
         if (!alvo.CompareTag("Player") && !alvo.CompareTag("Chão"))

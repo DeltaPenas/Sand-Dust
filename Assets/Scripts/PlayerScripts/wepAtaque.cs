@@ -8,6 +8,7 @@ public class WepAtaque : MonoBehaviour
     private float tempoProximoMelee;
     private float meleeTimer;
     public int meleeDano;
+    public int rangedDano = 1;
     public float meleeRange = 1;
     public float meleeCooldown;
     public LayerMask layerInimigos;

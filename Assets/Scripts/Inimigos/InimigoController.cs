@@ -5,15 +5,19 @@ public class InimigoController : MonoBehaviour
 {
    
    private Vida vidaInimigo;
+   public int scoreDoInimigo;
    private SalaController salaOrigem;
    private Rigidbody2D rigidbody2D;
+   private RunInfos runInfos;
    private SpriteRenderer spriteRenderer;
    public Animator anim;
+
    
    
    
    void Start()
     {
+        runInfos = FindAnyObjectByType<RunInfos>();
         vidaInimigo = GetComponent<Vida>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -36,6 +40,8 @@ public class InimigoController : MonoBehaviour
     }
     public void inimigoMorrendo()
     {
+        runInfos.inimigosDerrotados +=1;
+        runInfos.playerScore +=scoreDoInimigo;
         rigidbody2D.simulated = false;
         StartCoroutine(Piscar());
         

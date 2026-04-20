@@ -133,6 +133,7 @@ public class PortaTrigger : MonoBehaviour
     {
     emCooldown = true;
     player.rig.bodyType = RigidbodyType2D.Static;
+    player.iframeAtivo = true;
     tt.FadeOut();
 
     
@@ -140,6 +141,9 @@ public class PortaTrigger : MonoBehaviour
 
     Teleportar(alvo);
     player.rig.bodyType = RigidbodyType2D.Dynamic;
+    yield return new WaitForSeconds(0.50f);
+    player.iframeAtivo = false;
+    
 
     }
 

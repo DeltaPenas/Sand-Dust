@@ -12,26 +12,26 @@ public class DungeonGeneratortest : MonoBehaviour
     public Transform DungeonParent;
     public float distanciaEntreSalas = 10f;
 
-    private List<SalaNode> salas = new List<SalaNode>();
+    public List<SalaNode> salas = new List<SalaNode>();
     public CatalogoSalas catalogoSalas;
     [Header("Objetos das salas")]
     public CatalogoInimigos CatalogoInimigos;
     public CatalogoProps catalogoProps;
     public int qtdInimigos;
+    public RunInfos runInfos;
+    public PlayerController pc;
+    private SalaController salaInicial;
+    
 
 
     private void Start()
     {
+        runInfos = GetComponent<RunInfos>();
+        pc = FindAnyObjectByType<PlayerController>();
         GerarDungeon();
+    
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            // futura lógica para trocar de andar
-        }
-    }
 
     private void GerarDungeon()
     {
@@ -48,7 +48,20 @@ public class DungeonGeneratortest : MonoBehaviour
         DefinirSalasEspeciais();
         InstanciarSalas();
         DebugSalas();
+        TeleportarPlayerSalaInicial();
     }
+
+    public void LimparDungeon()
+{
+    foreach (Transform filho in DungeonParent)
+    {
+        Destroy(filho.gameObject);
+    }
+
+    salas.Clear();
+    GerarDungeon();
+
+}
 
     private bool ValidarParametros()
     {
@@ -184,8 +197,13 @@ public class DungeonGeneratortest : MonoBehaviour
                     esquerda,
                     direita
                 );
+                if (sala.tipo == TipoSala.Inicial)
+                {
+                    salaInicial = controller;
+                }
             }
         }
+        
     }
         private GameObject EscolherPrefabSala(TipoSala tipo)
         {
@@ -274,6 +292,10 @@ public class DungeonGeneratortest : MonoBehaviour
         {
             Debug.Log($"{sala.Posicao} - {sala.tipo}");
         }
+    }
+    private void TeleportarPlayerSalaInicial()
+    {
+        pc.transform.position = salaInicial.transform.position;
     }
 
 }

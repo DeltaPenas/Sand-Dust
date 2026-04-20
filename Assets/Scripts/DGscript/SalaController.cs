@@ -25,6 +25,7 @@ public class SalaController : MonoBehaviour
     private PortaTrigger[] portas;
     private PropSpawner[] props;
     public DungeonGeneratortest dg;
+    private RunInfos runInfos;
     
     
     
@@ -32,6 +33,7 @@ public class SalaController : MonoBehaviour
 
     private void Awake()
     {
+        runInfos = FindAnyObjectByType<RunInfos>();
         dg = GetComponentInParent<DungeonGeneratortest>();
         props = GetComponentsInChildren<PropSpawner>();
         spawner = GetComponentInChildren<SpawnerController>();
@@ -49,7 +51,14 @@ public class SalaController : MonoBehaviour
         if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer)
         {
             salaLimpa = true;
+            runInfos.salasConcluidas+=1; 
             LiberarPortas();
+            if (tipoSala == TipoSala.Inicial)
+            {
+                runInfos.playerScore +=1;
+            }
+            
+
         }
         
     }
@@ -90,6 +99,8 @@ public class SalaController : MonoBehaviour
     {
         Debug.Log("Sala limpa! Liberando portas.");
         salaLimpa = true;
+        runInfos.playerScore +=1;
+        runInfos.salasConcluidas+=1;
 
         foreach (PortaTrigger porta in portas)
         {

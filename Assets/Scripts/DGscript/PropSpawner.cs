@@ -21,7 +21,8 @@ public class PropSpawner : MonoBehaviour
         GameObject prop = Instantiate(
             prefab,
             transform.position,
-            Quaternion.identity
+            Quaternion.identity,
+            transform
         );
     }
 }
