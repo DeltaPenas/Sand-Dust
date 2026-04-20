@@ -1,4 +1,5 @@
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChestMimicController : MonoBehaviour
@@ -9,9 +10,14 @@ public class ChestMimicController : MonoBehaviour
     public bool taDentro = false;
     public bool éMimico;
     private Vida vida;
+    private SpriteRenderer sr;
+    private BoxCollider2D collider2D;
+    
 
 
     void Start(){
+        collider2D = GetComponent<BoxCollider2D>();
+        sr = GetComponent<SpriteRenderer>();
         definirMimico();
     }
 
@@ -29,7 +35,7 @@ public class ChestMimicController : MonoBehaviour
 
     private void definirMimico()
     {
-        int definirMimico = UnityEngine.Random.Range(1,10);
+        int definirMimico = UnityEngine.Random.Range(8,10);
         Debug.Log(definirMimico);
 
         if(definirMimico >= 8)
@@ -46,7 +52,8 @@ public class ChestMimicController : MonoBehaviour
             transform.position,
             quaternion.identity
         );
-        Destroy(gameObject);
+        sr.enabled = false;
+        collider2D.enabled = false;
         }
         
     }

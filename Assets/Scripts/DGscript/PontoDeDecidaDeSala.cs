@@ -29,11 +29,13 @@ public class PontoDeDecidaDeSala : MonoBehaviour
             dg.LimparDungeon();
             runInfos.layer +=1;
             debugDeSalas();
-            if(runInfos.layer == 3)
+            if(runInfos.layer > 3)
             {
                 runInfos.layer = 0;
                 runInfos.andar +=1;
+                dg.qtdInimigos =1;
             }
+            dg.qtdInimigos +=1;
             
         }else
         {

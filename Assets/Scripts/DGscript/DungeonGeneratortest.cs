@@ -29,7 +29,6 @@ public class DungeonGeneratortest : MonoBehaviour
         runInfos = GetComponent<RunInfos>();
         pc = FindAnyObjectByType<PlayerController>();
         GerarDungeon();
-    
     }
 
 

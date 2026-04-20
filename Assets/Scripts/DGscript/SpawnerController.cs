@@ -7,10 +7,12 @@ public class SpawnerController : MonoBehaviour
     public Vector2 areaMax;
     private SalaController sc;
     private DungeonGeneratortest dg;
+    private RunInfos ri;
 
 
     public void Start()
     {
+        ri = GetComponentInParent<RunInfos>();
         dg = GetComponentInParent<DungeonGeneratortest>();
         sc = GetComponent<SalaController>();
     }
@@ -23,7 +25,7 @@ public class SpawnerController : MonoBehaviour
         {
             SalaController sala = GetComponentInParent<SalaController>();
         
-        for (int i = 0; i < dg.qtdInimigos; i++)
+        for (int i = 0; i < dg.qtdInimigos; i++) //aumenta dependendo da layer
         {
             int indice = Random.Range(0, sc.dg.CatalogoInimigos.inimigos.Count);
 
