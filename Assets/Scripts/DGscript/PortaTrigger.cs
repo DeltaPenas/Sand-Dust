@@ -132,17 +132,17 @@ public class PortaTrigger : MonoBehaviour
     IEnumerator SequenciaTeleporte(Transform alvo)
     {
     emCooldown = true;
-    player.rig.bodyType = RigidbodyType2D.Static;
     player.iframeAtivo = true;
+    player.podeMover = false;
     tt.FadeOut();
 
     
     yield return new WaitForSeconds(0.80f);
 
     Teleportar(alvo);
-    player.rig.bodyType = RigidbodyType2D.Dynamic;
     yield return new WaitForSeconds(0.50f);
     player.iframeAtivo = false;
+    player.podeMover = true;
     
 
     }

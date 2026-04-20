@@ -51,12 +51,8 @@ public class SalaController : MonoBehaviour
         if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer)
         {
             salaLimpa = true;
-            runInfos.salasConcluidas+=1; 
             LiberarPortas();
-            if (tipoSala == TipoSala.Inicial)
-            {
-                runInfos.playerScore +=1;
-            }
+            
             
 
         }
@@ -92,8 +88,10 @@ public class SalaController : MonoBehaviour
     }
     public void InimigoDerrotado()
     {
-    qtdInimigosVivos--;
-    Debug.Log("Inimigo derrotado. Restam: " + qtdInimigosVivos);
+        if (salaLimpa) return;
+
+        qtdInimigosVivos--;
+        Debug.Log("Inimigo derrotado. Restam: " + qtdInimigosVivos);
 
     if (qtdInimigosVivos <= 0)
     {

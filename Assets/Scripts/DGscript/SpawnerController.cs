@@ -27,10 +27,20 @@ public class SpawnerController : MonoBehaviour
         
         for (int i = 0; i < dg.qtdInimigos; i++) //aumenta dependendo da layer
         {
-            int indice = Random.Range(0, sc.dg.CatalogoInimigos.inimigos.Count);
-
-            GameObject prefab =
-                sc.dg.CatalogoInimigos.inimigos[indice];
+            int indice = Random.Range(0, sc.dg.catalogoInimigos.inimigos.Count);
+            int indiceElite = Random.Range(0,sc.dg.catalogoInimigos.inimigosDeElite.Count);
+            int peso = Random.Range(1, 10);
+            GameObject prefab;
+            
+                if (peso >= 7)
+                {
+                    prefab = sc.dg.catalogoInimigos.inimigosDeElite[indiceElite];
+                }
+                else
+                {
+                    prefab = sc.dg.catalogoInimigos.inimigos[indice];
+                }
+                
 
             float x = Random.Range(areaMin.x, areaMax.x);
             float y = Random.Range(areaMin.y, areaMax.y);

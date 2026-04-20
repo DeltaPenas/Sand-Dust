@@ -811,11 +811,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: qtdmaxSalas
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: qtdminSalas
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: prefabSalaTeste
@@ -3177,10 +3177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90e43676b73efb4390b729ff9efd37e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RunInfos
-  InimigosDerrotados: 0
+  inimigosDerrotados: 0
   salasConcluidas: 0
-  Andar: 0
-  Layer: 0
+  andar: 0
+  layer: 0
   playerScore: 0
 --- !u!1 &2036111408
 GameObject:

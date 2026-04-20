@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class DungeonGeneratortest : MonoBehaviour
 {
     [Header("Configuração")]
     public int qtdminSalas = 5;
     public int qtdmaxSalas = 10;
+    public int totalSalasCombate;
     public int andar = 0;
+    public LayerMask lm;
 
     [Header("Prefab")]
     public Transform DungeonParent;
@@ -15,17 +18,19 @@ public class DungeonGeneratortest : MonoBehaviour
     public List<SalaNode> salas = new List<SalaNode>();
     public CatalogoSalas catalogoSalas;
     [Header("Objetos das salas")]
-    public CatalogoInimigos CatalogoInimigos;
+    public CatalogoInimigos catalogoInimigos;
     public CatalogoProps catalogoProps;
     public int qtdInimigos;
     public RunInfos runInfos;
     public PlayerController pc;
     private SalaController salaInicial;
+    private TriggerDeTransicao tt;
     
 
 
     private void Start()
     {
+        tt = FindAnyObjectByType<TriggerDeTransicao>();
         runInfos = GetComponent<RunInfos>();
         pc = FindAnyObjectByType<PlayerController>();
         GerarDungeon();
@@ -37,7 +42,9 @@ public class DungeonGeneratortest : MonoBehaviour
         if (!ValidarParametros())
             return;
 
+        
         salas.Clear();
+       
         andar++;
 
         Debug.Log("Andar atual: " + andar);
@@ -48,6 +55,7 @@ public class DungeonGeneratortest : MonoBehaviour
         InstanciarSalas();
         DebugSalas();
         TeleportarPlayerSalaInicial();
+        CalcularSalasCombate();
     }
 
     public void LimparDungeon()
@@ -292,9 +300,40 @@ public class DungeonGeneratortest : MonoBehaviour
             Debug.Log($"{sala.Posicao} - {sala.tipo}");
         }
     }
+
     private void TeleportarPlayerSalaInicial()
     {
         pc.transform.position = salaInicial.transform.position;
+    }
+    public bool EhSalaDeCombate(TipoSala tipo)
+    {
+    return tipo != TipoSala.Inicial &&
+           tipo != TipoSala.Loja &&
+           tipo != TipoSala.Tesouro &&
+           tipo != TipoSala.SalaProxLayer;
+    }
+    private void CalcularSalasCombate()
+    {
+    totalSalasCombate = 0;
+
+    foreach (SalaNode sala in salas)
+    {
+        if (EhSalaDeCombate(sala.tipo))
+        {
+            totalSalasCombate++;
+        }
+    }
+
+    Debug.Log("Total salas combate: " + totalSalasCombate);
+    }
+    public void LimparInimigos()
+    {
+        GameObject[] inimigos = GameObject.FindGameObjectsWithTag("inimigo");
+
+        foreach (GameObject inimigo in inimigos)
+        {
+            Destroy(inimigo);
+        }
     }
 
 }

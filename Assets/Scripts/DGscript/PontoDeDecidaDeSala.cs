@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PontoDeDecidaDeSala : MonoBehaviour
@@ -17,15 +18,18 @@ public class PontoDeDecidaDeSala : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && dg != null && runInfos != null)
+        if (collision.CompareTag("Player") && dg != null && runInfos != null && runInfos.salasConcluidas >= dg.totalSalasCombate)
         {
-            PodeDescer();
+            tt.FadeOut();
+            Invoke(nameof(PodeDescer), 0.8f);
+            dg.LimparInimigos();
+            
+            
         }
     }
+    
     public void PodeDescer()
     {
-        if(runInfos.salasConcluidas >= dg.salas.Count)
-        {
             dg.LimparDungeon();
             runInfos.layer +=1;
             debugDeSalas();
@@ -34,13 +38,11 @@ public class PontoDeDecidaDeSala : MonoBehaviour
                 runInfos.layer = 0;
                 runInfos.andar +=1;
                 dg.qtdInimigos =1;
+                dg.qtdmaxSalas +=1;
+                dg.qtdminSalas +=1;
             }
-            dg.qtdInimigos +=1;
-            
-        }else
-        {
-            Debug.Log("n pode");
-        }
+        dg.qtdInimigos +=1;
+        runInfos.salasConcluidas = 0;
     }
     public void debugDeSalas()
     {
