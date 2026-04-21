@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InimigoAtirador : InimigoBase_Ranged
+public class InimigoAtirador : InimigoRanged
 {
     [Header("Ataque")]
     public GameObject projetilPrefab;

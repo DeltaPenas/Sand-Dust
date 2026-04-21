@@ -140,6 +140,7 @@ public class PortaTrigger : MonoBehaviour
     player.emTeleporte = true;
     player.iframeAtivo = true;
     player.podeMover = false;
+    player.podeMover = false;
 
     tt.FadeOut();
 

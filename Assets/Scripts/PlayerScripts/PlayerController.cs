@@ -82,12 +82,19 @@ public class PlayerController : MonoBehaviour
 
     private void mover()
     {
-    if (!podeMover) return;
-
+    if (podeMover)
+        {
         anim.SetFloat("Horizontal", movimento.x);
         anim.SetFloat("Vertical", movimento.y);
         anim.SetFloat("Speed", movimento.magnitude);
         rig.linearVelocity = movimento.normalized * velocidade;
+        }
+        else
+        {
+            movimento = Vector2.zero;
+        }
+
+        
     }
 
     IEnumerator TocarPassos()
