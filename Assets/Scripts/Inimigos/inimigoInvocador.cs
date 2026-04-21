@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine; 
 public class InimigoInvocador : InimigoRanged
 { 
-    private Vida vida;
+    
 
     [Header("Invocação")]
     public CatalogoInimigos catalogoInimigos;

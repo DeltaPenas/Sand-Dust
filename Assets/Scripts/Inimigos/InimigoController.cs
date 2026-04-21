@@ -4,7 +4,7 @@ using UnityEngine;
 public class InimigoController : MonoBehaviour
 {
    
-   private Vida vidaInimigo;
+   public Vida vidaInimigo;
    public int scoreDoInimigo;
    private SalaController salaOrigem;
    private Rigidbody2D rigidbody2D;

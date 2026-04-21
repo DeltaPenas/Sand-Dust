@@ -4,9 +4,9 @@ public abstract class InimigoRanged : MonoBehaviour
 {
     [Header("Referências")] 
     protected Transform player; 
+    
     private Vida vidaDoPlayer; 
-    protected Rigidbody2D rb; 
-
+    protected Rigidbody2D rb;
     [Header("Movimento")] 
     public float velocidade = 0.7f;
     public float distanciaParada = 1.5f; // distância necessária para que o inimigo fique parado perto do player 
@@ -18,11 +18,14 @@ public abstract class InimigoRanged : MonoBehaviour
     [Header("Persistência do Desvio")] 
     public float tempoDesvio = 0.7f; 
     protected Vector2 direcaoDesvioAtual; 
+    public InimigoController inimigoController;
     private float fimDesvio;
     
     protected virtual void Start() 
     { 
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
+        inimigoController = GetComponent<InimigoController>();
+        
        
        if (player == null) 
        { GameObject alvo = GameObject.FindGameObjectWithTag("Player"); 

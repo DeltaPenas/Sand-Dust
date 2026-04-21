@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 2213952984919126360}
   - component: {fileID: 7086257871589257944}
   - component: {fileID: 350101118749122862}
-  - component: {fileID: 829641010475858880}
   - component: {fileID: 2563522063663917781}
+  - component: {fileID: 7364180466422305743}
   - component: {fileID: 2484853277044451027}
   m_Layer: 3
-  m_Name: inimigo (4)
+  m_Name: InimgoAtirador
   m_TagString: inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3244443420763268584}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.898058, y: 1.4688368, z: 0}
+  m_LocalPosition: {x: -3.2533932, y: 1.1564105, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -157,31 +157,6 @@ MonoBehaviour:
   vidaTotal: 5
   vidaAtual: 0
   morreu: 0
---- !u!114 &829641010475858880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3244443420763268584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f925735e210b71b46af7777b3ebcf727, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InimigoPerseguidor
-  player: {fileID: 0}
-  "for\xE7aDashInimigo": 0
-  capazDash: 0
-  velocidade: 1
-  distanciaParada: 1.5
-  distanciaDeteccaoObstaculo: 1.5
-  layerObstaculos:
-    serializedVersion: 2
-    m_Bits: 1
-  tempoDesvio: 0.7
-  dano: 1
-  alcanceDano: 1.5
-  intervaloDano: 3
 --- !u!114 &2563522063663917781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +171,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InimigoController
   scoreDoInimigo: 1
   anim: {fileID: 0}
+--- !u!114 &7364180466422305743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3244443420763268584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe6de00e20699d468611204596c9abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InimigoAtirador
+  velocidade: 0.7
+  distanciaParada: 1.5
+  distanciaDeteccaoObstaculo: 1.5
+  layerObstaculos:
+    serializedVersion: 2
+    m_Bits: 1
+  tempoDesvio: 0.7
+  projetilPrefab: {fileID: 3763594769991435249, guid: 0bcc400258daaaa43881da455c2ba60b, type: 3}
+  pontoDisparo: {fileID: 6091444866406314023}
+  tempoEntreTiros: 1.5
+  dano: 1
+  velocidadeProjetil: 40
 --- !u!50 &2484853277044451027
 Rigidbody2D:
   serializedVersion: 5

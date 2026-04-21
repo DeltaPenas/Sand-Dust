@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class InimigoAtirador : InimigoRanged
@@ -6,13 +7,15 @@ public class InimigoAtirador : InimigoRanged
     public GameObject projetilPrefab;
     public Transform pontoDisparo;
     public float tempoEntreTiros = 1.5f;
-
+    public int dano;
+    public float velocidadeProjetil;
     private float proximoTiro;
+
 
     protected override void Comportamento()
     {
         float distancia = Vector2.Distance(transform.position, player.position);
-
+        
         // Só atira se estiver na distância certa
         if (distancia <= 4f && Time.time >= proximoTiro)
         {
@@ -23,7 +26,7 @@ public class InimigoAtirador : InimigoRanged
 
     void Atirar()
     {
-        if (projetilPrefab == null || pontoDisparo == null) return;
+        if (projetilPrefab == null || pontoDisparo == null || inimigoController.vidaInimigo.vidaAtual <= 0) return;
 
         GameObject tiro = Instantiate(projetilPrefab, pontoDisparo.position, Quaternion.identity);
 
