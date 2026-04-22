@@ -7,9 +7,4 @@ public class RunInfos : MonoBehaviour
     public int andar;
     public int layer;
     public int playerScore;
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 }

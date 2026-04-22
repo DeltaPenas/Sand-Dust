@@ -25,6 +25,7 @@ public class DungeonGeneratortest : MonoBehaviour
     public PlayerController pc;
     private SalaController salaInicial;
     private TriggerDeTransicao tt;
+    public bool isDevMode;
     
 
 

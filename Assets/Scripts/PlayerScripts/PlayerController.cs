@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +10,6 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [Header("Stats")]
-    public PlayerStatus baseStatus;
-    public PlayerStatus currentStatus;
     [Header("Skills, Ult e Dash")]
     public SkillBase skillBase;
     public UltBase ultBase;
@@ -31,10 +31,18 @@ public class PlayerController : MonoBehaviour
     public SoundController soundController;
     private PlayerVida pv;
     public bool emTeleporte;
-  
-    private void Start()
+    [Header("Modificações")]
+    public PlayerStatus baseStatus;
+    public PlayerStatus currentStatus;
+    public List<StatModifier> activeModifiers = new List<StatModifier>();
+    
+    
+    private void Awake()
     {
         currentStatus = baseStatus.Clone();
+        RecalculateStats();
+        
+        
 
         pv = FindAnyObjectByType<PlayerVida>();
         soundController = FindAnyObjectByType<SoundController>();
@@ -90,7 +98,7 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Horizontal", movimento.x);
         anim.SetFloat("Vertical", movimento.y);
         anim.SetFloat("Speed", movimento.magnitude);
-        rig.linearVelocity = movimento.normalized * velocidade;
+        rig.linearVelocity = movimento.normalized * currentStatus.velocidade;
         }
         else
         {
@@ -163,17 +171,40 @@ public class PlayerController : MonoBehaviour
             case PlayerStatus.StatsType.atqCooldown:
                 Apply(ref currentStatus.atqCooldown, mod);
                 break;
+            case PlayerStatus.StatsType.dashCooldown:
+                Apply(ref currentStatus.dashCooldown, mod);
+                break;
+            case PlayerStatus.StatsType.forcaDash:
+                Apply(ref currentStatus.forcaDash, mod);
+                break;
     
         
         }
     }
-    void Apply(ref float stat, StatModifier mod)
+    public void Apply(ref float stat, StatModifier mod)
     {
     if (mod.taAtivo)
         stat *= (1 + mod.valor);
     else
         stat += mod.valor;
     }
+
+    public void RecalculateStats()
+    {
+        currentStatus = baseStatus.Clone();
+        foreach (var mod in activeModifiers)
+    {
+        AplicarModificacao(mod);
+    }
+
+    }
+
+    public void AddModifier(StatModifier mod)
+    {
+        activeModifiers.Add(mod);
+    }
+
+
 
 
 }

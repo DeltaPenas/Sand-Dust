@@ -8,7 +8,6 @@ public class PlayerStatus
     [Header("Basico")]
     public float vidaMax;
     public float velocidade;
-
     public float danoMelee;
     public float danoRanged;
     public float atqCooldown;
@@ -24,6 +23,12 @@ public class PlayerStatus
     public float rangeUlt;
     public float cooldownUlt;
 
+    [Header("Dash")]
+    public float forcaDash;
+    public float dashCooldown;
+
+    
+
     public PlayerStatus Clone()
 {
     return new PlayerStatus
@@ -38,7 +43,10 @@ public class PlayerStatus
         danoUlt = danoUlt,
         rangeUlt = rangeUlt,
         cooldownUlt = cooldownUlt,
-        atqCooldown = atqCooldown
+        atqCooldown = atqCooldown,
+        forcaDash = forcaDash,
+        dashCooldown = dashCooldown
+        
     };
 }
     public enum StatsType
@@ -53,7 +61,9 @@ public class PlayerStatus
         danoUlt,
         rangeUlt,
         cooldownUlt,
-        atqCooldown
+        atqCooldown,
+        forcaDash,
+        dashCooldown
         
     }
 }

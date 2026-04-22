@@ -1001,6 +1001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InimgoAtirador
       objectReference: {fileID: 0}
+    - target: {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6091444866406314023, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.2692146
@@ -2586,6 +2590,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecccfbecdb76114e8ac892732001d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseStatus:
+    vidaMax: 0
+    velocidade: 0
+    danoMelee: 0
+    danoRanged: 0
+    atqCooldown: 0
+    danoSkill: 0
+    rangeSkill: 0
+    cooldownSkill: 0
+    danoUlt: 0
+    rangeUlt: 0
+    cooldownUlt: 0
+  currentStatus:
+    vidaMax: 0
+    velocidade: 0
+    danoMelee: 0
+    danoRanged: 0
+    atqCooldown: 0
+    danoSkill: 0
+    rangeSkill: 0
+    cooldownSkill: 0
+    danoUlt: 0
+    rangeUlt: 0
+    cooldownUlt: 0
   skillBase: {fileID: 1722042933}
   ultBase: {fileID: 1722042931}
   dashBase: {fileID: 1722042934}

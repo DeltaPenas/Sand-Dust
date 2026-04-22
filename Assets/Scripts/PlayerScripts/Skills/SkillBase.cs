@@ -15,7 +15,17 @@ public abstract class SkillBase : MonoBehaviour
 
     public void Start()
     {
+
+        pc = GetComponent<PlayerController>();
+        DefirnirStatus();
         ultimoUso -= cooldown;
+    }
+
+    public virtual void DefirnirStatus()
+    {
+        skillRange = pc.currentStatus.rangeSkill;
+        skillDmg = pc.currentStatus.danoSkill;
+        cooldown = pc.currentStatus.cooldownSkill;
     }
     public virtual bool podeUsar()
     {

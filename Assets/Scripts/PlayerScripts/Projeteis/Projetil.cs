@@ -3,7 +3,6 @@ using UnityEngine;
 public class Projetil : MonoBehaviour
 {
     public float velocidade = 150f;
-    public int dano = 1;
     private Vector2 direcao;
     private WepAtaque wp;
 
@@ -30,7 +29,7 @@ public class Projetil : MonoBehaviour
 
         if (vida != null)
         {
-            vida.receberDano(wp.rangedDano);
+            vida.receberDano(wp.pc.currentStatus.danoRanged);
         }
 
         if (!alvo.CompareTag("Player") && !alvo.CompareTag("Chão"))
