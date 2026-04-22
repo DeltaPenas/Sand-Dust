@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Apply(ref float stat, StatModifier mod)
     {
-    if (mod.taAtivo)
+    if (mod.ehporcentagem)
         stat *= (1 + mod.valor);
     else
         stat += mod.valor;
@@ -202,6 +202,7 @@ public class PlayerController : MonoBehaviour
     public void AddModifier(StatModifier mod)
     {
         activeModifiers.Add(mod);
+        RecalculateStats();
     }
 
 

@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,10 +13,14 @@ public class ChestMimicController : MonoBehaviour
     private Vida vida;
     private SpriteRenderer sr;
     private BoxCollider2D collider2D;
+    private PlayerController player;
+    private TesteBuff tb;
     
 
 
     void Start(){
+        tb = GetComponent<TesteBuff>();
+        player = FindAnyObjectByType<PlayerController>();
         collider2D = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         definirMimico();
@@ -27,9 +32,16 @@ public class ChestMimicController : MonoBehaviour
             {
             if (!éMimico)
             {
+                
+                tb.TestarBuff();
+                Debug.Log("o tb esta:" + tb);
                 Destroy(gameObject);
             }
+            else
+            {
                 invocarMimico();
+            }
+                
             }
     }
 
