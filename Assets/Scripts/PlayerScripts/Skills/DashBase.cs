@@ -4,15 +4,18 @@ using UnityEngine;
 public abstract class DashBase : MonoBehaviour
 {
     public SoundController soundController;
-    public float forçaDash = 10f;
+    public float forçaDash;
     public float duracaoDash = 0.2f;
-    public float cooldown = 1f;
+    public float cooldown;
     public float ultimoUso;
     protected PlayerController pc;
 
     protected virtual void Start()
     {
         pc = GetComponent<PlayerController>();
+        forçaDash = pc.currentStatus.forcaDash;
+        cooldown = pc.currentStatus.dashCooldown;
+
         soundController = GetComponent<SoundController>();
     }
 

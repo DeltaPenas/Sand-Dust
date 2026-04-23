@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class Projetil : MonoBehaviour
+public class ProjetilInimigo : MonoBehaviour
 {
-    public float velocidade = 150f;
     private Vector2 direcao;
-    private WepAtaque wp;
+    private InimigoAtirador ia;
+    
 
 
     private void Start()
     {
-        wp = FindAnyObjectByType<WepAtaque>();
+        ia = FindAnyObjectByType<InimigoAtirador>();
         Destroy(gameObject, 3f); 
     }
 
@@ -20,19 +20,19 @@ public class Projetil : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(direcao * velocidade * Time.deltaTime);
+        transform.Translate(direcao * ia.velocidadeProjetil * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D alvo)
     {
-        Vida vida = alvo.GetComponent<Vida>();
+        PlayerVida vida = alvo.GetComponent<PlayerVida>();
 
         if (vida != null)
         {
-            vida.receberDano(wp.pc.currentStatus.danoRanged);
+            vida.DarDanoPlayer(ia.dano);
         }
 
-        if (!alvo.CompareTag("Player") && !alvo.CompareTag("Chão"))
+        if (!alvo.CompareTag("inimigo") && !alvo.CompareTag("Chão"))
         {
             Destroy(gameObject);
         }

@@ -9,7 +9,8 @@ public class DungeonGeneratortest : MonoBehaviour
     public int qtdmaxSalas = 10;
     public int totalSalasCombate;
     public int andar = 0;
-    public LayerMask lm;
+    [SerializeField] private GameObject bg;
+    
 
     [Header("Prefab")]
     public Transform DungeonParent;
@@ -25,6 +26,7 @@ public class DungeonGeneratortest : MonoBehaviour
     public PlayerController pc;
     private SalaController salaInicial;
     private TriggerDeTransicao tt;
+    public bool isDevMode;
     
 
 
@@ -34,6 +36,7 @@ public class DungeonGeneratortest : MonoBehaviour
         runInfos = GetComponent<RunInfos>();
         pc = FindAnyObjectByType<PlayerController>();
         GerarDungeon();
+        GameObject background = Instantiate(bg, transform.position, Quaternion.identity);
     }
 
 

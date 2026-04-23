@@ -16,7 +16,7 @@ public class Vida : MonoBehaviour
         vidaAtual = vidaTotal;
     }
 
-    public void receberDano(int dano)
+    public void receberDano(float dano)
     {
     if (morreu)
         return;

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4845600106991751192}
   - component: {fileID: 6711109602172445303}
   - component: {fileID: 2989229159450076841}
+  - component: {fileID: 6230404952788448862}
   - component: {fileID: 2231823118481033154}
   m_Layer: 6
   m_Name: Bau
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3790245494798129474}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8778515, y: -1.4658725, z: 0.0454054}
+  m_LocalPosition: {x: -0.114789486, y: 0.15291929, z: 0.0454054}
   m_LocalScale: {x: 0.47130707, y: 0.47130707, z: 0.47130707}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -200,6 +201,18 @@ MonoBehaviour:
   num: 20
   taDentro: 0
   "\xE9Mimico": 0
+--- !u!114 &6230404952788448862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3790245494798129474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8beebe060c8d40989092912ab1554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TesteBuff
 --- !u!58 &2231823118481033154
 CircleCollider2D:
   m_ObjectHideFlags: 0

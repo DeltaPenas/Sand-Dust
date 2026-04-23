@@ -3,13 +3,25 @@ using UnityEngine;
 public abstract class UltBase : MonoBehaviour
 {
     public float ultRange;
-    public int ultDmg;
+    public float ultDmg;
     public float ultCooldown;
     public float ultimoUsoUlt;
+    private PlayerController pc;
+
+    
 
     private void Start()
     {
+        pc = GetComponent<PlayerController>();
+        DefirnirStatus();
         ultimoUsoUlt = -ultCooldown;
+    }
+
+    public virtual void DefirnirStatus()
+    {
+        ultRange = pc.currentStatus.rangeUlt;
+        ultDmg = pc.currentStatus.danoUlt;
+        ultCooldown = pc.currentStatus.cooldownUlt;
     }
 
     public virtual bool podeUsarUlt()

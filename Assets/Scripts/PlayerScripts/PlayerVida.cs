@@ -6,8 +6,8 @@ public class PlayerVida : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private HeartUi heartUi;
 
-    public int playerVidaTotal;
-    public int playerVidaAtual;
+    public float playerVidaTotal;
+    public float playerVidaAtual;
     public bool playerIsEnvenenado;
     public bool playerIsQueimando;
 
@@ -17,14 +17,19 @@ public class PlayerVida : MonoBehaviour
     {
         player = FindAnyObjectByType<PlayerController>();
         heartUi = FindAnyObjectByType<HeartUi>();
-
-        playerVidaAtual = player.vida;
-        playerVidaTotal = playerVidaAtual;
-
-        heartUi.UpdateHearts(playerVidaAtual, playerVidaTotal);
+        definirVida();
+        
     }
 
-    public void DarDanoPlayer(int dano)
+    public void definirVida()
+    {
+        playerVidaAtual = player.currentStatus.vidaMax;
+        playerVidaTotal = playerVidaAtual;
+        heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
+        
+    }
+
+    public void DarDanoPlayer(float dano)
     {
         // Se o player estiver em iframe, não recebe dano
         if (player != null && player.iframeAtivo)
@@ -38,7 +43,7 @@ public class PlayerVida : MonoBehaviour
             morrer();
         }
 
-        heartUi.UpdateHearts(playerVidaAtual, playerVidaTotal);
+        heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
         Camera.main.GetComponent<CameraShake>().ShakeCamera(0.2f, 0.1f);
 
         if (player != null)
@@ -47,10 +52,10 @@ public class PlayerVida : MonoBehaviour
         }
     }
 
-    public void CurarPlayer(int cura)
+    public void CurarPlayer(float cura)
     {
         playerVidaAtual = Mathf.Min(playerVidaAtual + cura, playerVidaTotal);
-        heartUi.UpdateHearts(playerVidaAtual, playerVidaTotal);
+        heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
     }
 
     public void morrer()

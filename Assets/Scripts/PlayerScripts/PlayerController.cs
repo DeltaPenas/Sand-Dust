@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    [Header("Stats")]
     [Header("Skills, Ult e Dash")]
     public SkillBase skillBase;
     public UltBase ultBase;
@@ -29,10 +31,19 @@ public class PlayerController : MonoBehaviour
     public SoundController soundController;
     private PlayerVida pv;
     public bool emTeleporte;
-  
-    private void Start()
+    [Header("Modificações")]
+    public PlayerStatus baseStatus;
+    public PlayerStatus currentStatus;
+    public List<StatModifier> activeModifiers = new List<StatModifier>();
+    
+    
+    private void Awake()
     {
+        currentStatus = baseStatus.Clone();
+        RecalculateStats();
         
+        
+
         pv = FindAnyObjectByType<PlayerVida>();
         soundController = FindAnyObjectByType<SoundController>();
         rig = GetComponent<Rigidbody2D>();
@@ -82,12 +93,19 @@ public class PlayerController : MonoBehaviour
 
     private void mover()
     {
-    if (!podeMover) return;
-
+    if (podeMover)
+        {
         anim.SetFloat("Horizontal", movimento.x);
         anim.SetFloat("Vertical", movimento.y);
         anim.SetFloat("Speed", movimento.magnitude);
-        rig.linearVelocity = movimento.normalized * velocidade;
+        rig.linearVelocity = movimento.normalized * currentStatus.velocidade;
+        }
+        else
+        {
+            movimento = Vector2.zero;
+        }
+
+        
     }
 
     IEnumerator TocarPassos()
@@ -115,5 +133,79 @@ public class PlayerController : MonoBehaviour
         Debug.Log("colidiu");
     }
 }
+    
+    public void AplicarModificacao(StatModifier mod)
+    {
+        switch (mod.stat)
+        {
+            case PlayerStatus.StatsType.vidaMax:
+                Apply(ref currentStatus.vidaMax, mod);
+                break;
+            case PlayerStatus.StatsType.velocidade:
+                Apply(ref currentStatus.velocidade, mod);
+                break;
+            case PlayerStatus.StatsType.danoMelee:
+                Apply(ref currentStatus.danoMelee, mod);
+                break;
+            case PlayerStatus.StatsType.danoRanged:
+                Apply(ref currentStatus.danoRanged, mod);
+                break;
+            case PlayerStatus.StatsType.danoSkill:
+                Apply(ref currentStatus.danoSkill, mod);
+                break;
+            case PlayerStatus.StatsType.rangeSkill:
+                Apply(ref currentStatus.rangeSkill, mod);
+                break;
+            case PlayerStatus.StatsType.cooldownSkill:
+                Apply(ref currentStatus.cooldownSkill, mod);
+                break;
+            case PlayerStatus.StatsType.danoUlt:
+                Apply(ref currentStatus.danoUlt, mod);
+                break;
+            case PlayerStatus.StatsType.rangeUlt:
+                Apply(ref currentStatus.rangeUlt, mod);
+                break;
+            case PlayerStatus.StatsType.cooldownUlt:
+                Apply(ref currentStatus.cooldownUlt, mod);
+                break;
+            case PlayerStatus.StatsType.atqCooldown:
+                Apply(ref currentStatus.atqCooldown, mod);
+                break;
+            case PlayerStatus.StatsType.dashCooldown:
+                Apply(ref currentStatus.dashCooldown, mod);
+                break;
+            case PlayerStatus.StatsType.forcaDash:
+                Apply(ref currentStatus.forcaDash, mod);
+                break;
+    
+        
+        }
+    }
+    public void Apply(ref float stat, StatModifier mod)
+    {
+    if (mod.ehporcentagem)
+        stat *= (1 + mod.valor);
+    else
+        stat += mod.valor;
+    }
+
+    public void RecalculateStats()
+    {
+        currentStatus = baseStatus.Clone();
+        foreach (var mod in activeModifiers)
+    {
+        AplicarModificacao(mod);
+    }
+
+    }
+
+    public void AddModifier(StatModifier mod)
+    {
+        activeModifiers.Add(mod);
+        RecalculateStats();
+    }
+
+
+
 
 }

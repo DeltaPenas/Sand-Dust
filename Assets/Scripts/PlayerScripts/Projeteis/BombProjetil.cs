@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class BombProjetil : MonoBehaviour
 {
-    public float forcaL = 3;
-    public int dano = 5;
+    private float forcaL = 3;
+    private float dano;
     public Vector2 direcao;
     public Vector2 posBala;
     public Transform balaPos;
@@ -13,6 +13,7 @@ public class BombProjetil : MonoBehaviour
     public float raioExp;
     public GameObject explosionVFX;
     public AudioClip explosionSFX;
+    private PlayerController pc;
     
 
     public void definirDirecao(Vector2 novaDirecao)
@@ -23,11 +24,14 @@ public class BombProjetil : MonoBehaviour
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        pc = FindAnyObjectByType<PlayerController>();
+        dano = pc.currentStatus.danoSkill;
+        raioExp = pc.currentStatus.rangeSkill;
 
         rig.AddForce(direcao * forcaL, ForceMode2D.Impulse);
 
         StartCoroutine(explodir());
-        SoundController soundController = FindObjectOfType<SoundController>();
+        SoundController soundController = FindAnyObjectByType<SoundController>();
     }
 
     private void OnTriggerEnter2D(Collider2D alvo)
@@ -36,7 +40,7 @@ public class BombProjetil : MonoBehaviour
         if (!alvo.CompareTag("Player") && !alvo.CompareTag("Chão"))
         {
         
-        SoundController soundController = FindObjectOfType<SoundController>();
+        SoundController soundController = FindAnyObjectByType<SoundController>();
         GameObject exp = Instantiate(explosionVFX, transform.position, Quaternion.identity);
         SpriteRenderer sr = exp.GetComponent<SpriteRenderer>();
         float tamanhoAtual = sr.bounds.size.x;

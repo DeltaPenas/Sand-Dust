@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PontoDeDecidaDeSala : MonoBehaviour
@@ -6,6 +7,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     private DungeonGeneratortest dg;
     private RunInfos runInfos;
     private TriggerDeTransicao tt;
+    private PlayerVida pv;
     
     
 
@@ -13,7 +15,9 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     {
         tt = FindAnyObjectByType<TriggerDeTransicao>();
         dg = FindAnyObjectByType<DungeonGeneratortest>();
+        pv = FindAnyObjectByType<PlayerVida>();
         runInfos = FindAnyObjectByType<RunInfos>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,6 +27,11 @@ public class PontoDeDecidaDeSala : MonoBehaviour
             tt.FadeOut();
             Invoke(nameof(PodeDescer), 0.8f);
             dg.LimparInimigos();
+            if(dg.isDevMode && pv.playerVidaAtual < pv.playerVidaTotal)
+            {
+                pv.CurarPlayer(1);
+            }
+
             
             
         }

@@ -26,6 +26,8 @@ public class WepAtaque : MonoBehaviour
     public void Start()
     {
        soundController  = GetComponent<SoundController>();
+       pc = GetComponent<PlayerController>();
+
     }
 
 
@@ -57,7 +59,7 @@ public class WepAtaque : MonoBehaviour
         if (Time.time >= tempoProximoTiro)
         {
             Atacar();
-            tempoProximoTiro = Time.time + cooldown;
+            tempoProximoTiro = Time.time + pc.currentStatus.atqCooldown;
         }
     }
     private void TentaAtacarMelee()
@@ -65,7 +67,7 @@ public class WepAtaque : MonoBehaviour
         if (Time.time >= tempoProximoMelee)
         {   
             AtacarMelee();
-            tempoProximoMelee = Time.time + meleeCooldown;
+            tempoProximoMelee = Time.time + pc.currentStatus.atqCooldown;
             
         }
     }
@@ -97,7 +99,7 @@ public class WepAtaque : MonoBehaviour
             Vida vida = alvos.GetComponent<Vida>();
             if (vida != null)
             {
-                vida.receberDano(meleeDano);
+                vida.receberDano(pc.currentStatus.danoMelee);
             }
         }
 
