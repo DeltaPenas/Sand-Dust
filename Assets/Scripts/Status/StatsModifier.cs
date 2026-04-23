@@ -6,5 +6,5 @@ using static PlayerStatus;
         public StatsType stat;
         public float valor;
         public bool ehporcentagem;
-        public string nome;
+        public string descrição;
     }
