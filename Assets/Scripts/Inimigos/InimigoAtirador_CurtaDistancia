@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine; 
-public class InimigoAtirador_CurtaDistancia : InimigoRanged // eu fiz ele atirando em cone para dar uma diferenciada
+public class InimigoAtirador_CurtaDistancia : InimigoRanged // eu fiz ele atirando em cone para dar uma diferenciada mas to pensando em trocar a classe pai para de um mele 
 {
     [Header("Ataque")]
     public GameObject projetilPrefab;
