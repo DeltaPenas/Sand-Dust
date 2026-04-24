@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04a8a9ac4b4316409aa666ec7f133b2, type: 3}
+  m_Name: "Runa de Melhoria de range da Skill ou dura\xE7\xE3o"
+  m_EditorClassIdentifier: Assembly-CSharp::Artefato
+  nome: "joia do espa\xE7o"
+  "descri\xE7\xE3o": "Uma joia em constante expans\xE3o (Aumenta o alcance da habilidade
+    em 20%)"
+  icon: {fileID: 889580038, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  bg: {fileID: -1474425900, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  raridade: 0
+  modifiers:
+  - stat: 5
+    valor: 0.2
+    ehporcentagem: 1

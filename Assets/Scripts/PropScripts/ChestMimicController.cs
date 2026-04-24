@@ -17,6 +17,7 @@ public class ChestMimicController : MonoBehaviour
     private PlayerController player;
     private ArtfatoManager artfatoManager;
     private CardSelectionUI cardSelectionUI;
+    
 
     
 
@@ -38,6 +39,7 @@ public class ChestMimicController : MonoBehaviour
             {
                 
                 abrirBau();
+                jaAbriu = true;
             }
             else
             {

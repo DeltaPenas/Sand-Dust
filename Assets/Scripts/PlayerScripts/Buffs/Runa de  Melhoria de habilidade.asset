@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04a8a9ac4b4316409aa666ec7f133b2, type: 3}
   m_Name: Runa de  Melhoria de habilidade
   m_EditorClassIdentifier: Assembly-CSharp::Artefato
-  nome: Furia do guerreio I
+  nome: Runa do guerreiro
+  "descri\xE7\xE3o": Runa furiosa de um lugar distante (+1 Dano geral)
+  icon: {fileID: 1609978836, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  bg: {fileID: -328818069, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  raridade: 1
   modifiers:
   - stat: 4
     valor: 1
     ehporcentagem: 0
-    "descri\xE7\xE3o": Aumenta em +1 o dano bruto da Skill.
+  - stat: 3
+    valor: 1
+    ehporcentagem: 0
+  - stat: 7
+    valor: 1
+    ehporcentagem: 0
+  - stat: 2
+    valor: 1
+    ehporcentagem: 0

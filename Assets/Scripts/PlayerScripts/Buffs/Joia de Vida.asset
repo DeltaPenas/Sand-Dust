@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04a8a9ac4b4316409aa666ec7f133b2, type: 3}
   m_Name: Joia de Vida
   m_EditorClassIdentifier: Assembly-CSharp::Artefato
-  nome: Artefato De Vida
+  nome: 'Joia da vida '
+  "descri\xE7\xE3o": Um cristal de vitalidade (+1 Vida maxima)
+  icon: {fileID: 874815597, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  bg: {fileID: -1474425900, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  raridade: 0
   modifiers:
   - stat: 0
     valor: 1
     ehporcentagem: 0
-    "descri\xE7\xE3o": +1 De vida maxima
