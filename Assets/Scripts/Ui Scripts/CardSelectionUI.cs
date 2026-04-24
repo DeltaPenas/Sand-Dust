@@ -12,6 +12,14 @@ public class CardSelectionUI : MonoBehaviour
         player = FindAnyObjectByType<PlayerController>();
         painel.SetActive(false);
     }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+    {   
+        var manager = FindAnyObjectByType<ArtfatoManager>();
+        MostrarArtefatos(manager.GerarOpções(3));
+    }
+    }
 
     public void MostrarArtefatos(List<Artefato> artefatos)
     {
