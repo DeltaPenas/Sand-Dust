@@ -9,14 +9,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Stats")]
+    
+    
+
     [Header("Skills, Ult e Dash")]
     public SkillBase skillBase;
     public UltBase ultBase;
     public DashBase dashBase;
     [Header("Atributos")]
-    public int vida;
-    public float velocidade;
     public Vector2 ultimadireção;
     public float iframetempo = 0.3F;
     public float iframeTempoBuff = 0;
@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
     public PlayerStatus baseStatus;
     public PlayerStatus currentStatus;
     public List<StatModifier> activeModifiers = new List<StatModifier>();
+    
+    public event Action<GameObject> OnHit;
+    public event System.Action<GameObject> OnRicochete;
+    public event Action OnDash;
+    public event Action OnShot;
     
     
     private void Awake()
@@ -177,6 +182,9 @@ public class PlayerController : MonoBehaviour
             case PlayerStatus.StatsType.forcaDash:
                 Apply(ref currentStatus.forcaDash, mod);
                 break;
+            case PlayerStatus.StatsType.ricochetes:
+                ApplyInt(ref currentStatus.ricochetes, mod);
+                break;
     
         
         }
@@ -187,6 +195,10 @@ public class PlayerController : MonoBehaviour
         stat *= (1 + mod.valor);
     else
         stat += mod.valor;
+    }
+    public void ApplyInt(ref int stat,StatModifier mod)
+    {
+        stat += mod.valorInt;
     }
 
     public void RecalculateStats()
@@ -205,6 +217,14 @@ public class PlayerController : MonoBehaviour
         RecalculateStats();
     }
 
+    public void DispararOnHit(GameObject alvo)
+    {
+        OnHit?.Invoke(alvo);
+    }
+    public void DispararOnRicochete(GameObject alvo)
+    {
+        OnRicochete?.Invoke(alvo);
+    }
 
 
 

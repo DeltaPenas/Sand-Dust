@@ -11,5 +11,6 @@ public class Artefato : ScriptableObject
    public Sprite bg;
    public Raridade raridade;
    public List<StatModifier> modifiers;
+   public List<EfeitoCarta> efeitos;
 
 }

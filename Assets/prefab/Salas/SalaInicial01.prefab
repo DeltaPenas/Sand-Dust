@@ -44,9 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271ad32545b661d43a8900a9321bdb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropSpawner
-  catalogoProps:
-    props:
-    - {fileID: 7423820713619554838, guid: 650e1bc1215e93546925b7d655623180, type: 3}
+  dg: {fileID: 0}
 --- !u!1 &582236416703253144
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 582236416703253144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8541803, y: -5.58076, z: -0.0454054}
+  m_LocalPosition: {x: -8.621818, y: -1.2258207, z: -0.0454054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -111,6 +109,7 @@ MonoBehaviour:
   entrou: 0
   salaLimpa: 0
   qtdInimigosVivos: 0
+  dg: {fileID: 0}
 --- !u!114 &5780465877981447149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,15 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f2105563ae70440a33a0321574b7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
-  inimigoTeste1: {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
-  inimigoTeste2: {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
   areaMin: {x: -2, y: -2}
   areaMax: {x: 2, y: 2}
-  qtdInimigos: 4
-  catalogoInimigos:
-    inimigos:
-    - {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
-    - {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
 --- !u!1 &1848733997081448205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,9 +1299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271ad32545b661d43a8900a9321bdb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropSpawner
-  catalogoProps:
-    props:
-    - {fileID: 7423820713619554838, guid: 650e1bc1215e93546925b7d655623180, type: 3}
+  dg: {fileID: 0}
 --- !u!1 &2665794037788734336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,9 +1390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271ad32545b661d43a8900a9321bdb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropSpawner
-  catalogoProps:
-    props:
-    - {fileID: 7423820713619554838, guid: 650e1bc1215e93546925b7d655623180, type: 3}
+  dg: {fileID: 0}
 --- !u!1 &2970275009390270095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,9 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271ad32545b661d43a8900a9321bdb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropSpawner
-  catalogoProps:
-    props:
-    - {fileID: 7423820713619554838, guid: 650e1bc1215e93546925b7d655623180, type: 3}
+  dg: {fileID: 0}
 --- !u!1 &3437384173802645720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1592,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &3851559032254808048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1749,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &3946131490816676156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,7 +1764,7 @@ GameObject:
   - component: {fileID: 8557398661728619605}
   m_Layer: 0
   m_Name: Paredes
-  m_TagString: Untagged
+  m_TagString: Parede
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2596,6 +2584,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &5286138733669779906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,6 +2741,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &6322185506314844601
 GameObject:
   m_ObjectHideFlags: 0
