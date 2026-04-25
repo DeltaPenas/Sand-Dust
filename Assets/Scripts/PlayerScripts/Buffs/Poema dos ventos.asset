@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04a8a9ac4b4316409aa666ec7f133b2, type: 3}
   m_Name: Poema dos ventos
   m_EditorClassIdentifier: Assembly-CSharp::Artefato
-  nome: Runa dos ventos
-  "descri\xE7\xE3o": 
-  icon: {fileID: 0}
-  bg: {fileID: 0}
-  raridade: 0
+  nome: Poema dos ventos
+  "descri\xE7\xE3o": "Uma can\xE7\xE3o que invoca os ventos (Aumenta mobilidade em
+    20% e dimiui o cooldown do dash em 50%)"
+  icon: {fileID: -246972841, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  bg: {fileID: -328818069, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  raridade: 2
   modifiers:
   - stat: 1
-    valor: 0
-    ehporcentagem: 0
+    valor: 0.2
+    valorInt: 0
+    ehporcentagem: 1
   - stat: 12
-    valor: 0
-    ehporcentagem: 0
+    valor: -0.5
+    valorInt: 0
+    ehporcentagem: 1
+  efeitos: []

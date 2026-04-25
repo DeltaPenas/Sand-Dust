@@ -459,6 +459,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1034858125, guid: 9c39ba1ac784734408331ef6a3a77b7d, type: 3}
+    - target: {fileID: 1990433988479125561, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -138
+      objectReference: {fileID: 0}
     - target: {fileID: 2154878981336572418, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -908,7 +912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -52.299927, y: 26.099976}
+  m_AnchoredPosition: {x: -52.30011, y: 26.099976}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398496981
@@ -1849,7 +1853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.9504185
+      value: -3.28
       objectReference: {fileID: 0}
     - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2750,7 +2754,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArtfatoManager
   database: {fileID: 1405893498}
-  pesos: []
+  pesos:
+  - raridade: 0
+    peso: 40
+  - raridade: 1
+    peso: 30
+  - raridade: 2
+    peso: 20
+  - raridade: 3
+    peso: 10
 --- !u!114 &1405893498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2767,6 +2779,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ab203f3c54a021f4c938ad5370aceaaf, type: 2}
   - {fileID: 11400000, guid: 71aff18aa883cc64f88206731fc9c771, type: 2}
   - {fileID: 11400000, guid: 1338bffc247ab0f4b9e0993b08c3e31a, type: 2}
+  - {fileID: 11400000, guid: decb16973300a4143a38fa0d275e5bf7, type: 2}
+  - {fileID: 11400000, guid: ba0aa971c04f2594184ef5445c456dab, type: 2}
 --- !u!1 &1443126904
 GameObject:
   m_ObjectHideFlags: 0
@@ -3572,8 +3586,6 @@ MonoBehaviour:
   skillBase: {fileID: 1722042933}
   ultBase: {fileID: 1722042931}
   dashBase: {fileID: 1722042934}
-  vida: 3
-  velocidade: 5
   "ultimadire\xE7\xE3o": {x: 0, y: 0}
   iframetempo: 0.3
   iframeTempoBuff: 0
@@ -3592,6 +3604,7 @@ MonoBehaviour:
     danoMelee: 1
     danoRanged: 1
     atqCooldown: 0.5
+    ricochetes: 0
     danoSkill: 3
     rangeSkill: 1
     cooldownSkill: 10
@@ -3606,6 +3619,7 @@ MonoBehaviour:
     danoMelee: 0
     danoRanged: 0
     atqCooldown: 0
+    ricochetes: 0
     danoSkill: 0
     rangeSkill: 0
     cooldownSkill: 0
@@ -4528,6 +4542,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1034858125, guid: 9c39ba1ac784734408331ef6a3a77b7d, type: 3}
+    - target: {fileID: 1990433988479125561, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -138.00002
+      objectReference: {fileID: 0}
     - target: {fileID: 2154878981336572418, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4733,6 +4751,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1034858125, guid: 9c39ba1ac784734408331ef6a3a77b7d, type: 3}
+    - target: {fileID: 1990433988479125561, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -138.00002
+      objectReference: {fileID: 0}
     - target: {fileID: 2154878981336572418, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

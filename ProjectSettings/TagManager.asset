@@ -6,6 +6,7 @@ TagManager:
   tags:
   - inimigo
   - "Ch\xE3o"
+  - Parede
   layers:
   - Default
   - TransparentFX

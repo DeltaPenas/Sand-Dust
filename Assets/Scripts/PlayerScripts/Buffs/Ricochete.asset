@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad96eae40a731c49be60e8c21b94e3a, type: 3}
   m_Name: Ricochete
   m_EditorClassIdentifier: Assembly-CSharp::EfeitoRicochete
-  raioBusca: 5
+  raioBusca: 15
