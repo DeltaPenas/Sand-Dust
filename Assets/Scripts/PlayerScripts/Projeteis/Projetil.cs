@@ -7,14 +7,14 @@ public class Projetil : MonoBehaviour
     private Vector2 direcao;
     private WepAtaque wp;
 
-    private float vidaProjetil;
+    public float vidaProjetil;
     private int ricochetesRestantes;
 
     private void Start()
     {
         wp = FindAnyObjectByType<WepAtaque>();
 
-        vidaProjetil = wp.pc.currentStatus.danoRanged;
+        
 
         // pega do player 
         ricochetesRestantes = wp.pc.currentStatus.ricochetes;
@@ -34,6 +34,7 @@ public class Projetil : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D alvo)
     {
+        vidaProjetil = wp.pc.currentStatus.danoRanged;
         // acertou o inimigo
         if (alvo.CompareTag("inimigo"))
         {
@@ -46,7 +47,7 @@ public class Projetil : MonoBehaviour
                 vida.receberDano(dano);
                 wp.pc.DispararOnHit(alvo.gameObject);
 
-                vidaProjetil -= dano;
+                vidaProjetil -= vida.vidaAtual;
             }
 
             if (vidaProjetil <= 0)
