@@ -18,6 +18,9 @@ public class PlayerVida : MonoBehaviour
         player = FindAnyObjectByType<PlayerController>();
         heartUi = FindAnyObjectByType<HeartUi>();
         definirVida();
+        player = FindAnyObjectByType<PlayerController>();
+
+        player.OnVidaMaxChanged += AtualizarVida;
         
     }
 
@@ -27,6 +30,11 @@ public class PlayerVida : MonoBehaviour
         playerVidaTotal = playerVidaAtual;
         heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
         
+    }
+    void AtualizarVida(float novaVidaMax)
+    {
+    definirVida(); // seu método
+    Debug.Log("Vida atualizada!");
     }
 
     public void DarDanoPlayer(float dano)

@@ -36,6 +36,6 @@ public class CardUI : MonoBehaviour
     public void OnClick()
     {
         manager.SelecionarArtefato(artefato);
-        pv.definirVida();
+        
     }
 }

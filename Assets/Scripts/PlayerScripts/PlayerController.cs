@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     
     public event Action<GameObject> OnHit;
     public event System.Action<GameObject> OnRicochete;
+    public event System.Action<float> OnVidaMaxChanged;
     public event Action OnDash;
     public event Action OnShot;
     
@@ -203,11 +204,17 @@ public class PlayerController : MonoBehaviour
 
     public void RecalculateStats()
     {
+        float vidaAntiga = currentStatus.vidaMax;
+
         currentStatus = baseStatus.Clone();
         foreach (var mod in activeModifiers)
     {
         AplicarModificacao(mod);
     }
+        if (currentStatus.vidaMax != vidaAntiga)
+        {
+        OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
+        }
 
     }
 
