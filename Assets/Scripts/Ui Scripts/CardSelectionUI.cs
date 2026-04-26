@@ -44,6 +44,10 @@ public class CardSelectionUI : MonoBehaviour
         {
             player.AddModifier(mod);
         }
+        foreach (var efeito in artefato.efeitos)
+        {
+            player.AddEfeito(efeito);
+        }
         Fechar();
     }
     public void Fechar()

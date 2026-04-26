@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public PlayerStatus baseStatus;
     public PlayerStatus currentStatus;
     public List<StatModifier> activeModifiers = new List<StatModifier>();
+    private HashSet<System.Type> efeitosRegistrados = new HashSet<System.Type>();
     
     public event Action<GameObject> OnHit;
     public event System.Action<GameObject> OnRicochete;
@@ -223,6 +224,19 @@ public class PlayerController : MonoBehaviour
         activeModifiers.Add(mod);
         RecalculateStats();
     }
+   public void AddEfeito(EfeitoCarta efeito)
+    {
+        var tipo = efeito.GetType();
+
+        if (efeitosRegistrados.Contains(tipo))
+            return;
+
+        efeitosRegistrados.Add(tipo);
+
+        Debug.Log("Aplicando efeito: " + tipo.Name);
+
+        efeito.Aplicar(this);
+    }
 
     public void DispararOnHit(GameObject alvo)
     {
@@ -231,6 +245,10 @@ public class PlayerController : MonoBehaviour
     public void DispararOnRicochete(GameObject alvo)
     {
         OnRicochete?.Invoke(alvo);
+    }
+    public void DispararOnDash()
+    {
+    OnDash?.Invoke();
     }
 
 

@@ -30,13 +30,14 @@ public abstract class DashBase : MonoBehaviour
         if (podeUsarDash())
         {
             StartCoroutine(ExecutarDash());
+            
             ultimoUso = Time.time;
         }
     }
 
     private IEnumerator ExecutarDash()
     {
-        
+        pc.DispararOnDash();
         pc.podeMover = false;
         
 

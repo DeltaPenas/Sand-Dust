@@ -7,16 +7,19 @@ public class Projetil : MonoBehaviour
     private Vector2 direcao;
     private WepAtaque wp;
 
-    public float vidaProjetil;
+    private float vidaProjetil;
     private int ricochetesRestantes;
+    public bool podeGerarRicocheteExtra = true;
 
-    private void Start()
+    private bool jaDisparouRicochete = false; // 🔥 trava de evento
+
+    void Start()
     {
         wp = FindAnyObjectByType<WepAtaque>();
 
-        
+        float dano = wp.pc.currentStatus.danoRanged;
 
-        // pega do player 
+        vidaProjetil = dano; // ✔ define UMA VEZ
         ricochetesRestantes = wp.pc.currentStatus.ricochetes;
 
         Destroy(gameObject, 10f);
@@ -27,15 +30,14 @@ public class Projetil : MonoBehaviour
         direcao = novaDireção.normalized;
     }
 
-    private void Update()
+    void Update()
     {
         transform.Translate(direcao * velocidade * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D alvo)
+    void OnTriggerEnter2D(Collider2D alvo)
     {
-        vidaProjetil = wp.pc.currentStatus.danoRanged;
-        // acertou o inimigo
+        // 🔥 INIMIGO
         if (alvo.CompareTag("inimigo"))
         {
             Vida vida = alvo.GetComponent<Vida>();
@@ -47,7 +49,7 @@ public class Projetil : MonoBehaviour
                 vida.receberDano(dano);
                 wp.pc.DispararOnHit(alvo.gameObject);
 
-                vidaProjetil -= vida.vidaAtual;
+                vidaProjetil -= dano; // ✔ CORRETO
             }
 
             if (vidaProjetil <= 0)
@@ -59,7 +61,7 @@ public class Projetil : MonoBehaviour
             TentarRicochete(alvo);
         }
 
-        // bateu na parede
+        // 🔥 PAREDE
         else if (alvo.CompareTag("Parede"))
         {
             TentarRicochete(alvo);
@@ -68,7 +70,11 @@ public class Projetil : MonoBehaviour
 
     void TentarRicochete(Collider2D alvo)
 {
-    wp.pc.DispararOnRicochete(gameObject);
+    if (podeGerarRicocheteExtra)
+    {
+        podeGerarRicocheteExtra = false;
+        wp.pc.DispararOnRicochete(gameObject);
+    }
 
     if (ricochetesRestantes <= 0)
     {
