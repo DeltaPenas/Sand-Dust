@@ -37,7 +37,7 @@ public class Projetil : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D alvo)
     {
-        // 🔥 INIMIGO
+        
         if (alvo.CompareTag("inimigo"))
         {
             Vida vida = alvo.GetComponent<Vida>();
@@ -61,7 +61,7 @@ public class Projetil : MonoBehaviour
             TentarRicochete(alvo);
         }
 
-        // 🔥 PAREDE
+        
         else if (alvo.CompareTag("Parede"))
         {
             TentarRicochete(alvo);
