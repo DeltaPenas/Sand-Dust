@@ -88,5 +88,7 @@ public class Projetil : MonoBehaviour
     Vector2 normal = (transform.position - (Vector3)ponto).normalized;
 
     direcao = Vector2.Reflect(direcao, normal);
+
+    
 }
 }

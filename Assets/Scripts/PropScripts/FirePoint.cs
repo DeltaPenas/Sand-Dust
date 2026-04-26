@@ -9,23 +9,17 @@ public class FirePoint : MonoBehaviour
         Destroy(gameObject, 2f);
     }
     
-    void OnTriggerStay(Collision2D alvo)
+    void OnTriggerEnter2D(Collider2D alvo)
     {
-        Vida vida = alvo.gameObject.GetComponent<Vida>();
-
-        while(alvo.gameObject.CompareTag("inimigo"))
+        
+        if (alvo.CompareTag("inimigo"))
         {
-            StartCoroutine(darDanoDeFogo(vida));
+            Vida vida = alvo.GetComponent<Vida>();
+
             
         }
-    }
 
-    IEnumerator darDanoDeFogo(Vida vida)
-    {
-                
-        yield return new WaitForSeconds (0.02f);
-        vida.receberDano(5f);
+    
 
-    }
-
+}
 }
