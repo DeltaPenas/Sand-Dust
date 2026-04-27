@@ -6,6 +6,7 @@ public class RunManager : MonoBehaviour
 {
     
     public static RunManager Instance;
+    private RunInfos runInfos;
 
     public RunState currentState = RunState.None;
     public RunData currentRun = new RunData();
@@ -16,9 +17,12 @@ public class RunManager : MonoBehaviour
     // Quando inimigo morre: RunManager.Instance.currentRun.inimigosMortos++;
     // Quando pegarXp: RunManager.Instance.currentRun.xpColetado += valor;
     // Quando o Player for de chapeu: RunManager.Instance.EndRun();
+    // Implementar algumas informações no RunManager do RunInfos
+    
 
     void Awake()
     {
+        runInfos = FindAnyObjectByType<RunInfos>();
         if(Instance == null)
         {
             Instance = null;

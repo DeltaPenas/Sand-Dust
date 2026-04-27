@@ -135,15 +135,16 @@ public class PortaTrigger : MonoBehaviour
         
 
     }
-    IEnumerator SequenciaTeleporte(Transform alvo)
-    {
+   IEnumerator SequenciaTeleporte(Transform alvo)
+{
     player.emTeleporte = true;
     player.iframeAtivo = true;
     player.podeMover = false;
-    player.podeMover = false;
+
+    
+    player.rig.linearVelocity = Vector2.zero;
 
     tt.FadeOut();
-
     yield return new WaitForSeconds(0.8f);
 
     Teleportar(alvo);

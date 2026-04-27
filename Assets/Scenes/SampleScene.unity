@@ -130,6 +130,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &81581775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
+  m_PrefabInstance: {fileID: 610994926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &81581782 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6091444866406314023, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
+  m_PrefabInstance: {fileID: 610994926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &81581783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81581775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77213f2f6f7fef1479fd44de58fcfd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InimigoAtirador_CurtaDistancia
+  velocidade: 0.7
+  distanciaParada: 1.5
+  distanciaDeteccaoObstaculo: 1.5
+  layerObstaculos:
+    serializedVersion: 2
+    m_Bits: 1
+  tempoDesvio: 0.7
+  inimigoController: {fileID: 0}
+  projetilPrefab: {fileID: 3763594769991435249, guid: 0bcc400258daaaa43881da455c2ba60b, type: 3}
+  pontoDisparo: {fileID: 81581782}
+  quantidadeTiros: 5
+  anguloTotal: 60
+  tempoEntreAtaques: 2
 --- !u!1 &232779885
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -52.30011, y: 26.099976}
+  m_AnchoredPosition: {x: -52.30017, y: 26.099976}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398496981
@@ -1162,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 6437413254702261527, guid: c889c26ab43e2754aa1543f74fb947d2, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: isDevMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: lm.m_Bits
@@ -1243,7 +1278,7 @@ PrefabInstance:
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoInimigos.inimigos.Array.data[0]'
       value: 
-      objectReference: {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
+      objectReference: {fileID: 5844461690707922050, guid: 2863aaedce4d78d44a5b272b3c63c611, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoInimigos.inimigos.Array.data[1]'
       value: 
@@ -1278,12 +1313,16 @@ PrefabInstance:
       objectReference: {fileID: 582236416703253144, guid: bbe153ab28770914f9ceeda5653606d9, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoInimigos.inimigosDeElite.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoInimigos.inimigosDeElite.Array.data[0]'
       value: 
       objectReference: {fileID: 1821935942732819040, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigos.inimigosDeElite.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6350164024126544244, guid: 71240aeadc08b6b46a167cdf082e9a1b, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoInimigos.inimigosInvocaveisPeloInvocadordeInimigos.Array.size
       value: 1
@@ -1291,14 +1330,14 @@ PrefabInstance:
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoInimigos.inimigosInvocaveisPeloInvocadordeInimigos.Array.data[0]'
       value: 
-      objectReference: {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
+      objectReference: {fileID: 5844461690707922050, guid: 2863aaedce4d78d44a5b272b3c63c611, type: 3}
     - target: {fileID: 8252068834370362281, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_Name
       value: gerador de salas
       objectReference: {fileID: 0}
     - target: {fileID: 8252068834370362281, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8252068834370362281, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_TagString
@@ -1362,7 +1401,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
       propertyPath: m_Name
-      value: InimgoAtirador
+      value: InimgoAtiradorCurta
       objectReference: {fileID: 0}
     - target: {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
       propertyPath: m_IsActive
@@ -1408,10 +1447,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7364180466422305743, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 81581783}
   m_SourcePrefab: {fileID: 100100000, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
 --- !u!1 &665079722
 GameObject:
@@ -1835,67 +1878,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888824802}
   m_CullTransparentMesh: 1
---- !u!1001 &917354857
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3790245494798129474, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_Name
-      value: Bau
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790245494798129474, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.6494093
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0454054
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4321659035894873509, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
 --- !u!1 &926671939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,6 +3528,7 @@ GameObject:
   - component: {fileID: 1722042931}
   - component: {fileID: 1722042934}
   - component: {fileID: 1722042929}
+  - component: {fileID: 1722042940}
   - component: {fileID: 1722042935}
   m_Layer: 6
   m_Name: player
@@ -3568,6 +3551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVida
   player: {fileID: 1722042928}
   heartUi: {fileID: 472266548}
+  dv: {fileID: 1722042940}
   playerVidaTotal: 0
   playerVidaAtual: 0
   playerIsEnvenenado: 0
@@ -3916,8 +3900,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28125, y: 0.515625}
-    newSize: {x: 0.28125, y: 0.515625}
+    oldSize: {x: 0.25, y: 0.515625}
+    newSize: {x: 0.25, y: 0.515625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -3978,7 +3962,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.25, y: 0.515625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -4001,6 +3985,21 @@ Transform:
   - {fileID: 1934595766}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1722042940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722042926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfed446a9a842b84196f2c04f40c5f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DanoVisual
+  spriteRenderer: {fileID: 0}
+  duracao: 0.1
+  intervalo: 0.1
 --- !u!114 &1734715120 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 93535736130822023, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
@@ -4923,4 +4922,3 @@ SceneRoots:
   - {fileID: 1080343654}
   - {fileID: 1499274416}
   - {fileID: 610994926}
-  - {fileID: 917354857}

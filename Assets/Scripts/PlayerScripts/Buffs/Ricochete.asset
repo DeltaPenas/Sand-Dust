@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad96eae40a731c49be60e8c21b94e3a, type: 3}
   m_Name: Ricochete
   m_EditorClassIdentifier: Assembly-CSharp::EfeitoRicochete
-  raioBusca: 15
+  raioBusca: 5
   prefabProjetil: {fileID: 1312992710952849393, guid: a02da886f3b45914ebe89e78aca4aa69, type: 3}
