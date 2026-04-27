@@ -5,6 +5,7 @@ public class PlayerVida : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
     [SerializeField] private HeartUi heartUi;
+    [SerializeField] private DanoVisual dv;
 
     public float playerVidaTotal;
     public float playerVidaAtual;
@@ -45,6 +46,10 @@ public class PlayerVida : MonoBehaviour
 
         // Garante que a vida nunca fique abaixo de 0
         playerVidaAtual = Mathf.Max(playerVidaAtual - dano, 0);
+        if (dv != null)
+        {
+            dv.TomouDano();
+        }
 
         if (playerVidaAtual <= 0)
         {
@@ -89,3 +94,4 @@ public class PlayerVida : MonoBehaviour
         coroutineIframeRodando = false;
     }
 }
+

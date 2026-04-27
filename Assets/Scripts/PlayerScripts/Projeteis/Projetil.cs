@@ -11,7 +11,7 @@ public class Projetil : MonoBehaviour
     private int ricochetesRestantes;
     public bool podeGerarRicocheteExtra = true;
 
-    private bool jaDisparouRicochete = false; // 🔥 trava de evento
+    private bool jaDisparouRicochete = false; 
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class Projetil : MonoBehaviour
 
         float dano = wp.pc.currentStatus.danoRanged;
 
-        vidaProjetil = dano; // ✔ define UMA VEZ
+        vidaProjetil = dano;
         ricochetesRestantes = wp.pc.currentStatus.ricochetes;
 
         Destroy(gameObject, 10f);
@@ -49,7 +49,7 @@ public class Projetil : MonoBehaviour
                 vida.receberDano(dano);
                 wp.pc.DispararOnHit(alvo.gameObject);
 
-                vidaProjetil -= dano; // ✔ CORRETO
+                vidaProjetil -= dano; 
             }
 
             if (vidaProjetil <= 0)

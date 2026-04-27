@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ab196845befeb4d857a6f333e2209b, type: 3}
   m_Name: New Efeito Dash De Fogo
   m_EditorClassIdentifier: Assembly-CSharp::EfeitoDashDeFogo
+  fogoObj: {fileID: 7566871062168443071, guid: 4c12ff11634db804cb5b3a3154ceb5ef, type: 3}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1390513977184564688}
   - component: {fileID: 3565101670518375407}
   - component: {fileID: 5769403877980526117}
+  - component: {fileID: 6213565244641008712}
   - component: {fileID: 1658454140603093877}
   - component: {fileID: 6806921391530972261}
   - component: {fileID: 8377498778611319140}
@@ -33,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 6057550922525569968}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3401413, y: 0.8605871, z: 0}
+  m_LocalPosition: {x: -3.6164355, y: -1.0880225, z: 0}
   m_LocalScale: {x: 1.4579927, y: 1.4579927, z: 1.4579927}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -132,7 +133,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.012284085, y: -0.012284368}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -142,7 +143,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8116375, y: 0.7952587}
   m_EdgeRadius: 0
 --- !u!114 &1390513977184564688
 MonoBehaviour:
@@ -159,6 +160,8 @@ MonoBehaviour:
   vidaTotal: 5
   vidaAtual: 0
   morreu: 0
+  pegandoFogo: 0
+  dv: {fileID: 0}
 --- !u!114 &3565101670518375407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,11 +175,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoPerseguidor
   player: {fileID: 0}
+  anim: {fileID: 0}
   "for\xE7aDashInimigo": 5
   capazDash: 1
   velocidade: 1
   distanciaParada: 0
-  distanciaDeteccaoObstaculo: 1.5
+  distanciaDeteccaoObstaculo: 4
   layerObstaculos:
     serializedVersion: 2
     m_Bits: 1
@@ -196,8 +200,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589d890c8176f1b4bb9696135cd35207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoController
+  vidaInimigo: {fileID: 0}
   scoreDoInimigo: 1
   anim: {fileID: 6806921391530972261}
+--- !u!114 &6213565244641008712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057550922525569968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfed446a9a842b84196f2c04f40c5f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteFlash
+  spriteRenderer: {fileID: 0}
+  duracao: 0.1
+  intervalo: 0.1
 --- !u!50 &1658454140603093877
 Rigidbody2D:
   serializedVersion: 5
