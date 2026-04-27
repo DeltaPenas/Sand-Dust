@@ -12,7 +12,10 @@ public class RunManager : MonoBehaviour
 
     private float tempoInicioRun;
 
-    //Rapaziada, Quando formos criar as cenas, seguir o Nome Daqui, os nomes estão em SceneManager.LoadScene
+    //Rapaziada, Quando formos criar as cenas, seguir os nomes daqui, os nomes estão em SceneManager.LoadScene
+    // Quando inimigo morre: RunManager.Instance.currentRun.inimigosMortos++;
+    // Quando pegarXp: RunManager.Instance.currentRun.xpColetado += valor;
+    // Quando o Player for de chapeu: RunManager.Instance.EndRun();
 
     void Awake()
     {
