@@ -49,7 +49,7 @@ public abstract class InimigoBase : MonoBehaviour // isso é a minha tentativa d
         Movimento();
     }
 
-    // 🔥 Cada inimigo decide o que fazer
+    
     protected abstract void Comportamento();
 
     protected virtual void Movimento()
