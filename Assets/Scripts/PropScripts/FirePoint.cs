@@ -9,7 +9,7 @@ public class FirePoint : MonoBehaviour
     {
         pc = FindAnyObjectByType<PlayerController>();
         danoDeFogoInicial = pc.currentStatus.danoRanged;
-        Destroy(gameObject, 6f);
+        Destroy(gameObject, 3f);
         
     }
     

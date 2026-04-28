@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InimigoPerseguidor
   player: {fileID: 0}
   anim: {fileID: 0}
-  "for\xE7aDashInimigo": 0
+  "for\xE7aDashInimigo": 1
   capazDash: 1
   velocidade: 2
   distanciaParada: 0

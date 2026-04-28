@@ -31,9 +31,9 @@ public class EfeitoDashDeFogo : EfeitoCarta
      
         public IEnumerator SpawnarFogo(PlayerController player)
         {   
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < 8; i++)
         {
-            yield return new WaitForSeconds (0.02f);
+            yield return new WaitForSeconds (0.03f);
             GameObject fogo = Instantiate(
                 fogoObj,
                 player.transform.position,
