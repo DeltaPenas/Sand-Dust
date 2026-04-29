@@ -1,35 +1,36 @@
 using UnityEngine;
 
-public class ProjetilInimigo : MonoBehaviour
+public class ProjetilInimigo : MonoBehaviour // fiz mudanças para o projetil evitar depender do inimigo e 
+// evitar algum bug
 {
-    private Vector2 direcao;
-    private InimigoAtirador ia;
-    
+private Vector2 direcao;
+private float velocidade;
+private int dano;
 
-
-    private void Start()
+private void Start()
     {
-        ia = FindAnyObjectByType<InimigoAtirador>();
-        Destroy(gameObject, 3f); 
+        Destroy(gameObject, 3f);
     }
 
-    public void definirDireção(Vector2 novaDireção)
+public void Inicializar(Vector2 direcaoInicial, float velocidadeProjetil, int danoProjetil)
     {
-        direcao = novaDireção.normalized;
+        direcao = direcaoInicial.normalized;
+        velocidade = velocidadeProjetil;
+        dano = danoProjetil;
     }
 
-    private void Update()
+private void Update()
     {
-        transform.Translate(direcao * ia.velocidadeProjetil * Time.deltaTime);
+        transform.Translate(direcao * velocidade * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D alvo)
+private void OnTriggerEnter2D(Collider2D alvo)
     {
         PlayerVida vida = alvo.GetComponent<PlayerVida>();
 
         if (vida != null)
         {
-            vida.DarDanoPlayer(ia.dano);
+            vida.DarDanoPlayer(dano);
         }
 
         if (!alvo.CompareTag("inimigo") && !alvo.CompareTag("Chão"))

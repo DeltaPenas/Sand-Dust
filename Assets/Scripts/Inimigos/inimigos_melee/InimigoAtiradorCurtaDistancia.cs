@@ -1,0 +1,67 @@
+using UnityEngine;
+
+public class InimigoAtiradorCurtaDistancia : InimigoBase //eu fiz ele atirando em cone para dar uma diferenciada para simular uma escopeta  
+{
+[Header("Ataque")]
+public GameObject projetilPrefab;
+public Transform pontoDisparo;
+
+public int quantidadeTiros = 5;
+public float anguloTotal = 60f;
+public float tempoEntreAtaques = 2f;
+
+public float distanciaAtaque = 2f;
+public float velocidadeProjetil;
+public int dano;
+
+private float tempoProximoAtaque;
+
+protected override void Comportamento()
+    {
+        if (player == null) return;
+
+        float distancia = Vector2.Distance(transform.position, player.position);
+
+        if (distancia <= distanciaAtaque && Time.time >= tempoProximoAtaque)
+        {
+            AtirarEmCone();
+            tempoProximoAtaque = Time.time + tempoEntreAtaques;
+        }
+    }
+
+protected override Vector2 DirecaoBase()
+    {
+        float distancia = Vector2.Distance(transform.position, player.position);
+
+        if (distancia > distanciaAtaque)
+            return (player.position - transform.position).normalized;
+
+        return Vector2.zero; // isso diz que o iniigo tem que parar para atirar no player 
+    }
+
+void AtirarEmCone()
+    {
+        if (projetilPrefab == null || pontoDisparo == null) return;
+
+        Vector2 direcaoBase = (player.position - pontoDisparo.position).normalized;
+
+        float anguloInicial = -anguloTotal / 2f;
+        float incremento = (quantidadeTiros > 1) ? anguloTotal / (quantidadeTiros - 1) : 0;
+
+        for (int i = 0; i < quantidadeTiros; i++)
+        {
+            float angulo = anguloInicial + (incremento * i);
+
+            Vector2 direcaoRotacionada = Quaternion.Euler(0, 0, angulo) * direcaoBase;
+
+            GameObject proj = Instantiate(projetilPrefab, pontoDisparo.position, Quaternion.identity);
+
+            ProjetilInimigo p = proj.GetComponent<ProjetilInimigo>();
+
+            if (p != null)
+            {
+                p.Inicializar(direcaoRotacionada, velocidadeProjetil, dano);
+            }
+        }
+    }
+}

@@ -3,28 +3,29 @@ using UnityEngine;
 public abstract class InimigoBase : MonoBehaviour // isso é a minha tentativa de criar uma classe pai unica tanto para mele quanto para ranged 
 // pq achei meio redundante criar uma classe pai para cada tipo de inimigo, mas se for necessário eu posso separar tranquilo
 {
-    [Header("Referências")]
-    protected Transform player;
-    protected PlayerVida vidaDoPlayer;
-    protected Rigidbody2D rb;
-    protected Vida vida;
+[Header("Referências")]
+[HideInInspector] public InimigoInvocador invocador;
+protected Transform player;
+protected PlayerVida vidaDoPlayer;
+protected Rigidbody2D rb;
+protected Vida vida;
 
-    [Header("Movimento")]
-    public float velocidade = 1f;
+[Header("Movimento")]
+public float velocidade = 1f;
 
-    [Header("Distâncias")]
-    public float distanciaParada = 1.5f;
+[Header("Distâncias")]
+public float distanciaParada = 1.5f;
 
-    [Header("Desvio")]
-    public float distanciaDeteccaoObstaculo = 1.5f;
-    public LayerMask layerObstaculos;
+[Header("Desvio")]
+public float distanciaDeteccaoObstaculo = 1.5f;
+public LayerMask layerObstaculos;
 
-    [Header("Persistência Desvio")]
-    public float tempoDesvio = 0.7f;
-    protected Vector2 direcaoDesvioAtual;
-    protected float fimDesvio;
+[Header("Persistência Desvio")]
+public float tempoDesvio = 0.7f;
+protected Vector2 direcaoDesvioAtual;
+protected float fimDesvio;
 
-    protected virtual void Start()
+protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         vida = GetComponent<Vida>();
@@ -37,22 +38,22 @@ public abstract class InimigoBase : MonoBehaviour // isso é a minha tentativa d
         }
     }
 
-    protected virtual void Update()
+protected virtual void Update()
     {
         if (player == null) return;
         Comportamento();
     }
 
-    protected virtual void FixedUpdate()
+protected virtual void FixedUpdate()
     {
         if (player == null) return;
         Movimento();
     }
 
     // 🔥 Cada inimigo decide o que fazer
-    protected abstract void Comportamento();
+protected abstract void Comportamento();
 
-    protected virtual void Movimento()
+protected virtual void Movimento()
     {
         float distancia = Vector2.Distance(rb.position, player.position);
 
@@ -69,12 +70,12 @@ public abstract class InimigoBase : MonoBehaviour // isso é a minha tentativa d
     }
 
     // 🔹 Pode ser sobrescrito (ex: ranged foge, melee aproxima)
-    protected virtual Vector2 DirecaoBase()
+protected virtual Vector2 DirecaoBase()
     {
         return (player.position - transform.position).normalized;
     }
 
-    protected Vector2 ObterDirecaoComDesvio(Vector2 direcaoBase)
+protected Vector2 ObterDirecaoComDesvio(Vector2 direcaoBase)
     {
         if (Time.time < fimDesvio)
             return direcaoDesvioAtual;

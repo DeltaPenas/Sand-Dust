@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589d890c8176f1b4bb9696135cd35207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoController
+  vidaInimigo: {fileID: 0}
   scoreDoInimigo: 1
   anim: {fileID: 0}
 --- !u!114 &7364180466422305743
@@ -183,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe6de00e20699d468611204596c9abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoAtirador
+  invocador: {fileID: 0}
   velocidade: 0.7
   distanciaParada: 1.5
   distanciaDeteccaoObstaculo: 1.5
