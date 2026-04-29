@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04a8a9ac4b4316409aa666ec7f133b2, type: 3}
+  m_Name: "Semente de minar\xE3"
+  m_EditorClassIdentifier: Assembly-CSharp::Artefato
+  nome: "Semente de minar\xE3"
+  "descri\xE7\xE3o": "Cria uma explos\xE3o no seu impulso"
+  icon: {fileID: -430228228, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  bg: {fileID: 2109942213, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  raridade: 3
+  modifiers: []
+  efeitos:
+  - {fileID: 11400000, guid: ca544bf82459fa1419ff4661d17e49cc, type: 2}

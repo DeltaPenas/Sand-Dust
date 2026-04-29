@@ -156,6 +156,8 @@ MonoBehaviour:
   vidaTotal: 1
   vidaAtual: 0
   morreu: 0
+  pegandoFogo: 0
+  dv: {fileID: 0}
 --- !u!50 &1759135429700531133
 Rigidbody2D:
   serializedVersion: 5
@@ -197,5 +199,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ExplosiveController
   dano: 4
   areaExpo: 2
-  explosionVFX: {fileID: 3734534056077496601, guid: 497c9b2a08adaa84ba7e8ae072e82bf1, type: 3}
+  explosionVFX: {fileID: 4287076345748994935, guid: 497c9b2a08adaa84ba7e8ae072e82bf1, type: 3}
   explosionSFX: {fileID: 8300000, guid: 2c1bd58f25a7dda40b378d32929ff577, type: 3}

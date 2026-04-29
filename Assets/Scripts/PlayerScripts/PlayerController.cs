@@ -9,14 +9,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Stats")]
+    
+    
+
     [Header("Skills, Ult e Dash")]
     public SkillBase skillBase;
     public UltBase ultBase;
     public DashBase dashBase;
     [Header("Atributos")]
-    public int vida;
-    public float velocidade;
     public Vector2 ultimadireção;
     public float iframetempo = 0.3F;
     public float iframeTempoBuff = 0;
@@ -35,6 +35,13 @@ public class PlayerController : MonoBehaviour
     public PlayerStatus baseStatus;
     public PlayerStatus currentStatus;
     public List<StatModifier> activeModifiers = new List<StatModifier>();
+    private HashSet<System.Type> efeitosRegistrados = new HashSet<System.Type>();
+    
+    public event Action<GameObject> OnHit;
+    public event System.Action<GameObject> OnRicochete;
+    public event System.Action<float> OnVidaMaxChanged;
+    public event Action OnDash;
+    public event Action OnShot;
     
     
     private void Awake()
@@ -177,6 +184,9 @@ public class PlayerController : MonoBehaviour
             case PlayerStatus.StatsType.forcaDash:
                 Apply(ref currentStatus.forcaDash, mod);
                 break;
+            case PlayerStatus.StatsType.ricochetes:
+                ApplyInt(ref currentStatus.ricochetes, mod);
+                break;
     
         
         }
@@ -188,14 +198,24 @@ public class PlayerController : MonoBehaviour
     else
         stat += mod.valor;
     }
+    public void ApplyInt(ref int stat,StatModifier mod)
+    {
+        stat += mod.valorInt;
+    }
 
     public void RecalculateStats()
     {
+        float vidaAntiga = currentStatus.vidaMax;
+
         currentStatus = baseStatus.Clone();
         foreach (var mod in activeModifiers)
     {
         AplicarModificacao(mod);
     }
+        if (currentStatus.vidaMax != vidaAntiga)
+        {
+        OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
+        }
 
     }
 
@@ -204,7 +224,32 @@ public class PlayerController : MonoBehaviour
         activeModifiers.Add(mod);
         RecalculateStats();
     }
+   public void AddEfeito(EfeitoCarta efeito)
+    {
+        var tipo = efeito.GetType();
 
+        if (efeitosRegistrados.Contains(tipo))
+            return;
+
+        efeitosRegistrados.Add(tipo);
+
+        Debug.Log("Aplicando efeito: " + tipo.Name);
+
+        efeito.Aplicar(this);
+    }
+
+    public void DispararOnHit(GameObject alvo)
+    {
+        OnHit?.Invoke(alvo);
+    }
+    public void DispararOnRicochete(GameObject alvo)
+    {
+        OnRicochete?.Invoke(alvo);
+    }
+    public void DispararOnDash()
+    {
+    OnDash?.Invoke();
+    }
 
 
 

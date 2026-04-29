@@ -11,6 +11,7 @@ public class PlayerStatus
     public float danoMelee;
     public float danoRanged;
     public float atqCooldown;
+    public int ricochetes;
 
     [Header("Skill")]
     public float danoSkill;
@@ -45,7 +46,9 @@ public class PlayerStatus
         cooldownUlt = cooldownUlt,
         atqCooldown = atqCooldown,
         forcaDash = forcaDash,
-        dashCooldown = dashCooldown
+        dashCooldown = dashCooldown,
+        ricochetes = ricochetes
+        
         
     };
 }
@@ -63,7 +66,9 @@ public class PlayerStatus
         cooldownUlt,
         atqCooldown,
         forcaDash,
-        dashCooldown
+        dashCooldown,
+        ricochetes
+        
         
     }
 }

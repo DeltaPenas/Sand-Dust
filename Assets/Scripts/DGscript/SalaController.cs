@@ -99,6 +99,7 @@ public class SalaController : MonoBehaviour
         salaLimpa = true;
         runInfos.playerScore +=1;
         runInfos.salasConcluidas+=1;
+        RunManager.Instance.AddSala();
 
         foreach (PortaTrigger porta in portas)
         {

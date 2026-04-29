@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 582236416703253144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.432432, y: -38.993256, z: -0.0454054}
+  m_LocalPosition: {x: -2.251137, y: 1.009151, z: -0.0454054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61,6 +61,7 @@ MonoBehaviour:
   entrou: 0
   salaLimpa: 0
   qtdInimigosVivos: 0
+  dg: {fileID: 0}
 --- !u!114 &5780465877981447149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,15 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f2105563ae70440a33a0321574b7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
-  inimigoTeste1: {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
-  inimigoTeste2: {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
   areaMin: {x: -2, y: -2}
   areaMax: {x: 2, y: 2}
-  qtdInimigos: 0
-  catalogoInimigos:
-    inimigos:
-    - {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
-    - {fileID: 3244443420763268584, guid: 26fffdf97edf29b429f40161a59c4b8b, type: 3}
 --- !u!1 &1848733997081448205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1409,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &3790245494798129474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,13 +1421,12 @@ GameObject:
   - component: {fileID: 4321659035894873509}
   - component: {fileID: 5491476759118014888}
   - component: {fileID: 6314389976147113311}
-  - component: {fileID: 4845600106991751192}
   - component: {fileID: 6711109602172445303}
   - component: {fileID: 2989229159450076841}
   - component: {fileID: 2231823118481033154}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bau
-  m_TagString: inimigo
+  m_TagString: Parede
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1557,21 +1551,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.0753303, y: 2.0285769}
   m_EdgeRadius: 0
---- !u!114 &4845600106991751192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3790245494798129474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c4c9e9d4eba00843b7e8fb458d67968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaTotal: 1
-  vidaAtual: 0
-  morreu: 0
 --- !u!50 &6711109602172445303
 Rigidbody2D:
   serializedVersion: 5
@@ -1614,6 +1593,7 @@ MonoBehaviour:
   mimico: {fileID: 6057550922525569968, guid: 581a749750a2e6f41b0e28b0127c1f3d, type: 3}
   num: 20
   taDentro: 0
+  jaAbriu: 0
   "\xE9Mimico": 0
 --- !u!58 &2231823118481033154
 CircleCollider2D:
@@ -1807,6 +1787,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &3946131490816676156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,7 +1802,7 @@ GameObject:
   - component: {fileID: 8557398661728619605}
   m_Layer: 0
   m_Name: Paredes
-  m_TagString: Untagged
+  m_TagString: Parede
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2641,6 +2622,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &5286138733669779906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,6 +2779,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &6322185506314844601
 GameObject:
   m_ObjectHideFlags: 0

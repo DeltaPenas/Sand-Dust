@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Vida : MonoBehaviour
@@ -5,6 +6,11 @@ public class Vida : MonoBehaviour
     public float vidaTotal = 5;
     public float vidaAtual;
     public bool morreu;
+    public bool pegandoFogo = false;
+    private SpriteRenderer sr;
+    [SerializeField] private DanoVisual dv;
+    public int xpDrop = 1;
+
     
     
 
@@ -12,8 +18,41 @@ public class Vida : MonoBehaviour
 
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         ic = GetComponent<InimigoController>();
+        dv = GetComponent<DanoVisual>();
+
+        
         vidaAtual = vidaTotal;
+    }
+    public void PegarFogo(float dano, int ticks)
+    {
+        float danoDeFogo = dano/2;
+        if (!pegandoFogo)
+        {
+            pegandoFogo = true;
+            StartCoroutine(ReceberDanoPeloTempo());
+            
+
+
+
+        }
+        IEnumerator ReceberDanoPeloTempo()
+        {
+            for (int i = 0; i < ticks; i++)
+            {
+                yield return new WaitForSeconds(1f);
+
+                receberDano(danoDeFogo);
+            }
+
+            if (pegandoFogo)
+            {
+                pegandoFogo = false;
+            }
+            
+        }
+        
     }
 
     public void receberDano(float dano)
@@ -22,8 +61,11 @@ public class Vida : MonoBehaviour
         return;
 
     vidaAtual -= dano;
-
-    Debug.Log(gameObject.name + " recebeu dano. Vida atual: " + vidaAtual);
+        if (dv != null)
+        {
+            dv.TomouDano();
+        }
+    
 
     if (vidaAtual <= 0)
     {
@@ -33,6 +75,8 @@ public class Vida : MonoBehaviour
 
         if (ic != null)
         {
+            RunManager.Instance.AddXp(ic.scoreDoInimigo);
+            RunManager.Instance.AddInimigoCount();
             ic.contabilizarPerda();
             ic.inimigoMorrendo();
             Invoke("morrer", 3f);

@@ -17,6 +17,7 @@ public abstract class DashBase : MonoBehaviour
         cooldown = pc.currentStatus.dashCooldown;
 
         soundController = GetComponent<SoundController>();
+        
     }
 
     public virtual bool podeUsarDash()
@@ -29,14 +30,16 @@ public abstract class DashBase : MonoBehaviour
         if (podeUsarDash())
         {
             StartCoroutine(ExecutarDash());
+            
             ultimoUso = Time.time;
         }
     }
 
     private IEnumerator ExecutarDash()
     {
-        
+        pc.DispararOnDash();
         pc.podeMover = false;
+        
 
         // ativa iframe
         StartCoroutine(Iframe());

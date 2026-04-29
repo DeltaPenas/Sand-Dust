@@ -9,6 +9,7 @@ public class InimigoPerseguidor : MonoBehaviour
     private SalaController salaOrigem;
     private InimigoController ic;
     private Vida vida;
+    public Animator anim;
 
     [Header("Movimento")]
     [SerializeField] private float forçaDashInimigo;
@@ -36,6 +37,7 @@ public class InimigoPerseguidor : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         vida = GetComponent<Vida>();
+        anim = GetComponent<Animator>();
 
         if (player == null)
         {
@@ -78,10 +80,26 @@ public class InimigoPerseguidor : MonoBehaviour
 
         float distancia = Vector2.Distance(rb.position, player.position);
 
-        if (distancia > alcanceDano){
+        if (distancia > alcanceDano)
+        {
             Vector2 direcaoEscolhida = ObterDirecaoDeMovimento();
+
+        
+            if (anim != null)
+            {
+                anim.SetFloat("Horizontal", direcaoEscolhida.x);
+                anim.SetFloat("Vertical", direcaoEscolhida.y);
+                anim.SetFloat("Speed", direcaoEscolhida.magnitude);
+            }
+
+            
             Vector2 novaPosicao = rb.position + direcaoEscolhida * velocidade * Time.fixedDeltaTime;
             rb.MovePosition(novaPosicao);
+        }
+        else 
+        {
+            
+            if (anim != null) anim.SetFloat("Speed", 0);
         }
     }
 

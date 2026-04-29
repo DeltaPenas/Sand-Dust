@@ -9,18 +9,23 @@ public class ChestMimicController : MonoBehaviour
     [SerializeField] private GameObject mimico;
     public int num = 20;
     public bool taDentro = false;
+    public bool jaAbriu;
     public bool éMimico;
     private Vida vida;
     private SpriteRenderer sr;
     private BoxCollider2D collider2D;
     private PlayerController player;
-    private TesteBuff tb;
+    private ArtfatoManager artfatoManager;
+    private CardSelectionUI cardSelectionUI;
+    
+
     
 
 
     void Start(){
-        tb = GetComponent<TesteBuff>();
         player = FindAnyObjectByType<PlayerController>();
+        artfatoManager = FindAnyObjectByType<ArtfatoManager>();
+        cardSelectionUI = FindAnyObjectByType<CardSelectionUI>();
         collider2D = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         definirMimico();
@@ -30,12 +35,11 @@ public class ChestMimicController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && taDentro)
             {
-            if (!éMimico)
+            if (!éMimico && !jaAbriu)
             {
                 
-                tb.TestarBuff();
-                Debug.Log("o tb esta:" + tb);
-                Destroy(gameObject);
+                abrirBau();
+                jaAbriu = true;
             }
             else
             {
@@ -54,6 +58,12 @@ public class ChestMimicController : MonoBehaviour
         {
             éMimico = true;
         }
+    }
+
+    private void abrirBau()
+    {
+        var opcoes = artfatoManager.GerarOpções(3);
+        cardSelectionUI.MostrarArtefatos(opcoes);
     }
     private void invocarMimico()
     {

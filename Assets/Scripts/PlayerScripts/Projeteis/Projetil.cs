@@ -3,14 +3,26 @@ using UnityEngine;
 public class Projetil : MonoBehaviour
 {
     public float velocidade = 150f;
+
     private Vector2 direcao;
     private WepAtaque wp;
 
+    private float vidaProjetil;
+    private int ricochetesRestantes;
+    public bool podeGerarRicocheteExtra = true;
 
-    private void Start()
+    private bool jaDisparouRicochete = false; 
+
+    void Start()
     {
         wp = FindAnyObjectByType<WepAtaque>();
-        Destroy(gameObject, 3f); 
+
+        float dano = wp.pc.currentStatus.danoRanged;
+
+        vidaProjetil = dano;
+        ricochetesRestantes = wp.pc.currentStatus.ricochetes;
+
+        Destroy(gameObject, 10f);
     }
 
     public void definirDireção(Vector2 novaDireção)
@@ -18,23 +30,65 @@ public class Projetil : MonoBehaviour
         direcao = novaDireção.normalized;
     }
 
-    private void Update()
+    void Update()
     {
         transform.Translate(direcao * velocidade * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D alvo)
+    void OnTriggerEnter2D(Collider2D alvo)
     {
-        Vida vida = alvo.GetComponent<Vida>();
-
-        if (vida != null)
+        
+        if (alvo.CompareTag("inimigo"))
         {
-            vida.receberDano(wp.pc.currentStatus.danoRanged);
+            Vida vida = alvo.GetComponent<Vida>();
+
+            if (vida != null)
+            {
+                float dano = wp.pc.currentStatus.danoRanged;
+
+                vida.receberDano(dano);
+                wp.pc.DispararOnHit(alvo.gameObject);
+
+                vidaProjetil -= dano; 
+            }
+
+            if (vidaProjetil <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            TentarRicochete(alvo);
         }
 
-        if (!alvo.CompareTag("Player") && !alvo.CompareTag("Chão"))
+        
+        else if (alvo.CompareTag("Parede"))
         {
-            Destroy(gameObject);
+            TentarRicochete(alvo);
         }
     }
+
+    void TentarRicochete(Collider2D alvo)
+{
+    if (podeGerarRicocheteExtra)
+    {
+        podeGerarRicocheteExtra = false;
+        wp.pc.DispararOnRicochete(gameObject);
+    }
+
+    if (ricochetesRestantes <= 0)
+    {
+        Destroy(gameObject);
+        return;
+    }
+
+    ricochetesRestantes--;
+
+    Vector2 ponto = alvo.ClosestPoint(transform.position);
+    Vector2 normal = (transform.position - (Vector3)ponto).normalized;
+
+    direcao = Vector2.Reflect(direcao, normal);
+
+    
+}
 }

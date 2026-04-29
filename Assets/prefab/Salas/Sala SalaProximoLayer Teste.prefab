@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 582236416703253144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.55, y: 0.65, z: -0.0454054}
+  m_LocalPosition: {x: -9.581997, y: 0.486932, z: -0.0454054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1421,6 +1421,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &3851559032254808048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1578,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &3946131490816676156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,7 +1593,7 @@ GameObject:
   - component: {fileID: 8557398661728619605}
   m_Layer: 0
   m_Name: Paredes
-  m_TagString: Untagged
+  m_TagString: Parede
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2411,6 +2413,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &5286138733669779906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,6 +2570,7 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+  emTransicao: 0
 --- !u!1 &6322185506314844601
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,21 @@ using static PlayerStatus;
     {
         public StatsType stat;
         public float valor;
+        public int valorInt;
         public bool ehporcentagem;
-        public string nome;
     }
+
+    public enum Raridade
+{
+    Comum,
+    Raro,
+    Epico,
+    Lendario
+}
+
+[System.Serializable]
+public class RaridadePeso
+{
+    public Raridade raridade;
+    public int peso;
+}
