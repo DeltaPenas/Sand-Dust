@@ -17,24 +17,20 @@ public int dano;
 private float tempoProximoAtaque;
 
 protected override void Comportamento()
+{
+    if (player == null) return;
+
+    if (distanciaPlayer <= distanciaAtaque && Time.time >= tempoProximoAtaque)
     {
-        if (player == null) return;
-
-        float distancia = Vector2.Distance(transform.position, player.position);
-
-        if (distancia <= distanciaAtaque && Time.time >= tempoProximoAtaque)
-        {
-            AtirarEmCone();
-            tempoProximoAtaque = Time.time + tempoEntreAtaques;
-        }
+        AtirarEmCone();
+        tempoProximoAtaque = Time.time + tempoEntreAtaques;
     }
+}
 
 protected override Vector2 DirecaoBase()
     {
-        float distancia = Vector2.Distance(transform.position, player.position);
-
-        if (distancia > distanciaAtaque)
-            return (player.position - transform.position).normalized;
+        if (distanciaPlayer > distanciaAtaque)
+            return (player.position - transform.position).normalized;// se o player estiver longe, o inimigo se move em direção a ele
 
         return Vector2.zero; // isso diz que o iniigo tem que parar para atirar no player 
     }

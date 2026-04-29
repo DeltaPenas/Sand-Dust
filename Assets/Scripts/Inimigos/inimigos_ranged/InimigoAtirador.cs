@@ -2,34 +2,37 @@ using UnityEngine;
 
 public class InimigoAtirador : InimigoBase
 {
-    [Header("Ataque")]
-    public GameObject projetilPrefab;
-    public Transform pontoDisparo;
-    public float tempoEntreTiros = 1.5f;
-    public int dano;
-    public float velocidadeProjetil;
+[Header("Ataque")]
+public GameObject projetilPrefab;
+public Transform pontoDisparo;
+public float tempoEntreTiros = 1.5f;
+public int dano;
+public float velocidadeProjetil;
+private float proximoTiro;
+public float distanciaMinima = 1.5f;
+public float distanciaAtaque = 6f;
+[Header("Visão")]
+public LayerMask layerObstaculos;
 
-    private float proximoTiro;
-
-    protected override void Comportamento()
+protected override void Comportamento()
     {
         if (player == null) return;
 
-        float distancia = Vector2.Distance(transform.position, player.position);
-
-        if (PodeAtirar(distancia))
+        if (PodeAtirar())
         {
             Atirar();
             proximoTiro = Time.time + tempoEntreTiros;
         }
     }
 
-    bool PodeAtirar(float distancia)
+bool PodeAtirar()
     {
-        return distancia <= 4f && Time.time >= proximoTiro;
+        return distanciaPlayer <= distanciaAtaque && 
+        Time.time >= proximoTiro && 
+        TemLinhaDeVisao();//só atira se o player estiver dentro da distância de ataque, o tempo entre tiros tiver passado e houver linha de visão
     }
 
-    void Atirar()
+void Atirar()
     {
         if (projetilPrefab == null || pontoDisparo == null || vida.vidaAtual <= 0) return;
 
@@ -44,16 +47,31 @@ public class InimigoAtirador : InimigoBase
             proj.Inicializar(direcao, velocidadeProjetil, dano);
         }
     }
-
-    protected override Vector2 DirecaoBase()
+bool TemLinhaDeVisao()
     {
-        float distancia = Vector2.Distance(transform.position, player.position);
+        Vector2 origem = pontoDisparo.position;
+        Vector2 direcao = (player.position - pontoDisparo.position).normalized;
 
-        if (distancia < 2.5f)
-            return (transform.position - player.position).normalized;
+        float distancia = Vector2.Distance(origem, player.position);
 
-        if (distancia > 4f)
-            return (player.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(
+            origem,
+            direcao,
+            distancia,
+            layerObstaculos
+        );
+
+        return hit.collider == null;
+    }//cria uma linha de visão entre o inimigo e o player, se houver um obstáculo no caminho, o inimigo não atira
+
+protected override Vector2 DirecaoBase()
+    {
+
+        if (distanciaPlayer < distanciaMinima)
+            return (transform.position - player.position).normalized;// se o player estiver muito perto, o inimigo se afasta
+
+        if (distanciaPlayer > distanciaAtaque)
+            return (player.position - transform.position).normalized;// se o player estiver longe, o inimigo se move em direção a ele
 
         return Vector2.zero;
     }

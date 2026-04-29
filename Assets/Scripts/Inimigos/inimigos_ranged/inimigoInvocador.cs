@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine; 
 public class InimigoInvocador : InimigoBase // tem que usar o prefab da unity para a invocação funcionar certinho
 {    
@@ -11,7 +10,15 @@ private int inimigosAtuais = 0;
 [Header("Cooldown De Invocação")]
 public float intervaloInvocacao = 3f;
 private float proximaInvocacao;  
+public float distanciaInvocacao = 4f;
 
+protected override Vector2 DirecaoBase()
+    {
+        if (distanciaPlayer < distanciaInvocacao)
+            return (transform.position - player.position).normalized;
+
+        return Vector2.zero;
+    }
 void Invocar()
     {
         if (inimigosAtuais >= maxInimigos) return;
@@ -25,7 +32,7 @@ void Invocar()
             if (pontoInvocacao != null)
                 posicaoSpawn = pontoInvocacao.position;
             else
-                posicaoSpawn = (Vector2)transform.position + Random.insideUnitCircle * 2f;
+                posicaoSpawn = (Vector2)transform.position + Random.insideUnitCircle.normalized * 2f;
 
             GameObject novo = Instantiate(inimigoPrefab, posicaoSpawn, Quaternion.identity);
 
@@ -41,9 +48,8 @@ void Invocar()
     }
 protected override void Comportamento()
     {
-        float distancia = Vector2.Distance(transform.position, player.position);
-
-        if (distancia <= 4f && Time.time >= proximaInvocacao)
+    if (distanciaPlayer <= distanciaInvocacao &&
+        Time.time >= proximaInvocacao)
         {
             Invocar();
             proximaInvocacao = Time.time + intervaloInvocacao;

@@ -6,16 +6,19 @@ public class InimigoInvocadoM: InimigoBase
     public float distanciaAtaque = 1.5f;
     public float tempoEntreAtaques = 1f;
     public int dano = 10;
-
     private float proximoAtaque;
+protected override void Start()
+{
+    base.Start();
 
+    proximoAtaque = Time.time + 0.5f;
+}
+// o tempo de 0.5f é para dar um tempinho pro inimigo começar a atacar, evitando que ele ataque imediatamente ao ser invocado
 protected override void Comportamento()
     {
         if (player == null) return;
 
-        float distancia = Vector2.Distance(transform.position, player.position);
-
-        if (distancia <= distanciaAtaque && Time.time >= proximoAtaque)
+        if (distanciaPlayer <= distanciaAtaque && Time.time >= proximoAtaque)
         {
             Atacar();
             proximoAtaque = Time.time + tempoEntreAtaques;
@@ -32,9 +35,7 @@ protected override void Comportamento()
 
 protected override Vector2 DirecaoBase()
     {
-        float distancia = Vector2.Distance(transform.position, player.position);
-
-        if (distancia > distanciaAtaque)
+        if (distanciaPlayer > distanciaAtaque)
         {
             return (player.position - transform.position).normalized; // persegue
         }
