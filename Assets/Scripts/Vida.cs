@@ -9,6 +9,7 @@ public class Vida : MonoBehaviour
     public bool pegandoFogo = false;
     private SpriteRenderer sr;
     [SerializeField] private DanoVisual dv;
+    public int xpDrop = 1;
 
     
     
@@ -21,6 +22,7 @@ public class Vida : MonoBehaviour
         ic = GetComponent<InimigoController>();
         dv = GetComponent<DanoVisual>();
 
+        
         vidaAtual = vidaTotal;
     }
     public void PegarFogo(float dano, int ticks)
@@ -73,6 +75,8 @@ public class Vida : MonoBehaviour
 
         if (ic != null)
         {
+            RunManager.Instance.AddXp(ic.scoreDoInimigo);
+            RunManager.Instance.AddInimigoCount();
             ic.contabilizarPerda();
             ic.inimigoMorrendo();
             Invoke("morrer", 3f);

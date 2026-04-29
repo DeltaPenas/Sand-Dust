@@ -41,7 +41,6 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     {
             dg.LimparDungeon();
             runInfos.layer +=1;
-            debugDeSalas();
             if(runInfos.layer > 3)
             {
                 runInfos.layer = 0;
@@ -53,14 +52,6 @@ public class PontoDeDecidaDeSala : MonoBehaviour
         dg.qtdInimigos +=1;
         runInfos.salasConcluidas = 0;
     }
-    public void debugDeSalas()
-    {
-        Debug.Log("Inimigos derrotados: " + runInfos.inimigosDerrotados);
-        Debug.Log("Salas Concluidas: " + runInfos.salasConcluidas);
-        Debug.Log("Andar: " + runInfos.andar);
-        Debug.Log("Layer: " + runInfos.layer);
-        Debug.Log("PlayerScore: " + runInfos.playerScore);
-        
-    }
+    
 
 }

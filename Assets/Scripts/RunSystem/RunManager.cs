@@ -10,6 +10,7 @@ public class RunManager : MonoBehaviour
 
     public RunState currentState = RunState.None;
     public RunData currentRun = new RunData();
+    [SerializeField] private GameObject telaDeMorte;
 
     private float tempoInicioRun;
 
@@ -21,19 +22,18 @@ public class RunManager : MonoBehaviour
     
 
     void Awake()
+{
+    if (Instance == null)
     {
-        runInfos = FindAnyObjectByType<RunInfos>();
-        if(Instance == null)
-        {
-            Instance = null;
-            DontDestroyOnLoad(gameObject); // manter salvo durante as cenas
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
-    void StartRun()
+    else
+    {
+        Destroy(gameObject);
+    }
+    }
+    public void StartRun()
     {
         currentState = RunState.Starting; // deixa o estado atual  pra iniciando 
         currentRun.reset(); //reseta a run, caso o player use o RestartRun();
@@ -46,26 +46,31 @@ public class RunManager : MonoBehaviour
 
     }
 
+    
+
     void EndRun()
     {
         if(currentState != RunState.Running) return;
 
         currentState = RunState.PlayerDead;
-        //ProgressionManager.Instance.AddXP(currentRun.xpColetado); //Parte do samuel, receber o xp do player
+        ProgressionManager.Instance.AddXPTotal(currentRun.xpColetado); //Parte do samuel, receber o xp do player
+        telaDeMorte.SetActive(true);
 
-        SceneManager.LoadScene("TelaMorte");
+        
 
     }
 
     public void RestartRun()
     {
+        
         StartRun();
+        
     }
 
     public void VoltarProMenu()
     {
         currentState = RunState.None;
-
+        
         SceneManager.LoadScene("MenuDeIniciarFase");
     }
 
@@ -77,5 +82,17 @@ public class RunManager : MonoBehaviour
         }
     }
 
+    public void AddXp(int xp)
+    {
+        currentRun.xpColetado +=xp;
+    }
+    public void AddInimigoCount()
+    {
+        currentRun.inimigosMortos++;
+    }
+    public void AddSala()
+    {
+        currentRun.salasConcluidas++;
+    }
 
 }
