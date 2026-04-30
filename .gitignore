@@ -55,9 +55,3 @@ sysinfo.txt
 # =============== #
 .DS_Store
 Thumbs.db
-
-# =============== #
-# Configuração    #
-# =============== #
-ProjectSettings/GraphicsSettings.asset
-ProjectSettings/QualitySettings.asset
