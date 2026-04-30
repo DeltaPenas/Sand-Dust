@@ -157,6 +157,9 @@ MonoBehaviour:
   vidaTotal: 5
   vidaAtual: 0
   morreu: 0
+  pegandoFogo: 0
+  dv: {fileID: 0}
+  xpDrop: 1
 --- !u!114 &2563522063663917781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +199,12 @@ MonoBehaviour:
   pontoDisparo: {fileID: 6091444866406314023}
   tempoEntreTiros: 1.5
   dano: 1
-  velocidadeProjetil: 40
+  velocidadeProjetil: 20
+  distanciaMinima: 1.5
+  distanciaAtaque: 6
+  layerObstaculos:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!50 &2484853277044451027
 Rigidbody2D:
   serializedVersion: 5
