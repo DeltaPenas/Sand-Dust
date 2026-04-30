@@ -11,8 +11,7 @@ public float velocidadeProjetil;
 private float proximoTiro;
 public float distanciaMinima = 1.5f;
 public float distanciaAtaque = 6f;
-[Header("Visão")]
-public LayerMask layerObstaculos;
+
 
 protected override void Comportamento()
     {

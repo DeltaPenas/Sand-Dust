@@ -11,7 +11,6 @@ public class UltRevolver : UltBase
     public GameObject ultProjetilPrefab;
     public GameObject MarkPrefab;
     public AudioClip fireSoundClip;
-    public PlayerController pc;
 
     protected override bool tentaUsarUlt()
     {
