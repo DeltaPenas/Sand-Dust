@@ -73,8 +73,9 @@ public class PlayerVida : MonoBehaviour
 
     public void morrer()
     {
-        Destroy(gameObject);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        RunManager.Instance.EndRun();
+        
+        
     }
 
     private System.Collections.IEnumerator AtivarIframesTemporarios()

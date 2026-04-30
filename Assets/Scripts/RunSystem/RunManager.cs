@@ -10,7 +10,7 @@ public class RunManager : MonoBehaviour
 
     public RunState currentState = RunState.None;
     public RunData currentRun = new RunData();
-    [SerializeField] private GameObject telaDeMorte;
+    private DeathUI deathUI;
 
     private float tempoInicioRun;
 
@@ -35,6 +35,7 @@ public class RunManager : MonoBehaviour
     }
     public void StartRun()
     {
+        deathUI = FindAnyObjectByType<DeathUI>(FindObjectsInactive.Include);
         currentState = RunState.Starting; // deixa o estado atual  pra iniciando 
         currentRun.reset(); //reseta a run, caso o player use o RestartRun();
 
@@ -48,22 +49,25 @@ public class RunManager : MonoBehaviour
 
     
 
-    void EndRun()
+    public void EndRun()
     {
-        if(currentState != RunState.Running) return;
+    //if(currentState != RunState.Running) return;
 
-        currentState = RunState.PlayerDead;
-        ProgressionManager.Instance.AddXPTotal(currentRun.xpColetado); //Parte do samuel, receber o xp do player
-        telaDeMorte.SetActive(true);
+    currentState = RunState.PlayerDead;
 
-        
+    ProgressionManager.Instance.AddXPTotal(currentRun.xpColetado);
 
+    if (deathUI != null)
+        deathUI.Show();
+    else
+        Debug.LogError("DeathUI não encontrada!");
     }
 
     public void RestartRun()
     {
         
         StartRun();
+        
         
     }
 
@@ -93,6 +97,11 @@ public class RunManager : MonoBehaviour
     public void AddSala()
     {
         currentRun.salasConcluidas++;
+    }
+
+    public void RegisterDeathUI(DeathUI ui)
+    {
+        deathUI = ui;
     }
 
 }

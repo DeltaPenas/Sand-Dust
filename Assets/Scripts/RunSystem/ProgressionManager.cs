@@ -7,7 +7,7 @@ public class ProgressionManager : MonoBehaviour
 
     public int xpTotal;
     /*
-        chines safado, então, tu vai salvar as seguintes coisas:
+        então, tu vai salvar as seguintes coisas:
         a run com mais salas concluidas e xp total
     
     */
