@@ -36,14 +36,16 @@ public class RunManager : MonoBehaviour
     public void StartRun()
     {
         deathUI = FindAnyObjectByType<DeathUI>(FindObjectsInactive.Include);
-        currentState = RunState.Starting; // deixa o estado atual  pra iniciando 
-        currentRun.reset(); //reseta a run, caso o player use o RestartRun();
+        currentState = RunState.Starting; 
+        currentRun.reset(); 
 
-        tempoInicioRun = Time.time; // Começa contar o tempo da run
+        tempoInicioRun = Time.time;
+        currentState = RunState.Running; 
+        Debug.Log("Iniciando run");
 
-        SceneManager.LoadScene("DungeonScene"); //Cena das dungeons
+        SceneManager.LoadScene("DungeonScene"); 
 
-        currentState = RunState.Running; // deixa o estado atual pra rodando
+        
 
     }
 
@@ -51,7 +53,7 @@ public class RunManager : MonoBehaviour
 
     public void EndRun()
     {
-    //if(currentState != RunState.Running) return;
+    if(currentState != RunState.Running) return;
 
     currentState = RunState.PlayerDead;
 

@@ -32,6 +32,11 @@ public class DungeonGeneratortest : MonoBehaviour
 
     private void Start()
     {
+        if (RunManager.Instance.currentState == RunState.None)
+        {
+            RunManager.Instance.StartRun();
+        }
+        
         tt = FindAnyObjectByType<TriggerDeTransicao>();
         runInfos = GetComponent<RunInfos>();
         pc = FindAnyObjectByType<PlayerController>();
