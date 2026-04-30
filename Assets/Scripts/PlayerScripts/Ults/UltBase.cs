@@ -6,7 +6,7 @@ public abstract class UltBase : MonoBehaviour
     public float ultDmg;
     public float ultCooldown;
     public float ultimoUsoUlt;
-    private PlayerController pc;
+    protected PlayerController pc;
 
     
 

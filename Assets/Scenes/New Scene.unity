@@ -659,6 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVida
   player: {fileID: 306318809}
   heartUi: {fileID: 1088686198}
+  dv: {fileID: 0}
   playerVidaTotal: 0
   playerVidaAtual: 0
   playerIsEnvenenado: 0
@@ -678,8 +679,6 @@ MonoBehaviour:
   skillBase: {fileID: 306318814}
   ultBase: {fileID: 306318812}
   dashBase: {fileID: 306318815}
-  vida: 3
-  velocidade: 5
   "ultimadire\xE7\xE3o": {x: 0, y: 0}
   iframetempo: 0.3
   iframeTempoBuff: 0
@@ -691,6 +690,38 @@ MonoBehaviour:
   passosSfx: {fileID: 8300000, guid: 26933132075c15f4db04fa7eb50b2ef8, type: 3}
   iframeAtivo: 0
   soundController: {fileID: 306318810}
+  emTeleporte: 0
+  baseStatus:
+    vidaMax: 0
+    velocidade: 0
+    danoMelee: 0
+    danoRanged: 0
+    atqCooldown: 0
+    ricochetes: 0
+    danoSkill: 0
+    rangeSkill: 0
+    cooldownSkill: 0
+    danoUlt: 0
+    rangeUlt: 0
+    cooldownUlt: 0
+    forcaDash: 0
+    dashCooldown: 0
+  currentStatus:
+    vidaMax: 0
+    velocidade: 0
+    danoMelee: 0
+    danoRanged: 0
+    atqCooldown: 0
+    ricochetes: 0
+    danoSkill: 0
+    rangeSkill: 0
+    cooldownSkill: 0
+    danoUlt: 0
+    rangeUlt: 0
+    cooldownUlt: 0
+    forcaDash: 0
+    dashCooldown: 0
+  activeModifiers: []
 --- !u!114 &306318810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,7 +786,6 @@ MonoBehaviour:
   ultProjetilPrefab: {fileID: 8781395042819672185, guid: 15a0fbec3d400b34787ffc69b12591c8, type: 3}
   MarkPrefab: {fileID: -2253911629886400664, guid: 7e4915ceda7ab3e4b97511e43e7e6fff, type: 3}
   fireSoundClip: {fileID: 8300000, guid: cedd8ec88e3614d43a5e860cce62d0bb, type: 3}
-  pc: {fileID: 306318809}
 --- !u!114 &306318813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0.5
   meleeDano: 2
+  rangedDano: 1
   meleeRange: 0.6
   meleeCooldown: 0.5
   layerInimigos:
@@ -1310,6 +1341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0049905070aa0b341ada94bc84f6e1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoInvocador
+  invocador: {fileID: 0}
   velocidade: 1
   distanciaParada: 1.5
   distanciaDeteccaoObstaculo: 1.5
@@ -1317,15 +1349,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   tempoDesvio: 0.7
-  catalogoInimigos:
-    inimigos: []
-    inimigosInvocaveisPeloInvocadordeInimigos:
-    - {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
-    - {fileID: 6057550922525569968, guid: 581a749750a2e6f41b0e28b0127c1f3d, type: 3}
+  inimigoPrefab: {fileID: 0}
   pontoInvocacao: {fileID: 643171723}
   quantidadeInvocada: 1
   maxInimigos: 5
   intervaloInvocacao: 3
+  distanciaInvocacao: 4
 --- !u!1 &676586842
 GameObject:
   m_ObjectHideFlags: 0
