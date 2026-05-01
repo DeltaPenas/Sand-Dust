@@ -47,7 +47,11 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         
-        AplicarStatusAtualizados();
+        if(ProgressionManager.Instance != null && RunManager.Instance != null)
+        {
+            AplicarStatusAtualizados();
+        }
+            
         currentStatus = baseStatus.Clone();
         RecalculateStats();
         
