@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
     
     private void Awake()
     {
+        
+        AplicarStatusAtualizados();
         currentStatus = baseStatus.Clone();
         RecalculateStats();
         
@@ -249,6 +251,17 @@ public class PlayerController : MonoBehaviour
     public void DispararOnDash()
     {
     OnDash?.Invoke();
+    }
+
+    public void AplicarStatusAtualizados()
+    {
+        
+        baseStatus.vidaMax += ProgressionManager.Instance.vidaBonus;
+        baseStatus.danoRanged +=ProgressionManager.Instance.danoRangedBonus;
+        baseStatus.danoMelee +=ProgressionManager.Instance.danoMeleeBonus;
+        baseStatus.danoSkill +=ProgressionManager.Instance.danoSkillBonus;
+        baseStatus.danoSkill +=ProgressionManager.Instance.danoUltBonus;
+        baseStatus.velocidade +=ProgressionManager.Instance.velocidadeBonus;
     }
 
 
