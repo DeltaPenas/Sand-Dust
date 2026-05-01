@@ -1705,64 +1705,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822526505}
   m_CullTransparentMesh: 1
---- !u!1001 &858013855
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 915.6914
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 551.3984
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955563566259700730, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6449094981298622057, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-      propertyPath: m_Name
-      value: Run Manager
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3551905254550410754, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9e4da6b06514a3f48867b6e6ea3ea3b7, type: 3}
 --- !u!1 &888824802
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,61 +4103,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1867912375
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1867912377}
-  - component: {fileID: 1867912376}
-  m_Layer: 0
-  m_Name: Progression Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1867912376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867912375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f79eaf2efba60748bcf403d8fde19b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressionManager
-  xpTotal: 0
-  level: 1
-  xpAtual: 0
-  xpParaProximoNivel: 10
-  pontosDisponiveis: 0
-  vidaBonus: 2
-  danoRangedBonus: 2
-  danoMeleeBonus: 2
-  danoSkillBonus: 2
-  danoUltBonus: 2
-  velocidadeBonus: 0
---- !u!4 &1867912377
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867912375}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 915.6914, y: 551.3984, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1889434517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5101,11 +4988,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu Pause
       objectReference: {fileID: 0}
+    - target: {fileID: 7171869241472556637, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7347457151096070479, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6746662210614326326}
+    - target: {fileID: 7347457151096070479, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VoltarMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7347457151096070479, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+--- !u!114 &6746662210614326326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 935692737591054824, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+  m_PrefabInstance: {fileID: 6746662210614326325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6225a6a16ac3f2b45b527140dd993a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5116,6 +5030,4 @@ SceneRoots:
   - {fileID: 1722042939}
   - {fileID: 665079724}
   - {fileID: 520680445}
-  - {fileID: 1867912377}
-  - {fileID: 858013855}
   - {fileID: 1499274416}

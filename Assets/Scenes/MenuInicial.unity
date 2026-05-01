@@ -414,7 +414,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998197921}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: AddDanoSkill
         m_Mode: 1
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998197921}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: AddDanoRanged
         m_Mode: 1
@@ -1614,6 +1614,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738866973}
   m_CullTransparentMesh: 1
+--- !u!1 &938229313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 938229315}
+  - component: {fileID: 938229314}
+  m_Layer: 0
+  m_Name: ProgressionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &938229314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938229313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f79eaf2efba60748bcf403d8fde19b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressionManager
+  forcarComoPrincipal: 1
+  xpTotal: 0
+  xpParaProximoNivel: 10
+  pontosDisponiveis: 0
+  level: 1
+  xpAtual: 0
+  vidaBonus: 0
+  danoRangedBonus: 0
+  danoMeleeBonus: 0
+  danoSkillBonus: 0
+  danoUltBonus: 0
+  velocidadeBonus: 0
+--- !u!4 &938229315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938229313}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 828.55945, y: 389.03308, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954738681
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,6 +2171,14 @@ PrefabInstance:
     - target: {fileID: 981045475621821704, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1998197920}
+    - target: {fileID: 981045475621821704, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IniciarRun
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045475621821704, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1043103423168000112, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2348,9 +2412,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6309195156791985138, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1998197920}
-    - targetCorrespondingSourceObject: {fileID: 6309195156791985138, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1998197921}
   m_SourcePrefab: {fileID: 100100000, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
 --- !u!1 &1153042406
 GameObject:
@@ -2572,7 +2633,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998197921}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: AddVida
         m_Mode: 1
@@ -2772,6 +2833,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204771857}
   m_CullTransparentMesh: 1
+--- !u!1 &1278713102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1278713104}
+  - component: {fileID: 1278713103}
+  m_Layer: 0
+  m_Name: RunManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1278713103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278713102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86e1267c75a9d24883c3399e66882ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RunManager
+  currentState: 0
+  currentRun:
+    inimigosMortos: 0
+    salasConcluidas: 0
+    PlayerScore: 0
+    tempoDeRun: 0
+    xpColetado: 0
+--- !u!4 &1278713104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278713102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 742.2994, y: 586.8529, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1328413608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,7 +3333,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998197921}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: AddVelocidade
         m_Mode: 1
@@ -3354,7 +3466,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998197921}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: AddDanoUlt
         m_Mode: 1
@@ -4137,29 +4249,7 @@ MonoBehaviour:
   danoSkillText: {fileID: 738866975}
   danoUltText: {fileID: 29623583}
   velocidadeText: {fileID: 1020721476}
---- !u!114 &1998197921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998197918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f79eaf2efba60748bcf403d8fde19b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressionManager
-  xpTotal: 0
-  level: 1
-  xpAtual: 0
-  xpParaProximoNivel: 10
-  pontosDisponiveis: 0
-  vidaBonus: 0
-  danoRangedBonus: 0
-  danoMeleeBonus: 0
-  danoSkillBonus: 0
-  danoUltBonus: 0
-  velocidadeBonus: 0
+  proximoLvlText: {fileID: 1661013983}
 --- !u!1 &2123299087
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,7 +4412,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998197921}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: AddDanoMelee
         m_Mode: 1
@@ -4379,3 +4469,5 @@ SceneRoots:
   - {fileID: 1406269274}
   - {fileID: 703112044}
   - {fileID: 2123299090}
+  - {fileID: 938229315}
+  - {fileID: 1278713104}

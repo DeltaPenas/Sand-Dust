@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class UpgradeUI : MonoBehaviour
 {
@@ -32,6 +33,12 @@ public class UpgradeUI : MonoBehaviour
         danoSkillText.text = "Dano Skill: " + ProgressionManager.Instance.danoSkillBonus;
         danoUltText.text = "Dano Ultimate: " + ProgressionManager.Instance.danoUltBonus;
         velocidadeText.text = "Velocidade de movimento: " + ProgressionManager.Instance.velocidadeBonus;
+    }
+
+    public void IniciarRun()
+    {
+        RunManager.Instance.StartRun();
+        
     }
 
     public void AddVida()

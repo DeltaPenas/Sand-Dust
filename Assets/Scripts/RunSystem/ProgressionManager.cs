@@ -7,14 +7,17 @@ public class ProgressionManager : MonoBehaviour
 {   
    
     public static ProgressionManager Instance;
+    [SerializeField] private bool forcarComoPrincipal = false;
 
     public int xpTotal;
-    public int level = 1;
-    public int xpAtual = 0;
+  
     public int xpParaProximoNivel = 10;
     public int pontosDisponiveis =0;
 
-     [Header("Status Permanentes")]
+    [Header("Status Permanentes")]
+
+    public int level = 1;
+    public int xpAtual = 0;
     public float vidaBonus;
     public float danoRangedBonus;
     public float danoMeleeBonus;
@@ -27,7 +30,7 @@ public class ProgressionManager : MonoBehaviour
 
     /*
         então, tu vai salvar as seguintes coisas:
-        a run com mais salas concluidas e xp total
+        a run com mais salas concluidas e xp total, além dos status
     
     */
     void Update()
@@ -41,36 +44,37 @@ public class ProgressionManager : MonoBehaviour
 
     void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
     }
+
     public void AddXPTotal(int valor)
     {
-        xpTotal +=valor;
-        xpAtual +=valor;
-        
+        xpTotal += valor;
+        xpAtual += valor;
 
-        if (xpAtual >= xpParaProximoNivel)
+        while (xpAtual >= xpParaProximoNivel)
         {
-            Debug.Log("Upou");
             LevelUp();
-            
         }
     }
 
     public void LevelUp()
     {
-        xpAtual -=xpParaProximoNivel;
+        xpAtual -= xpParaProximoNivel;
         level++;
-        xpParaProximoNivel +=5;
         pontosDisponiveis++;
+
+        xpParaProximoNivel += 5;
+
+        Debug.Log($"Level: {level} | XP Total: {xpTotal}");
     }
 
     public void Retry()
