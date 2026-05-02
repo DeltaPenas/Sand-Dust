@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5448671701239323340
+--- !u!1 &6280303473869509737
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3882539404865340936}
-  - component: {fileID: 170667738877083226}
-  - component: {fileID: 5175503758290231051}
-  - component: {fileID: 3896475502892119717}
+  - component: {fileID: 3525717355307580936}
+  - component: {fileID: 4198367482337756230}
+  - component: {fileID: 7751487137698761471}
+  - component: {fileID: 3254307258958206946}
   m_Layer: 2
-  m_Name: Grama (11)
+  m_Name: GramaSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3882539404865340936
+--- !u!4 &3525717355307580936
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5448671701239323340}
+  m_GameObject: {fileID: 6280303473869509737}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.52, y: -0.48, z: 0}
+  m_LocalPosition: {x: -0.03660226, y: 0.65568626, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &170667738877083226
+--- !u!212 &4198367482337756230
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5448671701239323340}
+  m_GameObject: {fileID: 6280303473869509737}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8592722376740848822, guid: 1d21a58cf10731646b82c290d6a4cf4b, type: 3}
+  m_Sprite: {fileID: -7199085634208060450, guid: 8c68bbec043a6984cbbbe213b954c5a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,28 +93,13 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &5175503758290231051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5448671701239323340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b61df7e2445133447ba686a5707a4653, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GramaOffset
-  distanciaMax: 1
-  forcaMax: 80
-  suavidade: 5
---- !u!61 &3896475502892119717
+--- !u!61 &7751487137698761471
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5448671701239323340}
+  m_GameObject: {fileID: 6280303473869509737}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -146,7 +131,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 0.8125}
+    oldSize: {x: 0.84375, y: 0.8125}
     newSize: {x: 0.84375, y: 0.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -154,3 +139,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.84375, y: 0.8125}
   m_EdgeRadius: 0
+--- !u!114 &3254307258958206946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280303473869509737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcae2e990f024c2498eb9927cefc4cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrassSpawner
+  plantas:
+  - {fileID: 1250272749825225692, guid: ef148bdfef45f834eb02f17aaaea5616, type: 3}
+  - {fileID: 5897885224562806120, guid: 3d30307f087265b46895b25ee01f6519, type: 3}
+  - {fileID: 5917631575615713832, guid: 289bf38bab08243438c4215804ac54ef, type: 3}
+  - {fileID: 552380175174355892, guid: f362d76e9759b4848baa99797e945a9b, type: 3}
+  - {fileID: 1941020354642921655, guid: d7132273f11f44442877f4442db725df, type: 3}
+  - {fileID: 471694257906766822, guid: 2ce351f3d034bca4c93719727ac252aa, type: 3}
+  - {fileID: 7678869019301264969, guid: f335bb6869e4bbd4d8cf943fa8730455, type: 3}
+  - {fileID: 7845407635173901670, guid: 183a2487139c3a7449c57332a963fced, type: 3}
+  - {fileID: 5953581678377345443, guid: 4779398ed596beb40b43b9a5ecdf21f5, type: 3}
+  - {fileID: 499361005569061930, guid: 517a066985d7744499c185dc681fef32, type: 3}
+  - {fileID: 5448671701239323340, guid: 86ad2cc2ddbc726498e8a741ab3306ff, type: 3}
+  - {fileID: 3674738319440969300, guid: de5f1174e1d22e4438851db4c69cd2ff, type: 3}
+  - {fileID: 5677475608448406726, guid: 7c031ad0c6f891146ab31df505cb741e, type: 3}
+  - {fileID: 8102324620238659705, guid: 7af9863e3c1fdb34ea5862cbdbac1576, type: 3}
+  - {fileID: 4760511879197457924, guid: 9fcc4ca5320358e438688ce709478875, type: 3}
+  - {fileID: 2201630974496975947, guid: f26aa70d3f40c8244b7c430feac19b3e, type: 3}
+  - {fileID: 5279059415630566789, guid: 41d8a640787e23d48a9b6efcc3863bd5, type: 3}

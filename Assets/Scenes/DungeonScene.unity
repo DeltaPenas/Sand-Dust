@@ -1227,7 +1227,7 @@ PrefabInstance:
       objectReference: {fileID: 582236416703253144, guid: df0ef3e0d8094e44fb645f8d5d974982, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasNormais.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasTesouro.Array.size
@@ -1269,6 +1269,10 @@ PrefabInstance:
       propertyPath: 'catalogoSalas.salasNormais.Array.data[1]'
       value: 
       objectReference: {fileID: 8998249644244355023, guid: 9acd0442fe39b7a4693cce531a46bcdb, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalas.salasNormais.Array.data[2]'
+      value: 
+      objectReference: {fileID: 972010035217498480, guid: a44acd96ed7f1b144a775ec439f255fb, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salasTesouro.Array.data[0]'
       value: 
@@ -2529,6 +2533,10 @@ PrefabInstance:
     - target: {fileID: 1821935942732819040, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
       propertyPath: m_Name
       value: Inimigo Invocador
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821935942732819040, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3807,6 +3815,7 @@ GameObject:
   - component: {fileID: 1722042937}
   - component: {fileID: 1722042936}
   - component: {fileID: 1722042932}
+  - component: {fileID: 1722042942}
   - component: {fileID: 1722042933}
   - component: {fileID: 1722042931}
   - component: {fileID: 1722042934}
@@ -4283,6 +4292,23 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   duracao: 0.1
   intervalo: 0.1
+--- !u!114 &1722042942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722042926}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d971c256da8bf5245b934a437fabf5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WepShotgun
+  quantidadePelotas: 5
+  anguloAbertura: 30
+  prefabTiro: {fileID: 1312992710952849393, guid: a02da886f3b45914ebe89e78aca4aa69, type: 3}
+  pontoInicialDoTiro: {fileID: 1766958010}
+  fireSoundEffect: {fileID: 0}
 --- !u!114 &1734715120 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 93535736130822023, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
