@@ -61,11 +61,11 @@ public class WepShotgun : MonoBehaviour
             projetil.GetComponent<Projetil>().definirDireção(direcaoTiro);
 
           
-            Destroy(projetil, 0.2f); 
+            Destroy(projetil, 0.3f); 
            
         }
 
         if (soundController != null) soundController.TocarSom(fireSoundEffect);
-        pc.anim.SetTrigger("attack");
+        //pc.anim.SetTrigger("attack");
     }
 }

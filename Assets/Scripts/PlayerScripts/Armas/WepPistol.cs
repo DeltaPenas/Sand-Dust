@@ -42,6 +42,6 @@ public class WepPistol : MonoBehaviour
         projetil.GetComponent<Projetil>().definirDireção(direcao);
 
         soundController.TocarSom(fireSoundEffect);
-        pc.anim.SetTrigger("attack");
+        //pc.anim.SetTrigger("attack"); nao usar
     }
 }

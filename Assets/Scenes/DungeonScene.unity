@@ -1175,7 +1175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: qtdInimigos
@@ -3814,8 +3814,6 @@ GameObject:
   - component: {fileID: 1722042927}
   - component: {fileID: 1722042937}
   - component: {fileID: 1722042936}
-  - component: {fileID: 1722042932}
-  - component: {fileID: 1722042942}
   - component: {fileID: 1722042933}
   - component: {fileID: 1722042931}
   - component: {fileID: 1722042934}
@@ -3967,40 +3965,10 @@ MonoBehaviour:
   layerInimigos:
     serializedVersion: 2
     m_Bits: 8
-  wep: {fileID: 1722042932}
+  wep: {fileID: 0}
   ultProjetilPrefab: {fileID: 8781395042819672185, guid: 15a0fbec3d400b34787ffc69b12591c8, type: 3}
   MarkPrefab: {fileID: -2253911629886400664, guid: 7e4915ceda7ab3e4b97511e43e7e6fff, type: 3}
   fireSoundClip: {fileID: 8300000, guid: cedd8ec88e3614d43a5e860cce62d0bb, type: 3}
---- !u!114 &1722042932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722042926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae8ba8caa74714147b98eeb619d668c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 0.5
-  meleeDano: 2
-  rangedDano: 1
-  meleeRange: 0.6
-  meleeCooldown: 0.5
-  layerInimigos:
-    serializedVersion: 2
-    m_Bits: 8
-  prefabTiro: {fileID: 1312992710952849393, guid: a02da886f3b45914ebe89e78aca4aa69, type: 3}
-  rangedWep: {fileID: 1766958009}
-  meleeWep: {fileID: 1120293891}
-  pontoInicialDoTiro: {fileID: 1502277055}
-  pontoInicialDoMelee: {fileID: 1576800374}
-  taRanged: 1
-  pc: {fileID: 1722042928}
-  fireSoundEffcet: {fileID: 8300000, guid: cedd8ec88e3614d43a5e860cce62d0bb, type: 3}
-  meleeSoundEffect: {fileID: 8300000, guid: 1dd08ebe9b4f96a4b916539bba03d401, type: 3}
-  soundController: {fileID: 1722042929}
 --- !u!114 &1722042933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4292,23 +4260,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   duracao: 0.1
   intervalo: 0.1
---- !u!114 &1722042942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722042926}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d971c256da8bf5245b934a437fabf5c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WepShotgun
-  quantidadePelotas: 5
-  anguloAbertura: 30
-  prefabTiro: {fileID: 1312992710952849393, guid: a02da886f3b45914ebe89e78aca4aa69, type: 3}
-  pontoInicialDoTiro: {fileID: 1766958010}
-  fireSoundEffect: {fileID: 0}
 --- !u!114 &1734715120 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 93535736130822023, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
