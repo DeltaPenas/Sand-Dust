@@ -1224,7 +1224,7 @@ PrefabInstance:
       objectReference: {fileID: 582236416703253144, guid: df0ef3e0d8094e44fb645f8d5d974982, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasNormais.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasTesouro.Array.size
@@ -1262,6 +1262,10 @@ PrefabInstance:
       propertyPath: 'catalogoSalas.salasNormais.Array.data[0]'
       value: 
       objectReference: {fileID: 582236416703253144, guid: a4e865a2f77c637479faf64d92894d31, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalas.salasNormais.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8998249644244355023, guid: 9acd0442fe39b7a4693cce531a46bcdb, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salasTesouro.Array.data[0]'
       value: 

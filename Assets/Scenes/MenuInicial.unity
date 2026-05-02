@@ -414,8 +414,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
+      - m_Target: {fileID: 1998197920}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
         m_MethodName: AddDanoSkill
         m_Mode: 1
         m_Arguments:
@@ -874,9 +874,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
-        m_MethodName: AddDanoRanged
+      - m_Target: {fileID: 1998197920}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
+        m_MethodName: AddDano
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2633,8 +2633,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
+      - m_Target: {fileID: 1998197920}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
         m_MethodName: AddVida
         m_Mode: 1
         m_Arguments:
@@ -3333,8 +3333,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
+      - m_Target: {fileID: 1998197920}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
         m_MethodName: AddVelocidade
         m_Mode: 1
         m_Arguments:
@@ -3466,8 +3466,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
+      - m_Target: {fileID: 1998197920}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
         m_MethodName: AddDanoUlt
         m_Mode: 1
         m_Arguments:
@@ -4412,8 +4412,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
+      - m_Target: {fileID: 1998197920}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
         m_MethodName: AddDanoMelee
         m_Mode: 1
         m_Arguments:

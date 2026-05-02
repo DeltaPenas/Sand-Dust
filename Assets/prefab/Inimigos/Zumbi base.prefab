@@ -161,6 +161,7 @@ MonoBehaviour:
   morreu: 0
   pegandoFogo: 0
   dv: {fileID: 0}
+  xpDrop: 1
 --- !u!114 &234772361150935931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ MonoBehaviour:
   capazDash: 1
   velocidade: 2
   distanciaParada: 0
-  distanciaDeteccaoObstaculo: 4
+  distanciaDeteccaoObstaculo: 0.2
   layerObstaculos:
     serializedVersion: 2
     m_Bits: 1
