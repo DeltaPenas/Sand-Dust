@@ -161,6 +161,7 @@ MonoBehaviour:
   morreu: 0
   pegandoFogo: 0
   dv: {fileID: 0}
+  xpDrop: 1
 --- !u!114 &234772361150935931
 MonoBehaviour:
   m_ObjectHideFlags: 0
