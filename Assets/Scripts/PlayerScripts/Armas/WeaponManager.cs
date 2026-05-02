@@ -10,7 +10,11 @@ public class WeaponManager : MonoBehaviour
 
     void Start()
     {
-        AtualizarArmas();
+        if (armas.Count > 0)
+        {
+            AtualizarArmas();
+        }
+        
     }
 
     void Update()
@@ -23,11 +27,12 @@ public class WeaponManager : MonoBehaviour
 
     void TrocarArma()
     {
+        if(armas.Count == 0) return;
+
         indexAtual++;
         if (indexAtual >= armas.Count) indexAtual = 0;
         
         AtualizarArmas();
-        Debug.Log("Trocou para: " + armas[indexAtual].name);
     }
 
     void AtualizarArmas()
@@ -37,5 +42,21 @@ public class WeaponManager : MonoBehaviour
             
             armas[i].SetActive(i == indexAtual);
         }
+    }
+
+    public void AdicionarArma(GameObject novaArma)
+    {
+        armas.Add(novaArma);
+
+        //desativando armas antes
+        for (int i = 0; i < armas.Count; i++)
+        {
+            armas[i].SetActive(false);
+        }
+        //ativando a arma atual
+        indexAtual = armas.Count - 1;
+        armas[indexAtual].SetActive(true);
+
+
     }
 }
