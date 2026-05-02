@@ -30,7 +30,8 @@ void Invocar()
             Vector2 posicaoSpawn;
 
             if (pontoInvocacao != null)
-                posicaoSpawn = pontoInvocacao.position;
+                posicaoSpawn =     (Vector2)pontoInvocacao.position +
+                Random.insideUnitCircle * 1.5f; //para os inimigos não nacerem exatamente no mesmo lugar, o que pode causar problemas de colisão
             else
                 posicaoSpawn = (Vector2)transform.position + Random.insideUnitCircle.normalized * 2f;
 
@@ -48,8 +49,9 @@ void Invocar()
     }
 protected override void Comportamento()
     {
-    if (distanciaPlayer <= distanciaInvocacao &&
-        Time.time >= proximaInvocacao)
+        if (distanciaPlayer <= distanciaInvocacao &&
+            inimigosAtuais <= 0 &&
+            Time.time >= proximaInvocacao)
         {
             Invocar();
             proximaInvocacao = Time.time + intervaloInvocacao;

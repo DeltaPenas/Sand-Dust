@@ -912,7 +912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -52.300293, y: 26.099976}
+  m_AnchoredPosition: {x: -52.300232, y: 26.099976}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398496981
@@ -2518,6 +2518,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1001 &1224198757
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1821935942732819040, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_Name
+      value: Inimigo Invocador
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.43799
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.46783
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127230995236851080, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
 --- !u!114 &1279255900 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4066203784055501240, guid: 841cca8c51073624f84ef405a77d5fb1, type: 3}
@@ -5274,5 +5331,6 @@ SceneRoots:
   - {fileID: 380796091}
   - {fileID: 1722042939}
   - {fileID: 665079724}
+  - {fileID: 1224198757}
   - {fileID: 520680445}
   - {fileID: 1499274416}
