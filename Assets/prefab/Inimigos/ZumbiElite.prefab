@@ -161,6 +161,7 @@ MonoBehaviour:
   morreu: 0
   pegandoFogo: 0
   dv: {fileID: 0}
+  xpDrop: 1
 --- !u!114 &1382301633568046709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ MonoBehaviour:
   capazDash: 1
   velocidade: 2
   distanciaParada: 0
-  distanciaDeteccaoObstaculo: 4
+  distanciaDeteccaoObstaculo: 0.2
   layerObstaculos:
     serializedVersion: 2
     m_Bits: 1
@@ -202,6 +203,8 @@ MonoBehaviour:
   vidaInimigo: {fileID: 0}
   scoreDoInimigo: 1
   anim: {fileID: 0}
+  gemas:
+  - {fileID: 3219365059758621533, guid: 17dd472cfd1b41e4880da889914ee76f, type: 3}
 --- !u!114 &4028092203977072356
 MonoBehaviour:
   m_ObjectHideFlags: 0

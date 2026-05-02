@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     [Header("Modificações")]
     public PlayerStatus baseStatus;
     public PlayerStatus currentStatus;
+    public int gems;
     public List<StatModifier> activeModifiers = new List<StatModifier>();
     private HashSet<System.Type> efeitosRegistrados = new HashSet<System.Type>();
     
