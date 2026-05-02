@@ -77,7 +77,7 @@ public class RunManager : MonoBehaviour
     {
         currentState = RunState.None;
         
-        SceneManager.LoadScene("MenuDeIniciarFase");
+        SceneManager.LoadScene("MenuInicial");
     }
 
     void Update()

@@ -88,6 +88,7 @@ public class Vida : MonoBehaviour
 
     private void morrer()
     {
+        ic.DroparGem();
         Destroy(gameObject, 0.1f);
     }
 }

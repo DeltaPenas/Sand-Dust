@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     [Header("Modificações")]
     public PlayerStatus baseStatus;
     public PlayerStatus currentStatus;
+    public int gems;
     public List<StatModifier> activeModifiers = new List<StatModifier>();
     private HashSet<System.Type> efeitosRegistrados = new HashSet<System.Type>();
     
@@ -46,6 +47,12 @@ public class PlayerController : MonoBehaviour
     
     private void Awake()
     {
+        
+        if(ProgressionManager.Instance != null && RunManager.Instance != null)
+        {
+            AplicarStatusAtualizados();
+        }
+            
         currentStatus = baseStatus.Clone();
         RecalculateStats();
         
@@ -249,6 +256,17 @@ public class PlayerController : MonoBehaviour
     public void DispararOnDash()
     {
     OnDash?.Invoke();
+    }
+
+    public void AplicarStatusAtualizados()
+    {
+        
+        baseStatus.vidaMax += ProgressionManager.Instance.vidaBonus;
+        baseStatus.danoRanged +=ProgressionManager.Instance.danoRangedBonus;
+        baseStatus.danoMelee +=ProgressionManager.Instance.danoMeleeBonus;
+        baseStatus.danoSkill +=ProgressionManager.Instance.danoSkillBonus;
+        baseStatus.danoSkill +=ProgressionManager.Instance.danoUltBonus;
+        baseStatus.velocidade +=ProgressionManager.Instance.velocidadeBonus;
     }
 
 

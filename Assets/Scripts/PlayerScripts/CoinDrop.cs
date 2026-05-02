@@ -2,15 +2,38 @@ using UnityEngine;
 
 public class CoinDrop : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private PlayerController pc;
+    [SerializeField] private int valorGem;
+    [SerializeField] private AudioClip ac;
+
     void Start()
     {
-        
+        pc = FindAnyObjectByType<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        
+        if (collider.CompareTag("Player"))
+        {
+            FoiPego();
+        }
+            
     }
+
+
+
+    void FoiPego()
+    {
+        SoundController soundController = FindAnyObjectByType<SoundController>();
+        HeartUi heartUi = FindAnyObjectByType<HeartUi>();
+        pc.gems += valorGem;
+        heartUi.AtualizarGemas();
+
+        soundController.TocarSom(ac);
+        Destroy(gameObject);
+    }
+
+    
 }

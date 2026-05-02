@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InimigoController : MonoBehaviour
@@ -11,6 +13,7 @@ public class InimigoController : MonoBehaviour
    private RunInfos runInfos;
    private SpriteRenderer spriteRenderer;
    public Animator anim;
+   [SerializeField] private List<GameObject> gemas;
 
    
    
@@ -60,6 +63,21 @@ public class InimigoController : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
     }
     spriteRenderer.enabled = true; 
+    }
+
+    public void DroparGem()
+    {
+        if (gemas.Count ==0) return;
+
+        int indice = UnityEngine.Random.Range(0, gemas.Count);
+
+        GameObject  gema = gemas[indice];
+
+        GameObject prefab = Instantiate(
+            gema,
+            transform.position,
+            Quaternion.identity
+        );
     }
     
 }
