@@ -27,7 +27,9 @@ public class CoinDrop : MonoBehaviour
     void FoiPego()
     {
         SoundController soundController = FindAnyObjectByType<SoundController>();
+        HeartUi heartUi = FindAnyObjectByType<HeartUi>();
         pc.gems += valorGem;
+        heartUi.AtualizarGemas();
 
         soundController.TocarSom(ac);
         Destroy(gameObject);

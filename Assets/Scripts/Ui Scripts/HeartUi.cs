@@ -2,22 +2,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
+using TMPro;
 
 public class HeartUi : MonoBehaviour
 {
     [SerializeField] private GameObject heartPrefab;
     [SerializeField] private Transform heartsContainer;
     [SerializeField] private GameObject player;
+    [SerializeField] private TextMeshProUGUI gemValor;
+    [SerializeField] private GameObject gem;
     [SerializeField] private PlayerVida pv;
+    [SerializeField] private PlayerController pc;
     private List<GameObject> hearts = new List<GameObject>();
 
     public void Start()
     {
         pv = FindAnyObjectByType<PlayerVida>();
+        pc = FindAnyObjectByType<PlayerController>();
+        gem.SetActive(true);
     }
 
     public void UpdateHearts(int vidaAtual, int vidaMax)
-{
+    {
     foreach (GameObject heart in hearts)
     {
         Destroy(heart);
@@ -41,6 +47,10 @@ public class HeartUi : MonoBehaviour
 
         hearts.Add(newHeart);
     }
-}
+    }
+    public void AtualizarGemas()
+    {
+        gemValor.text = ""+ pc.gems;
+    }
 
 }
