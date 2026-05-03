@@ -10,9 +10,19 @@ public class weponVisualFollow : MonoBehaviour
     public SpriteRenderer spritewep;
     public SpriteRenderer playerSprite;
 
-    private void Start()
+    void Start()
     {
+    if (sp == null)
         sp = GetComponent<SpriteRenderer>();
+
+    if (pc == null)
+        pc = GetComponentInParent<PlayerController>();
+
+    if (playerSprite == null && pc != null)
+        playerSprite = pc.GetComponent<SpriteRenderer>();
+
+    if (spritewep == null)
+        spritewep = GetComponent<SpriteRenderer>();
     }
 
 

@@ -5,7 +5,7 @@ public class WepShotgun : MonoBehaviour
     [Header("Configurações da Doze")]
     public int quantidadePelotas = 5;
     public float anguloAbertura = 30f; 
-    private float tempoProximoTiro;
+    [SerializeField] private float tempoProximoTiro;
 
     [Header("Referências")]
     public GameObject prefabTiro;
@@ -38,7 +38,7 @@ public class WepShotgun : MonoBehaviour
             {
                 AtirarDoze(direcaoBase);
                
-                tempoProximoTiro = Time.time + (pc.currentStatus.atqCooldown * 1.5f); 
+                tempoProximoTiro = Time.time + (pc.currentStatus.atqCooldown * 3f); 
             }
         }
     }
