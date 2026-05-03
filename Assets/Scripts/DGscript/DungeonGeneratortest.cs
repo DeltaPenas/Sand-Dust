@@ -333,10 +333,15 @@ public class DungeonGeneratortest : MonoBehaviour
     public void LimparInimigos()
     {
         GameObject[] inimigos = GameObject.FindGameObjectsWithTag("inimigo");
+        GameObject[] items = GameObject.FindGameObjectsWithTag("Items");
 
         foreach (GameObject inimigo in inimigos)
         {
             Destroy(inimigo);
+        }
+        foreach (GameObject item in items)
+        {
+            Destroy(item);
         }
     }
 

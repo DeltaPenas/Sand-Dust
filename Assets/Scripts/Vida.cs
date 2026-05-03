@@ -79,16 +79,32 @@ public class Vida : MonoBehaviour
             RunManager.Instance.AddInimigoCount();
             ic.contabilizarPerda();
             ic.inimigoMorrendo();
-            Invoke("morrer", 3f);
+            StartCoroutine(MorrerComDelay());
             return;
         }
         morrer(); //gambiarra pra separar inimigos de props
     }
     }
 
+    IEnumerator MorrerComDelay()
+    {
+    yield return new WaitForSeconds(3f);
+
+    if (this != null)
+    {
+        morrer();
+    }
+    }
+
     private void morrer()
+{
+    if (gameObject == null) return;
+
+    if (ic != null)
     {
         ic.DroparGem();
-        Destroy(gameObject, 0.1f);
     }
+
+    Destroy(gameObject, 0.1f);
+}
 }

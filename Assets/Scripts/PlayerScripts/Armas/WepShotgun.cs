@@ -58,7 +58,8 @@ public class WepShotgun : MonoBehaviour
             );
 
             GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
-            projetil.GetComponent<Projetil>().definirDireção(direcaoTiro);
+            Projetil proj = projetil.GetComponent<Projetil>();
+            proj.Inicializar(direcaoTiro, pc);
 
           
             Destroy(projetil, 0.3f); 

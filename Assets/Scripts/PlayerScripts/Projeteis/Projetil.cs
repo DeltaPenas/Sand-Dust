@@ -5,7 +5,8 @@ public class Projetil : MonoBehaviour
     public float velocidade = 150f;
 
     private Vector2 direcao;
-    private WepAtaque wp;
+    
+    private PlayerController pc;
 
     private float vidaProjetil;
     private int ricochetesRestantes;
@@ -15,15 +16,21 @@ public class Projetil : MonoBehaviour
 
     void Start()
     {
-        wp = FindAnyObjectByType<WepAtaque>();
-
-        float dano = wp.pc.currentStatus.danoRanged;
-
-        vidaProjetil = dano;
-        ricochetesRestantes = wp.pc.currentStatus.ricochetes;
-
         Destroy(gameObject, 10f);
     }
+
+    public void Inicializar(Vector2 direcaoInicial, PlayerController player)
+    {
+        direcao = direcaoInicial.normalized;
+        pc = player;
+
+        float dano = pc.currentStatus.danoRanged;
+
+        vidaProjetil = dano;
+        ricochetesRestantes = pc.currentStatus.ricochetes;
+    }
+
+
 
     public void definirDireção(Vector2 novaDireção)
     {
@@ -44,10 +51,10 @@ public class Projetil : MonoBehaviour
 
             if (vida != null)
             {
-                float dano = wp.pc.currentStatus.danoRanged;
+                float dano = pc.currentStatus.danoRanged;
 
                 vida.receberDano(dano);
-                wp.pc.DispararOnHit(alvo.gameObject);
+                pc.DispararOnHit(alvo.gameObject);
 
                 vidaProjetil -= dano; 
             }
@@ -73,7 +80,7 @@ public class Projetil : MonoBehaviour
     if (podeGerarRicocheteExtra)
     {
         podeGerarRicocheteExtra = false;
-        wp.pc.DispararOnRicochete(gameObject);
+        pc.DispararOnRicochete(gameObject);
     }
 
     if (ricochetesRestantes <= 0)

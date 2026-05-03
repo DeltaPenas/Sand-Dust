@@ -39,7 +39,8 @@ public class WepPistol : MonoBehaviour
     void Atirar(Vector2 direcao)
     {
         GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
-        projetil.GetComponent<Projetil>().definirDireção(direcao);
+        Projetil proj = projetil.GetComponent<Projetil>();
+        proj.Inicializar(direcao, pc);
 
         soundController.TocarSom(fireSoundEffect);
         //pc.anim.SetTrigger("attack"); nao usar

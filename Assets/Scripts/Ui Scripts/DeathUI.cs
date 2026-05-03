@@ -16,6 +16,8 @@ public class DeathUI : MonoBehaviour
     public void Show()
     {
         painel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0f;
         Setup();
     }
@@ -32,6 +34,7 @@ public class DeathUI : MonoBehaviour
 
     public void Retry()
     {
+        Debug.Log("Testando"); //esse debug também não funcionou, então acho que o problema é o botão
         Time.timeScale = 1f;
         painel.SetActive(false);
         RunManager.Instance.RestartRun();
