@@ -224,7 +224,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   tempoDesvio: 0.7
-  inimigoPrefab: {fileID: 6307714004679503749, guid: 316b0e06a961b74428e91d81f75e98a8, type: 3}
+  inimigoPrefab: {fileID: 5844461690707922050, guid: 2863aaedce4d78d44a5b272b3c63c611, type: 3}
   pontoInvocacao: {fileID: 6127230995236851080}
   quantidadeInvocada: 5
   maxInimigos: 5

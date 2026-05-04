@@ -32,6 +32,7 @@ public class InimigoPerseguidor : MonoBehaviour
     public float intervaloDano = 3f;
 
     private float proximoAtaque;
+    
 
     private void Start()
     {

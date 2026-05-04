@@ -7,7 +7,7 @@ public class UltRevolver : UltBase
 {
     public Transform posPlayer; //usar pra criar um ponto inicial pra ult
     public LayerMask layerInimigos; //seleciona a layer "inimigos", ou algo assim sla
-    public WepAtaque wep;
+
     public GameObject ultProjetilPrefab;
     public GameObject MarkPrefab;
     public AudioClip fireSoundClip;
@@ -15,9 +15,6 @@ public class UltRevolver : UltBase
     protected override bool tentaUsarUlt()
     {
         SoundController soundController = FindAnyObjectByType<SoundController>();
-        wep.taRanged = true;
-        wep.rangedWep.SetActive(true);
-        wep.meleeWep.SetActive(false);
 
         GameObject mira;
 

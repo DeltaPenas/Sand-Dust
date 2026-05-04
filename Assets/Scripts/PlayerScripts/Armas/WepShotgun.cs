@@ -3,7 +3,7 @@ using UnityEngine;
 public class WepShotgun : MonoBehaviour
 {
     [Header("Configurações da Doze")]
-    public int quantidadePelotas = 5;
+    public int quantidadePelotas = 3;
     public float anguloAbertura = 30f; 
     [SerializeField] private float tempoProximoTiro;
 

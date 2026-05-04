@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2563522063663917781}
   - component: {fileID: 7364180466422305743}
   - component: {fileID: 2484853277044451027}
+  - component: {fileID: 7925107344218478147}
   m_Layer: 3
   m_Name: InimgoAtirador
   m_TagString: inimigo
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3244443420763268584}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2533932, y: 1.1564105, z: 0}
+  m_LocalPosition: {x: -0.45114172, y: 0.5358301, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1523495166, guid: 77e725e56539c3b42a41ce9327cf853f, type: 3}
+  m_Sprite: {fileID: 4874651210326479111, guid: 61cd8b22e6c61d9459a59b647c9774bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +135,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.875, y: 0.90625}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -202,7 +203,7 @@ MonoBehaviour:
   pontoDisparo: {fileID: 6091444866406314023}
   tempoEntreTiros: 1.5
   dano: 1
-  velocidadeProjetil: 20
+  velocidadeProjetil: 5
   distanciaMinima: 1.5
   distanciaAtaque: 6
 --- !u!50 &2484853277044451027
@@ -231,4 +232,26 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!95 &7925107344218478147
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3244443420763268584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e96af037dc317e48adc62d2f02a9a74, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

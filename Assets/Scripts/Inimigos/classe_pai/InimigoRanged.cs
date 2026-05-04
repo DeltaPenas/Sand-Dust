@@ -20,11 +20,13 @@ public abstract class InimigoRanged : MonoBehaviour
     protected Vector2 direcaoDesvioAtual; 
     public InimigoController inimigoController;
     private float fimDesvio;
+    protected Animator anim;
     
     protected virtual void Start() 
     { 
         rb = GetComponent<Rigidbody2D>();
         inimigoController = GetComponent<InimigoController>();
+        anim = GetComponent<Animator>();
         
        
        if (player == null) 
@@ -50,13 +52,25 @@ public abstract class InimigoRanged : MonoBehaviour
         
         float distancia = Vector2.Distance(rb.position, player.position);
         
-        if (distancia < distanciaParada)// deixa o inimigo parado apartir de certa distancia do player 
+        if (distancia < distanciaParada)
         {
             rb.linearVelocity = Vector2.zero;
+
+            
+            if (anim != null) anim.SetFloat("Speed", 0);
         } 
         else
         {
             Vector2 direcaoEscolhida = ObterDirecaoDeMovimento();
+
+            
+            if (anim != null)
+            {
+                anim.SetFloat("Horizontal", direcaoEscolhida.x);
+                anim.SetFloat("Vertical", direcaoEscolhida.y);
+                anim.SetFloat("Speed", direcaoEscolhida.magnitude);
+            }
+
             Vector2 novaPosicao = rb.position + direcaoEscolhida * velocidade * Time.fixedDeltaTime;
             rb.MovePosition(novaPosicao);
         } 

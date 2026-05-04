@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d971c256da8bf5245b934a437fabf5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WepShotgun
-  quantidadePelotas: 5
+  quantidadePelotas: 3
   anguloAbertura: 50
   tempoProximoTiro: 0
   prefabTiro: {fileID: 1312992710952849393, guid: a02da886f3b45914ebe89e78aca4aa69, type: 3}

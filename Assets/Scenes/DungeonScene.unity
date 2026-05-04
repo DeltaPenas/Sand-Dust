@@ -1195,11 +1195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: qtdmaxSalas
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: qtdminSalas
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: prefabSalaTeste
@@ -1211,16 +1211,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoProps.props.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoProps.props.Array.data[0]'
       value: 
-      objectReference: {fileID: 3432677214346434816, guid: 6c553aaf609a3d34f9cefe892060df91, type: 3}
+      objectReference: {fileID: 4082962856676249247, guid: 98b139adc41898845aca80b0c77eed9f, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoProps.props.Array.data[1]'
       value: 
-      objectReference: {fileID: 7423820713619554838, guid: 650e1bc1215e93546925b7d655623180, type: 3}
+      objectReference: {fileID: 4695602646284803510, guid: 308e31d85a83d0343a6c1c838fd2df32, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoProps.props.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3269178551249686298, guid: e8468999cf29ebb4592ef13ac2ce7b3d, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salaLojas.Array.size
       value: 1
@@ -4524,7 +4528,6 @@ MonoBehaviour:
   layerInimigos:
     serializedVersion: 2
     m_Bits: 8
-  wep: {fileID: 0}
   ultProjetilPrefab: {fileID: 8781395042819672185, guid: 15a0fbec3d400b34787ffc69b12591c8, type: 3}
   MarkPrefab: {fileID: -2253911629886400664, guid: 7e4915ceda7ab3e4b97511e43e7e6fff, type: 3}
   fireSoundClip: {fileID: 8300000, guid: cedd8ec88e3614d43a5e860cce62d0bb, type: 3}
