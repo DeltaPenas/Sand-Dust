@@ -173,7 +173,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 11022b86ff05b2446aea4858a915e181, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -248,3 +248,4 @@ MonoBehaviour:
   nome: Revolver
   descr: " arma de fogo port\xE1til de repeti\xE7\xE3o que utiliza um tambor girat\xF3rio"
   img: {fileID: 21300000, guid: 11022b86ff05b2446aea4858a915e181, type: 3}
+  weaponID: Pistol

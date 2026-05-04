@@ -140,39 +140,42 @@ public class DungeonGeneratortest : MonoBehaviour
     }
 
     private void DefinirSalasEspeciais()
+{
+    List<SalaNode> salasValidas = new List<SalaNode>();
+
+    foreach (SalaNode sala in salas)
     {
-        List<SalaNode> salasValidas = new List<SalaNode>();
+        if (sala.tipo == TipoSala.Inicial) continue;
+        if (sala.tipo == TipoSala.SalaProxLayer) continue;
 
-        foreach (SalaNode sala in salas)
-        {
-            if (sala.tipo == TipoSala.Inicial)
-                continue;
-
-            if (sala.tipo == TipoSala.SalaProxLayer)
-                continue;
-
-            salasValidas.Add(sala);
-        }
-
-        int qtdTesouros = salas.Count > 8 ? 2 : 1;
-        
-
-        for (int i = 0; i < qtdTesouros; i++)
-        {
-            if (salasValidas.Count == 0)
-                break;
-
-            int index = Random.Range(0, salasValidas.Count);
-
-            salasValidas[index].tipo = TipoSala.Tesouro;
-
-            salasValidas.RemoveAt(index);
-        }
-
-        int indexSalaLoja = Random.Range(0, salasValidas.Count);
-        salasValidas[indexSalaLoja].tipo = TipoSala.Loja;
-        salasValidas.RemoveAt(indexSalaLoja);
+        salasValidas.Add(sala);
     }
+
+    if (salasValidas.Count == 0) return;
+
+    //embaralha
+    for (int i = 0; i < salasValidas.Count; i++)
+    {
+        int rand = Random.Range(i, salasValidas.Count);
+        (salasValidas[i], salasValidas[rand]) = (salasValidas[rand], salasValidas[i]);
+    }
+
+    int qtdTesouros = salas.Count > 8 ? 2 : 1;
+    int indexAtual = 0;
+
+    
+    for (int i = 0; i < qtdTesouros && indexAtual < salasValidas.Count; i++)
+    {
+        salasValidas[indexAtual].tipo = TipoSala.Tesouro;
+        indexAtual++;
+    }
+
+    
+    if (indexAtual < salasValidas.Count)
+    {
+        salasValidas[indexAtual].tipo = TipoSala.Loja;
+    }
+}
 
     private void InstanciarSalas()
     {

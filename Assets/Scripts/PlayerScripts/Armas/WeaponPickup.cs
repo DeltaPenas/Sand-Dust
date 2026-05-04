@@ -12,6 +12,7 @@ public class WeaponPickup : MonoBehaviour
     private WeponContainer wc;
     private PlayerController pc;
     private HeartUi heartUi;
+    public string weaponID;
 
     private PlayerController playerDentro; //  player dentro
 
@@ -58,16 +59,25 @@ public class WeaponPickup : MonoBehaviour
     {
         if (playerDentro == null) return;
 
-        if (playerDentro.gems < valor) return;
-
-        playerDentro.gems -= valor;
-        heartUi.AtualizarGemas();
-
         WeaponManager wm = playerDentro.GetComponent<WeaponManager>();
+
+        //tem a arma
+        if (wm == null) return;
+
+        if (playerDentro.gems < valor) return;
 
         GameObject novaArma = Instantiate(prefabArma, playerDentro.transform);
 
-        wm.AdicionarArma(novaArma);
+        bool comprou = wm.AdicionarArma(novaArma, weaponID);
+
+        if (!comprou)
+        {
+            Destroy(novaArma); // evita duplicação
+            return;
+        }
+
+        playerDentro.gems -= valor;
+        heartUi.AtualizarGemas();
 
         wc.DesativarArma();
         Destroy(gameObject);

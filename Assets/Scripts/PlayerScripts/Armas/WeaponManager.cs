@@ -7,6 +7,7 @@ public class WeaponManager : MonoBehaviour
     public KeyCode teclaTroca = KeyCode.T;
     public List<GameObject> armas; 
     private int indexAtual = 0;
+    private string armaAtualID;
 
     void Start()
     {
@@ -44,19 +45,27 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    public void AdicionarArma(GameObject novaArma)
+    public bool AdicionarArma(GameObject novaArma, string weaponID)
     {
-        armas.Add(novaArma);
-
-        //desativando armas antes
-        for (int i = 0; i < armas.Count; i++)
+        // tem essa arma
+        if (armaAtualID == weaponID)
         {
-            armas[i].SetActive(false);
+            return false;
         }
-        //ativando a arma atual
-        indexAtual = armas.Count - 1;
-        armas[indexAtual].SetActive(true);
 
+        //  remove arma antiga
+        if (armas.Count > 0)
+        {
+            Destroy(armas[0]);
+            armas.Clear();
+        }
 
+        armas.Add(novaArma);
+        armaAtualID = weaponID;
+
+        indexAtual = 0;
+        AtualizarArmas();
+
+        return true;
     }
 }
