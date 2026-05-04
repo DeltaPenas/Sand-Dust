@@ -154,7 +154,8 @@ public class DungeonGeneratortest : MonoBehaviour
             salasValidas.Add(sala);
         }
 
-        int qtdTesouros = salas.Count > 6 ? 2 : 1;
+        int qtdTesouros = salas.Count > 8 ? 2 : 1;
+        
 
         for (int i = 0; i < qtdTesouros; i++)
         {
@@ -167,6 +168,10 @@ public class DungeonGeneratortest : MonoBehaviour
 
             salasValidas.RemoveAt(index);
         }
+
+        int indexSalaLoja = Random.Range(0, salasValidas.Count);
+        salasValidas[indexSalaLoja].tipo = TipoSala.Loja;
+        salasValidas.RemoveAt(indexSalaLoja);
     }
 
     private void InstanciarSalas()
