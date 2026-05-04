@@ -97,16 +97,25 @@ public class SalaController : MonoBehaviour
     {
         Debug.Log("Sala limpa! Liberando portas.");
         salaLimpa = true;
-        runInfos.playerScore +=1;
-        runInfos.salasConcluidas+=1;
-        RunManager.Instance.AddSala();
+
+        if (runInfos != null)
+        {
+            runInfos.playerScore += 1;
+            runInfos.salasConcluidas += 1;
+        }
+
+        if (RunManager.Instance != null)
+        {
+            RunManager.Instance.AddSala();
+        }
 
         foreach (PortaTrigger porta in portas)
         {
+            if (porta == null) continue;
+
             Debug.Log("Liberando porta: " + porta.name);
             porta.podeTeleportar = true;
         }
-            
     }
     }
 

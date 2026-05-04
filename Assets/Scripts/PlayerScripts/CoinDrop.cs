@@ -28,10 +28,15 @@ public class CoinDrop : MonoBehaviour
     {
         SoundController soundController = FindAnyObjectByType<SoundController>();
         HeartUi heartUi = FindAnyObjectByType<HeartUi>();
-        pc.gems += valorGem;
-        heartUi.AtualizarGemas();
 
-        soundController.TocarSom(ac);
+        if (RunManager.Instance != null)
+        {
+            RunManager.Instance.AddMoedasRun(valorGem);
+        }
+
+        if (soundController != null)
+            soundController.TocarSom(ac);
+
         Destroy(gameObject);
     }
 

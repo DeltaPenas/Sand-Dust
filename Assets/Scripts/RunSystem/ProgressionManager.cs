@@ -4,7 +4,7 @@ using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class ProgressionManager : MonoBehaviour
-{   
+{
    
     public static ProgressionManager Instance;
     [SerializeField] private bool forcarComoPrincipal = false;
@@ -48,6 +48,7 @@ public class ProgressionManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SaveSystem.LoadProgression(this);
         }
         else if (Instance != this)
         {
@@ -64,6 +65,7 @@ public class ProgressionManager : MonoBehaviour
         {
             LevelUp();
         }
+        SaveSystem.SaveProgression(this);
     }
 
     public void LevelUp()

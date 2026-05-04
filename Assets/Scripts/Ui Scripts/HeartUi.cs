@@ -13,6 +13,7 @@ public class HeartUi : MonoBehaviour
     [SerializeField] private GameObject gem;
     [SerializeField] private PlayerVida pv;
     [SerializeField] private PlayerController pc;
+    [SerializeField] private TextMeshProUGUI xpText;
     private List<GameObject> hearts = new List<GameObject>();
 
     public void Start()
@@ -20,6 +21,8 @@ public class HeartUi : MonoBehaviour
         pv = FindAnyObjectByType<PlayerVida>();
         pc = FindAnyObjectByType<PlayerController>();
         gem.SetActive(true);
+
+        AtualizarTudo();
     }
 
     public void UpdateHearts(int vidaAtual, int vidaMax)
@@ -48,9 +51,24 @@ public class HeartUi : MonoBehaviour
         hearts.Add(newHeart);
     }
     }
+    public void AtualizarXP(int xp)
+    {
+        if (xpText != null)
+            xpText.text = "" + xp;
+    }
+    public void AtualizarTudo()
+    {
+        if (pc != null)
+        {
+            AtualizarGemas();
+        }
+    }
     public void AtualizarGemas()
     {
-        gemValor.text = ""+ pc.gems;
+        if (gemValor != null && RunManager.Instance != null)
+        {
+            gemValor.text = "" + RunManager.Instance.currentRun.moedasRun;
+        }
     }
 
 }
