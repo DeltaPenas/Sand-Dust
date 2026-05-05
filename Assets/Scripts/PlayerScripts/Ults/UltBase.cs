@@ -12,7 +12,7 @@ public abstract class UltBase : MonoBehaviour
 
     private void Start()
     {
-        pc = GetComponent<PlayerController>();
+        pc = GetComponentInParent<PlayerController>();
         DefirnirStatus();
         ultimoUsoUlt = -ultCooldown;
     }

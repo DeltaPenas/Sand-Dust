@@ -78,11 +78,6 @@ public class PlayerController : MonoBehaviour
         {
             dashBase.tentaUsarDash();
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ultBase.tentaUsar();
-        }
-
         if (Input.GetKeyDown(KeyCode.P))
         {
             pv.DarDanoPlayer(1);
