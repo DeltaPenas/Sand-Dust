@@ -4,6 +4,7 @@ public class SkillUIController : MonoBehaviour
 {
 
     [Header("Slots")]
+    [SerializeField] private UnityEngine.UI.Image skillIcon;
     [SerializeField] private SkillsSlotUI dashSlot;
     [SerializeField] private SkillsSlotUI ultSlot;
     [SerializeField] private SkillsSlotUI skillSlot;
@@ -20,7 +21,7 @@ public class SkillUIController : MonoBehaviour
     
 
     
-    void Start()
+        void Start()
     {
         dashFrame.SetActive(true);
         skillFrame.SetActive(true);
@@ -28,8 +29,16 @@ public class SkillUIController : MonoBehaviour
         lifeFrame.SetActive(true);
 
         skillManager = FindAnyObjectByType<SkillManager>();
-        ultManager = FindAnyObjectByType<UltManager>();
 
+        if (skillManager == null)
+        {
+            
+            return;
+        }
+
+        skillManager.OnSkillChanged += AtualizarSkillUI;
+
+    
     }
 
     void Update()
@@ -64,4 +73,23 @@ public class SkillUIController : MonoBehaviour
     skillSlot.UpdateCooldown(skillRestante, skillCooldown);
     ultSlot.UpdateCooldown(ultRestante, ultCooldown);
 }
+    void AtualizarSkillUI(SkillBase skill)
+{
+    
+
+    if (skill == null)
+    {
+        
+        return;
+    }
+
+    if (skill.skillIcone == null)
+    {
+        
+        return;
+    }
+
+    skillSlot.SetIcon(skill.skillIcone);
+}
+
 }

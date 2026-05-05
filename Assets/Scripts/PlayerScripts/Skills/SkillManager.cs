@@ -4,6 +4,7 @@ public class SkillManager : MonoBehaviour
 {
     private SkillBase skillAtual;
     public SkillBase SkillAtual => skillAtual;
+    public System.Action<SkillBase> OnSkillChanged;
 
 
     void Update()
@@ -17,16 +18,17 @@ public class SkillManager : MonoBehaviour
 
     public void EquiparSkill(GameObject skillPrefab)
     {
-        //remove skill antiga
         if (skillAtual != null)
         {
             Destroy(skillAtual.gameObject);
         }
-        //instanciar nova skill como filha do player
 
         GameObject novaSkill = Instantiate(skillPrefab, transform);
-
         skillAtual = novaSkill.GetComponent<SkillBase>();
+
+        Debug.Log("Skill equipada: " + skillAtual.name); // DEBUG
+
+        OnSkillChanged?.Invoke(skillAtual); 
     }
     public void UsarSkill()
     {

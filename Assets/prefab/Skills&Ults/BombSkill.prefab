@@ -44,14 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3741593e7c853c7498cb151708c5d10f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillBomb
+  skillNome: Dinamite
+  skillDescricao: "Lan\xE7a uma banana de dinamite. "
+  skillIcone: {fileID: 21300000, guid: 188442db61c67fe488e45987e659818a, type: 3}
   skillRange: 0
   skillDmg: 0
   cooldown: 0
   ultimoUso: 0
   stacksAtual: 0
   maxStacks: 0
-  pc: {fileID: 0}
   bombPrefab: {fileID: 2544089801897336646, guid: 43b87744df36ccd4d8ae3215b307c057, type: 3}
-  "pontoLan\xE7amento": {fileID: 0}
-  bmb: {fileID: 1954305494245654264, guid: 43b87744df36ccd4d8ae3215b307c057, type: 3}
-  sc: {fileID: 0}

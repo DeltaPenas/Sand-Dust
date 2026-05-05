@@ -2,6 +2,13 @@ using UnityEngine;
 
 public abstract class SkillBase : MonoBehaviour
 {
+
+    [Header("UI")]
+    public string skillNome;
+    [TextArea] public string skillDescricao;
+    public Sprite skillIcone;
+
+    [Header("Status")]
     public float skillRange;
     public float skillDmg;
     public float cooldown;

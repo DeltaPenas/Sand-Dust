@@ -9,7 +9,8 @@ public class SkillsSlotUI : MonoBehaviour
 
     public void SetIcon(Sprite sprite)
     {
-        icon.sprite = sprite;
+    icon.sprite = sprite;
+    icon.enabled = sprite != null; // desativa caso n tenha
     }
 
     public void UpdateCooldown(float atual, float max)
