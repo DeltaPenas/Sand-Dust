@@ -33,6 +33,7 @@ public class WeponContainer : MonoBehaviour
     {
         if (pickupAtual != null)
         {
+            Debug.Log("tentou comprar");
             pickupAtual.Comprar();
         }
     }

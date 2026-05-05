@@ -32,6 +32,7 @@ public class CoinDrop : MonoBehaviour
         if (RunManager.Instance != null)
         {
             RunManager.Instance.AddMoedasRun(valorGem);
+            pc.gems +=valorGem;
         }
 
         if (soundController != null)

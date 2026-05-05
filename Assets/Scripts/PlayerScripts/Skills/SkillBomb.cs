@@ -3,26 +3,38 @@ using UnityEngine;
 public class SkillBomb : SkillBase
 {
     public GameObject bombPrefab;
-    public Transform pontoLançamento;
-    public BombProjetil bmb;
-    public SoundController sc;
+
     protected override void useSkill()
     {
+        if (pontoSkill == null)
+        {
+            Debug.LogWarning("SkillBomb: pontoSkill é NULL");
+            return;
+        }
+
+        if (bombPrefab == null)
+        {
+            Debug.LogError("SkillBomb: bombPrefab não definido!");
+            return;
+        }
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
-        Vector2 direcao = (mousePos - pontoLançamento.transform.position).normalized;
+        Vector2 direcao = (mousePos - pontoSkill.position).normalized;
 
-        GameObject bombProjetil = Instantiate(bombPrefab, pontoLançamento.position, Quaternion.identity);
-        bombProjetil.GetComponent<BombProjetil>().definirDirecao(direcao);
+        GameObject bomb = Instantiate(bombPrefab, pontoSkill.position, Quaternion.identity);
 
-        bmb.raioExp = skillRange;
+        BombProjetil proj = bomb.GetComponent<BombProjetil>();
 
-        
-        
+        if (proj != null)
+        {
+            proj.definirDirecao(direcao);
+            proj.raioExp = skillRange;
+        }
+        else
+        {
+            Debug.LogError("SkillBomb: BombProjetil não encontrado no prefab!");
+        }
     }
-
-    
-
-    
 }

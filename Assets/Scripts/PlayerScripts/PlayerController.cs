@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     
 
     [Header("Skills, Ult e Dash")]
-    public SkillBase skillBase;
+    public Transform skillPoint;
+    //public SkillBase skillBase;
     public UltBase ultBase;
     public DashBase dashBase;
     [Header("Atributos")]
@@ -77,13 +78,6 @@ public class PlayerController : MonoBehaviour
         {
             dashBase.tentaUsarDash();
         }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            skillBase.tentaUsar();
-            
-        }
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ultBase.tentaUsar();

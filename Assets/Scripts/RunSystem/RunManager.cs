@@ -190,6 +190,12 @@ public class RunManager : MonoBehaviour
         AtualizarMoedasUI();
         SaveCurrentRun();
     }
+    public void RemoveMoedasRun(int valor)
+    {
+        currentRun.moedasRun -= valor;
+        AtualizarMoedasUI();
+        SaveCurrentRun();   
+    }
 
     public bool GastarMoedasRun(int valor)
     {
