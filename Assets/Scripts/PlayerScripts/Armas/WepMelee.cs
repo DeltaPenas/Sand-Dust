@@ -1,8 +1,10 @@
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class WepMelee : MonoBehaviour
 {
-    public float meleeRange = 1f;
+    public float meleeRange = 2f;
+    public float forçaKnockBack= 10f;
     public LayerMask layerInimigos;
     public AudioClip meleeSoundEffect;
     public Transform pontoAtaque;
@@ -40,13 +42,26 @@ public class WepMelee : MonoBehaviour
         foreach (Collider2D alvo in hit)
         {
             Vida vida = alvo.GetComponent<Vida>();
+            Rigidbody2D rig = alvo.GetComponent<Rigidbody2D>();
+
             if (vida != null)
             {
                 vida.receberDano(pc.currentStatus.danoMelee);
+
+                if (rig != null)
+                {
+                    Vector2 dir = (alvo.transform.position - transform.position).normalized;
+                    rig.AddForce(dir * forçaKnockBack, ForceMode2D.Impulse);
+                }
             }
         }
+
+
+        
 
         pc.anim.SetTrigger("attack");
         soundController.TocarSom(meleeSoundEffect);
     }
+
+    
 }
