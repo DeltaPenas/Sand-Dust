@@ -6,9 +6,12 @@ public class ProjetilInimigo : MonoBehaviour // fiz mudanças para o projetil ev
 private Vector2 direcao;
 private float velocidade;
 private int dano;
+private float tempoIgnorarColisao = 0.1f; 
+private float tempoSpawn;
 
 private void Start()
     {
+        tempoSpawn = Time.time;
         Destroy(gameObject, 3f);
     }
 
@@ -26,6 +29,9 @@ private void Update()
 
 private void OnTriggerEnter2D(Collider2D alvo)
     {
+        if (Time.time < tempoSpawn + tempoIgnorarColisao)
+        return;
+        
         PlayerVida vida = alvo.GetComponent<PlayerVida>();
 
         if (vida != null)

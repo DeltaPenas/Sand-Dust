@@ -242,6 +242,7 @@ MonoBehaviour:
   vidaInimigo: {fileID: 0}
   scoreDoInimigo: 1
   anim: {fileID: 0}
+  gemas: []
 --- !u!95 &-6321157775689095066
 Animator:
   serializedVersion: 7

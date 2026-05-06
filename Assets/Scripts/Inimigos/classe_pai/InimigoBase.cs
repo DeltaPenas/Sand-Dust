@@ -10,6 +10,7 @@ protected PlayerVida vidaDoPlayer;
 protected Rigidbody2D rb;
 protected Vida vida;
 protected float distanciaPlayer;
+private Vector2 posicaoAnterior;
 
 [Header("Movimento")]
 public float velocidade = 1f;
@@ -60,43 +61,52 @@ protected virtual void FixedUpdate()
         Movimento();
     }// Cada inimigo decide o que fazer
 protected abstract void Comportamento();
-
 protected virtual void Movimento()
-{
-    if (distanciaPlayer < distanciaParada)
     {
-        rb.linearVelocity = Vector2.zero;
-        return;
+        if (DeveParar())
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+        Vector2 direcao = DirecaoBase();
+
+        //  SEMPRE desvia
+        direcao = ObterDirecaoComDesvio(direcao);
+
+        if (direcao == Vector2.zero)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        float deslocamento = Vector2.Distance(rb.position, posicaoAnterior);
+
+        if (deslocamento < 0.001f)
+        {
+            direcao = Random.insideUnitCircle.normalized;
+        }
+        
+        rb.linearVelocity = direcao * velocidade;
+
+        posicaoAnterior = rb.position;
     }
-
-    Vector2 direcao = DirecaoBase();
-    direcao = ObterDirecaoComDesvio(direcao);
-
-    if (direcao == Vector2.zero)
+protected virtual bool DeveParar()
     {
-        rb.linearVelocity = Vector2.zero;
-        return;
-    }
-
-    rb.MovePosition(rb.position + direcao * velocidade * Time.fixedDeltaTime);
-}
+        return distanciaPlayer <= distanciaParada;
+    }// se o player estiver dentro da distância de parada, o inimigo para de se mover
 // Pode ser sobrescrito (ex: ranged foge, melee aproxima)
 protected virtual Vector2 DirecaoBase()
     {
         return (player.position - transform.position).normalized;
     }
-
-protected Vector2 ObterDirecaoComDesvio(Vector2 direcaoBase)   
+protected Vector2 ObterDirecaoComDesvio(Vector2 direcaoBase)
     {
         if (direcaoBase == Vector2.zero)
-        return Vector2.zero;
-
-        if (Time.time < fimDesvio)
-            return direcaoDesvioAtual;
+            return Vector2.zero;
 
         float raio = 0.3f;
 
-        RaycastHit2D hitFrente = Physics2D.CircleCast(
+        RaycastHit2D hit = Physics2D.CircleCast(
             rb.position,
             raio,
             direcaoBase,
@@ -104,23 +114,19 @@ protected Vector2 ObterDirecaoComDesvio(Vector2 direcaoBase)
             layerObstaculos
         );
 
-        if (hitFrente.collider == null)
+        if (hit.collider == null)
             return direcaoBase;
 
-        Vector2 esquerda = new Vector2(-direcaoBase.y, direcaoBase.x).normalized;
-        Vector2 direita = new Vector2(direcaoBase.y, -direcaoBase.x).normalized;
+        // mistura fugir da parede + deslizar
+        Vector2 normal = hit.normal;
 
-        bool esquerdaLivre = !Physics2D.CircleCast(rb.position, raio, esquerda, distanciaDeteccaoObstaculo, layerObstaculos);
-        bool direitaLivre = !Physics2D.CircleCast(rb.position, raio, direita, distanciaDeteccaoObstaculo, layerObstaculos);
+        Vector2 fugir = normal; // empurra pra fora da parede
+        Vector2 deslizar = new Vector2(normal.y, -normal.x);
 
-        if (esquerdaLivre)
-            direcaoDesvioAtual = esquerda;
-        else if (direitaLivre)
-            direcaoDesvioAtual = direita;
-        else
-            return Vector2.zero;
+        if (Vector2.Dot(deslizar, direcaoBase) < 0)
+            deslizar *= -1;
 
-        fimDesvio = Time.time + tempoDesvio;
-        return direcaoDesvioAtual;
+        // mistura os dois
+        return (deslizar + fugir * 0.5f).normalized;
     }
 }
