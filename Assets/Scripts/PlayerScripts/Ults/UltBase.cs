@@ -1,7 +1,8 @@
 using UnityEngine;
 
 public abstract class UltBase : MonoBehaviour
-{
+{   
+    public Sprite ultIcone;
     public float ultRange;
     public float ultDmg;
     public float ultCooldown;
@@ -12,7 +13,7 @@ public abstract class UltBase : MonoBehaviour
 
     private void Start()
     {
-        pc = GetComponent<PlayerController>();
+        pc = GetComponentInParent<PlayerController>();
         DefirnirStatus();
         ultimoUsoUlt = -ultCooldown;
     }

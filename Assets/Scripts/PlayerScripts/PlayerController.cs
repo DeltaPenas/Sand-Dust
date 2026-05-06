@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     
 
     [Header("Skills, Ult e Dash")]
-    public SkillBase skillBase;
+    public Transform skillPoint;
+    //public SkillBase skillBase;
     public UltBase ultBase;
     public DashBase dashBase;
     [Header("Atributos")]
@@ -48,13 +49,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         
-        if(ProgressionManager.Instance != null && RunManager.Instance != null)
-        {
-            AplicarStatusAtualizados();
-        }
-            
         currentStatus = baseStatus.Clone();
         RecalculateStats();
+        AplicarBonusPermanentes();
         
         
 
@@ -81,18 +78,6 @@ public class PlayerController : MonoBehaviour
         {
             dashBase.tentaUsarDash();
         }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            skillBase.tentaUsar();
-            
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ultBase.tentaUsar();
-        }
-
         if (Input.GetKeyDown(KeyCode.P))
         {
             pv.DarDanoPlayer(1);
@@ -215,15 +200,18 @@ public class PlayerController : MonoBehaviour
         float vidaAntiga = currentStatus.vidaMax;
 
         currentStatus = baseStatus.Clone();
+
+        AplicarBonusPermanentes();
+
         foreach (var mod in activeModifiers)
-    {
-        AplicarModificacao(mod);
-    }
-        if (currentStatus.vidaMax != vidaAntiga)
         {
-        OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
+            AplicarModificacao(mod);
         }
 
+        if (currentStatus.vidaMax != vidaAntiga)
+        {
+            OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
+        }
     }
 
     public void AddModifier(StatModifier mod)
@@ -258,15 +246,20 @@ public class PlayerController : MonoBehaviour
     OnDash?.Invoke();
     }
 
-    public void AplicarStatusAtualizados()
+    public void AplicarBonusPermanentes()
     {
-        
-        baseStatus.vidaMax += ProgressionManager.Instance.vidaBonus;
-        baseStatus.danoRanged +=ProgressionManager.Instance.danoRangedBonus;
-        baseStatus.danoMelee +=ProgressionManager.Instance.danoMeleeBonus;
-        baseStatus.danoSkill +=ProgressionManager.Instance.danoSkillBonus;
-        baseStatus.danoSkill +=ProgressionManager.Instance.danoUltBonus;
-        baseStatus.velocidade +=ProgressionManager.Instance.velocidadeBonus;
+        if (ProgressionManager.Instance == null) return;
+
+        var pm = ProgressionManager.Instance;
+
+        currentStatus.vidaMax += pm.vidaBonus;
+        currentStatus.danoRanged += pm.danoRangedBonus;
+        currentStatus.danoMelee += pm.danoMeleeBonus;
+        currentStatus.danoSkill += pm.danoSkillBonus;
+        currentStatus.danoUlt += pm.danoUltBonus;
+        currentStatus.velocidade += pm.velocidadeBonus;
+
+        OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
     }
 
 

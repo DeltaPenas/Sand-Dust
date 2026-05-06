@@ -16,12 +16,24 @@ public class WeaponPickup : MonoBehaviour
 
     private PlayerController playerDentro; //  player dentro
 
-    void Start()
+   void Start()
     {
-        wc = FindAnyObjectByType<WeponContainer>();
-        pc = FindAnyObjectByType<PlayerController>();
-        heartUi = FindAnyObjectByType<HeartUi>();
+        AtualizarReferencias();
     }
+
+    void AtualizarReferencias()
+    {
+        if (wc == null)
+            wc = FindAnyObjectByType<WeponContainer>();
+
+        if (pc == null)
+            pc = FindAnyObjectByType<PlayerController>();
+
+        if (heartUi == null)
+            heartUi = FindAnyObjectByType<HeartUi>();
+    }
+
+    
 
     void Setup()
     {
@@ -57,12 +69,17 @@ public class WeaponPickup : MonoBehaviour
     
     public void Comprar()
     {
-        if (playerDentro == null) return;
+        if (playerDentro == null)return;
 
         WeaponManager wm = playerDentro.GetComponent<WeaponManager>();
 
         //tem a arma
-        if (wm == null) return;
+        if (wm == null)
+        {
+            Debug.Log("WeaponManager Faltando");
+            return;
+        }
+        
 
         if (playerDentro.gems < valor) return;
 
@@ -77,6 +94,7 @@ public class WeaponPickup : MonoBehaviour
         }
 
         playerDentro.gems -= valor;
+        RunManager.Instance.RemoveMoedasRun(valor);
         heartUi.AtualizarGemas();
 
         wc.DesativarArma();

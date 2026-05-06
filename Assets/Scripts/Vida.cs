@@ -75,8 +75,17 @@ public class Vida : MonoBehaviour
 
         if (ic != null)
         {
-            RunManager.Instance.AddXp(ic.scoreDoInimigo);
-            RunManager.Instance.AddInimigoCount();
+            if (RunManager.Instance != null)
+            {
+                RunManager.Instance.AddXp(ic.scoreDoInimigo); // XP ganho nesta run, para UI/resumo
+                RunManager.Instance.AddInimigoCount();
+            }
+
+            if (ProgressionManager.Instance != null)
+            {
+                ProgressionManager.Instance.AddXPTotal(ic.scoreDoInimigo); // XP permanente
+            }
+
             ic.contabilizarPerda();
             ic.inimigoMorrendo();
             StartCoroutine(MorrerComDelay());

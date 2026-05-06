@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class UltRevolver : UltBase
 {
-    public Transform posPlayer; //usar pra criar um ponto inicial pra ult
+    //public Transform posPlayer; //usar pra criar um ponto inicial pra ult
     public LayerMask layerInimigos; //seleciona a layer "inimigos", ou algo assim sla
-
-    public GameObject ultProjetilPrefab;
     public GameObject MarkPrefab;
     public AudioClip fireSoundClip;
 
@@ -19,7 +17,7 @@ public class UltRevolver : UltBase
         GameObject mira;
 
             Collider2D[] hitAlvosUlt = Physics2D.OverlapCircleAll(
-                posPlayer.position,
+                transform.position,
                 ultRange,
                 layerInimigos
             );
@@ -61,7 +59,7 @@ public class UltRevolver : UltBase
     {
         
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(posPlayer.position, ultRange);
+        Gizmos.DrawWireSphere(transform.position, ultRange);
     }
 
 }

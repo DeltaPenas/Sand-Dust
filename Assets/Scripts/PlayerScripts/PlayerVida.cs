@@ -14,6 +14,13 @@ public class PlayerVida : MonoBehaviour
 
     private bool coroutineIframeRodando = false;
 
+    private bool vidaJaCarregada = false;
+
+    public void MarcarVidaCarregada()
+    {
+        vidaJaCarregada = true;
+    }
+
     void Start()
     {
         player = FindAnyObjectByType<PlayerController>();
@@ -27,10 +34,12 @@ public class PlayerVida : MonoBehaviour
 
     public void definirVida()
     {
-        playerVidaAtual = player.currentStatus.vidaMax;
-        playerVidaTotal = playerVidaAtual;
+        playerVidaTotal = player.currentStatus.vidaMax;
+
+        if (!vidaJaCarregada)
+            playerVidaAtual = playerVidaTotal;
+
         heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
-        
     }
     void AtualizarVida(float novaVidaMax)
     {
@@ -57,6 +66,9 @@ public class PlayerVida : MonoBehaviour
         }
 
         heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
+
+        if (RunManager.Instance != null)
+            RunManager.Instance.SaveCurrentRun();
         Camera.main.GetComponent<CameraShake>().ShakeCamera(0.2f, 0.1f);
 
         if (player != null)
@@ -69,6 +81,9 @@ public class PlayerVida : MonoBehaviour
     {
         playerVidaAtual = Mathf.Min(playerVidaAtual + cura, playerVidaTotal);
         heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
+
+        if (RunManager.Instance != null)
+            RunManager.Instance.SaveCurrentRun();
     }
 
     public void morrer()

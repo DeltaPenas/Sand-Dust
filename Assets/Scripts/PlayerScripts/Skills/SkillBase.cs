@@ -2,23 +2,41 @@ using UnityEngine;
 
 public abstract class SkillBase : MonoBehaviour
 {
+
+    [Header("UI")]
+    public string skillNome;
+    [TextArea] public string skillDescricao;
+    public Sprite skillIcone;
+
+    [Header("Status")]
     public float skillRange;
     public float skillDmg;
     public float cooldown;
     public float ultimoUso;
     public int stacksAtual;
     public int maxStacks;
-    public WepAtaque wp;
-    public PlayerController pc;
 
+    protected Transform pontoSkill;
+    protected PlayerController pc;
 
-
-    public void Start()
+    protected virtual void Start()
     {
+        pc = GetComponentInParent<PlayerController>();
 
-        pc = GetComponent<PlayerController>();
+        if (pc == null)
+        {
+            return;
+        }
+
+        if (pc.skillPoint == null)
+        {
+            return;
+        }
+
+        pontoSkill = pc.skillPoint;
+
         DefirnirStatus();
-        ultimoUso -= cooldown;
+        ultimoUso = -cooldown;
     }
 
     public virtual void DefirnirStatus()
@@ -27,12 +45,10 @@ public abstract class SkillBase : MonoBehaviour
         skillDmg = pc.currentStatus.danoSkill;
         cooldown = pc.currentStatus.cooldownSkill;
     }
+
     public virtual bool podeUsar()
     {
-        
-        if(Time.time < ultimoUso + cooldown) return false;
-
-        return true;
+        return Time.time >= ultimoUso + cooldown;
     }
 
     public void tentaUsar()
@@ -42,9 +58,7 @@ public abstract class SkillBase : MonoBehaviour
             useSkill();
             ultimoUso = Time.time;
         }
-        
     }
 
     protected abstract void useSkill();
-    
 }
