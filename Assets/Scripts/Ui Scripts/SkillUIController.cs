@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkillUIController : MonoBehaviour
@@ -5,6 +6,7 @@ public class SkillUIController : MonoBehaviour
 
     [Header("Slots")]
     [SerializeField] private UnityEngine.UI.Image skillIcon;
+    [SerializeField] private UnityEngine.UI.Image ultIcon;
     [SerializeField] private SkillsSlotUI dashSlot;
     [SerializeField] private SkillsSlotUI ultSlot;
     [SerializeField] private SkillsSlotUI skillSlot;
@@ -29,6 +31,12 @@ public class SkillUIController : MonoBehaviour
         lifeFrame.SetActive(true);
 
         skillManager = FindAnyObjectByType<SkillManager>();
+        ultManager = FindAnyObjectByType<UltManager>();
+
+        if (ultManager == null)
+        {
+            return;
+        }
 
         if (skillManager == null)
         {
@@ -37,6 +45,7 @@ public class SkillUIController : MonoBehaviour
         }
 
         skillManager.OnSkillChanged += AtualizarSkillUI;
+        ultManager.OnUltChanged += AtualizarUltUI;
 
     
     }
@@ -67,29 +76,40 @@ public class SkillUIController : MonoBehaviour
             ultCooldown = ult.ultCooldown;
         }
 
-    
-
     dashSlot.UpdateCooldown(dashRestante, dash.cooldown);
     skillSlot.UpdateCooldown(skillRestante, skillCooldown);
     ultSlot.UpdateCooldown(ultRestante, ultCooldown);
 }
     void AtualizarSkillUI(SkillBase skill)
-{
-    
-
-    if (skill == null)
     {
         
+        if (skill == null)
+        {
+            
+            return;
+        }
+
+        if (skill.skillIcone == null)
+        {
+            
+            return;
+        }
+
+        skillSlot.SetIcon(skill.skillIcone);
+    }
+    void AtualizarUltUI(UltBase ult)
+    {
+    if (ult == null)
+    {
         return;
     }
 
-    if (skill.skillIcone == null)
+    if (ult.ultIcone == null)
     {
-        
         return;
     }
 
-    skillSlot.SetIcon(skill.skillIcone);
-}
+    ultSlot.SetIcon(ult.ultIcone);
+    }
 
 }

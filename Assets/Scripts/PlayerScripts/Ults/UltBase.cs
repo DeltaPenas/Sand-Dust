@@ -1,7 +1,8 @@
 using UnityEngine;
 
 public abstract class UltBase : MonoBehaviour
-{
+{   
+    public Sprite ultIcone;
     public float ultRange;
     public float ultDmg;
     public float ultCooldown;
