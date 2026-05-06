@@ -141,7 +141,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &350101118749122862
 MonoBehaviour:
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoAtirador
   invocador: {fileID: 0}
-  velocidade: 0.7
+  velocidade: 2
   distanciaParada: 1.5
   distanciaDeteccaoObstaculo: 1.5
   layerObstaculos:
@@ -201,10 +201,10 @@ MonoBehaviour:
   tempoDesvio: 0.7
   projetilPrefab: {fileID: 3763594769991435249, guid: 0bcc400258daaaa43881da455c2ba60b, type: 3}
   pontoDisparo: {fileID: 6091444866406314023}
-  tempoEntreTiros: 1.5
+  tempoEntreTiros: 2.5
   dano: 1
-  velocidadeProjetil: 5
-  distanciaMinima: 1.5
+  velocidadeProjetil: 4
+  distanciaMinima: 6
   distanciaAtaque: 6
 --- !u!50 &2484853277044451027
 Rigidbody2D:
