@@ -29,7 +29,7 @@ public class ShopCardUI : MonoBehaviour
     // limpa listeners antigos
     botaoComprar.onClick.RemoveAllListeners();
 
-    // adiciona função
+    // adiciona funçao
     botaoComprar.onClick.AddListener(Comprar);
 }
 

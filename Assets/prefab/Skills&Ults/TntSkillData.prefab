@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8680024975146839694
+--- !u!1 &8829287292961156879
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 877002825636133076}
-  - component: {fileID: 3786128847315161377}
+  - component: {fileID: 8474518628942990797}
+  - component: {fileID: 5557948998350535190}
   m_Layer: 0
-  m_Name: RevolverUlt
+  m_Name: TntSkillData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &877002825636133076
+--- !u!4 &8474518628942990797
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8680024975146839694}
+  m_GameObject: {fileID: 8829287292961156879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02638, y: -0.49662, z: 0}
+  m_LocalPosition: {x: -2.481, y: 0.72957, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3786128847315161377
+--- !u!114 &5557948998350535190
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8680024975146839694}
+  m_GameObject: {fileID: 8829287292961156879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83605635433dbb24da52d8f3c56b0a37, type: 3}
+  m_Script: {fileID: 11500000, guid: 06f5ecc435a8ce04aa65817a5b28ec5e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UltRevolver
-  ultIcone: {fileID: 21300000, guid: f214f65801408bc4ba0ee394a7e9c499, type: 3}
-  ultRange: 0
-  ultDmg: 0
-  ultCooldown: 0
-  ultimoUsoUlt: 0
-  layerInimigos:
-    serializedVersion: 2
-    m_Bits: 8
-  MarkPrefab: {fileID: -2253911629886400664, guid: 7e4915ceda7ab3e4b97511e43e7e6fff, type: 3}
-  fireSoundClip: {fileID: 8300000, guid: cedd8ec88e3614d43a5e860cce62d0bb, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItemData
+  itemID: Tnt
+  itemNome: Dinamite
+  prefab: {fileID: 4645616595505979408, guid: c48092160bda3bb4b8c0b333f14cc2e4, type: 3}
+  descricao: "Lan\xE7a uma banana de dinamite (Altamente perigosa)"
+  icone: {fileID: 8713120321045492238, guid: 9f22f33b01a6b5441b10d015f383da55, type: 3}
+  preco: 5
+  tipo: 1
