@@ -8,6 +8,7 @@ public class ShopCardUI : MonoBehaviour
     public TextMeshProUGUI nomeText;
     public TextMeshProUGUI descricaoText;
     public TextMeshProUGUI precoText;
+    public TextMeshProUGUI tipoText;
 
     public Image icon;
 
@@ -23,6 +24,7 @@ public class ShopCardUI : MonoBehaviour
     nomeText.text = data.itemNome;
     descricaoText.text = data.descricao;
     precoText.text = data.preco.ToString();
+    tipoText.text = data.tipo.ToString();
 
     icon.sprite = data.icone;
 
@@ -35,6 +37,12 @@ public class ShopCardUI : MonoBehaviour
 
     public void Comprar()
     {
+        bool comprou = shopManager.Comprar(itemData);
+        
         shopManager.Comprar(itemData);
+        if (comprou)
+        {
+            Destroy(gameObject);
+        }
     }
 }

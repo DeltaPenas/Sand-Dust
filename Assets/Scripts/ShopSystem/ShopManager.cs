@@ -70,12 +70,12 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void Comprar(ShopItemData item)
+    public bool Comprar(ShopItemData item)
     {
         if (RunManager.Instance.currentRun.moedasRun < item.preco)
         {
-            Debug.Log("Sem moedas");
-            return;
+            Debug.Log("Sem gemas");
+            return false;
         }
 
         switch (item.tipo)
@@ -95,7 +95,7 @@ public class ShopManager : MonoBehaviour
                 {
                     Destroy(novaArma);
 
-                    return;
+                    return false;
                 }
 
                 break;
@@ -118,5 +118,6 @@ public class ShopManager : MonoBehaviour
         heartUi.AtualizarGemas();
 
         Debug.Log("Comprou: " + item.itemNome);
+        return true;
     }
 }
