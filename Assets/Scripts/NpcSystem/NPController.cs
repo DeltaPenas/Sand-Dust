@@ -24,7 +24,7 @@ public class NPController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F) && playerDentro)
         {
-            
+            ChamarDialogoBox();
         }
     }
 
@@ -67,6 +67,17 @@ public class NPController : MonoBehaviour
     {
         interagirText.SetActive(false);
 
+    }
+
+    public void ChamarDialogoBox()
+    {
+        caixaDeDialogo.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    public void TirarDialogoBox()
+    {
+        caixaDeDialogo.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 
