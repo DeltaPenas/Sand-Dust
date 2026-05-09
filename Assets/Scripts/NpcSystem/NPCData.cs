@@ -5,8 +5,12 @@ public class NPCData : MonoBehaviour
 {
     [Header("Info")]
 
+    public NPCtype tipoNPC;
     public string nome;
-    public List<string> falas;
+    [TextArea]
+    public List<string> falasNPC;
+
+    [TextArea]
     public List<string> falasPlayer;
 
 

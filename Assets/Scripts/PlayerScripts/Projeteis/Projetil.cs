@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Projetil : MonoBehaviour
 {
-    public float velocidade = 150f;
+    public float velocidade = 10f;
 
     private Vector2 direcao;
     
@@ -16,18 +16,17 @@ public class Projetil : MonoBehaviour
 
     void Start()
     {
+        pc = FindAnyObjectByType<PlayerController>();
         Destroy(gameObject, 10f);
     }
 
-    public void Inicializar(Vector2 direcaoInicial, PlayerController player)
+     public void Inicializar(Vector2 dir, PlayerController pc)
     {
-        direcao = direcaoInicial.normalized;
-        pc = player;
+        direcao = dir.normalized;
 
-        float dano = pc.currentStatus.danoRanged;
+        float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
 
-        vidaProjetil = dano;
-        ricochetesRestantes = pc.currentStatus.ricochetes;
+        transform.rotation = Quaternion.Euler(0, 0, angulo);
     }
 
 
@@ -39,7 +38,7 @@ public class Projetil : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(direcao * velocidade * Time.deltaTime);
+        transform.position += (Vector3)direcao * velocidade * Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D alvo)

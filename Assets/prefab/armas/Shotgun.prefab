@@ -126,7 +126,7 @@ MonoBehaviour:
   quantidadePelotas: 3
   anguloAbertura: 50
   tempoProximoTiro: 0
-  prefabTiro: {fileID: 1312992710952849393, guid: a02da886f3b45914ebe89e78aca4aa69, type: 3}
+  prefabTiro: {fileID: 3293566582396280618, guid: 87da0a09542dcc24b8eb3a34d106c248, type: 3}
   pontoInicialDoTiro: {fileID: 2017153540290562551}
   fireSoundEffect: {fileID: 8300000, guid: 4c7a375b7c15c404b9ef36f685428082, type: 3}
 --- !u!1 &9056754355991467629

@@ -10,13 +10,12 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     
-    
-
     [Header("Skills, Ult e Dash")]
     public Transform skillPoint;
     //public SkillBase skillBase;
     public UltBase ultBase;
     public DashBase dashBase;
+
     [Header("Atributos")]
     public Vector2 ultimadireção;
     public float iframetempo = 0.3F;
@@ -27,11 +26,11 @@ public class PlayerController : MonoBehaviour
     public BoxCollider2D boxCollider2D;
     public Animator anim;
     public AudioClip passosSfx;
-    
     public bool iframeAtivo = false;
     public SoundController soundController;
     private PlayerVida pv;
     public bool emTeleporte;
+
     [Header("Modificações")]
     public PlayerStatus baseStatus;
     public PlayerStatus currentStatus;
@@ -44,6 +43,8 @@ public class PlayerController : MonoBehaviour
     public event System.Action<float> OnVidaMaxChanged;
     public event Action OnDash;
     public event Action OnShot;
+
+   
     
     
     private void Awake()
