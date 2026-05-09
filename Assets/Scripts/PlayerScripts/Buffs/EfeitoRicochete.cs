@@ -31,7 +31,7 @@ public class EfeitoRicochete : EfeitoCarta
 
                 Vector2 dir = (h.transform.position - proj.transform.position).normalized;
 
-                p.definirDireção(dir);
+                
 
                 
                 p.podeGerarRicocheteExtra = false;
