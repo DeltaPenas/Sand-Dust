@@ -8,6 +8,8 @@ public class RunData
     public float tempoDeRun;
     public int xpColetado;
     public int moedasRun;
+    public int layer;
+    public int andar;
     public List<string> cartasColetadasIds = new List<string>();
     public List<string> efeitosAtivosIds = new List<string>();
 
@@ -19,6 +21,8 @@ public class RunData
         tempoDeRun = 0;
         xpColetado = 0;
         moedasRun = 0;
+        layer = 0;
+        andar = 0;
 
         cartasColetadasIds.Clear();
         efeitosAtivosIds.Clear();

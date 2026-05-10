@@ -31,7 +31,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && dg != null && runInfos != null && runInfos.salasConcluidas >= dg.totalSalasCombate)
+        if (collision.CompareTag("Player") && dg != null && runInfos != null && RunManager.Instance.currentRun.salasConcluidas >= dg.totalSalasCombate)
         {
 
             tt.FadeOut();
@@ -54,17 +54,20 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     public void PodeDescer()
     {
             dg.LimparDungeon();
-            runInfos.layer +=1;
-            if(runInfos.layer > 3)
-            {
-                runInfos.layer = 0;
-                runInfos.andar +=1;
-                dg.qtdInimigos =1;
-                dg.qtdmaxSalas +=1;
-                dg.qtdminSalas +=1;
-            }
+            RunManager.Instance.currentRun.layer+=1;
+       
+        if (RunManager.Instance.currentRun.layer > 5)
+        {
+            RunManager.Instance.currentRun.layer = 0;
+            RunManager.Instance.currentRun.andar +=1;
+            dg.qtdInimigos =1;
+            dg.qtdmaxSalas+=1;
+            dg.qtdminSalas+=1;
+        }
+
+
         dg.qtdInimigos +=1;
-        runInfos.salasConcluidas = 0;
+        RunManager.Instance.currentRun.salasConcluidas = 0;
     }
     
 

@@ -28,7 +28,7 @@ public class SalaController : MonoBehaviour
     
     private PropSpawner[] props;
     public DungeonGeneratortest dg;
-    private RunInfos runInfos;
+   
     
     
     
@@ -38,7 +38,7 @@ public class SalaController : MonoBehaviour
     private void Awake()
     {
 
-        runInfos = FindAnyObjectByType<RunInfos>();
+        
         dg = GetComponentInParent<DungeonGeneratortest>();
         props = GetComponentsInChildren<PropSpawner>();
         spawner = GetComponentInChildren<SpawnerController>();
@@ -106,11 +106,6 @@ public class SalaController : MonoBehaviour
         salaLimpa = true;
         soundController.TocarSom(dg.efeitoSonoroDeAbrirPorta);
 
-        if (runInfos != null)
-        {
-            runInfos.playerScore += 1;
-            runInfos.salasConcluidas += 1;
-        }
 
         if (RunManager.Instance != null)
         {

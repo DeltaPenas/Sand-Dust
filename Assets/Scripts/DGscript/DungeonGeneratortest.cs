@@ -223,8 +223,8 @@ public class DungeonGeneratortest : MonoBehaviour
                 }
             }
         }
-        
     }
+    
         private GameObject EscolherPrefabSala(TipoSala tipo)
         {
             List<GameObject> lista = null;
