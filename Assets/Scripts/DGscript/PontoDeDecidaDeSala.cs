@@ -13,13 +13,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
 
 
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            AtivarPortal();
-        }
-    }
+
     void Start()
     {
         tt = FindAnyObjectByType<TriggerDeTransicao>();
