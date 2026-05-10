@@ -198,21 +198,21 @@ public class PlayerController : MonoBehaviour
 
     public void RecalculateStats()
     {
-        float vidaAntiga = currentStatus.vidaMax;
-
         currentStatus = baseStatus.Clone();
+
+        float vidaAntiga = currentStatus.vidaMax;
 
         AplicarBonusPermanentes();
 
-        foreach (var mod in activeModifiers)
-        {
-            AplicarModificacao(mod);
-        }
+            foreach (var mod in activeModifiers)
+            {
+                AplicarModificacao(mod);
+            }
 
-        if (currentStatus.vidaMax != vidaAntiga)
-        {
-            OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
-        }
+            if (currentStatus.vidaMax != vidaAntiga)
+            {
+                OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
+            }
     }
 
     public void AddModifier(StatModifier mod)
@@ -244,8 +244,9 @@ public class PlayerController : MonoBehaviour
     }
     public void DispararOnDash()
     {
-    OnDash?.Invoke();
+        OnDash?.Invoke();
     }
+   
 
     public void AplicarBonusPermanentes()
     {
@@ -259,8 +260,6 @@ public class PlayerController : MonoBehaviour
         currentStatus.danoSkill += pm.danoSkillBonus;
         currentStatus.danoUlt += pm.danoUltBonus;
         currentStatus.velocidade += pm.velocidadeBonus;
-
-        OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
     }
 
 
