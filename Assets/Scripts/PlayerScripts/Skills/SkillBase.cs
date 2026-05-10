@@ -17,11 +17,13 @@ public abstract class SkillBase : MonoBehaviour
     public int maxStacks;
 
     protected Transform pontoSkill;
-    protected PlayerController pc;
+    public PlayerController pc;
+    public PlayerVida pv;
 
     protected virtual void Start()
     {
         pc = GetComponentInParent<PlayerController>();
+        pv = GetComponentInParent<PlayerVida>();
 
         if (pc == null)
         {
@@ -46,19 +48,25 @@ public abstract class SkillBase : MonoBehaviour
         cooldown = pc.currentStatus.cooldownSkill;
     }
 
-    public virtual bool podeUsar()
+    public virtual bool PodeUsarSkill()
     {
         return Time.time >= ultimoUso + cooldown;
     }
 
     public void tentaUsar()
     {
-        if (podeUsar())
+        if (!PodeUsarSkill())
         {
-            useSkill();
+        return;
+        }
+
+        bool conseguiuUsuar = TentaUsarSkill();
+
+        if (conseguiuUsuar)
+        {
             ultimoUso = Time.time;
         }
     }
 
-    protected abstract void useSkill();
+    protected abstract bool TentaUsarSkill();
 }

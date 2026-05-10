@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4c9e9d4eba00843b7e8fb458d67968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaTotal: 6
+  vidaTotal: 10
   vidaAtual: 0
   morreu: 0
   pegandoFogo: 0
