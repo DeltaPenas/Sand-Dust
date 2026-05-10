@@ -10,11 +10,11 @@ public class PortaTrigger : MonoBehaviour
     public float offsetPlayer = 1.5f;
 
     public bool podeTeleportar;
-    public bool emTransicao;
     private SalaController salaAtual;
     private DungeonGeneratortest dungeon;
     private PlayerController player;
     private TriggerDeTransicao tt;
+    private bool playerDentro;
     
 
     [System.Obsolete]
@@ -29,27 +29,32 @@ public class PortaTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-{
-    if (!podeTeleportar) return;
-    if (!other.CompareTag("Player")) return;
-    if (emTransicao) return;
-    if (player.emTeleporte) return;
-    
-
-    Vector2Int direcaoGrid = ObterDirecaoGrid();
-    Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
-
-    if (!dungeon.ExisteSalaNessaDirecao(proximaSala))
     {
-        Debug.Log("Não existe sala nessa direção");
-        return;
+        if (!other.CompareTag("Player")) return;
+
+        if (playerDentro) return;
+
+        playerDentro = true;
+
+        if (!salaAtual.salaLimpa) return;
+
+        Vector2Int direcaoGrid = ObterDirecaoGrid();
+        Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
+
+        if (!dungeon.ExisteSalaNessaDirecao(proximaSala))
+        {
+            Debug.Log("Não existe sala nessa direção");
+            return;
+        }
+
+        StartCoroutine(SequenciaTeleporte(other.transform));
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
 
-    podeTeleportar = false;
-    emTransicao = true;
-
-    StartCoroutine(SequenciaTeleporte(other.transform));
-}
+        playerDentro = false;
+    }
 
     private Vector2Int ObterDirecaoGrid()
     {
@@ -136,26 +141,22 @@ public class PortaTrigger : MonoBehaviour
 
     }
    IEnumerator SequenciaTeleporte(Transform alvo)
-{
-    player.emTeleporte = true;
-    player.iframeAtivo = true;
-    player.podeMover = false;
+    {
+        player.iframeAtivo = true;
+        player.podeMover = false;
 
-    
-    player.rig.linearVelocity = Vector2.zero;
+        player.rig.linearVelocity = Vector2.zero;
 
-    tt.FadeOut();
-    yield return new WaitForSeconds(0.8f);
+        tt.FadeOut();
 
-    Teleportar(alvo);
+        yield return new WaitForSeconds(0.2f);
 
-    yield return new WaitForSeconds(0.5f);
+        Teleportar(alvo);
 
-    player.iframeAtivo = false;
-    player.podeMover = true;
-    player.emTeleporte = false;
+        yield return new WaitForSeconds(0.1f);
 
-    emTransicao = false;
+        player.iframeAtivo = false;
+        player.podeMover = true;
     }
 
     private void ReativarTrigger()

@@ -27,21 +27,24 @@ public class TriggerSala : MonoBehaviour
             Debug.LogError("Sala não encontrada");
             return;
         }
-
+        /*
         if (sala.salaLimpa)
         {
             sala.LiberarPortas();
         }
+        Temporario*/
         if (sala.entrou)return;
 
 
         if (sala.entrou || sala.salaLimpa) return;
 
         sala.AtivarSala();
-
-        if (sala.salaLimpa){
+        /*
+        if (sala.salaLimpa)
+        {
         sala.LiberarPortas();
         }
+        Temporario*/
 
         
 
