@@ -10,6 +10,7 @@ public class DungeonGeneratortest : MonoBehaviour
     public int totalSalasCombate;
     public int andar = 0;
     [SerializeField] private GameObject bg;
+    [SerializeField] public AudioClip efeitoSonoroDeAbrirPorta;
     
 
     [Header("Prefab")]

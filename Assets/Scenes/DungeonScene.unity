@@ -1869,6 +1869,10 @@ PrefabInstance:
       value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: efeitoSonoroDeAbrirPorta
+      value: 
+      objectReference: {fileID: 8300000, guid: ba965bcb394fc2f4bb7a9699397b5616, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoProps.props.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1951,7 +1955,7 @@ PrefabInstance:
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salasTesouro.Array.data[0]'
       value: 
-      objectReference: {fileID: 582236416703253144, guid: 1fe9d0b974505e240a04bc61b6fdefdc, type: 3}
+      objectReference: {fileID: 1245119275456731571, guid: 3490daee7e2b3634f9c3d7e9810c6e5a, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salasIniciais.Array.data[0]'
       value: 

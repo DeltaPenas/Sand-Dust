@@ -22,10 +22,14 @@ public class SalaController : MonoBehaviour
     public bool salaLimpa = false;
     public int qtdInimigosVivos;
     private SpawnerController spawner;
+    private SoundController soundController;
     private PortaTrigger[] portas;
+    [SerializeField] Sprite spritePortaAberta;
+    
     private PropSpawner[] props;
     public DungeonGeneratortest dg;
     private RunInfos runInfos;
+    
     
     
     
@@ -33,11 +37,13 @@ public class SalaController : MonoBehaviour
 
     private void Awake()
     {
+
         runInfos = FindAnyObjectByType<RunInfos>();
         dg = GetComponentInParent<DungeonGeneratortest>();
         props = GetComponentsInChildren<PropSpawner>();
         spawner = GetComponentInChildren<SpawnerController>();
         portas = GetComponentsInChildren<PortaTrigger>();
+        soundController = FindAnyObjectByType<SoundController>();
         
 
     }
@@ -51,6 +57,7 @@ public class SalaController : MonoBehaviour
         if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer)
         {
             salaLimpa = true;
+            
             LiberarPortas();
             
             
@@ -97,6 +104,7 @@ public class SalaController : MonoBehaviour
     {
         Debug.Log("Sala limpa! Liberando portas.");
         salaLimpa = true;
+        soundController.TocarSom(dg.efeitoSonoroDeAbrirPorta);
 
         if (runInfos != null)
         {
@@ -112,9 +120,13 @@ public class SalaController : MonoBehaviour
         foreach (PortaTrigger porta in portas)
         {
             if (porta == null) continue;
+            SpriteRenderer spriteRender = porta.GetComponent<SpriteRenderer>();
+            
+            spriteRender.sprite = spritePortaAberta;
 
             Debug.Log("Liberando porta: " + porta.name);
             porta.podeTeleportar = true;
+        
         }
     }
     }
@@ -124,6 +136,9 @@ public class SalaController : MonoBehaviour
         foreach (PortaTrigger porta in portas)
         {
         porta.podeTeleportar = true;
+        SpriteRenderer spriteRender = porta.GetComponent<SpriteRenderer>();
+            
+            spriteRender.sprite = spritePortaAberta;
         }
 
         Debug.Log("Portas reativadas");

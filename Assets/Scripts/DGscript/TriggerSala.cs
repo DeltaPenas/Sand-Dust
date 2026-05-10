@@ -3,6 +3,7 @@ using UnityEngine;
 public class TriggerSala : MonoBehaviour
 {
     private SalaController sala;
+    
 
     private void Awake()
     {

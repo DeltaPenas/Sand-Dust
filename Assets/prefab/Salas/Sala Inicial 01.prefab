@@ -618,7 +618,6 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
-  emTransicao: 0
 --- !u!1 &863260337607321017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,6 +1162,7 @@ MonoBehaviour:
   entrou: 0
   salaLimpa: 0
   qtdInimigosVivos: 0
+  spritePortaAberta: {fileID: 21300000, guid: c50f1650a7b7dc445991ea947395552c, type: 3}
   dg: {fileID: 0}
 --- !u!114 &5067327079908591471
 MonoBehaviour:
@@ -1334,7 +1334,6 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
-  emTransicao: 0
 --- !u!1 &2509805080949059197
 GameObject:
   m_ObjectHideFlags: 0
@@ -5069,7 +5068,6 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
-  emTransicao: 0
 --- !u!1 &7198151143623892816
 GameObject:
   m_ObjectHideFlags: 0
@@ -5887,7 +5885,6 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
-  emTransicao: 0
 --- !u!1 &8065432641165478345
 GameObject:
   m_ObjectHideFlags: 0
