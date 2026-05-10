@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Cartas/Efeitos/RicocheteInteligente")]
@@ -9,6 +10,7 @@ public class EfeitoRicochete : EfeitoCarta
 
     public override void Aplicar(PlayerController player)
     {
+        
         player.OnRicochete += (proj) =>
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(
@@ -41,5 +43,8 @@ public class EfeitoRicochete : EfeitoCarta
                 break;
             }
         };
+     
     }
+
+
 }

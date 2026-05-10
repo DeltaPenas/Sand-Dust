@@ -27,8 +27,12 @@ public float tempoDesvio = 0.7f;
 protected Vector2 direcaoDesvioAtual;
 protected float fimDesvio;
 
+protected Animator anim;
+protected Vector2 ultimaDirecao;
+
 protected virtual void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         vida = GetComponent<Vida>();
 
@@ -65,7 +69,9 @@ protected virtual void Movimento()
     {
         if (DeveParar())
         {
+            
             rb.linearVelocity = Vector2.zero;
+            anim.SetFloat("Speed", 0);
             return;
         }
         Vector2 direcao = DirecaoBase();
@@ -89,12 +95,24 @@ protected virtual void Movimento()
         rb.linearVelocity = direcao * velocidade;
 
         posicaoAnterior = rb.position;
+
+        if (direcao != Vector2.zero)
+        {
+            ultimaDirecao = direcao;
+        }
+
+        if (anim != null)
+        {
+            anim.SetFloat("Horizontal", ultimaDirecao.x);
+            anim.SetFloat("Vertical", ultimaDirecao.y);
+            anim.SetFloat("Speed", direcao.magnitude);
+        }
     }
 protected virtual bool DeveParar()
     {
         return distanciaPlayer <= distanciaParada;
     }// se o player estiver dentro da distância de parada, o inimigo para de se mover
-// Pode ser sobrescrito (ex: ranged foge, melee aproxima)
+    // Pode ser sobrescrito (ex: ranged foge, melee aproxima)
 protected virtual Vector2 DirecaoBase()
     {
         return (player.position - transform.position).normalized;

@@ -8,9 +8,18 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     private RunInfos runInfos;
     private TriggerDeTransicao tt;
     private PlayerVida pv;
-    
-    
+    public GameObject portalAtivo;
+    public GameObject portalDesligado;
 
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            AtivarPortal();
+        }
+    }
     void Start()
     {
         tt = FindAnyObjectByType<TriggerDeTransicao>();
@@ -24,6 +33,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     {
         if (collision.CompareTag("Player") && dg != null && runInfos != null && runInfos.salasConcluidas >= dg.totalSalasCombate)
         {
+
             tt.FadeOut();
             Invoke(nameof(PodeDescer), 0.8f);
             dg.LimparInimigos();
@@ -31,11 +41,15 @@ public class PontoDeDecidaDeSala : MonoBehaviour
             {
                 pv.CurarPlayer(1);
             }
-
-            
             
         }
     }
+    public void AtivarPortal()
+    {
+        portalAtivo.SetActive(true);
+        portalDesligado.SetActive(false);
+    }
+  
     
     public void PodeDescer()
     {

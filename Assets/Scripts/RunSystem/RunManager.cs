@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEditor;
 
 
 public class RunManager : MonoBehaviour
@@ -15,6 +16,9 @@ public class RunManager : MonoBehaviour
     private PlayerVida playerVida;
 
     private float tempoInicioRun;
+
+    private PontoDeDecidaDeSala pontoDescida;
+    private DungeonGeneratortest dungeonGenerator;
 
     //Rapaziada, Quando formos criar as cenas, seguir os nomes daqui, os nomes estão em SceneManager.LoadScene
     // Quando inimigo morre: RunManager.Instance.currentRun.inimigosMortos++;
@@ -80,8 +84,13 @@ public class RunManager : MonoBehaviour
                 StartCoroutine(AtualizarUIAposLoadComDelay());
             }
             PlayerController pc = FindAnyObjectByType<PlayerController>();
-            if (pc != null)
-                pc.gems = currentRun.moedasRun;
+            if (pc != null) pc.gems = currentRun.moedasRun;
+            pontoDescida = FindAnyObjectByType<PontoDeDecidaDeSala>();
+            dungeonGenerator = FindAnyObjectByType<DungeonGeneratortest>();
+
+            Debug.Log("Referências da dungeon carregadas");
+
+            
         }
     }
     
@@ -143,6 +152,16 @@ public class RunManager : MonoBehaviour
     public void AddSala()
     {
         currentRun.salasConcluidas++;
+
+        BuscarReferenciasDungeon();
+
+        if (pontoDescida != null &&
+            dungeonGenerator != null &&
+            currentRun.salasConcluidas >= dungeonGenerator.totalSalasCombate)
+        {
+            pontoDescida.AtivarPortal();
+        }
+
         SaveCurrentRun();
     }
 
@@ -221,6 +240,15 @@ public class RunManager : MonoBehaviour
             currentRun.cartasColetadasIds.Add(cardId);
 
         SaveCurrentRun();
+    }
+
+    private void BuscarReferenciasDungeon()
+    {
+    if (pontoDescida == null)
+        pontoDescida = FindAnyObjectByType<PontoDeDecidaDeSala>();
+
+    if (dungeonGenerator == null)
+        dungeonGenerator = FindAnyObjectByType<DungeonGeneratortest>();
     }
 
 }
