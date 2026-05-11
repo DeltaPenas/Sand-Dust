@@ -59,6 +59,6 @@ public class WepSMG : MonoBehaviour
         projetil.GetComponent<Projetil>().Inicializar(direcaoFinal, pc);
       
 
-        pc.anim.SetTrigger("attack");
+
     }
 }
