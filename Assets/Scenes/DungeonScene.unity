@@ -2293,6 +2293,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &683570269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 683570271}
+  - component: {fileID: 683570270}
+  m_Layer: 6
+  m_Name: armaSmg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &683570270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683570269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d47bbcc244d4e342b0422bb1bcb11c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WepSMG
+  cooldownTiro: 0.1
+  espalhamento: 5
+  prefabTiro: {fileID: 1312992710952849393, guid: a02da886f3b45914ebe89e78aca4aa69, type: 3}
+  pontoInicialDoTiro: {fileID: 1891244249}
+--- !u!4 &683570271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683570269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1722042939}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &684849504
 GameObject:
   m_ObjectHideFlags: 0
@@ -5638,6 +5686,7 @@ Transform:
   - {fileID: 1766958010}
   - {fileID: 1934595766}
   - {fileID: 2052692006}
+  - {fileID: 683570271}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1722042940
@@ -5688,7 +5737,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
   teclaTroca: 116
   armas:
+  - {fileID: 1120293891}
   - {fileID: 1766958009}
+  - {fileID: 683570269}
 --- !u!114 &1722042943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6097,6 +6148,11 @@ Transform:
   - {fileID: 1405893495}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1891244249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3150393290589846965, guid: 61e89ef076829904d9723cfd8f7215f4, type: 3}
+  m_PrefabInstance: {fileID: 1652229756616616558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1909859420
 GameObject:
   m_ObjectHideFlags: 0
