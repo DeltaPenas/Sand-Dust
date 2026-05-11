@@ -50,7 +50,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
             dg.LimparDungeon();
             RunManager.Instance.currentRun.layer+=1;
        
-        if (RunManager.Instance.currentRun.layer > 5)
+        if (RunManager.Instance.currentRun.layer >= 5)
         {
             RunManager.Instance.currentRun.layer = 0;
             RunManager.Instance.currentRun.andar +=1;

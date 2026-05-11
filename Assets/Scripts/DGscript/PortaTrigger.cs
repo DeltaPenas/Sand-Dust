@@ -78,67 +78,41 @@ public class PortaTrigger : MonoBehaviour
 
     private void Teleportar(Transform player)
     {
-        Vector3 movimento = Vector3.zero;
+         SalaController proximaSala = BuscarProximaSala();
 
-        switch (direcao)
-        {
-            case DirecaoPorta.Cima:
-                movimento = Vector3.up;
+    if (proximaSala == null)
+    {
+        Debug.LogWarning("Próxima sala não encontrada");
+        return;
+    }
 
-                Vector3 deslocamentoUp =
-                movimento * distanciaEntreSalasVertical +
-                movimento * offsetPlayer;
+    Transform pontoSpawn =
+        proximaSala.ObterSpawnEntrada(direcao);
 
-                player.position += deslocamentoUp;
+    if (pontoSpawn == null)
+    {
+        Debug.LogWarning("Spawn não encontrado");
+        return;
+    }
 
-                Camera.main.transform.position +=
-                movimento * distanciaEntreSalasVertical;
+    player.position = pontoSpawn.position;
 
-                break;
-
-            case DirecaoPorta.Baixo:
-                movimento = Vector3.down;
-
-                Vector3 deslocamentoDown =
-                movimento * distanciaEntreSalasVertical +
-                movimento * offsetPlayer;
-
-                player.position += deslocamentoDown;
-
-                Camera.main.transform.position +=
-                movimento * distanciaEntreSalasVertical;
-
-                break;
-
-            case DirecaoPorta.Esquerda:
-                movimento = Vector3.left;
-
-                Vector3 deslocamentoLeft =
-                movimento * distanciaEntreSalas +
-                movimento * offsetPlayer;
-
-                player.position += deslocamentoLeft;
-
-                Camera.main.transform.position +=
-                movimento * distanciaEntreSalas;
-
-                break;
-
-            case DirecaoPorta.Direita:
-                movimento = Vector3.right;
-                Vector3 deslocamentoRight =
-                movimento * distanciaEntreSalas +
-                movimento * offsetPlayer;
-
-                player.position += deslocamentoRight;
-
-                Camera.main.transform.position +=
-                movimento * distanciaEntreSalas;
-
-                break;
-        }
+    Camera.main.transform.position =
+        new Vector3(
+            proximaSala.transform.position.x,
+            proximaSala.transform.position.y,
+            Camera.main.transform.position.z
+        );
         
 
+    }
+    private SalaController BuscarProximaSala()
+    {
+        Vector2Int direcaoGrid = ObterDirecaoGrid();
+
+        Vector2Int posicaoDestino = salaAtual.posicaoGrid + direcaoGrid;
+
+        return dungeon.BuscarSalaPorPosicao(posicaoDestino);
     }
    IEnumerator SequenciaTeleporte(Transform alvo)
     {
@@ -149,7 +123,7 @@ public class PortaTrigger : MonoBehaviour
 
         tt.FadeOut();
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
 
         Teleportar(alvo);
 

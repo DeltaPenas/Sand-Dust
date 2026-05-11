@@ -44,8 +44,14 @@ public class DungeonGeneratortest : MonoBehaviour
 
     private void GerarDungeon()
     {
+        if (RunManager.Instance.currentRun.layer >= 5)
+        {
+            GerarMiniDungeonBoss();
+        }
+        else
+        {
         if (!ValidarParametros())
-            return;
+        return;
 
         
         salas.Clear();
@@ -60,7 +66,9 @@ public class DungeonGeneratortest : MonoBehaviour
         InstanciarSalas();
         DebugSalas();
         TeleportarPlayerSalaInicial();
-        CalcularSalasCombate();
+        CalcularSalasCombate(); 
+        }
+        
     }
 
     public void LimparDungeon()
@@ -182,11 +190,7 @@ public class DungeonGeneratortest : MonoBehaviour
     {
         foreach (SalaNode sala in salas)
         {
-            Vector3 posicaoMundo = new Vector3(
-                sala.Posicao.x * distanciaEntreSalas,
-                sala.Posicao.y * distanciaEntreSalas,
-                0
-            );
+            Vector3 posicaoMundo = ObterPosicaoMundo(sala);
 
             GameObject prefabEscolhido = EscolherPrefabSala(sala.tipo);
             if (prefabEscolhido == null) continue;
@@ -224,6 +228,22 @@ public class DungeonGeneratortest : MonoBehaviour
             }
         }
     }
+        private void GerarMiniDungeonBoss(){
+            salas.Clear();
+
+            andar++;
+
+            SalaNode salasIniciaisAntesDoBoss = new SalaNode(Vector2Int.zero);
+            salasIniciaisAntesDoBoss.tipo = TipoSala.SalaAntesDoBoss;
+            salas.Add(salasIniciaisAntesDoBoss);
+
+            Vector2Int posBoss = new Vector2Int(3, 0);
+
+            SalaNode salaBoss = new SalaNode(posBoss);
+            salaBoss.tipo = TipoSala.SalaBoss;
+
+            salas.Add(salaBoss);
+        }
     
         private GameObject EscolherPrefabSala(TipoSala tipo)
         {
@@ -262,8 +282,10 @@ public class DungeonGeneratortest : MonoBehaviour
             case TipoSala.Evento:
                 lista = catalogoSalas.salasEvento;
                 break;
+            case TipoSala.SalaAntesDoBoss:
+                lista = catalogoSalas.salasIniciaisAntesDoBoss;
+                break;
             }
-
             if (lista == null || lista.Count == 0)
             {
                 Debug.LogError("Lista de salas vazia para: " + tipo);
@@ -353,5 +375,21 @@ public class DungeonGeneratortest : MonoBehaviour
             Destroy(item);
         }
     }
+    private Vector3 ObterPosicaoMundo(SalaNode sala)
+    {
+        float distancia = distanciaEntreSalas;
+
+        if (sala.tipo == TipoSala.SalaBoss)
+        {
+            distancia = distanciaEntreSalas * 2.5f;
+        }
+
+        return new Vector3(
+            sala.Posicao.x * distancia,
+            sala.Posicao.y * distancia,
+            0
+        );
+    }
+    
 
 }

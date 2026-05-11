@@ -77,6 +77,37 @@ Transform:
   - {fileID: 8422196195660502826}
   m_Father: {fileID: 8907038874294604265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &523636313553698588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6307837216604052715}
+  m_Layer: 0
+  m_Name: PontoTeleporteDireita
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6307837216604052715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523636313553698588}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.46, y: -1.0225, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8907038874294604265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &973998843304077917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,6 +1081,10 @@ Transform:
   - {fileID: 8476807824209572186}
   - {fileID: 8424110656413910705}
   - {fileID: 8260039836424474397}
+  - {fileID: 5548678450555283870}
+  - {fileID: 6307837216604052715}
+  - {fileID: 5712846761290200239}
+  - {fileID: 7408128099887143369}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &859453930820320900
@@ -1068,6 +1103,10 @@ MonoBehaviour:
   portaBaixo: {fileID: 7417241960134141880}
   portaEsquerda: {fileID: 6105587406979371115}
   portaDireita: {fileID: 4363956363839459241}
+  spawnCima: {fileID: 5712846761290200239}
+  spawnBaixo: {fileID: 7408128099887143369}
+  spawnEsquerda: {fileID: 5548678450555283870}
+  spawnDireita: {fileID: 6307837216604052715}
   tipoSala: 2
   posicaoGrid: {x: 0, y: 0}
   entrou: 0
@@ -1240,6 +1279,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a41cf8bf04c6e64f9c376a57a1c4e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerSala
+--- !u!1 &1689696255986780286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5548678450555283870}
+  m_Layer: 0
+  m_Name: PontoTeleporteEsquerda
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5548678450555283870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689696255986780286}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.91, y: -1.0225, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8907038874294604265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2268808692058146367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,6 +3061,37 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
+--- !u!1 &3931746736355738043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7408128099887143369}
+  m_Layer: 0
+  m_Name: PontoTeleporteBaixo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7408128099887143369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931746736355738043}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.72, y: -4.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8907038874294604265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4363956363839459241
 GameObject:
   m_ObjectHideFlags: 0
@@ -3661,6 +3762,37 @@ MonoBehaviour:
   distanciaEntreSalasVertical: 14
   offsetPlayer: 1.5
   podeTeleportar: 0
+--- !u!1 &8472948160691055979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5712846761290200239}
+  m_Layer: 0
+  m_Name: PontoTeleporteCima
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5712846761290200239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472948160691055979}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.72, y: 3.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8907038874294604265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &18004779760653259
 PrefabInstance:
   m_ObjectHideFlags: 0

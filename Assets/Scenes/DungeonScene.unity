@@ -1866,7 +1866,7 @@ PrefabInstance:
       objectReference: {fileID: 582236416703253144, guid: c27d9c71ec113cf4eb436e470fccfac2, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: distanciaEntreSalas
-      value: 21
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: efeitoSonoroDeAbrirPorta
@@ -5888,6 +5888,8 @@ MonoBehaviour:
     tempoDeRun: 0
     xpColetado: 0
     moedasRun: 0
+    layer: 0
+    andar: 0
     cartasColetadasIds: []
     efeitosAtivosIds: []
 --- !u!4 &1828429896

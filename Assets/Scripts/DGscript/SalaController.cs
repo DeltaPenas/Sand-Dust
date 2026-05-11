@@ -14,6 +14,11 @@ public class SalaController : MonoBehaviour
     public GameObject portaEsquerda;
     public GameObject portaDireita;
 
+    public Transform spawnCima;
+    public Transform spawnBaixo;
+    public Transform spawnEsquerda;
+    public Transform spawnDireita;
+
     [Header("Configs")]
 
     public TipoSala tipoSala;
@@ -138,5 +143,25 @@ public class SalaController : MonoBehaviour
 
         Debug.Log("Portas reativadas");
     }
+
+    public Transform ObterSpawnEntrada(DirecaoPorta direcao)
+{
+    switch (direcao)
+    {
+        case DirecaoPorta.Cima:
+            return spawnBaixo;
+
+        case DirecaoPorta.Baixo:
+            return spawnCima;
+
+        case DirecaoPorta.Esquerda:
+            return spawnDireita;
+
+        case DirecaoPorta.Direita:
+            return spawnEsquerda;
+    }
+
+    return null;
+}
 
 }
