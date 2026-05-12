@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class WepSMG : MonoBehaviour
+public class WepAssaltRifle : MonoBehaviour
 {
-    [Header("Configuracoes SMG")]
-    public float cooldownTiro = 0.1f; 
+    [Header("Configuracoes WepAssaltRifle")]
+    public float cooldownTiro = 0.2f; 
     public float espalhamento = 5f;
 
     [Header("Referencias")]
@@ -38,7 +38,7 @@ public class WepSMG : MonoBehaviour
         mousePos.z = 0f;
         Vector2 direcao = (mousePos - transform.position).normalized;
 
-        // Atualiza a animacao do boneco
+        
         pc.anim.SetFloat("mousePosHorizontal", direcao.x);
         pc.anim.SetFloat("mousePosVertical", direcao.y);
     }

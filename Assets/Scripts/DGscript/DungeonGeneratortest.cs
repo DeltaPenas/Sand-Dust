@@ -44,9 +44,23 @@ public class DungeonGeneratortest : MonoBehaviour
 
     private void GerarDungeon()
     {
-        if (RunManager.Instance.currentRun.layer >= 5)
+        if (RunManager.Instance.currentRun.layer >= 2)
         {
+            Debug.Log("gerando sala do boss");
+
+            salas.Clear();
+
             GerarMiniDungeonBoss();
+
+            InstanciarSalas();
+
+            DebugSalas();
+
+            TeleportarPlayerSalaInicial();
+
+            CalcularSalasCombate();
+
+    return;
         }
         else
         {
@@ -237,7 +251,7 @@ public class DungeonGeneratortest : MonoBehaviour
             salasIniciaisAntesDoBoss.tipo = TipoSala.SalaAntesDoBoss;
             salas.Add(salasIniciaisAntesDoBoss);
 
-            Vector2Int posBoss = new Vector2Int(3, 0);
+            Vector2Int posBoss = new Vector2Int(1, 0);
 
             SalaNode salaBoss = new SalaNode(posBoss);
             salaBoss.tipo = TipoSala.SalaBoss;
