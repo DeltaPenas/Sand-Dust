@@ -59,7 +59,7 @@ public class SalaController : MonoBehaviour
         tipoSala = sala.tipo;
         posicaoGrid = sala.Posicao; 
 
-        if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer)
+        if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer || tipoSala == TipoSala.SalaAntesDoBoss || tipoSala == TipoSala.SalaBoss)
         {
             salaLimpa = true;
             
