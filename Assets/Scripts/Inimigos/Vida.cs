@@ -16,7 +16,7 @@ public class Vida : MonoBehaviour
 
     private InimigoController ic;
 
-    private void Start()
+    protected virtual void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         ic = GetComponent<InimigoController>();
@@ -25,7 +25,7 @@ public class Vida : MonoBehaviour
         
         vidaAtual = vidaTotal;
     }
-    public void PegarFogo(float dano, int ticks)
+    protected virtual void PegarFogo(float dano, int ticks)
     {
         float danoDeFogo = dano/2;
         if (!pegandoFogo)
@@ -95,6 +95,11 @@ public class Vida : MonoBehaviour
     }
     }
 
+    protected virtual void AoReceberDano()
+    {
+        
+    }
+
     IEnumerator MorrerComDelay()
     {
     yield return new WaitForSeconds(3f);
@@ -105,7 +110,7 @@ public class Vida : MonoBehaviour
     }
     }
 
-    private void morrer()
+    protected virtual void morrer()
 {
     if (gameObject == null) return;
 
