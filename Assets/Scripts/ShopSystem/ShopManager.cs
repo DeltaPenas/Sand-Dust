@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
 public class ShopManager : MonoBehaviour
 {
     [Header("UI")]
@@ -21,6 +22,7 @@ public class ShopManager : MonoBehaviour
     public HeartUi heartUi;
 
     public Transform player;
+    public int QuantidadeItensLoja = 4;
 
     void Update()
     {
@@ -51,24 +53,42 @@ public class ShopManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    void GerarLoja()
+    public List<ShopItemData> ObterItensParaLoja()
     {
-        foreach (Transform child in cardsContainer)
+        HashSet<ShopItemData> listaNovaLoja = new HashSet<ShopItemData>();
+
+        
+
+        while(listaNovaLoja.Count < QuantidadeItensLoja)
         {
-            Destroy(child.gameObject);
+            ShopItemData itemAleatorio =
+            itensLoja[Random.Range(0, itensLoja.Count)];
+            listaNovaLoja.Add(itemAleatorio);
         }
-
-        foreach (ShopItemData item in itensLoja)
-        {
-            GameObject card =
-                Instantiate(cardPrefab, cardsContainer);
-
-            ShopCardUI cardUI =
-                card.GetComponent<ShopCardUI>();
-
-            cardUI.Setup(item, this);
-        }
+        
+        return new List<ShopItemData>(listaNovaLoja);
     }
+
+    void GerarLoja()
+{
+    List<ShopItemData> itensSelecionados = ObterItensParaLoja();
+
+    foreach (Transform child in cardsContainer)
+    {
+        Destroy(child.gameObject);
+    }
+
+    foreach (ShopItemData item in itensSelecionados)
+    {
+        GameObject card =
+            Instantiate(cardPrefab, cardsContainer);
+
+        ShopCardUI cardUI =
+            card.GetComponent<ShopCardUI>();
+
+        cardUI.Setup(item, this);
+    }
+}
 
     public bool Comprar(ShopItemData item)
     {

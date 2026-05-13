@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7364180466422305743}
   - component: {fileID: 2484853277044451027}
   - component: {fileID: 7925107344218478147}
+  - component: {fileID: 8977999309619748643}
   m_Layer: 3
   m_Name: InimgoAtirador
   m_TagString: inimigo
@@ -203,7 +204,7 @@ MonoBehaviour:
   pontoDisparo: {fileID: 6091444866406314023}
   tempoEntreTiros: 2.5
   dano: 1
-  velocidadeProjetil: 4
+  velocidadeProjetil: 8
   distanciaMinima: 6
   distanciaAtaque: 6
 --- !u!50 &2484853277044451027
@@ -255,3 +256,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8977999309619748643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3244443420763268584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfed446a9a842b84196f2c04f40c5f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DanoVisual
+  spriteRenderer: {fileID: 0}
+  duracao: 0.1
+  intervalo: 0.1

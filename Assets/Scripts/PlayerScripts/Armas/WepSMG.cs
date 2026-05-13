@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public class WepAssaltRifle : MonoBehaviour
+public class WepSMG : MonoBehaviour
 {
-    [Header("Configuracoes WepAssaltRifle")]
+    [Header("Configuracoes WepSMG")]
     public float cooldownTiro = 0.2f; 
     public float espalhamento = 5f;
 
     [Header("Referencias")]
     public GameObject prefabTiro;
     public Transform pontoInicialDoTiro;
+    public AudioClip somDisparo;
     
     private PlayerController pc;
     private float tempoProximoTiro;
@@ -57,6 +58,7 @@ public class WepAssaltRifle : MonoBehaviour
         
        
         projetil.GetComponent<Projetil>().Inicializar(direcaoFinal, pc);
+        pc.soundController.TocarSom(somDisparo);
       
 
 
