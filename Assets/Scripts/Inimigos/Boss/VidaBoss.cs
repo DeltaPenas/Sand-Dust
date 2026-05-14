@@ -1,8 +1,16 @@
+using System;
 using UnityEngine;
 
 public class VidaBoss : Vida
 {
     public bool isSegundaFase;
+    [SerializeField] FirstBossController boss;
+
+
+    void Start()
+    {
+        boss = GetComponent<FirstBossController>();
+    }
 
 
     protected override void AoReceberDano()

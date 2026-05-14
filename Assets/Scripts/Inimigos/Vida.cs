@@ -25,7 +25,7 @@ public class Vida : MonoBehaviour
         
         vidaAtual = vidaTotal;
     }
-    protected virtual void PegarFogo(float dano, int ticks)
+    public void PegarFogo(float dano, int ticks)
     {
         float danoDeFogo = dano/2;
         if (!pegandoFogo)
