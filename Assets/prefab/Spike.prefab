@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4128727050283142754}
   - component: {fileID: 3022686468600190333}
   - component: {fileID: 6063055367075514115}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spike
-  m_TagString: Untagged
+  m_TagString: inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,10 +107,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossSpike
   boss: {fileID: 0}
   collider2D: {fileID: 0}
-  pv: {fileID: 0}
+  playerAtual: {fileID: 0}
   sr: {fileID: 0}
   spriteAtivo: {fileID: -615680319, guid: 77e725e56539c3b42a41ce9327cf853f, type: 3}
+  spriteDesligado: {fileID: 0}
   playerDentro: 0
+  taAtiva: 0
 --- !u!58 &6063055367075514115
 CircleCollider2D:
   m_ObjectHideFlags: 0

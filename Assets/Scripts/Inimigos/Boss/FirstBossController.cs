@@ -30,8 +30,9 @@ public class FirstBossController : MonoBehaviour
 
     [Header("Disparos")]
     [SerializeField] private GameObject prefabTiro;
+    [SerializeField] private Transform pontoDeDisparo;
     [SerializeField] private int quantidadeTiros;
-    [SerializeField] private float anguloAbertura = 30;
+    [SerializeField] private float anguloAbertura;
     [SerializeField] private int danoDisparo;
     [SerializeField] private float velocidadeProjetil;
     [SerializeField] private float cooldownDisparo;
@@ -134,7 +135,7 @@ public class FirstBossController : MonoBehaviour
             StartCoroutine(CooldownTrap());
             
         }
-        if (podeAtacarTrap)
+        if (podeAtirar)
         {
             StartCoroutine(CooldownTiro());
             
@@ -208,24 +209,29 @@ public class FirstBossController : MonoBehaviour
 
     void AtirarEmCone()
     {
+        if(currentState == BossState.Ranged)
+        {
+        Debug.Log("tentou atirar");
         Vector2 dirPlayer = (player.position - transform.position).normalized;
         float anguloCentro = Mathf.Atan2(dirPlayer.y, dirPlayer.x) * Mathf.Rad2Deg;
 
-        for (int i = 0; i < quantidadeTiros; i++)
-        {
-            float variacao = (i - (quantidadeTiros - 1) / 2f) * (anguloAbertura / (quantidadeTiros - 1));
-            float anguloFinal = anguloCentro + variacao;
+            for (int i = 0; i < quantidadeTiros; i++)
+            {
+                float variacao = (i - (quantidadeTiros - 1) / 2f) * (anguloAbertura / (quantidadeTiros - 1));
+                float anguloFinal = anguloCentro + variacao;
 
-            Vector2 direcaoTiro = new Vector2(
-                Mathf.Cos(anguloFinal * Mathf.Deg2Rad),
-                Mathf.Sin(anguloFinal * Mathf.Deg2Rad)
-            );
+                Vector2 direcaoTiro = new Vector2(
+                    Mathf.Cos(anguloFinal * Mathf.Deg2Rad),
+                    Mathf.Sin(anguloFinal * Mathf.Deg2Rad)
+                );
 
-            GameObject projetil = Instantiate(prefabTiro, transform.position, Quaternion.identity);
-            ProjetilInimigo proj = projetil.GetComponent<ProjetilInimigo>();
-            proj.Inicializar(direcaoTiro, velocidadeProjetil, danoDisparo);
+                GameObject projetil = Instantiate(prefabTiro, pontoDeDisparo.position, Quaternion.identity);
+                ProjetilInimigo proj = projetil.GetComponent<ProjetilInimigo>();
+                proj.Inicializar(direcaoTiro, velocidadeProjetil, danoDisparo);
 
-           
+            
+            }
+
         }
 
 
