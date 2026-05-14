@@ -1,31 +1,35 @@
 using System.Collections;
 using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class FirstBossController : MonoBehaviour 
 {
-
     [Header("Referencia")]
-
     
     [SerializeField] private Transform player;
     [SerializeField] private Transform centroDaSala;
     [SerializeField] private InimigoController ic;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
-    [SerializeField] public BossState currentSate = BossState.Idle;
+
+    // ALTERAÇÃO:
+    // Corrigido nome currentSate -> currentState
+    [SerializeField] public BossState currentState = BossState.Idle;
+
+    [SerializeField] public float tempoRanged;
+
+    // ALTERAÇÃO:
+    // Guarda a coroutine atual do estado
+    private Coroutine rotinaAtual;
 
     [Header("Trap")]
+
     [SerializeField] private float cooldownTrap;
     [SerializeField] public float danoTrap;
     [SerializeField] public float tempoAtivarTrap;
     [SerializeField] private GameObject espinhoPrefab;
+
     private bool podeAtacarTrap = true;
-
-
-
 
     [Header("Movimento")]
 
@@ -33,22 +37,11 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private float distanciaParada;
     [SerializeField] private float distancia;
 
-    [Header("Desvio Local")] 
-    [SerializeField] private float tempoDesvio = 0.7f;
-    [SerializeField] private LayerMask layerObstaculos;
-    [SerializeField] private float fimDesvio;
-    [SerializeField] private Vector2 direcaoDesvioAtual; 
-
-    
-    
-
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         ic = GetComponent<InimigoController>();
         anim = GetComponent<Animator>();
-
 
         if (player == null)
         {
@@ -59,41 +52,51 @@ public class FirstBossController : MonoBehaviour
                 player = alvo.transform;
             }
         }
-        
-        currentSate = BossState.Ranged;
-        
+
+       
+        // ao começar a fight entra no estadoRanged
+        EntrarEstadoRanged();
     }
+
     void FixedUpdate()
     {
         if(player == null) return;
 
-
-        switch (currentSate)
+        switch (currentState)
         {
             case BossState.Melee:
-            ComporamentoMelee();
-            break;
+                ComportamentoMelee();
+                break;
 
-        case BossState.Ranged:
-            ComporamentoRanged();
-            break;
+            case BossState.Ranged:
+                ComportamentoRanged();
+                break;
 
-        case BossState.Idle:
-            ComportamentoIdle();
-            break;
+            case BossState.Idle:
+                ComportamentoIdle();
+                break;
         }
-
-
-       
-
-
-
-            
-            
-        
     }
 
-    void ComporamentoMelee()
+    
+    // metodo centralizado para trocar estado
+    void TrocarEstado(BossState novoEstado)
+    {
+        currentState = novoEstado;
+    }
+
+    public void EntrarEstadoRanged()
+    {
+        
+        if (rotinaAtual != null)
+        {
+            StopCoroutine(rotinaAtual);
+        }
+
+        rotinaAtual = StartCoroutine(RotinaRanged());
+    }
+
+    void ComportamentoMelee()
     {   
         distancia = Vector2.Distance(rb.position, player.position);
 
@@ -103,16 +106,18 @@ public class FirstBossController : MonoBehaviour
             return;
         }
 
-        Vector2 direcao =((Vector2)player.position - rb.position).normalized;
+        Vector2 direcao =
+            ((Vector2)player.position - rb.position).normalized;
 
         rb.linearVelocity = direcao * velocidade;
-
     }
 
-    void ComporamentoRanged()
+    void ComportamentoRanged()
     {
+        
         rb.linearVelocity = Vector2.zero;
 
+       
         if (podeAtacarTrap)
         {
             StartCoroutine(CooldownTrap());
@@ -124,41 +129,49 @@ public class FirstBossController : MonoBehaviour
         rb.linearVelocity = Vector2.zero; 
     }
 
-
-
-
     IEnumerator CooldownTrap()
     {
-    podeAtacarTrap = false;
+        podeAtacarTrap = false;
 
-    yield return new WaitForSeconds(cooldownTrap);
+        yield return new WaitForSeconds(cooldownTrap);
 
-    SpawnarTrap();
+        SpawnarTrap();
 
-    podeAtacarTrap = true;
+        podeAtacarTrap = true;
     }
 
+   
+
+    IEnumerator RotinaRanged()
+    {
+        Debug.Log("Entrou no estado Ranged");
+
+        
+        TrocarEstado(BossState.Ranged);
+
+        rb.linearVelocity = Vector2.zero;
+
+        
+        yield return new WaitForSeconds(tempoRanged);
+
+        Debug.Log("Voltou para Melee");
+
+        
+        TrocarEstado(BossState.Melee);
+
+        rotinaAtual = null;
+    }
 
     void SpawnarTrap()
     {
-        GameObject trap = Instantiate(
+        if(currentState == BossState.Ranged) //Impedir de chamar uma trap momento depois de trocar de estado
+        {
+        Instantiate(
             espinhoPrefab,
             player.position,
             quaternion.identity
-
         );
+        }
+        
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
