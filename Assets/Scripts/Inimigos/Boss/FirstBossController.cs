@@ -12,14 +12,12 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
 
-    // ALTERAÇÃO:
-    // Corrigido nome currentSate -> currentState
+    
     [SerializeField] public BossState currentState = BossState.Idle;
 
     [SerializeField] public float tempoRanged;
 
-    // ALTERAÇÃO:
-    // Guarda a coroutine atual do estado
+   
     private Coroutine rotinaAtual;
 
     [Header("Trap")]
@@ -28,8 +26,16 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] public float danoTrap;
     [SerializeField] public float tempoAtivarTrap;
     [SerializeField] private GameObject espinhoPrefab;
-
     private bool podeAtacarTrap = true;
+
+    [Header("Disparos")]
+    [SerializeField] private GameObject prefabTiro;
+    [SerializeField] private int quantidadeTiros;
+    [SerializeField] private float anguloAbertura = 30;
+    [SerializeField] private int danoDisparo;
+    [SerializeField] private float velocidadeProjetil;
+    [SerializeField] private float cooldownDisparo;
+    private bool podeAtirar = true;
 
     [Header("Movimento")]
 
@@ -61,6 +67,7 @@ public class FirstBossController : MonoBehaviour
     void FixedUpdate()
     {
         if(player == null) return;
+
 
         switch (currentState)
         {
@@ -117,11 +124,25 @@ public class FirstBossController : MonoBehaviour
         
         rb.linearVelocity = Vector2.zero;
 
+
+   
+         
+        
        
         if (podeAtacarTrap)
         {
             StartCoroutine(CooldownTrap());
+            
         }
+        if (podeAtacarTrap)
+        {
+            StartCoroutine(CooldownTiro());
+            
+        }
+        
+
+
+
     }
 
     void ComportamentoIdle()
@@ -138,6 +159,16 @@ public class FirstBossController : MonoBehaviour
         SpawnarTrap();
 
         podeAtacarTrap = true;
+    }
+    IEnumerator CooldownTiro()
+    {
+        podeAtirar = false;
+
+        yield return new WaitForSeconds(cooldownTrap);
+
+        AtirarEmCone();
+
+        podeAtirar = true;
     }
 
    
@@ -174,4 +205,31 @@ public class FirstBossController : MonoBehaviour
         }
         
     }
+
+    void AtirarEmCone()
+    {
+        Vector2 dirPlayer = (player.position - transform.position).normalized;
+        float anguloCentro = Mathf.Atan2(dirPlayer.y, dirPlayer.x) * Mathf.Rad2Deg;
+
+        for (int i = 0; i < quantidadeTiros; i++)
+        {
+            float variacao = (i - (quantidadeTiros - 1) / 2f) * (anguloAbertura / (quantidadeTiros - 1));
+            float anguloFinal = anguloCentro + variacao;
+
+            Vector2 direcaoTiro = new Vector2(
+                Mathf.Cos(anguloFinal * Mathf.Deg2Rad),
+                Mathf.Sin(anguloFinal * Mathf.Deg2Rad)
+            );
+
+            GameObject projetil = Instantiate(prefabTiro, transform.position, Quaternion.identity);
+            ProjetilInimigo proj = projetil.GetComponent<ProjetilInimigo>();
+            proj.Inicializar(direcaoTiro, velocidadeProjetil, danoDisparo);
+
+           
+        }
+
+
+    }
+
+
 }
