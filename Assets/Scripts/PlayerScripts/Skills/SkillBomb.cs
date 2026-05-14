@@ -4,18 +4,18 @@ public class SkillBomb : SkillBase
 {
     public GameObject bombPrefab;
 
-    protected override void useSkill()
+    protected override bool TentaUsarSkill()
     {
         if (pontoSkill == null)
         {
             Debug.LogWarning("SkillBomb: pontoSkill é NULL");
-            return;
+            
         }
 
         if (bombPrefab == null)
         {
             Debug.LogError("SkillBomb: bombPrefab não definido!");
-            return;
+       
         }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -27,6 +27,7 @@ public class SkillBomb : SkillBase
 
         BombProjetil proj = bomb.GetComponent<BombProjetil>();
 
+        
         if (proj != null)
         {
             proj.definirDirecao(direcao);
@@ -35,6 +36,9 @@ public class SkillBomb : SkillBase
         else
         {
             Debug.LogError("SkillBomb: BombProjetil não encontrado no prefab!");
+           
         }
+
+        return true;
     }
 }

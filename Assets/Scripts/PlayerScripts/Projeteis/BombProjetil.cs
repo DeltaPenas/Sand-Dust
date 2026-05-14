@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class BombProjetil : MonoBehaviour
 {
-    private float forcaL = 3;
+    private float forcaL = 5;
+    private float velocidadeGiro = 630f;
     private float dano;
     public Vector2 direcao;
     public Vector2 posBala;
@@ -32,6 +33,10 @@ public class BombProjetil : MonoBehaviour
 
         StartCoroutine(explodir());
         SoundController soundController = FindAnyObjectByType<SoundController>();
+    }
+    private void Update()
+    {
+        transform.Rotate(0, 0, velocidadeGiro * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D alvo)

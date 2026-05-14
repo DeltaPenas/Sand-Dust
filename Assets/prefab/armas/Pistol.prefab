@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b452684ba3f09146baffbf8a7742094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WepPistol
-  prefabTiro: {fileID: 1312992710952849393, guid: a02da886f3b45914ebe89e78aca4aa69, type: 3}
+  prefabTiro: {fileID: 1311244421423578220, guid: 407fbe2bb1a2a4044aa7eaeb4375371a, type: 3}
   pontoInicialDoTiro: {fileID: 3150393290589846965}
   fireSoundEffect: {fileID: 8300000, guid: cedd8ec88e3614d43a5e860cce62d0bb, type: 3}
 --- !u!1 &4178418573308593184

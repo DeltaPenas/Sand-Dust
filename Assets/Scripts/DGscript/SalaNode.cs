@@ -9,7 +9,8 @@ public enum TipoSala
     Loja,
     Secreta,
     SalaBoss,
-    Evento
+    Evento,
+    SalaAntesDoBoss
 }
 
 public class SalaNode

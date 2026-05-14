@@ -14,6 +14,11 @@ public class SalaController : MonoBehaviour
     public GameObject portaEsquerda;
     public GameObject portaDireita;
 
+    public Transform spawnCima;
+    public Transform spawnBaixo;
+    public Transform spawnEsquerda;
+    public Transform spawnDireita;
+
     [Header("Configs")]
 
     public TipoSala tipoSala;
@@ -22,10 +27,14 @@ public class SalaController : MonoBehaviour
     public bool salaLimpa = false;
     public int qtdInimigosVivos;
     private SpawnerController spawner;
+    private SoundController soundController;
     private PortaTrigger[] portas;
+    [SerializeField] Sprite spritePortaAberta;
+    
     private PropSpawner[] props;
     public DungeonGeneratortest dg;
-    private RunInfos runInfos;
+   
+    
     
     
     
@@ -33,11 +42,13 @@ public class SalaController : MonoBehaviour
 
     private void Awake()
     {
-        runInfos = FindAnyObjectByType<RunInfos>();
+
+        
         dg = GetComponentInParent<DungeonGeneratortest>();
         props = GetComponentsInChildren<PropSpawner>();
         spawner = GetComponentInChildren<SpawnerController>();
         portas = GetComponentsInChildren<PortaTrigger>();
+        soundController = FindAnyObjectByType<SoundController>();
         
 
     }
@@ -48,9 +59,10 @@ public class SalaController : MonoBehaviour
         tipoSala = sala.tipo;
         posicaoGrid = sala.Posicao; 
 
-        if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer)
+        if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer || tipoSala == TipoSala.SalaAntesDoBoss || tipoSala == TipoSala.SalaBoss)
         {
             salaLimpa = true;
+            
             LiberarPortas();
             
             
@@ -97,12 +109,8 @@ public class SalaController : MonoBehaviour
     {
         Debug.Log("Sala limpa! Liberando portas.");
         salaLimpa = true;
+        soundController.TocarSom(dg.efeitoSonoroDeAbrirPorta);
 
-        if (runInfos != null)
-        {
-            runInfos.playerScore += 1;
-            runInfos.salasConcluidas += 1;
-        }
 
         if (RunManager.Instance != null)
         {
@@ -112,9 +120,13 @@ public class SalaController : MonoBehaviour
         foreach (PortaTrigger porta in portas)
         {
             if (porta == null) continue;
+            SpriteRenderer spriteRender = porta.GetComponent<SpriteRenderer>();
+            
+            spriteRender.sprite = spritePortaAberta;
 
             Debug.Log("Liberando porta: " + porta.name);
             porta.podeTeleportar = true;
+        
         }
     }
     }
@@ -124,9 +136,32 @@ public class SalaController : MonoBehaviour
         foreach (PortaTrigger porta in portas)
         {
         porta.podeTeleportar = true;
+        SpriteRenderer spriteRender = porta.GetComponent<SpriteRenderer>();
+            
+            spriteRender.sprite = spritePortaAberta;
         }
 
         Debug.Log("Portas reativadas");
     }
+
+    public Transform ObterSpawnEntrada(DirecaoPorta direcao)
+{
+    switch (direcao)
+    {
+        case DirecaoPorta.Cima:
+            return spawnBaixo;
+
+        case DirecaoPorta.Baixo:
+            return spawnCima;
+
+        case DirecaoPorta.Esquerda:
+            return spawnDireita;
+
+        case DirecaoPorta.Direita:
+            return spawnEsquerda;
+    }
+
+    return null;
+}
 
 }

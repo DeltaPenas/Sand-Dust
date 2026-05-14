@@ -2,47 +2,77 @@ using UnityEngine;
 
 public class WepPistol : MonoBehaviour
 {
+    [Header("Referências")]
     public GameObject prefabTiro;
     public Transform pontoInicialDoTiro;
     public AudioClip fireSoundEffect;
 
     private float tempoProximoTiro;
+
     private PlayerController pc;
     private SoundController soundController;
 
     void Start()
     {
         pc = GetComponentInParent<PlayerController>();
-        soundController = pc.soundController;
+
+        if (pc != null)
+        {
+            soundController = pc.soundController;
+        }
     }
 
     void Update()
     {
+        if (pc == null) return;
+
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouse.z = 0f;
 
-        Vector2 direcao = (mouse - pontoInicialDoTiro.position).normalized;
+        Vector2 direcao =
+            (mouse - pontoInicialDoTiro.position).normalized;
 
+        
         pc.anim.SetFloat("mousePosHorizontal", direcao.x);
         pc.anim.SetFloat("mousePosVertical", direcao.y);
 
-        if (Input.GetMouseButtonDown(0))
+        
+        if (Input.GetMouseButton(0))
         {
             if (Time.time >= tempoProximoTiro)
             {
                 Atirar(direcao);
-                tempoProximoTiro = Time.time + pc.currentStatus.atqCooldown;
+
+                tempoProximoTiro =
+                    Time.time + pc.currentStatus.atqCooldown;
             }
         }
     }
 
     void Atirar(Vector2 direcao)
     {
-        GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
-        Projetil proj = projetil.GetComponent<Projetil>();
-        proj.Inicializar(direcao, pc);
+        if (prefabTiro == null) return;
 
-        soundController.TocarSom(fireSoundEffect);
-        //pc.anim.SetTrigger("attack"); nao usar
+        GameObject projetil = Instantiate(
+            prefabTiro,
+            pontoInicialDoTiro.position,
+            Quaternion.identity
+        );
+
+        Projetil proj = projetil.GetComponent<Projetil>();
+
+        
+        if (proj != null)
+        {
+            proj.Inicializar(direcao, pc);
+        }
+
+        if (soundController != null)
+        {
+            soundController.TocarSom(fireSoundEffect);
+        }
+
+        
     }
 }
+

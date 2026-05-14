@@ -2869,6 +2869,9 @@ MonoBehaviour:
     PlayerScore: 0
     tempoDeRun: 0
     xpColetado: 0
+    moedasRun: 0
+    cartasColetadasIds: []
+    efeitosAtivosIds: []
 --- !u!4 &1278713104
 Transform:
   m_ObjectHideFlags: 0

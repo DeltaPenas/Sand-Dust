@@ -12,16 +12,24 @@ public abstract class SkillBase : MonoBehaviour
     public float skillRange;
     public float skillDmg;
     public float cooldown;
+    public float cooldownBase;
     public float ultimoUso;
     public int stacksAtual;
     public int maxStacks;
 
     protected Transform pontoSkill;
-    protected PlayerController pc;
+    public PlayerController pc;
+    public SoundController sc;
+    public PlayerVida pv;
+    public AudioClip ac;
 
     protected virtual void Start()
     {
+        
         pc = GetComponentInParent<PlayerController>();
+        pv = GetComponentInParent<PlayerVida>();
+        sc = GetComponentInParent<SoundController>();
+    
 
         if (pc == null)
         {
@@ -43,22 +51,28 @@ public abstract class SkillBase : MonoBehaviour
     {
         skillRange = pc.currentStatus.rangeSkill;
         skillDmg = pc.currentStatus.danoSkill;
-        cooldown = pc.currentStatus.cooldownSkill;
+        cooldown = pc.currentStatus.cooldownSkill + cooldownBase;
     }
 
-    public virtual bool podeUsar()
+    public virtual bool PodeUsarSkill()
     {
         return Time.time >= ultimoUso + cooldown;
     }
 
     public void tentaUsar()
     {
-        if (podeUsar())
+        if (!PodeUsarSkill())
         {
-            useSkill();
+        return;
+        }
+
+        bool conseguiuUsuar = TentaUsarSkill();
+
+        if (conseguiuUsuar)
+        {
             ultimoUso = Time.time;
         }
     }
 
-    protected abstract void useSkill();
+    protected abstract bool TentaUsarSkill();
 }

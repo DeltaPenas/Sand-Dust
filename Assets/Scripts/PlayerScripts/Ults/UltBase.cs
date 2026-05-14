@@ -25,17 +25,17 @@ public abstract class UltBase : MonoBehaviour
         ultCooldown = pc.currentStatus.cooldownUlt;
     }
 
-    public virtual bool podeUsarUlt()
+    public virtual bool PodeUsarUlt()
     {
         return Time.time >= ultimoUsoUlt + ultCooldown;
     }
 
     public void tentaUsar()
     {
-        if (podeUsarUlt())
+        if (PodeUsarUlt())
         {
             
-            bool conseguiuUsar = tentaUsarUlt();
+            bool conseguiuUsar = TentaUsarUlt();
 
             
             if (conseguiuUsar)
@@ -46,5 +46,5 @@ public abstract class UltBase : MonoBehaviour
     }
 
     
-    protected abstract bool tentaUsarUlt();
+    protected abstract bool TentaUsarUlt();
 }

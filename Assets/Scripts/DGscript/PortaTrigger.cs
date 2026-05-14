@@ -10,11 +10,11 @@ public class PortaTrigger : MonoBehaviour
     public float offsetPlayer = 1.5f;
 
     public bool podeTeleportar;
-    public bool emTransicao;
     private SalaController salaAtual;
     private DungeonGeneratortest dungeon;
     private PlayerController player;
     private TriggerDeTransicao tt;
+    private bool playerDentro;
     
 
     [System.Obsolete]
@@ -29,27 +29,32 @@ public class PortaTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-{
-    if (!podeTeleportar) return;
-    if (!other.CompareTag("Player")) return;
-    if (emTransicao) return;
-    if (player.emTeleporte) return;
-    
-
-    Vector2Int direcaoGrid = ObterDirecaoGrid();
-    Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
-
-    if (!dungeon.ExisteSalaNessaDirecao(proximaSala))
     {
-        Debug.Log("Não existe sala nessa direção");
-        return;
+        if (!other.CompareTag("Player")) return;
+
+        if (playerDentro) return;
+
+        playerDentro = true;
+
+        if (!salaAtual.salaLimpa) return;
+
+        Vector2Int direcaoGrid = ObterDirecaoGrid();
+        Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
+
+        if (!dungeon.ExisteSalaNessaDirecao(proximaSala))
+        {
+            Debug.Log("Não existe sala nessa direção");
+            return;
+        }
+
+        StartCoroutine(SequenciaTeleporte(other.transform));
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
 
-    podeTeleportar = false;
-    emTransicao = true;
-
-    StartCoroutine(SequenciaTeleporte(other.transform));
-}
+        playerDentro = false;
+    }
 
     private Vector2Int ObterDirecaoGrid()
     {
@@ -73,89 +78,59 @@ public class PortaTrigger : MonoBehaviour
 
     private void Teleportar(Transform player)
     {
-        Vector3 movimento = Vector3.zero;
+         SalaController proximaSala = BuscarProximaSala();
 
-        switch (direcao)
-        {
-            case DirecaoPorta.Cima:
-                movimento = Vector3.up;
+    if (proximaSala == null)
+    {
+        Debug.LogWarning("Próxima sala não encontrada");
+        return;
+    }
 
-                Vector3 deslocamentoUp =
-                movimento * distanciaEntreSalasVertical +
-                movimento * offsetPlayer;
+    Transform pontoSpawn =
+        proximaSala.ObterSpawnEntrada(direcao);
 
-                player.position += deslocamentoUp;
+    if (pontoSpawn == null)
+    {
+        Debug.LogWarning("Spawn não encontrado");
+        return;
+    }
 
-                Camera.main.transform.position +=
-                movimento * distanciaEntreSalasVertical;
+    player.position = pontoSpawn.position;
 
-                break;
-
-            case DirecaoPorta.Baixo:
-                movimento = Vector3.down;
-
-                Vector3 deslocamentoDown =
-                movimento * distanciaEntreSalasVertical +
-                movimento * offsetPlayer;
-
-                player.position += deslocamentoDown;
-
-                Camera.main.transform.position +=
-                movimento * distanciaEntreSalasVertical;
-
-                break;
-
-            case DirecaoPorta.Esquerda:
-                movimento = Vector3.left;
-
-                Vector3 deslocamentoLeft =
-                movimento * distanciaEntreSalas +
-                movimento * offsetPlayer;
-
-                player.position += deslocamentoLeft;
-
-                Camera.main.transform.position +=
-                movimento * distanciaEntreSalas;
-
-                break;
-
-            case DirecaoPorta.Direita:
-                movimento = Vector3.right;
-                Vector3 deslocamentoRight =
-                movimento * distanciaEntreSalas +
-                movimento * offsetPlayer;
-
-                player.position += deslocamentoRight;
-
-                Camera.main.transform.position +=
-                movimento * distanciaEntreSalas;
-
-                break;
-        }
+    Camera.main.transform.position =
+        new Vector3(
+            proximaSala.transform.position.x,
+            proximaSala.transform.position.y,
+            Camera.main.transform.position.z
+        );
         
 
     }
+    private SalaController BuscarProximaSala()
+    {
+        Vector2Int direcaoGrid = ObterDirecaoGrid();
+
+        Vector2Int posicaoDestino = salaAtual.posicaoGrid + direcaoGrid;
+
+        return dungeon.BuscarSalaPorPosicao(posicaoDestino);
+    }
    IEnumerator SequenciaTeleporte(Transform alvo)
-{
-    player.emTeleporte = true;
-    player.iframeAtivo = true;
-    player.podeMover = false;
+    {
+        player.iframeAtivo = true;
+        player.podeMover = false;
 
-    
-    player.rig.linearVelocity = Vector2.zero;
+        player.rig.linearVelocity = Vector2.zero;
 
-    tt.FadeOut();
-    yield return new WaitForSeconds(0.8f);
+        tt.FadeOut();
 
-    Teleportar(alvo);
+        yield return new WaitForSeconds(1f);
 
-    yield return new WaitForSeconds(0.5f);
+        Teleportar(alvo);
 
-    player.iframeAtivo = false;
-    player.podeMover = true;
-    player.emTeleporte = false;
+        yield return new WaitForSeconds(0.1f);
 
-    emTransicao = false;
+        player.iframeAtivo = false;
+        player.podeMover = true;
     }
 
     private void ReativarTrigger()

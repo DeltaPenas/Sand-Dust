@@ -10,7 +10,7 @@ public class UltRevolver : UltBase
     public GameObject MarkPrefab;
     public AudioClip fireSoundClip;
 
-    protected override bool tentaUsarUlt()
+    protected override bool TentaUsarUlt()
     {
         SoundController soundController = FindAnyObjectByType<SoundController>();
 

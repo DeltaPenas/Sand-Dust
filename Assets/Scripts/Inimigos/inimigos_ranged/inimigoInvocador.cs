@@ -12,12 +12,19 @@ public float intervaloInvocacao = 3f;
 private float proximaInvocacao;  
 public float distanciaInvocacao = 4f;
 
-protected override Vector2 DirecaoBase()
+
+
+    protected override Vector2 DirecaoBase()
     {
+        
+        
+
         if (distanciaPlayer < distanciaInvocacao)
             return (transform.position - player.position).normalized;
 
         return Vector2.zero;
+
+        
     }
 void Invocar()
     {

@@ -8,8 +8,11 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     private RunInfos runInfos;
     private TriggerDeTransicao tt;
     private PlayerVida pv;
-    
-    
+    public GameObject portalAtivo;
+    public GameObject portalDesligado;
+
+
+
 
     void Start()
     {
@@ -22,8 +25,9 @@ public class PontoDeDecidaDeSala : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && dg != null && runInfos != null && runInfos.salasConcluidas >= dg.totalSalasCombate)
+        if (collision.CompareTag("Player") && dg != null && runInfos != null && RunManager.Instance.currentRun.salasConcluidas >= dg.totalSalasCombate)
         {
+
             tt.FadeOut();
             Invoke(nameof(PodeDescer), 0.8f);
             dg.LimparInimigos();
@@ -31,26 +35,33 @@ public class PontoDeDecidaDeSala : MonoBehaviour
             {
                 pv.CurarPlayer(1);
             }
-
-            
             
         }
     }
+    public void AtivarPortal()
+    {
+        portalAtivo.SetActive(true);
+        portalDesligado.SetActive(false);
+    }
+  
     
     public void PodeDescer()
     {
             dg.LimparDungeon();
-            runInfos.layer +=1;
-            if(runInfos.layer > 3)
-            {
-                runInfos.layer = 0;
-                runInfos.andar +=1;
-                dg.qtdInimigos =1;
-                dg.qtdmaxSalas +=1;
-                dg.qtdminSalas +=1;
-            }
+            RunManager.Instance.currentRun.layer+=1;
+       
+        if (RunManager.Instance.currentRun.layer >= 2)
+        {
+            //RunManager.Instance.currentRun.layer = 0;
+            RunManager.Instance.currentRun.andar +=1;
+            dg.qtdInimigos =1;
+            dg.qtdmaxSalas+=1;
+            dg.qtdminSalas+=1;
+        }
+
+
         dg.qtdInimigos +=1;
-        runInfos.salasConcluidas = 0;
+        RunManager.Instance.currentRun.salasConcluidas = 0;
     }
     
 

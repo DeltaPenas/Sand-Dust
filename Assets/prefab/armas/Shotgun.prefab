@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 6591449011720088045}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.29600012, y: -0.64, z: -0.007852485}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.617, y: -0.441, z: 0}
+  m_LocalScale: {x: 1.230714, y: 1.230714, z: 1.230714}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2017153540290562551}
@@ -82,10 +82,10 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 11022b86ff05b2446aea4858a915e181, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4dcbce46bbce76640aa579067022686f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   quantidadePelotas: 3
   anguloAbertura: 50
   tempoProximoTiro: 0
-  prefabTiro: {fileID: 1312992710952849393, guid: a02da886f3b45914ebe89e78aca4aa69, type: 3}
+  prefabTiro: {fileID: 3293566582396280618, guid: 87da0a09542dcc24b8eb3a34d106c248, type: 3}
   pontoInicialDoTiro: {fileID: 2017153540290562551}
   fireSoundEffect: {fileID: 8300000, guid: 4c7a375b7c15c404b9ef36f685428082, type: 3}
 --- !u!1 &9056754355991467629
