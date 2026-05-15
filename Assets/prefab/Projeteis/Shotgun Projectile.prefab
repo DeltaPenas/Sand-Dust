@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 377860172271995381}
   m_Layer: 0
   m_Name: Shotgun Projectile
-  m_TagString: Untagged
+  m_TagString: ProjetilPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,8 +166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projetil
   velocidade: 10
-  vidaProjetil: 0
-  ricochetesRestantes: 0
   podeGerarRicocheteExtra: 1
 --- !u!50 &377860172271995381
 Rigidbody2D:

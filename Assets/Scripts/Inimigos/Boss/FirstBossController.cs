@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -11,6 +13,7 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private InimigoController ic;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
+    [SerializeField] private VidaBoss vidaBoss;
 
     
     [SerializeField] public BossState currentState = BossState.Idle;
@@ -22,21 +25,28 @@ public class FirstBossController : MonoBehaviour
 
     [Header("Trap")]
 
-    [SerializeField] private float cooldownTrap;
+    [SerializeField] public float cooldownTrap;
     [SerializeField] public float danoTrap;
     [SerializeField] public float tempoAtivarTrap;
     [SerializeField] private GameObject espinhoPrefab;
     private bool podeAtacarTrap = true;
 
     [Header("Disparos")]
+
+    [SerializeField] public float tempoFlutuando;
+    [SerializeField] public float velocidadeDisparo;
+    [SerializeField] public float velocidadeRotacao;
     [SerializeField] private GameObject prefabTiro;
     [SerializeField] private Transform pontoDeDisparo;
-    [SerializeField] private int quantidadeTiros;
-    [SerializeField] private float anguloAbertura;
-    [SerializeField] private int danoDisparo;
-    [SerializeField] private float velocidadeProjetil;
-    [SerializeField] private float cooldownDisparo;
-    private bool podeAtirar = true;
+    [SerializeField] public int danoDisparo;
+    [SerializeField] public float cooldownDisparo;
+    [SerializeField] private List<Transform> pontosDeSpawn = new List<Transform>();
+    [SerializeField] private bool podeAtirar = true;
+
+
+
+    
+
 
     [Header("Movimento")]
 
@@ -49,6 +59,7 @@ public class FirstBossController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         ic = GetComponent<InimigoController>();
         anim = GetComponent<Animator>();
+        vidaBoss = GetComponent<VidaBoss>();
 
         if (player == null)
         {
@@ -61,8 +72,8 @@ public class FirstBossController : MonoBehaviour
         }
 
        
-        // ao começar a fight entra no estadoRanged
-        EntrarEstadoRanged();
+        // ao começar a fight entra no estadoMelee;
+        currentState = BossState.Melee;
     }
 
     void FixedUpdate()
@@ -83,12 +94,15 @@ public class FirstBossController : MonoBehaviour
             case BossState.Idle:
                 ComportamentoIdle();
                 break;
+            case BossState.Morreu:
+                ComportamentoIdle();
+                break;
         }
     }
 
     
     // metodo centralizado para trocar estado
-    void TrocarEstado(BossState novoEstado)
+    public void TrocarEstado(BossState novoEstado)
     {
         currentState = novoEstado;
     }
@@ -102,6 +116,14 @@ public class FirstBossController : MonoBehaviour
         }
 
         rotinaAtual = StartCoroutine(RotinaRanged());
+    }
+    public void EntrarEstadoMelee()
+    {
+        if(rotinaAtual != null)
+        {
+            StopCoroutine(rotinaAtual);
+        }
+        rotinaAtual = StartCoroutine(RotinaMelee());
     }
 
     void ComportamentoMelee()
@@ -124,25 +146,18 @@ public class FirstBossController : MonoBehaviour
     {
         
         rb.linearVelocity = Vector2.zero;
-
-
-   
-         
-        
        
         if (podeAtacarTrap)
         {
             StartCoroutine(CooldownTrap());
             
         }
+        
         if (podeAtirar)
         {
             StartCoroutine(CooldownTiro());
             
         }
-        
-
-
 
     }
 
@@ -150,6 +165,12 @@ public class FirstBossController : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero; 
     }
+
+    void ComportamentoMorto()
+    {
+        rb.linearVelocity = Vector2.zero; 
+    }
+
 
     IEnumerator CooldownTrap()
     {
@@ -165,17 +186,16 @@ public class FirstBossController : MonoBehaviour
     {
         podeAtirar = false;
 
-        yield return new WaitForSeconds(cooldownTrap);
+        yield return new WaitForSeconds(cooldownDisparo);
 
-        AtirarEmCone();
+        yield return StartCoroutine(AtirarEspinho());
 
         podeAtirar = true;
     }
 
-   
-
     IEnumerator RotinaRanged()
     {
+        vidaBoss.invuneravel = true;
         Debug.Log("Entrou no estado Ranged");
 
         
@@ -190,9 +210,24 @@ public class FirstBossController : MonoBehaviour
 
         
         TrocarEstado(BossState.Melee);
+        vidaBoss.invuneravel = false;
 
         rotinaAtual = null;
     }
+
+    IEnumerator RotinaMelee()
+    {
+        
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("Atacou");
+    }
+
+    void FicarMorto()
+    {
+        vidaBoss.invuneravel = true;
+    }
+
 
     void SpawnarTrap()
     {
@@ -207,31 +242,26 @@ public class FirstBossController : MonoBehaviour
         
     }
 
-    void AtirarEmCone()
+    IEnumerator AtirarEspinho()
     {
         if(currentState == BossState.Ranged)
         {
-        Debug.Log("tentou atirar");
-        Vector2 dirPlayer = (player.position - transform.position).normalized;
-        float anguloCentro = Mathf.Atan2(dirPlayer.y, dirPlayer.x) * Mathf.Rad2Deg;
 
-            for (int i = 0; i < quantidadeTiros; i++)
+
+            foreach(Transform ponto in pontosDeSpawn)
             {
-                float variacao = (i - (quantidadeTiros - 1) / 2f) * (anguloAbertura / (quantidadeTiros - 1));
-                float anguloFinal = anguloCentro + variacao;
 
-                Vector2 direcaoTiro = new Vector2(
-                    Mathf.Cos(anguloFinal * Mathf.Deg2Rad),
-                    Mathf.Sin(anguloFinal * Mathf.Deg2Rad)
-                );
+                yield return new WaitForSeconds(0.5f);
+                Debug.Log(ponto.name + " -> " + ponto.position);
+                GameObject espinho = Instantiate(prefabTiro, ponto.position, quaternion.identity);
+                EspinhoVoador proj = espinho.GetComponent<EspinhoVoador>();
+                proj.Inicializar(tempoFlutuando, velocidadeDisparo, velocidadeRotacao);
 
-                GameObject projetil = Instantiate(prefabTiro, pontoDeDisparo.position, Quaternion.identity);
-                ProjetilInimigo proj = projetil.GetComponent<ProjetilInimigo>();
-                proj.Inicializar(direcaoTiro, velocidadeProjetil, danoDisparo);
 
-            
             }
 
+
+       
         }
 
 

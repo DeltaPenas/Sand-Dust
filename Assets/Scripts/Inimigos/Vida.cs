@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class Vida : MonoBehaviour
 {
-    public float vidaTotal = 5;
+    public float vidaTotal;
     public float vidaAtual;
     public bool morreu;
+    public bool invuneravel;
     public bool pegandoFogo = false;
     private SpriteRenderer sr;
-    [SerializeField] private DanoVisual dv;
+    [SerializeField] protected DanoVisual dv; 
+    [SerializeField] protected float danoAcumulado;
+
     public int xpDrop = 1;
 
     
@@ -57,14 +60,28 @@ public class Vida : MonoBehaviour
 
     public void receberDano(float dano)
     {
-    if (morreu)
+        if (morreu)
         return;
 
-    vidaAtual -= dano;
-        if (dv != null)
+
+        if (!invuneravel)
         {
-            dv.TomouDano();
+            vidaAtual -= dano;
+            danoAcumulado += dano;
+            AoReceberDano();
+
+
+             if (dv != null)
+            {
+                dv.TomouDano();
+            }
+
         }
+        
+
+        
+
+       
     
 
     if (vidaAtual <= 0)
@@ -99,6 +116,9 @@ public class Vida : MonoBehaviour
     {
         
     }
+    
+    
+
 
     IEnumerator MorrerComDelay()
     {
