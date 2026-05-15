@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7027416741553773943}
   m_Layer: 0
   m_Name: Normal Projectile
-  m_TagString: Untagged
+  m_TagString: ProjetilPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,8 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projetil
   velocidade: 20
-  vidaProjetil: 0
-  ricochetesRestantes: 0
   podeGerarRicocheteExtra: 1
 --- !u!95 &2713678595309974896
 Animator:
