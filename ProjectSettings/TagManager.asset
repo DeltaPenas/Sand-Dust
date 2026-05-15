@@ -8,6 +8,8 @@ TagManager:
   - "Ch\xE3o"
   - Parede
   - Items
+  - ProjetilPlayer
+  - ProjetilInimigo
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
+  - ProjetilPlayer
+  - ProjetilInimigo
   - 
   - 
   - 

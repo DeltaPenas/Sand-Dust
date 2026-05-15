@@ -33,12 +33,18 @@ public class EspinhoVoador : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D alvo)
     {
         
-        PlayerVida vida = alvo.GetComponent<PlayerVida>();
+        PlayerVida vidaPlayer = alvo.GetComponent<PlayerVida>();
+        Vida vida = alvo.GetComponent<Vida>();
         
 
-        if (vida != null)
+        if (vidaPlayer != null)
         {
-            vida.DarDanoPlayer(boss.danoDisparo);
+            vidaPlayer.DarDanoPlayer(boss.danoDisparo);
+        }
+
+        if(vida != null)
+        {
+            vida.receberDano(boss.danoDisparo);
         }
       
 

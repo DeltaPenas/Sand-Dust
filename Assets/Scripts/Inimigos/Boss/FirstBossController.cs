@@ -73,7 +73,7 @@ public class FirstBossController : MonoBehaviour
 
        
         // ao começar a fight entra no estadoMelee;
-        currentState = BossState.Melee;
+        EntrarEstadoMelee();
     }
 
     void FixedUpdate()
