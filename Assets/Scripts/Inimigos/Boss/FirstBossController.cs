@@ -60,7 +60,7 @@ public class FirstBossController : MonoBehaviour
     public float intervaloDano = 3f;
     private float proximoAtaque;
     private PlayerVida vidaDoPlayer;
-    private Vida vida;
+
 
     void Start()
     {
