@@ -54,6 +54,14 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private float distanciaParada;
     [SerializeField] private float distancia;
 
+    [Header("AtaqueMelee")]
+    public int dano = 1;
+    public float alcanceDano = 1.5f;
+    public float intervaloDano = 3f;
+    private float proximoAtaque;
+    private PlayerVida vidaDoPlayer;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -68,6 +76,7 @@ public class FirstBossController : MonoBehaviour
             if (alvo != null)
             {
                 player = alvo.transform;
+                vidaDoPlayer = player.GetComponent<PlayerVida>();
             }
         }
 
@@ -135,7 +144,13 @@ public class FirstBossController : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             return;
         }
-
+        
+        // atacar quando perto
+        if (distancia <= alcanceDano && Time.time >= proximoAtaque)
+        {
+            AtacarMelee();
+            proximoAtaque = Time.time + intervaloDano;
+        }
         Vector2 direcao =
             ((Vector2)player.position - rb.position).normalized;
 
@@ -266,6 +281,25 @@ public class FirstBossController : MonoBehaviour
 
 
     }
+    private void AtacarMelee()
+    {
+        if (vidaDoPlayer != null && vidaBoss.vidaAtual > 0)
+        {
+            vidaDoPlayer.DarDanoPlayer(dano);
+            Debug.Log("Inimigo atacou o player! Dano causado: " + dano);
+        }
+    }
+    //private void DashInimigo()
+    //{
+        //if (vida.vidaAtual > 0)
+        //{
+        //Vector2 direcaoParaPlayerDash = ((Vector2)player.position - rb.position).normalized;
+        //if (capazDash)
+        //{
+            //rb.linearVelocity = direcaoParaPlayerDash * forçaDashInimigo;
+        //}
+        //}      
+    //}
 
 
 }
