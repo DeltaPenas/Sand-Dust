@@ -28,6 +28,7 @@ public class VidaBoss : Vida
             danoAcumulado = 0;
 
             boss.TrocarEstado(BossState.FaseDois);
+            boss.TeleportarPontoAleatorio();
         }
 
        
@@ -53,6 +54,12 @@ public class VidaBoss : Vida
         boss.velocidadeRotacao += 100;
 
         boss.tempoFlutuando -= 0.3f;
+
+        if (boss.currentState == BossState.FaseDois)
+        {
+            boss.cooldownTeleporte -= 2;
+        }
+
 
         Debug.Log("Boss buffado!");
     }

@@ -13,6 +13,7 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
     [SerializeField] private VidaBoss vidaBoss;
+    [SerializeField] private List<Transform> pontosDeTp = new List<Transform>();
 
     [SerializeField] public BossState currentState = BossState.Idle;
 
@@ -32,8 +33,6 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] public float velocidadeRotacao;
 
     [SerializeField] private GameObject prefabTiro;
-    [SerializeField] private Transform pontoDeDisparo;
-
     [SerializeField] public int danoDisparo;
     [SerializeField] public float cooldownDisparo;
 
@@ -42,10 +41,9 @@ public class FirstBossController : MonoBehaviour
     private bool podeAtirar = true;
 
     [Header("Movimento")]
+    public bool podeTeleportar = true;
+    [SerializeField] public float cooldownTeleporte;
 
-    [SerializeField] private float velocidade;
-    [SerializeField] private float distanciaParada;
-    [SerializeField] private float distancia;
 
     void Start()
     {
@@ -118,8 +116,6 @@ public class FirstBossController : MonoBehaviour
     }
     void ComportamentoFaseDois()
     {
-        //Debug pra saber que ta na fase dois
-        transform.Rotate(0, 0, velocidadeRotacao * Time.deltaTime);
 
         rb.linearVelocity = Vector2.zero;
 
@@ -131,6 +127,11 @@ public class FirstBossController : MonoBehaviour
         if (podeAtirar)
         {
             StartCoroutine(CooldownTiro());
+        }
+
+        if (podeTeleportar)
+        {
+            StartCoroutine(CooldownTeleporte());
         }
     }
 
@@ -156,11 +157,33 @@ public class FirstBossController : MonoBehaviour
 
         podeAtirar = true;
     }
+    IEnumerator CooldownTeleporte()
+    {
+        podeTeleportar = false;
+
+        yield return new WaitForSeconds(cooldownTeleporte);
+
+        TeleportarPontoAleatorio();
+
+        podeTeleportar = true;
+    }
 
  
     void FicarMorto()
     {
         vidaBoss.invuneravel = true;
+    }
+
+    public void TeleportarPontoAleatorio()
+    {
+        int index = UnityEngine.Random.Range(0, pontosDeTp.Count);
+
+        anim.SetTrigger("TeleportIn");
+        Transform pontoEscolhido = pontosDeTp[index];
+
+        transform.position = pontoEscolhido.position;
+
+
     }
 
     void SpawnarTrap()
@@ -172,6 +195,7 @@ public class FirstBossController : MonoBehaviour
                 player.position,
                 quaternion.identity
             );
+            
         }
     }
 
