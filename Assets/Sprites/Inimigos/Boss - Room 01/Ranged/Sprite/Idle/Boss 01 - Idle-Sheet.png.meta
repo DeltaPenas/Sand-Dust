@@ -1,49 +1,43 @@
 fileFormatVersion: 2
-guid: dae86ff33325c954d9dbb4df71486c77
+guid: 8a6da5ee2ebffb042ad61e795b2f1cef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4084116269924961369
-    second: Spike-Sheet_0
+      213: 9098732032525641942
+    second: Boss 01 - Idle-Sheet_0
   - first:
-      213: -5228413602066401175
-    second: Spike-Sheet_1
+      213: 4252603953416553957
+    second: Boss 01 - Idle-Sheet_1
   - first:
-      213: 8082513695308575543
-    second: Spike-Sheet_2
+      213: -7061977380775330296
+    second: Boss 01 - Idle-Sheet_2
   - first:
-      213: 5337004710898125762
-    second: Spike-Sheet_3
+      213: 4130248545373198441
+    second: Boss 01 - Idle-Sheet_3
   - first:
-      213: 8277097262915757466
-    second: Spike-Sheet_4
+      213: -6143186231672087080
+    second: Boss 01 - Idle-Sheet_4
   - first:
-      213: 2177180828398987644
-    second: Spike-Sheet_5
+      213: -4534703870881871654
+    second: Boss 01 - Idle-Sheet_5
   - first:
-      213: 6318696947838834915
-    second: Spike-Sheet_6
+      213: 9085022768386246567
+    second: Boss 01 - Idle-Sheet_6
   - first:
-      213: -6760293480088933888
-    second: Spike-Sheet_7
+      213: -6056126509455353157
+    second: Boss 01 - Idle-Sheet_7
   - first:
-      213: -5232748493343101668
-    second: Spike-Sheet_8
+      213: -726452128778121708
+    second: Boss 01 - Idle-Sheet_8
   - first:
-      213: -1053970554672446104
-    second: Spike-Sheet_9
+      213: 492709390937698068
+    second: Boss 01 - Idle-Sheet_9
   - first:
-      213: 6916824635598912931
-    second: Spike-Sheet_10
+      213: 9192817180594824943
+    second: Boss 01 - Idle-Sheet_10
   - first:
-      213: 300905810622014737
-    second: Spike-Sheet_11
-  - first:
-      213: 3422111879798858449
-    second: Spike-Sheet_12
-  - first:
-      213: -7074468687447620485
-    second: Spike-Sheet_13
+      213: -470329510951309451
+    second: Boss 01 - Idle-Sheet_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,7 +133,29 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spike-Sheet_0
+      name: Boss 01 - Idle-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d8a8219390354e70800000000000000
+      internalID: 9098732032525641942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle-Sheet_1
       rect:
         serializedVersion: 2
         x: 100
@@ -154,14 +170,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a3babd14ed4257c0800000000000000
-      internalID: -4084116269924961369
+      spriteID: 5e5c0dda3c8440b30800000000000000
+      internalID: 4252603953416553957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_1
+      name: Boss 01 - Idle-Sheet_2
       rect:
         serializedVersion: 2
         x: 200
@@ -176,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 968f20eb781f077b0800000000000000
-      internalID: -5228413602066401175
+      spriteID: 80efa07fcf0defd90800000000000000
+      internalID: -7061977380775330296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_2
+      name: Boss 01 - Idle-Sheet_3
       rect:
         serializedVersion: 2
         x: 300
@@ -198,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 733f815026bda2070800000000000000
-      internalID: 8082513695308575543
+      spriteID: 9681b054b27915930800000000000000
+      internalID: 4130248545373198441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_3
+      name: Boss 01 - Idle-Sheet_4
       rect:
         serializedVersion: 2
         x: 400
@@ -220,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2cb4ba50289d01a40800000000000000
-      internalID: 5337004710898125762
+      spriteID: 8dd5d189ba40fbaa0800000000000000
+      internalID: -6143186231672087080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_4
+      name: Boss 01 - Idle-Sheet_5
       rect:
         serializedVersion: 2
         x: 500
@@ -242,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a95a37f4b182ed270800000000000000
-      internalID: 8277097262915757466
+      spriteID: ad84f76fade7111c0800000000000000
+      internalID: -4534703870881871654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_5
+      name: Boss 01 - Idle-Sheet_6
       rect:
         serializedVersion: 2
         x: 600
@@ -264,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c792380ad66e63e10800000000000000
-      internalID: 2177180828398987644
+      spriteID: 7a78ff5c21c741e70800000000000000
+      internalID: 9085022768386246567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_6
+      name: Boss 01 - Idle-Sheet_7
       rect:
         serializedVersion: 2
         x: 700
@@ -286,14 +302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e8574b656580b750800000000000000
-      internalID: 6318696947838834915
+      spriteID: bba5611c60154fba0800000000000000
+      internalID: -6056126509455353157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_7
+      name: Boss 01 - Idle-Sheet_8
       rect:
         serializedVersion: 2
         x: 800
@@ -308,14 +324,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00ae8edb5ec9e22a0800000000000000
-      internalID: -6760293480088933888
+      spriteID: 41e8ad543af1be5f0800000000000000
+      internalID: -726452128778121708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_8
+      name: Boss 01 - Idle-Sheet_9
       rect:
         serializedVersion: 2
         x: 900
@@ -330,14 +346,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c1de25738fa8167b0800000000000000
-      internalID: -5232748493343101668
+      spriteID: 41f2750a49476d600800000000000000
+      internalID: 492709390937698068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_9
+      name: Boss 01 - Idle-Sheet_10
       rect:
         serializedVersion: 2
         x: 1000
@@ -352,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 865070d5d5b8f51f0800000000000000
-      internalID: -1053970554672446104
+      spriteID: fe666762582739f70800000000000000
+      internalID: 9192817180594824943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike-Sheet_10
+      name: Boss 01 - Idle-Sheet_11
       rect:
         serializedVersion: 2
         x: 1100
@@ -374,74 +390,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ad3b82fb5f7dff50800000000000000
-      internalID: 6916824635598912931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spike-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 115e9f09d380d2400800000000000000
-      internalID: 300905810622014737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spike-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 1300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d22e01af98cd7f20800000000000000
-      internalID: 3422111879798858449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spike-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 1400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b748f0ef53072dd90800000000000000
-      internalID: -7074468687447620485
+      spriteID: 57f2d5c3dcd0979f0800000000000000
+      internalID: -470329510951309451
       vertices: []
       indices: 
       edges: []
@@ -450,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cdde6de2548b67942b10d85c989d8c7d
+    spriteID: 455aeca29e65a0a4e947b63487c753bb
     internalID: 0
     vertices: []
     indices: 
@@ -462,20 +412,18 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":100.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Spike-Sheet_0: -4084116269924961369
-      Spike-Sheet_1: -5228413602066401175
-      Spike-Sheet_10: 6916824635598912931
-      Spike-Sheet_11: 300905810622014737
-      Spike-Sheet_12: 3422111879798858449
-      Spike-Sheet_13: -7074468687447620485
-      Spike-Sheet_2: 8082513695308575543
-      Spike-Sheet_3: 5337004710898125762
-      Spike-Sheet_4: 8277097262915757466
-      Spike-Sheet_5: 2177180828398987644
-      Spike-Sheet_6: 6318696947838834915
-      Spike-Sheet_7: -6760293480088933888
-      Spike-Sheet_8: -5232748493343101668
-      Spike-Sheet_9: -1053970554672446104
+      Boss 01 - Idle-Sheet_0: 9098732032525641942
+      Boss 01 - Idle-Sheet_1: 4252603953416553957
+      Boss 01 - Idle-Sheet_10: 9192817180594824943
+      Boss 01 - Idle-Sheet_11: -470329510951309451
+      Boss 01 - Idle-Sheet_2: -7061977380775330296
+      Boss 01 - Idle-Sheet_3: 4130248545373198441
+      Boss 01 - Idle-Sheet_4: -6143186231672087080
+      Boss 01 - Idle-Sheet_5: -4534703870881871654
+      Boss 01 - Idle-Sheet_6: 9085022768386246567
+      Boss 01 - Idle-Sheet_7: -6056126509455353157
+      Boss 01 - Idle-Sheet_8: -726452128778121708
+      Boss 01 - Idle-Sheet_9: 492709390937698068
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

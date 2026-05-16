@@ -10,8 +10,7 @@ public class BossSpike : MonoBehaviour
     [SerializeField] private CircleCollider2D collider2D;
     [SerializeField] private PlayerVida playerAtual;
     [SerializeField] private SpriteRenderer sr;
-    [SerializeField] private Sprite spriteAtivo;
-    [SerializeField] private Sprite spriteDesligado;
+
     [SerializeField] private bool playerDentro;
     [SerializeField] private bool taAtiva;
 
@@ -22,7 +21,6 @@ public class BossSpike : MonoBehaviour
         collider2D = GetComponent<CircleCollider2D>();
         boss = FindAnyObjectByType<FirstBossController>();
         sr = GetComponent<SpriteRenderer>();
-        spriteDesligado = sr.sprite;
         StartCoroutine(AtivarTrap());
     }
     void OnTriggerEnter2D(Collider2D collision)
@@ -52,7 +50,7 @@ public class BossSpike : MonoBehaviour
     {
         
         yield return new WaitForSeconds(boss.tempoAtivarTrap);
-        sr.sprite = spriteAtivo;
+        //animação de subir
         if (playerDentro && playerAtual != null)
         {
 
@@ -63,8 +61,8 @@ public class BossSpike : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
-        sr.sprite = spriteDesligado;
         taAtiva = false;
+        //animação de descer
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
 
