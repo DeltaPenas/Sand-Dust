@@ -11,6 +11,7 @@ public class Vida : MonoBehaviour
     private SpriteRenderer sr;
     [SerializeField] protected DanoVisual dv; 
     [SerializeField] protected float danoAcumulado;
+    [SerializeField] protected float ultimoDanoRecebido;
 
     public int xpDrop = 1;
 
@@ -66,11 +67,11 @@ public class Vida : MonoBehaviour
 
         if (!invuneravel)
         {
+            ultimoDanoRecebido = dano;
             vidaAtual -= dano;
             danoAcumulado += dano;
-            AoReceberDano();
 
-
+        AoReceberDano();
              if (dv != null)
             {
                 dv.TomouDano();
@@ -78,12 +79,6 @@ public class Vida : MonoBehaviour
 
         }
         
-
-        
-
-       
-    
-
     if (vidaAtual <= 0)
     {
         morreu = true;

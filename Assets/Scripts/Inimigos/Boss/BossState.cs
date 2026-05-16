@@ -3,7 +3,7 @@ using UnityEngine;
 public enum BossState
 {
     Idle,
-    Melee,
-    Ranged,
+    FaseUm,
+    FaseDois,
     Morreu
 }

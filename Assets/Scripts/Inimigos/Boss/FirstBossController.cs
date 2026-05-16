@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class FirstBossController : MonoBehaviour 
+public class FirstBossController : MonoBehaviour
 {
     [Header("Referencia")]
-    
+
     [SerializeField] private Transform player;
     [SerializeField] private Transform centroDaSala;
     [SerializeField] private InimigoController ic;
@@ -15,13 +14,7 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private VidaBoss vidaBoss;
 
-    
     [SerializeField] public BossState currentState = BossState.Idle;
-
-    [SerializeField] public float tempoRanged;
-
-   
-    private Coroutine rotinaAtual;
 
     [Header("Trap")]
 
@@ -29,6 +22,7 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] public float danoTrap;
     [SerializeField] public float tempoAtivarTrap;
     [SerializeField] private GameObject espinhoPrefab;
+
     private bool podeAtacarTrap = true;
 
     [Header("Disparos")]
@@ -36,31 +30,22 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] public float tempoFlutuando;
     [SerializeField] public float velocidadeDisparo;
     [SerializeField] public float velocidadeRotacao;
+
     [SerializeField] private GameObject prefabTiro;
     [SerializeField] private Transform pontoDeDisparo;
+
     [SerializeField] public int danoDisparo;
     [SerializeField] public float cooldownDisparo;
+
     [SerializeField] private List<Transform> pontosDeSpawn = new List<Transform>();
-    [SerializeField] private bool podeAtirar = true;
 
-
-
-    
-
+    private bool podeAtirar = true;
 
     [Header("Movimento")]
 
     [SerializeField] private float velocidade;
     [SerializeField] private float distanciaParada;
     [SerializeField] private float distancia;
-
-    [Header("AtaqueMelee")]
-    public int dano = 1;
-    public float alcanceDano = 1.5f;
-    public float intervaloDano = 3f;
-    private float proximoAtaque;
-    private PlayerVida vidaDoPlayer;
-
 
     void Start()
     {
@@ -76,114 +61,77 @@ public class FirstBossController : MonoBehaviour
             if (alvo != null)
             {
                 player = alvo.transform;
-                vidaDoPlayer = player.GetComponent<PlayerVida>();
             }
         }
 
-       
-        // ao começar a fight entra no estadoMelee;
-        EntrarEstadoMelee();
+        
+        TrocarEstado(BossState.FaseUm);
     }
 
     void FixedUpdate()
     {
-        if(player == null) return;
-
+        if (player == null) return;
 
         switch (currentState)
         {
-            case BossState.Melee:
-                ComportamentoMelee();
+            case BossState.FaseUm:
+                ComportamentoFaseUm();
                 break;
-
-            case BossState.Ranged:
-                ComportamentoRanged();
+            case BossState.FaseDois:
+                ComportamentoFaseDois();
                 break;
 
             case BossState.Idle:
                 ComportamentoIdle();
                 break;
+
             case BossState.Morreu:
                 ComportamentoIdle();
                 break;
         }
     }
 
-    
-    // metodo centralizado para trocar estado
     public void TrocarEstado(BossState novoEstado)
     {
         currentState = novoEstado;
     }
 
-    public void EntrarEstadoRanged()
+
+    void ComportamentoFaseUm()
     {
-        
-        if (rotinaAtual != null)
-        {
-            StopCoroutine(rotinaAtual);
-        }
-
-        rotinaAtual = StartCoroutine(RotinaRanged());
-    }
-    public void EntrarEstadoMelee()
-    {
-        if(rotinaAtual != null)
-        {
-            StopCoroutine(rotinaAtual);
-        }
-        rotinaAtual = StartCoroutine(RotinaMelee());
-    }
-
-    void ComportamentoMelee()
-    {   
-        distancia = Vector2.Distance(rb.position, player.position);
-
-        if (distancia < distanciaParada)
-        {
-            rb.linearVelocity = Vector2.zero;
-            return;
-        }
-        
-        // atacar quando perto
-        if (distancia <= alcanceDano && Time.time >= proximoAtaque)
-        {
-            AtacarMelee();
-            proximoAtaque = Time.time + intervaloDano;
-        }
-        Vector2 direcao =
-            ((Vector2)player.position - rb.position).normalized;
-
-        rb.linearVelocity = direcao * velocidade;
-    }
-
-    void ComportamentoRanged()
-    {
-        
         rb.linearVelocity = Vector2.zero;
-       
+
         if (podeAtacarTrap)
         {
             StartCoroutine(CooldownTrap());
-            
         }
-        
+
         if (podeAtirar)
         {
             StartCoroutine(CooldownTiro());
-            
         }
-
     }
 
     void ComportamentoIdle()
     {
-        rb.linearVelocity = Vector2.zero; 
+        rb.linearVelocity = Vector2.zero;
     }
-
-    void ComportamentoMorto()
+    void ComportamentoFaseDois()
     {
-        rb.linearVelocity = Vector2.zero; 
+        //Debug pra saber que ta na fase dois
+        transform.Rotate(0, 0, velocidadeRotacao * Time.deltaTime);
+
+        rb.linearVelocity = Vector2.zero;
+
+        if (podeAtacarTrap)
+        {
+            StartCoroutine(CooldownTrap());
+        }
+
+        if (podeAtirar)
+        {
+            StartCoroutine(CooldownTiro());
+        }
     }
 
 
@@ -197,6 +145,7 @@ public class FirstBossController : MonoBehaviour
 
         podeAtacarTrap = true;
     }
+
     IEnumerator CooldownTiro()
     {
         podeAtirar = false;
@@ -208,98 +157,48 @@ public class FirstBossController : MonoBehaviour
         podeAtirar = true;
     }
 
-    IEnumerator RotinaRanged()
-    {
-        vidaBoss.invuneravel = true;
-        Debug.Log("Entrou no estado Ranged");
-
-        
-        TrocarEstado(BossState.Ranged);
-
-        rb.linearVelocity = Vector2.zero;
-
-        
-        yield return new WaitForSeconds(tempoRanged);
-
-        Debug.Log("Voltou para Melee");
-
-        
-        TrocarEstado(BossState.Melee);
-        vidaBoss.invuneravel = false;
-
-        rotinaAtual = null;
-    }
-
-    IEnumerator RotinaMelee()
-    {
-        
-        yield return new WaitForSeconds(1f);
-
-        Debug.Log("Atacou");
-    }
-
+ 
     void FicarMorto()
     {
         vidaBoss.invuneravel = true;
     }
 
-
     void SpawnarTrap()
     {
-        if(currentState == BossState.Ranged) //Impedir de chamar uma trap momento depois de trocar de estado
+        if (currentState == BossState.FaseUm || currentState == BossState.FaseDois)
         {
-        Instantiate(
-            espinhoPrefab,
-            player.position,
-            quaternion.identity
-        );
+            Instantiate(
+                espinhoPrefab,
+                player.position,
+                quaternion.identity
+            );
         }
-        
     }
 
     IEnumerator AtirarEspinho()
     {
-        if(currentState == BossState.Ranged)
+        if (currentState == BossState.FaseUm || currentState == BossState.FaseDois)
         {
-
-
-            foreach(Transform ponto in pontosDeSpawn)
+            foreach (Transform ponto in pontosDeSpawn)
             {
-
                 yield return new WaitForSeconds(0.5f);
+
                 Debug.Log(ponto.name + " -> " + ponto.position);
-                GameObject espinho = Instantiate(prefabTiro, ponto.position, quaternion.identity);
+
+                GameObject espinho = Instantiate(
+                    prefabTiro,
+                    ponto.position,
+                    quaternion.identity
+                );
+
                 EspinhoVoador proj = espinho.GetComponent<EspinhoVoador>();
-                proj.Inicializar(tempoFlutuando, velocidadeDisparo, velocidadeRotacao);
 
-
+                proj.Inicializar(
+                    tempoFlutuando,
+                    velocidadeDisparo,
+                    velocidadeRotacao
+                );
             }
-
-
-       
-        }
-
-
-    }
-    private void AtacarMelee()
-    {
-        if (vidaDoPlayer != null && vidaBoss.vidaAtual > 0)
-        {
-            vidaDoPlayer.DarDanoPlayer(dano);
-            Debug.Log("Inimigo atacou o player! Dano causado: " + dano);
         }
     }
-    //private void DashInimigo()
-    //{
-        //if (vida.vidaAtual > 0)
-        //{
-        //Vector2 direcaoParaPlayerDash = ((Vector2)player.position - rb.position).normalized;
-        //if (capazDash)
-        //{
-            //rb.linearVelocity = direcaoParaPlayerDash * forçaDashInimigo;
-        //}
-        //}      
-    //}
-
-
 }

@@ -7,9 +7,10 @@ public class BossSpike : MonoBehaviour
 {
     
     [SerializeField] private FirstBossController boss;
-    [SerializeField] private CircleCollider2D collider2D;
+    [SerializeField] private BoxCollider2D collider2D;
     [SerializeField] private PlayerVida playerAtual;
     [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Animator anim;
 
     [SerializeField] private bool playerDentro;
     [SerializeField] private bool taAtiva;
@@ -18,20 +19,27 @@ public class BossSpike : MonoBehaviour
 
     void Start()
     {
-        collider2D = GetComponent<CircleCollider2D>();
+        collider2D = GetComponent<BoxCollider2D>();
         boss = FindAnyObjectByType<FirstBossController>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         StartCoroutine(AtivarTrap());
+       
     }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerDentro = true;
-            playerAtual = collision.GetComponent<PlayerVida>();
-        }
+    private void OnTriggerEnter2D(Collider2D collision)
+{
+    if (!taAtiva) return;
 
+    if (collision.CompareTag("Player"))
+    {
+        PlayerVida player = collision.GetComponent<PlayerVida>();
+
+        if (player != null)
+        {
+            player.DarDanoPlayer(boss.danoTrap);
+        }
     }
+}
 
     void OnTriggerExit2D(Collider2D collision)
     {
@@ -46,31 +54,28 @@ public class BossSpike : MonoBehaviour
 
 
 
-    IEnumerator AtivarTrap()
+        IEnumerator AtivarTrap()
     {
-        
         yield return new WaitForSeconds(boss.tempoAtivarTrap);
-        //animação de subir
-        if (playerDentro && playerAtual != null)
-        {
 
-            playerAtual.DarDanoPlayer(boss.danoTrap);
-            taAtiva = true;
-            
-            
-        }
+        taAtiva = true;
+        collider2D.enabled = true;
+
+        anim.SetTrigger("Up");
 
         yield return new WaitForSeconds(0.5f);
+
         taAtiva = false;
-        //animação de descer
+        collider2D.enabled = false;
+
+        anim.SetTrigger("Down");
+
         yield return new WaitForSeconds(0.5f);
+
         Destroy(gameObject);
-
-
     }
 
-
- 
+    
 
 
 

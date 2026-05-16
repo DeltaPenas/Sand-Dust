@@ -1,50 +1,42 @@
-using System;
 using UnityEngine;
 
 public class VidaBoss : Vida
 {
-    public bool isSegundaFase;
+    [Header("Fase/Buff")]
+
     public float danoParaTrocaDeFase;
     public float danoParaProximoBuff;
-    
-    [SerializeField] private float porcentagemBuff = 0.75f;
-    [SerializeField] private float proximoLimiteBuff;
-    [SerializeField] FirstBossController boss;
 
+    [SerializeField] private FirstBossController boss;
 
+    private float danoAcumuladoBuff;
 
     protected override void Start()
     {
         boss = GetComponent<FirstBossController>();
 
         vidaAtual = vidaTotal;
-
-        proximoLimiteBuff = vidaTotal * porcentagemBuff;
     }
-
-
-    
-
 
     protected override void AoReceberDano()
     {
+        danoAcumuladoBuff += ultimoDanoRecebido;
+
+        // troca de fase apos dano acumulado
         if (danoAcumulado >= danoParaTrocaDeFase)
         {
             danoAcumulado = 0;
-            boss.EntrarEstadoRanged();
 
-            //
-            if (vidaAtual <= proximoLimiteBuff)
-            {
-                AplicarBuff();
-
-                porcentagemBuff -= 0.25f;
-
-                proximoLimiteBuff = vidaTotal * porcentagemBuff;
-            }
-                        
+            boss.TrocarEstado(BossState.FaseDois);
         }
-        
+
+       
+        if (danoAcumuladoBuff >= danoParaProximoBuff)
+        {
+            danoAcumuladoBuff = 0;
+
+            AplicarBuff();
+        }
     }
 
     protected override void morrer()
@@ -55,14 +47,13 @@ public class VidaBoss : Vida
     void AplicarBuff()
     {
         boss.cooldownDisparo -= 0.4f;
-        boss.cooldownTrap -= 0.4f;
-        boss.tempoAtivarTrap -= 0.1f;
+        boss.cooldownTrap -= 0.3f;
 
-        boss.velocidadeDisparo +=3f;
-        boss.velocidadeRotacao +=100;
+        boss.velocidadeDisparo += 3f;
+        boss.velocidadeRotacao += 100;
+
         boss.tempoFlutuando -= 0.3f;
 
         Debug.Log("Boss buffado!");
     }
-
 }
