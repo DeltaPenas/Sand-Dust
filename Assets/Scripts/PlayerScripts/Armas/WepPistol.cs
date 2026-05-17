@@ -15,11 +15,8 @@ public class WepPistol : MonoBehaviour
     void Start()
     {
         pc = GetComponentInParent<PlayerController>();
-
-        if (pc != null)
-        {
-            soundController = pc.soundController;
-        }
+        soundController = FindAnyObjectByType<SoundController>();
+       
     }
 
     void Update()
@@ -66,11 +63,12 @@ public class WepPistol : MonoBehaviour
         {
             proj.Inicializar(direcao, pc);
         }
-
+        
         if (soundController != null)
         {
             soundController.TocarSom(fireSoundEffect);
         }
+        
 
         
     }

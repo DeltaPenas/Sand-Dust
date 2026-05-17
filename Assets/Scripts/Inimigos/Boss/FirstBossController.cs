@@ -71,6 +71,7 @@ public class FirstBossController : MonoBehaviour
 
         
         TrocarEstado(BossState.FaseUm);
+        SoundController.instance.PlayBossMusic();
     }
 
     void FixedUpdate()

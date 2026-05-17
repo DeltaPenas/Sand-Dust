@@ -2054,7 +2054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8252068834370362281, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8252068834370362281, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: m_TagString
@@ -3482,6 +3482,7 @@ MonoBehaviour:
   - {fileID: 47469497}
   - {fileID: 1254053951}
   currentState: 0
+  "telaDeConclus\xE3o": {fileID: 0}
   cooldownTrap: 1.5
   danoTrap: 1
   tempoAtivarTrap: 0.5
@@ -5851,7 +5852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1625225295
 Transform:
   m_ObjectHideFlags: 0
@@ -5974,7 +5975,6 @@ GameObject:
   - component: {fileID: 1722042937}
   - component: {fileID: 1722042936}
   - component: {fileID: 1722042934}
-  - component: {fileID: 1722042929}
   - component: {fileID: 1722042940}
   - component: {fileID: 1722042941}
   - component: {fileID: 1722042935}
@@ -6029,7 +6029,7 @@ MonoBehaviour:
   anim: {fileID: 1934595764}
   passosSfx: {fileID: 8300000, guid: 26933132075c15f4db04fa7eb50b2ef8, type: 3}
   iframeAtivo: 0
-  soundController: {fileID: 1722042929}
+  soundController: {fileID: 0}
   emTeleporte: 0
   baseStatus:
     vidaMax: 3
@@ -6063,19 +6063,6 @@ MonoBehaviour:
     dashCooldown: 0
   gems: 0
   activeModifiers: []
---- !u!114 &1722042929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722042926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbd39767937ae24999dd8e257a7d193, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SoundController
-  globalSoundVolume: 1
 --- !u!50 &1722042930
 Rigidbody2D:
   serializedVersion: 5

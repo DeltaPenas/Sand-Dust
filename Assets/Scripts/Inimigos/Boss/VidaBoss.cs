@@ -42,6 +42,7 @@ public class VidaBoss : Vida
 
     protected override void morrer()
     {
+        SoundController.instance.PlayDungeonMusic();
         boss.TrocarEstado(BossState.Morreu);
     }
 

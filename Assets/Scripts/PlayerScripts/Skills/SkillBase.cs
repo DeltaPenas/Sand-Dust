@@ -28,7 +28,7 @@ public abstract class SkillBase : MonoBehaviour
         
         pc = GetComponentInParent<PlayerController>();
         pv = GetComponentInParent<PlayerVida>();
-        sc = GetComponentInParent<SoundController>();
+        sc = FindAnyObjectByType<SoundController>();
     
 
         if (pc == null)

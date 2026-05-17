@@ -16,7 +16,7 @@ public abstract class DashBase : MonoBehaviour
         forçaDash = pc.currentStatus.forcaDash;
         cooldown = pc.currentStatus.dashCooldown;
 
-        soundController = GetComponent<SoundController>();
+        soundController = FindAnyObjectByType<SoundController>();
         
     }
 

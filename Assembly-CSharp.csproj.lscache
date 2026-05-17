@@ -159,7 +159,9 @@ Assets/Scripts/
   ShopItemData.cs
   ShopItemType.cs
   ShopManager.cs
- SoundController.cs
+ SoundScripts/
+  SoundController.cs
+  VolumeUi.cs
  Status/
   Artefato.cs
   PlayerStatus.cs

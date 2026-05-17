@@ -40,12 +40,15 @@ public class RunManager : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
     }
     public void StartRun()
     {
+        
         deathUI = FindAnyObjectByType<DeathUI>(FindObjectsInactive.Include);
         currentState = RunState.Starting;
-
+        SoundController.instance.PlayDungeonMusic();
         SaveSystem.DeleteRunSave(); // aqui
         currentRun.reset();
 
@@ -120,7 +123,7 @@ public class RunManager : MonoBehaviour
     public void VoltarProMenu()
     {
         currentState = RunState.None;
-        
+        SoundController.instance.PlayMenuMusic();
         SceneManager.LoadScene("MenuInicial");
     }
 
