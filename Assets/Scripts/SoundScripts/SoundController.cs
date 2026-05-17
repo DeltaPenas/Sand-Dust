@@ -12,7 +12,7 @@ public class SoundController : MonoBehaviour
 
     [Header("Volume")]
     [Range(0,1)] public float musicVolume = 1f;
-    [Range(0,1)] public float sfxVolume = 1f;
+    [Range(0,2)] public float sfxVolume = 2f;
 
     [Header("Musicas")]
     [SerializeField] private AudioClip menuTheme;
@@ -26,20 +26,22 @@ public class SoundController : MonoBehaviour
         sfxSource.PlayOneShot(som, sfxVolume);
     }
 
-     private void Awake()
+    private void Awake()
+{
+    if(instance == null)
     {
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        CarregarVolumes();
+
         PlayMenuMusic();
     }
+    else
+    {
+        Destroy(gameObject);
+    }
+}
 
      public void PlayMenuMusic()
     {
@@ -86,5 +88,32 @@ public class SoundController : MonoBehaviour
 
         musicSource.volume = musicVolume;
     }
+
+    public void CarregarVolumes()
+    {
+        musicVolume = PlayerPrefs.GetFloat("musicVolume", 1f);
+        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
+
+        musicSource.volume = musicVolume;
+    }
+
+    public void SetMusicVolume(float valor)
+    {
+        musicVolume = valor;
+
+        musicSource.volume = musicVolume;
+
+        PlayerPrefs.SetFloat("musicVolume", valor);
+    }
+
+
+    public void SetSFXVolume(float valor)
+    {
+        sfxVolume = valor;
+
+        PlayerPrefs.SetFloat("sfxVolume", valor);
+    }
+
+
 
 }
