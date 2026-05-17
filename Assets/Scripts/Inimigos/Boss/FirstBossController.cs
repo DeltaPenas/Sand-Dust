@@ -14,8 +14,10 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private VidaBoss vidaBoss;
     [SerializeField] private List<Transform> pontosDeTp = new List<Transform>();
-
     [SerializeField] public BossState currentState = BossState.Idle;
+    [SerializeField] private GameObject telaDeConclusão;
+
+
 
     [Header("Trap")]
 
@@ -35,14 +37,19 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private GameObject prefabTiro;
     [SerializeField] public int danoDisparo;
     [SerializeField] public float cooldownDisparo;
+    private bool podeAtirar = true;
 
     [SerializeField] private List<Transform> pontosDeSpawn = new List<Transform>();
 
-    private bool podeAtirar = true;
+    [Header("corte")]
+    private bool podeAtirarBolaCorte = true;
+    
 
     [Header("Movimento")]
     public bool podeTeleportar = true;
     [SerializeField] public float cooldownTeleporte;
+    private int ultimoIndex = -1;
+    
 
 
     void Start()
@@ -99,6 +106,8 @@ public class FirstBossController : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
 
+        
+        
         if (podeAtacarTrap)
         {
             StartCoroutine(CooldownTrap());
@@ -108,6 +117,7 @@ public class FirstBossController : MonoBehaviour
         {
             StartCoroutine(CooldownTiro());
         }
+        
     }
 
     void ComportamentoIdle()
@@ -116,7 +126,7 @@ public class FirstBossController : MonoBehaviour
     }
     void ComportamentoFaseDois()
     {
-
+       
         rb.linearVelocity = Vector2.zero;
 
         if (podeAtacarTrap)
@@ -133,6 +143,8 @@ public class FirstBossController : MonoBehaviour
         {
             StartCoroutine(CooldownTeleporte());
         }
+
+        
     }
 
 
@@ -175,15 +187,24 @@ public class FirstBossController : MonoBehaviour
     }
 
     public void TeleportarPontoAleatorio()
+{
+    if (pontosDeTp.Count <= 1)
+        return;
+
+    int index;
+
+    do
     {
-        int index = UnityEngine.Random.Range(0, pontosDeTp.Count);
+        index = UnityEngine.Random.Range(0, pontosDeTp.Count);
+    }
+    while (index == ultimoIndex);
 
-        anim.SetTrigger("TeleportIn");
-        Transform pontoEscolhido = pontosDeTp[index];
+    ultimoIndex = index;
 
-        transform.position = pontoEscolhido.position;
+    anim.SetTrigger("TeleportIn");
 
-
+    Transform pontoEscolhido = pontosDeTp[index];
+    transform.position = pontoEscolhido.position;
     }
 
     void SpawnarTrap()
@@ -198,6 +219,15 @@ public class FirstBossController : MonoBehaviour
             
         }
     }
+
+    void AtirarCorte()
+    {
+       Time.timeScale = 0; 
+       telaDeConclusão.SetActive(true);
+    
+    }
+
+
 
     IEnumerator AtirarEspinho()
     {

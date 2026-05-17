@@ -71,6 +71,7 @@ Assets/Scripts/
  Inimigos/Boss/
   BossSpike.cs
   BossState.cs
+  CorteProjetil.cs
   EspinhoVoador.cs
   FirstBossController.cs
   VidaBoss.cs
