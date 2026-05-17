@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6572402247301677557}
   - component: {fileID: 5833634650929405615}
   - component: {fileID: 6027502616502243667}
+  - component: {fileID: 7920818899388785692}
   m_Layer: 3
   m_Name: Inimigo Invocador
   m_TagString: inimigo
@@ -158,8 +159,11 @@ MonoBehaviour:
   vidaTotal: 3
   vidaAtual: 0
   morreu: 0
+  invuneravel: 0
   pegandoFogo: 0
   dv: {fileID: 0}
+  danoAcumulado: 0
+  ultimoDanoRecebido: 0
   xpDrop: 1
 --- !u!114 &335658810333115109
 MonoBehaviour:
@@ -253,3 +257,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7920818899388785692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821935942732819040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfed446a9a842b84196f2c04f40c5f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DanoVisual
+  spriteRenderer: {fileID: 0}
+  duracao: 0.1
+  intervalo: 0.1

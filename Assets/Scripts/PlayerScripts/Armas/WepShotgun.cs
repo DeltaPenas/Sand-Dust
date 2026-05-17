@@ -14,6 +14,7 @@ public class WepShotgun : MonoBehaviour
     
     private PlayerController pc;
     private SoundController soundController;
+    [SerializeField]private float danoBase;
 
     private void Start()
     {
@@ -32,19 +33,22 @@ public class WepShotgun : MonoBehaviour
         pc.anim.SetFloat("mousePosHorizontal", direcaoBase.x);
         pc.anim.SetFloat("mousePosVertical", direcaoBase.y);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             if (Time.time >= tempoProximoTiro)
             {
                 AtirarDoze(direcaoBase);
                
-                tempoProximoTiro = Time.time + (pc.currentStatus.atqCooldown * 3f); 
+                tempoProximoTiro = Time.time + (pc.currentStatus.atqCooldown * 2f); 
             }
+            
+
         }
     }
 
    void AtirarDoze(Vector2 direcaoPrincipal)
     {
+        danoBase = pc.currentStatus.danoRanged/2;
         float anguloCentro = Mathf.Atan2(direcaoPrincipal.y, direcaoPrincipal.x) * Mathf.Rad2Deg;
 
         for (int i = 0; i < quantidadePelotas; i++)
@@ -59,7 +63,7 @@ public class WepShotgun : MonoBehaviour
 
             GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
             Projetil proj = projetil.GetComponent<Projetil>();
-            proj.Inicializar(direcaoTiro, pc);
+            proj.Inicializar(direcaoTiro, danoBase);
 
           
             Destroy(projetil, 0.3f); 

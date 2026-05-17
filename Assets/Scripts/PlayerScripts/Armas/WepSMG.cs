@@ -5,6 +5,7 @@ public class WepSMG : MonoBehaviour
     [Header("Configuracoes WepSMG")]
     public float cooldownTiro = 0.2f; 
     public float espalhamento = 5f;
+    [SerializeField]private float danoBase;
 
     [Header("Referencias")]
     public GameObject prefabTiro;
@@ -46,6 +47,7 @@ public class WepSMG : MonoBehaviour
 
     void Atirar()
     {
+        danoBase = pc.currentStatus.danoRanged/5; 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
         Vector2 direcaoBase = (mousePos - pontoInicialDoTiro.position).normalized;
@@ -57,7 +59,7 @@ public class WepSMG : MonoBehaviour
         GameObject projetil = Instantiate(prefabTiro, pontoInicialDoTiro.position, Quaternion.identity);
         
        
-        projetil.GetComponent<Projetil>().Inicializar(direcaoFinal, pc);
+        projetil.GetComponent<Projetil>().Inicializar(direcaoFinal, danoBase);
         pc.soundController.TocarSom(somDisparo);
       
 

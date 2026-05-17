@@ -58,10 +58,10 @@ public class WepPistol : MonoBehaviour
 
         Projetil proj = projetil.GetComponent<Projetil>();
 
-        
+        float dano = pc.currentStatus.danoRanged;
         if (proj != null)
         {
-            proj.Inicializar(direcao, pc);
+            proj.Inicializar(direcao, dano);
         }
         
         if (soundController != null)

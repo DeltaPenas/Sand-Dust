@@ -159,8 +159,11 @@ MonoBehaviour:
   vidaTotal: 5
   vidaAtual: 0
   morreu: 0
+  invuneravel: 0
   pegandoFogo: 0
   dv: {fileID: 0}
+  danoAcumulado: 0
+  ultimoDanoRecebido: 0
   xpDrop: 1
 --- !u!114 &234772361150935931
 MonoBehaviour:
@@ -179,7 +182,7 @@ MonoBehaviour:
   "for\xE7aDashInimigo": 1
   capazDash: 1
   velocidade: 2
-  distanciaParada: 0
+  distanciaParada: 1
   distanciaDeteccaoObstaculo: 0.2
   layerObstaculos:
     serializedVersion: 2

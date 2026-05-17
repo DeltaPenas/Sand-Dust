@@ -6,6 +6,7 @@ public class NPController : MonoBehaviour
 
     private CaixaDeDialogoUI dialogoUI;
     private ShopManager shopManager;
+    private bool jaGerouLoja = false;
 
 
     public bool playerDentro;
@@ -24,6 +25,7 @@ public class NPController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && playerDentro)
         {
             AbrirDialogo();
+
         }
     }
 
@@ -46,6 +48,11 @@ public class NPController : MonoBehaviour
         FecharDialogo();
 
         shopManager.AbrirLoja();
+        if (!jaGerouLoja)
+        {
+            shopManager.GerarLoja();
+            jaGerouLoja = true;
+        }
     }
 
    

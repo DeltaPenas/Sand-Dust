@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillHeal
   skillNome: Cura
   skillDescricao: 
-  skillIcone: {fileID: 21300000, guid: d37dd654556cf544a8122780c0466a42, type: 3}
+  skillIcone: {fileID: 21300000, guid: 71bf7c4316dabf046bb30541cfb7ff15, type: 3}
   skillRange: 0
   skillDmg: 0
   cooldown: 0

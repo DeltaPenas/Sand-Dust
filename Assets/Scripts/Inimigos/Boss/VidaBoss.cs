@@ -8,12 +8,15 @@ public class VidaBoss : Vida
     public float danoParaProximoBuff;
 
     [SerializeField] private FirstBossController boss;
+    [SerializeField] private PauseMenu pauseMenu;
 
     private float danoAcumuladoBuff;
 
     protected override void Start()
     {
         boss = GetComponent<FirstBossController>();
+        pauseMenu = FindAnyObjectByType<PauseMenu>();
+
 
         vidaAtual = vidaTotal;
     }
@@ -44,6 +47,8 @@ public class VidaBoss : Vida
     {
         SoundController.instance.PlayDungeonMusic();
         boss.TrocarEstado(BossState.Morreu);
+        pauseMenu.ChamarConclusao();
+        
     }
 
     void AplicarBuff()

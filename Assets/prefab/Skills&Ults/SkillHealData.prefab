@@ -48,6 +48,6 @@ MonoBehaviour:
   itemNome: "Po\xE7\xE3o de Cura"
   prefab: {fileID: 5758206915392740327, guid: 8cfb94bf0ef97b44f9c96bcfe70d5017, type: 3}
   descricao: "Uma po\xE7\xE3o com um remedio curativo"
-  icone: {fileID: 21300000, guid: d37dd654556cf544a8122780c0466a42, type: 3}
+  icone: {fileID: 21300000, guid: 71bf7c4316dabf046bb30541cfb7ff15, type: 3}
   preco: 8
   tipo: 1

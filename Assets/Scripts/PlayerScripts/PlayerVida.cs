@@ -6,6 +6,8 @@ public class PlayerVida : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private HeartUi heartUi;
     [SerializeField] private DanoVisual dv;
+    [SerializeField] private AudioClip danoPlayerSound;
+    [SerializeField] private SoundController soundController;
 
     public float playerVidaTotal;
     public float playerVidaAtual;
@@ -15,6 +17,7 @@ public class PlayerVida : MonoBehaviour
     private bool coroutineIframeRodando = false;
 
     private bool vidaJaCarregada = false;
+
 
     public void MarcarVidaCarregada()
     {
@@ -29,6 +32,7 @@ public class PlayerVida : MonoBehaviour
         player = FindAnyObjectByType<PlayerController>();
 
         player.OnVidaMaxChanged += AtualizarVida;
+        soundController = FindAnyObjectByType<SoundController>();
         
     }
 
@@ -75,6 +79,8 @@ public class PlayerVida : MonoBehaviour
 
         // Garante que a vida nunca fique abaixo de 0
         playerVidaAtual = Mathf.Max(playerVidaAtual - dano, 0);
+        soundController.TocarSom(danoPlayerSound);
+
         if (dv != null)
         {
             dv.TomouDano();

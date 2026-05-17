@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.PackageManager.Requests;
+
 using UnityEngine;
 
 public class ProgressionManager : MonoBehaviour
@@ -99,27 +97,27 @@ public class ProgressionManager : MonoBehaviour
     {
         if(pontosDisponiveis <= 0) return;
 
-        danoRangedBonus+=1;
+        danoRangedBonus+= 0.25f;
         pontosDisponiveis--;
     }
     public void AddDanoMelee()
     {
         if(pontosDisponiveis <= 0) return;
 
-        danoMeleeBonus +=1;
+        danoMeleeBonus +=0.25f;
         pontosDisponiveis--;
     }
     public void AddDanoSkill()
     {
         if(pontosDisponiveis <= 0) return;
 
-        danoSkillBonus +=1;
+        danoSkillBonus +=0.25f;
         pontosDisponiveis--;
     }
     public void AddDanoUlt()
     {
         if(pontosDisponiveis <= 0) return;
-        danoUltBonus+=1;
+        danoUltBonus+=0.25f;
         pontosDisponiveis--;
     }
     public void AddVelocidade()

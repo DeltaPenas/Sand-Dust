@@ -4,8 +4,10 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     
-    [SerializeField] GameObject painel;
+    [SerializeField] GameObject Painel;
+     [SerializeField] GameObject Conclusao;
     [SerializeField] GameObject TelaArtefatos;
+    
 
 
 
@@ -15,31 +17,41 @@ public class PauseMenu : MonoBehaviour
     {
         ToggleMenu();
     }
-}
+    }
 
-void ToggleMenu()
-{
-    if (RunManager.Instance.currentState == RunState.Running)
+    void ToggleMenu()
     {
-        Pausar();
+        if (RunManager.Instance.currentState == RunState.Running)
+        {
+            Pausar();
+        }
+        else if (RunManager.Instance.currentState == RunState.Paused)
+        {
+            Despausar();
+        }
     }
-    else if (RunManager.Instance.currentState == RunState.Paused)
+
+    public void ChamarConclusao()
     {
-        Despausar();
+        RunManager.Instance.currentState = RunState.Finished;
+        Time.timeScale = 0f;
+        Conclusao.SetActive(true);
     }
-}
+
+
+
 
     public void Pausar()
     {
         RunManager.Instance.currentState = RunState.Paused;
-        painel.SetActive(true);
+        Painel.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void Despausar()
     {
         RunManager.Instance.currentState = RunState.Running;
-        painel.SetActive(false);
+        Painel.SetActive(false);
         TelaArtefatos.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -62,4 +74,8 @@ void ToggleMenu()
     {
         TelaArtefatos.SetActive(false);
     }
+
+
+
+
 }

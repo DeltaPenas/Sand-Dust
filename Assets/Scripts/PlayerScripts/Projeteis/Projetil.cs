@@ -24,16 +24,16 @@ public class Projetil : MonoBehaviour
         Destroy(gameObject, 10f);
     }
 
-    public void Inicializar(Vector2 dir, PlayerController player)
+    public void Inicializar(Vector2 dir, float dano)
     {
-        pc = player;
+            pc = FindObjectOfType<PlayerController>();
 
         direcao = dir.normalized;
 
         float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angulo);
 
-        vidaProjetil = pc.currentStatus.danoRanged;
+        vidaProjetil = dano;
         ricochetesRestantes = pc.currentStatus.ricochetes;
 
         rb.linearVelocity = direcao * velocidade;

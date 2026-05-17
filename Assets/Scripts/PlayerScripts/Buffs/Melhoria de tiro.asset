@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04a8a9ac4b4316409aa666ec7f133b2, type: 3}
+  m_Name: Melhoria de tiro
+  m_EditorClassIdentifier: Assembly-CSharp::Artefato
+  nome: Atirador Preciso
+  "descri\xE7\xE3o": Aumenta em 25% o dano dos disparos
+  icon: {fileID: 1078093360, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  bg: {fileID: -1474425900, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  raridade: 0
+  modifiers:
+  - stat: 3
+    valor: 0.2
+    valorInt: 0
+    ehporcentagem: 1
+  efeitos: []

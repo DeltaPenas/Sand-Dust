@@ -15,8 +15,8 @@ MonoBehaviour:
   nome: Runa do guerreiro
   "descri\xE7\xE3o": Runa furiosa de um lugar distante (+1 Dano geral)
   icon: {fileID: 1609978836, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
-  bg: {fileID: -1358591159, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
-  raridade: 1
+  bg: {fileID: 2109942213, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
+  raridade: 3
   modifiers:
   - stat: 4
     valor: 1

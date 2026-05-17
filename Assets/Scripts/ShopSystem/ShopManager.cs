@@ -24,14 +24,6 @@ public class ShopManager : MonoBehaviour
     public Transform player;
     public int QuantidadeItensLoja = 4;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            AbrirLoja();
-        }
-    }
-
     void Start()
     {
         GerarLoja();
@@ -69,7 +61,7 @@ public class ShopManager : MonoBehaviour
         return new List<ShopItemData>(listaNovaLoja);
     }
 
-    void GerarLoja()
+    public void GerarLoja()
 {
     List<ShopItemData> itensSelecionados = ObterItensParaLoja();
 

@@ -50,5 +50,5 @@ MonoBehaviour:
   descricao: "Uma arma de fogo de cano longo e liso, projetada para disparar m\xFAltiplos
     pequenos proj\xE9teis a curta distancia."
   icone: {fileID: 21300000, guid: 4dcbce46bbce76640aa579067022686f, type: 3}
-  preco: 3
+  preco: 15
   tipo: 0

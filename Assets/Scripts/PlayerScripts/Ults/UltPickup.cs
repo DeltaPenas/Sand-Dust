@@ -1,5 +1,4 @@
-using Unity.VisualScripting;
-using UnityEditor.Rendering.Universal;
+
 using UnityEngine;
 
 public class UltPickup : MonoBehaviour

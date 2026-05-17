@@ -126,11 +126,12 @@ public class PortaTrigger : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         Teleportar(alvo);
+        player.podeMover = true;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(3f);
 
         player.iframeAtivo = false;
-        player.podeMover = true;
+        
     }
 
     private void ReativarTrigger()

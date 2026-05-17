@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 
 [CreateAssetMenu(menuName = "Artefato/Novo Artefato")]
 public class Artefato : ScriptableObject

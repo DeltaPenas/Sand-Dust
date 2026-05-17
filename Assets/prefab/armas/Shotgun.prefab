@@ -123,12 +123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d971c256da8bf5245b934a437fabf5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WepShotgun
-  quantidadePelotas: 3
+  quantidadePelotas: 5
   anguloAbertura: 50
   tempoProximoTiro: 0
   prefabTiro: {fileID: 3293566582396280618, guid: 87da0a09542dcc24b8eb3a34d106c248, type: 3}
   pontoInicialDoTiro: {fileID: 2017153540290562551}
   fireSoundEffect: {fileID: 8300000, guid: 4c7a375b7c15c404b9ef36f685428082, type: 3}
+  danoBase: 0
 --- !u!1 &9056754355991467629
 GameObject:
   m_ObjectHideFlags: 0
