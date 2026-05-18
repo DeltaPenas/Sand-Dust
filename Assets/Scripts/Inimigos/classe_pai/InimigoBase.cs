@@ -64,6 +64,8 @@ protected virtual void FixedUpdate()
         if (player == null) return;
         Movimento();
     }// Cada inimigo decide o que fazer
+
+    
 protected abstract void Comportamento();
 protected virtual void Movimento()
     {

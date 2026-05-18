@@ -98,12 +98,15 @@ public class FantasmaPerseguidor : InimigoBase
         {
             EntrarIntangivel();
             yield return new WaitForSeconds(tempoIntangivel);
+            Debug.Log("INTANGIVEL");
 
             EntrarVulneravel();
             yield return new WaitForSeconds(tempoVulneravel);
+            Debug.Log("VULNERAVEL");
 
             EntrarInvisivel();
             yield return new WaitForSeconds(tempoInvisivel);
+            Debug.Log("INVISIVEL");
 
             ReaparecerPertoDoPlayer();
         }
@@ -129,6 +132,8 @@ public class FantasmaPerseguidor : InimigoBase
     private void EntrarVulneravel()
     {
         estadoAtual = EstadoFantasma.Vulneravel;
+        Debug.Log("ENTROU VULNERAVEL");
+        Debug.Log(vida.invuneravel);
 
         if (spriteRenderer != null)
         {
