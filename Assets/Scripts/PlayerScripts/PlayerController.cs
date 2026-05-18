@@ -114,11 +114,14 @@ public class PlayerController : MonoBehaviour
         {
             if (movimento.magnitude > 0.01f)
             {
-                soundController.TocarSom(passosSfx);
+                if (soundController != null && passosSfx != null)
+                {
+                    soundController.TocarSom(passosSfx);
+                }
             }
+
             yield return new WaitForSeconds(0.40f);
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

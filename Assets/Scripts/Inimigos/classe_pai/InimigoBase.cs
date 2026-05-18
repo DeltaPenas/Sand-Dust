@@ -69,9 +69,13 @@ protected virtual void Movimento()
     {
         if (DeveParar())
         {
-            
             rb.linearVelocity = Vector2.zero;
-            anim.SetFloat("Speed", 0);
+
+            if (anim != null)
+            {
+                anim.SetFloat("Speed", 0);
+            }
+
             return;
         }
         Vector2 direcao = DirecaoBase();

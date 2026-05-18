@@ -26,7 +26,10 @@ public class DashSimples : DashBase
         }
 
         pc.rig.linearVelocity = direcao * forçaDash;
-        soundController.TocarSom(dashSound);
+        if (soundController != null && dashSound != null)
+        {
+            soundController.TocarSom(dashSound);
+        }
         
     }
 }

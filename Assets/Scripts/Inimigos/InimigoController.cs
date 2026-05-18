@@ -43,26 +43,38 @@ public class InimigoController : MonoBehaviour
     }
     public void inimigoMorrendo()
     {
-        runInfos.inimigosDerrotados +=1;
-        runInfos.playerScore +=scoreDoInimigo;
-        rigidbody2D.simulated = false;
+        if (runInfos != null)
+        {
+            runInfos.inimigosDerrotados += 1;
+            runInfos.playerScore += scoreDoInimigo;
+        }
+
+        if (rigidbody2D != null)
+        {
+            rigidbody2D.simulated = false;
+        }
+
         StartCoroutine(Piscar());
-        
     }
     private IEnumerator Piscar()
     {
-        if(anim != null)
+        if (anim != null)
         {
             anim.SetTrigger("Morreu");
         }
+
         yield return new WaitForSeconds(1f);
-    
-    for (int i = 0; i < 20; i++) 
-    {
-        spriteRenderer.enabled = !spriteRenderer.enabled;
-        yield return new WaitForSeconds(0.3f);
-    }
-    spriteRenderer.enabled = true; 
+
+        if (spriteRenderer == null)
+            yield break;
+
+        for (int i = 0; i < 20; i++) 
+        {
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        spriteRenderer.enabled = true; 
     }
 
     public void DroparGem()

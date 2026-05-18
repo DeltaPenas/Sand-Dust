@@ -79,7 +79,10 @@ public class PlayerVida : MonoBehaviour
 
         // Garante que a vida nunca fique abaixo de 0
         playerVidaAtual = Mathf.Max(playerVidaAtual - dano, 0);
-        soundController.TocarSom(danoPlayerSound);
+        if (soundController != null && danoPlayerSound != null)
+        {
+            soundController.TocarSom(danoPlayerSound);
+        }
 
         if (dv != null)
         {
@@ -91,7 +94,10 @@ public class PlayerVida : MonoBehaviour
             morrer();
         }
 
-        heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
+        if (heartUi != null)
+        {
+            heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
+        }
 
         if (RunManager.Instance != null)
             RunManager.Instance.SaveCurrentRun();
