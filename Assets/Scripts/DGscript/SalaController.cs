@@ -18,6 +18,9 @@ public class SalaController : MonoBehaviour
     public Transform spawnBaixo;
     public Transform spawnEsquerda;
     public Transform spawnDireita;
+    public GameObject[] portasIluminaçao;
+
+
 
     [Header("Configs")]
 
@@ -137,6 +140,11 @@ public class SalaController : MonoBehaviour
             porta.podeTeleportar = true;
 
             AlterarTransparenciaPortal(porta, 1f);
+        }
+
+        foreach (GameObject porta in portasIluminaçao)
+        {
+            porta.SetActive(true);
         }
 
         Debug.Log("Portas reativadas");

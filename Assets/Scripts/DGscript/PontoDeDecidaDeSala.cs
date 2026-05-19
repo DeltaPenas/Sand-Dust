@@ -10,6 +10,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     private PlayerVida pv;
     public GameObject portalAtivo;
     public GameObject portalDesligado;
+    public GameObject portalsIluminaçao;
 
 
 
@@ -42,6 +43,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     {
         portalAtivo.SetActive(true);
         portalDesligado.SetActive(false);
+        portalsIluminaçao.SetActive(true);
     }
   
     
