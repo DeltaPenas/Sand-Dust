@@ -30,6 +30,7 @@ public class FantasmaPerseguidor : InimigoBase
     [Header("Visual / Colisão")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Collider2D colliderFantasma;
+    [SerializeField] private Animator anim;
 
     private EstadoFantasma estadoAtual;
     private float proximoAtaque;
@@ -43,6 +44,9 @@ public class FantasmaPerseguidor : InimigoBase
 
         if (colliderFantasma == null)
             colliderFantasma = GetComponent<Collider2D>();
+
+        if (anim == null)
+            anim = GetComponent<Animator>();
 
         cicloFantasmaCoroutine = StartCoroutine(CicloFantasma());
     }
@@ -115,6 +119,7 @@ public class FantasmaPerseguidor : InimigoBase
     private void EntrarIntangivel()
     {
         estadoAtual = EstadoFantasma.Intangivel;
+        gameObject.tag = "Untagged";
 
         if (spriteRenderer != null)
         {
@@ -134,6 +139,7 @@ public class FantasmaPerseguidor : InimigoBase
         estadoAtual = EstadoFantasma.Vulneravel;
         Debug.Log("ENTROU VULNERAVEL");
         Debug.Log(vida.invuneravel);
+        gameObject.tag = "inimigo";
 
         if (spriteRenderer != null)
         {
@@ -151,7 +157,7 @@ public class FantasmaPerseguidor : InimigoBase
     private void EntrarInvisivel()
     {
         estadoAtual = EstadoFantasma.Invisivel;
-
+        gameObject.tag = "Untagged";
         rb.linearVelocity = Vector2.zero;
 
         if (spriteRenderer != null)
@@ -187,6 +193,7 @@ public class FantasmaPerseguidor : InimigoBase
             return;
         if (vidaDoPlayer == null) return;
 
+        anim.SetTrigger("Ataque");
         vidaDoPlayer.DarDanoPlayer(dano);
 
         Debug.Log("Fantasma atingiu o player!");

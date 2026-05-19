@@ -47,7 +47,7 @@ public class WepSMG : MonoBehaviour
 
     void Atirar()
     {
-        danoBase = pc.currentStatus.danoRanged/5; 
+        danoBase = pc.currentStatus.danoRanged/10; 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
         Vector2 direcaoBase = (mousePos - pontoInicialDoTiro.position).normalized;

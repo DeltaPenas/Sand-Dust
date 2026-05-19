@@ -29,7 +29,7 @@ public class SalaController : MonoBehaviour
     private SpawnerController spawner;
     private SoundController soundController;
     private PortaTrigger[] portas;
-    [SerializeField] Sprite spritePortaAberta;
+    
     
     private PropSpawner[] props;
     public DungeonGeneratortest dg;
@@ -55,21 +55,27 @@ public class SalaController : MonoBehaviour
     
 
     public void ConfigurarSala(SalaNode sala)
+{
+    tipoSala = sala.tipo;
+    posicaoGrid = sala.Posicao; 
+
+    if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || 
+       tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer || 
+       tipoSala == TipoSala.SalaAntesDoBoss || tipoSala == TipoSala.SalaBoss)
     {
-        tipoSala = sala.tipo;
-        posicaoGrid = sala.Posicao; 
+        salaLimpa = true;
 
-        if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer || tipoSala == TipoSala.SalaAntesDoBoss || tipoSala == TipoSala.SalaBoss)
-        {
-            salaLimpa = true;
-            
-            LiberarPortas();
-            
-            
-
-        }
-        
+        LiberarPortas();
     }
+    else
+    {
+        // deixa os portais transparentes
+        foreach (PortaTrigger porta in portas)
+        {
+            AlterarTransparenciaPortal(porta, 0.2f);
+        }
+    }
+}
 
     public void ConfigurarPortas(
         bool cima,
@@ -119,14 +125,7 @@ public class SalaController : MonoBehaviour
 
         foreach (PortaTrigger porta in portas)
         {
-            if (porta == null) continue;
-            SpriteRenderer spriteRender = porta.GetComponent<SpriteRenderer>();
-            
-            spriteRender.sprite = spritePortaAberta;
-
-            Debug.Log("Liberando porta: " + porta.name);
-            porta.podeTeleportar = true;
-        
+            LiberarPortas();
         }
     }
     }
@@ -135,10 +134,9 @@ public class SalaController : MonoBehaviour
     {
         foreach (PortaTrigger porta in portas)
         {
-        porta.podeTeleportar = true;
-        SpriteRenderer spriteRender = porta.GetComponent<SpriteRenderer>();
-            
-            spriteRender.sprite = spritePortaAberta;
+            porta.podeTeleportar = true;
+
+            AlterarTransparenciaPortal(porta, 1f);
         }
 
         Debug.Log("Portas reativadas");
@@ -163,5 +161,15 @@ public class SalaController : MonoBehaviour
 
     return null;
 }
+    private void AlterarTransparenciaPortal(PortaTrigger porta, float alpha)
+    {
+        SpriteRenderer spriteRender = porta.GetComponent<SpriteRenderer>();
+
+        if (spriteRender == null) return;
+
+        Color cor = spriteRender.color;
+        cor.a = alpha;
+        spriteRender.color = cor;
+    }
 
 }

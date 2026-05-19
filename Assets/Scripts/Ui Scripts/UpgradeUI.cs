@@ -40,6 +40,11 @@ public class UpgradeUI : MonoBehaviour
         RunManager.Instance.StartRun();
         
     }
+      public void Fechar()
+    {
+       Application.Quit();
+        
+    }
 
     public void AddVida()
     {
