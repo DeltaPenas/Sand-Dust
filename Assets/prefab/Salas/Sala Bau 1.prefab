@@ -5981,6 +5981,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8907038874294604265}
     m_Modifications:
+    - target: {fileID: 212618702096938784, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
+      propertyPath: "\xE9Mimico"
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1184766103693012012, guid: 7485675ba978eb847b7c61d47c85e65a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.782

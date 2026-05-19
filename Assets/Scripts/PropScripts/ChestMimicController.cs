@@ -51,7 +51,7 @@ public class ChestMimicController : MonoBehaviour
 
     private void definirMimico()
     {
-        int definirMimico = UnityEngine.Random.Range(1,10);
+        int definirMimico = UnityEngine.Random.Range(9,10);
         Debug.Log(definirMimico);
 
         if(definirMimico >= 9)
@@ -67,13 +67,14 @@ public class ChestMimicController : MonoBehaviour
     }
     private void invocarMimico()
     {
-        if (éMimico)
+        if (éMimico !=jaAbriu)
         {
             GameObject mimicoInimigo = Instantiate(
             mimico,
             transform.position,
             quaternion.identity
         );
+        Destroy(gameObject);
         sr.enabled = false;
         collider2D.enabled = false;
         }

@@ -6,6 +6,7 @@ public class WepPistol : MonoBehaviour
     public GameObject prefabTiro;
     public Transform pontoInicialDoTiro;
     public AudioClip fireSoundEffect;
+    public GameObject fireLight;
 
     private float tempoProximoTiro;
 
