@@ -8569,6 +8569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PontoDeDecidaDeSala
   portalAtivo: {fileID: 22006273937867347}
   portalDesligado: {fileID: 6669602301589398241}
+  "portalsIlumina\xE7ao": {fileID: 0}
 --- !u!58 &8595612336081419978
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13972,7 +13973,7 @@ Transform:
   m_GameObject: {fileID: 4773007781019898215}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.65, y: -1.07, z: 0}
+  m_LocalPosition: {x: -11.68, y: -1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14832,7 +14833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c1e52f2a35ca74491c2b2a8c78d168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaBoss
-  vidaTotal: 50
+  vidaTotal: 100
   vidaAtual: 0
   morreu: 0
   invuneravel: 0
@@ -15838,7 +15839,7 @@ MonoBehaviour:
   posicaoGrid: {x: 0, y: 0}
   entrou: 0
   salaLimpa: 0
-  qtdInimigosVivos: 1
+  qtdInimigosVivos: 0
   dg: {fileID: 0}
 --- !u!114 &708271126844680037
 MonoBehaviour:
@@ -16415,7 +16416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6911250001911847903, guid: 676354102f30f6649aee0b23b4f15653, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.745676
+      value: 6.01
       objectReference: {fileID: 0}
     - target: {fileID: 6911250001911847903, guid: 676354102f30f6649aee0b23b4f15653, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16483,11 +16484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8971056084581636311, guid: 9d9252cc44e5a9e4ab123938648b1c14, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.496023
+      value: -13.67
       objectReference: {fileID: 0}
     - target: {fileID: 8971056084581636311, guid: 9d9252cc44e5a9e4ab123938648b1c14, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0699788
+      value: -1.07
       objectReference: {fileID: 0}
     - target: {fileID: 8971056084581636311, guid: 9d9252cc44e5a9e4ab123938648b1c14, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16551,11 +16552,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1008456748948395191, guid: 890ef1f56336310428dc016ff68af76b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.875963
+      value: 8.37
       objectReference: {fileID: 0}
     - target: {fileID: 1008456748948395191, guid: 890ef1f56336310428dc016ff68af76b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0830225
+      value: -1.08
       objectReference: {fileID: 0}
     - target: {fileID: 1008456748948395191, guid: 890ef1f56336310428dc016ff68af76b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16627,7 +16628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2825371211984252250, guid: 1729e1646d8fd4a4492e836e70bbedc6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.4
+      value: -7.96
       objectReference: {fileID: 0}
     - target: {fileID: 2825371211984252250, guid: 1729e1646d8fd4a4492e836e70bbedc6, type: 3}
       propertyPath: m_LocalPosition.z

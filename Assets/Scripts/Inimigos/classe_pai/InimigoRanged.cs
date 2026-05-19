@@ -68,7 +68,7 @@ public abstract class InimigoRanged : MonoBehaviour
             {
                 anim.SetFloat("Horizontal", direcaoEscolhida.x);
                 anim.SetFloat("Vertical", direcaoEscolhida.y);
-                anim.SetFloat("Speed", direcaoEscolhida.magnitude);
+                //anim.SetFloat("Speed", direcaoEscolhida.magnitude);
             }
 
             Vector2 novaPosicao = rb.position + direcaoEscolhida * velocidade * Time.fixedDeltaTime;
