@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         
         currentStatus = baseStatus.Clone();
         RecalculateStats();
-        AplicarBonusPermanentes();
+        //AplicarBonusPermanentes();
         
         
 
@@ -200,23 +200,25 @@ public class PlayerController : MonoBehaviour
     }
 
     public void RecalculateStats()
+{
+    float vidaAntiga = currentStatus != null
+        ? currentStatus.vidaMax
+        : baseStatus.vidaMax;
+
+    currentStatus = baseStatus.Clone();
+
+    AplicarBonusPermanentes();
+
+    foreach (var mod in activeModifiers)
     {
-        currentStatus = baseStatus.Clone();
-
-        float vidaAntiga = currentStatus.vidaMax;
-
-        AplicarBonusPermanentes();
-
-            foreach (var mod in activeModifiers)
-            {
-                AplicarModificacao(mod);
-            }
-
-            if (currentStatus.vidaMax != vidaAntiga)
-            {
-                OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
-            }
+        AplicarModificacao(mod);
     }
+
+    if (currentStatus.vidaMax != vidaAntiga)
+    {
+        OnVidaMaxChanged?.Invoke(currentStatus.vidaMax);
+    }
+}
 
     public void AddModifier(StatModifier mod)
     {

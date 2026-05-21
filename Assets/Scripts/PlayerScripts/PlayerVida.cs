@@ -24,16 +24,19 @@ public class PlayerVida : MonoBehaviour
         vidaJaCarregada = true;
     }
 
-    void Start()
+   void Start()
     {
         player = FindAnyObjectByType<PlayerController>();
         heartUi = FindAnyObjectByType<HeartUi>();
-        definirVida();
-        player = FindAnyObjectByType<PlayerController>();
 
         player.OnVidaMaxChanged += AtualizarVida;
+
         soundController = FindAnyObjectByType<SoundController>();
-        
+
+        definirVida();
+
+        //força vida pra vida do currentStatus
+        AtualizarVida(player.currentStatus.vidaMax);
     }
 
     public void definirVida()
@@ -62,7 +65,8 @@ public class PlayerVida : MonoBehaviour
             playerVidaAtual +=diferenca;    
         }
 
-        playerVidaAtual = Mathf.Clamp(playerVidaAtual, 0, playerVidaTotal);
+        //playerVidaAtual = Mathf.Clamp(playerVidaAtual, 0, playerVidaTotal);
+        playerVidaAtual = playerVidaTotal;
         heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
 
         Debug.Log("Vida atualizada!");
