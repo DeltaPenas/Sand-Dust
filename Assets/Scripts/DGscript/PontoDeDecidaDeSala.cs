@@ -61,7 +61,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
             dg.qtdminSalas+=1;
         }
 
-        if (RunManager.Instance.currentRun.layer <= 3)
+        if (RunManager.Instance.currentRun.layer <= 4)
         {
             dg.qtdInimigos +=1;
         }

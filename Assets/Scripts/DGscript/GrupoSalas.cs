@@ -11,7 +11,7 @@ public class CatalogoSalas
     public List<GameObject> salaLojas;
     public List<GameObject> salasSecretas;
     public List<GameObject> salasBoss;
-    public List<GameObject> salasEvento;
+    public List<GameObject> salasMiniBoss;
     public List<GameObject> salasIniciaisAntesDoBoss;
 
     /*

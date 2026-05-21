@@ -7,9 +7,9 @@ public enum TipoSala
     Tesouro,
     SalaProxLayer,
     Loja,
-    Secreta,
+    SalasMiniBoss,
     SalaBoss,
-    Evento,
+    Secreta,
     SalaAntesDoBoss
 }
 

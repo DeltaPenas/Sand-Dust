@@ -7,4 +7,5 @@ public class CatalogoInimigos
     public List<GameObject> inimigos;
     public List<GameObject> inimigosDeElite;
     public List <GameObject> inimigosInvocaveisPeloInvocadordeInimigos;
+    public List<GameObject> miniBosses;
 }

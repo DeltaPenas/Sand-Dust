@@ -198,6 +198,12 @@ public class DungeonGeneratortest : MonoBehaviour
     {
         salasValidas[indexAtual].tipo = TipoSala.Loja;
     }
+
+        if (indexAtual < salasValidas.Count && RunManager.Instance.currentRun.layer > 2)
+        {
+            salasValidas[indexAtual].tipo = TipoSala.SalasMiniBoss;   
+        }
+
 }
 
     private void InstanciarSalas()
@@ -293,8 +299,8 @@ public class DungeonGeneratortest : MonoBehaviour
                 lista = catalogoSalas.salasBoss;
                 break;
 
-            case TipoSala.Evento:
-                lista = catalogoSalas.salasEvento;
+            case TipoSala.SalasMiniBoss:
+                lista = catalogoSalas.salasMiniBoss;
                 break;
             case TipoSala.SalaAntesDoBoss:
                 lista = catalogoSalas.salasIniciaisAntesDoBoss;

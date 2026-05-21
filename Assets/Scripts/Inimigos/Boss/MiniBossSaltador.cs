@@ -75,7 +75,8 @@ public class MiniBossSaltador : InimigoBase
             float progresso = tempo / duracaoSalto;
 
             // movimenta no chão
-            transform.position = Vector2.Lerp(origem, destino, progresso);
+            Vector2 novaPos = Vector2.Lerp(origem, destino, progresso);
+            rb.MovePosition(novaPos);
 
             // arco visual
             float altura = Mathf.Sin(progresso * Mathf.PI) * alturaSalto;
@@ -112,43 +113,47 @@ public class MiniBossSaltador : InimigoBase
     }
 
     IEnumerator DashAtaque()
+{
+    ocupado = true;
+    proximoAtaque = Time.time + cooldownAtaques;
+
+    Vector2 direcao = (player.position - transform.position).normalized;
+
+    float tempo = 0;
+
+    while (tempo < duracaoDash)
     {
-        ocupado = true;
-        proximoAtaque = Time.time + cooldownAtaques;
+        tempo += Time.deltaTime;
 
-        Vector2 direcao = (player.position - transform.position).normalized;
+        Vector2 novaPos =
+            rb.position +
+            direcao * velocidadeDash * Time.deltaTime;
 
-        float tempo = 0;
+        rb.MovePosition(novaPos);
 
-        while (tempo < duracaoDash)
-        {
-            tempo += Time.deltaTime;
-
-            rb.linearVelocity = direcao * velocidadeDash;
-
-            yield return null;
-        }
-
-        rb.linearVelocity = Vector2.zero;
-
-        Collider2D hit = Physics2D.OverlapCircle(
-            transform.position,
-            1f,
-            layerPlayer
-        );
-
-        if (hit != null)
-        {
-            PlayerVida vidaPlayer = hit.GetComponent<PlayerVida>();
-
-            if (vidaPlayer != null)
-            {
-                vidaPlayer.DarDanoPlayer(danoDash);
-            }
-        }
-
-        ocupado = false;
+        yield return new WaitForFixedUpdate();
     }
+
+    rb.linearVelocity = Vector2.zero;
+
+    Collider2D hit = Physics2D.OverlapCircle(
+        transform.position,
+        1f,
+        layerPlayer
+    );
+
+    if (hit != null)
+    {
+        PlayerVida vidaPlayer = hit.GetComponent<PlayerVida>();
+
+        if (vidaPlayer != null)
+        {
+            vidaPlayer.DarDanoPlayer(danoDash);
+        }
+    }
+
+    ocupado = false;
+}
 
     private void OnDrawGizmosSelected()
     {

@@ -18,29 +18,50 @@ public class SpawnerController : MonoBehaviour
     }
 
 
-    public int SpawnarInimigos()
+public int SpawnarInimigos()
+{
+    int total = 0;
+
+    if (dg != null)
     {
-        int total = 0;
-        if (dg != null)
+        SalaController sala = GetComponentInParent<SalaController>();
+
+        for (int i = 0; i < dg.qtdInimigos; i++)
         {
-            SalaController sala = GetComponentInParent<SalaController>();
-        
-        for (int i = 0; i < dg.qtdInimigos; i++) //aumenta dependendo da layer
-        {
-            int indice = Random.Range(0, sc.dg.catalogoInimigos.inimigos.Count);
-            int indiceElite = Random.Range(0,sc.dg.catalogoInimigos.inimigosDeElite.Count);
-            int peso = Random.Range(1, 10);
             GameObject prefab;
-            
+
+            //MINIBOSS
+            if (sala.tipoSala == TipoSala.SalasMiniBoss)
+            {
+                int indiceMiniBoss =
+                    Random.Range(0, sc.dg.catalogoInimigos.miniBosses.Count);
+
+                prefab =
+                    sc.dg.catalogoInimigos.miniBosses[indiceMiniBoss];
+            }
+
+        
+            else
+            {
+                int indice =
+                    Random.Range(0, sc.dg.catalogoInimigos.inimigos.Count);
+
+                int indiceElite =
+                    Random.Range(0, sc.dg.catalogoInimigos.inimigosDeElite.Count);
+
+                int peso = Random.Range(1, 10);
+
                 if (peso >= 7)
                 {
-                    prefab = sc.dg.catalogoInimigos.inimigosDeElite[indiceElite];
+                    prefab =
+                        sc.dg.catalogoInimigos.inimigosDeElite[indiceElite];
                 }
                 else
                 {
-                    prefab = sc.dg.catalogoInimigos.inimigos[indice];
+                    prefab =
+                        sc.dg.catalogoInimigos.inimigos[indice];
                 }
-                
+            }
 
             float x = Random.Range(areaMin.x, areaMax.x);
             float y = Random.Range(areaMin.y, areaMax.y);
@@ -55,8 +76,7 @@ public class SpawnerController : MonoBehaviour
                 transform
             );
 
-            InimigoController ic =
-                inimigo.GetComponent<InimigoController>();
+            InimigoController ic = inimigo.GetComponent<InimigoController>();
 
             if (ic != null)
             {
@@ -65,10 +85,9 @@ public class SpawnerController : MonoBehaviour
 
             total++;
         }
-        }
-        
-
-            return total;
     }
+
+    return total;
+}
 
     }
