@@ -47,13 +47,13 @@ public class Projetil : MonoBehaviour
 
             if (vida != null)
             {
-                float dano = pc.currentStatus.danoRanged;
+                float dano = vidaProjetil;
 
                 vida.receberDano(dano);
 
                 pc.DispararOnHit(alvo.gameObject);
 
-                vidaProjetil -= dano;
+                vidaProjetil = 0;
             }
 
             if (vidaProjetil <= 0)
