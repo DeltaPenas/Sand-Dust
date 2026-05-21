@@ -197,9 +197,10 @@ public class DungeonGeneratortest : MonoBehaviour
     if (indexAtual < salasValidas.Count)
     {
         salasValidas[indexAtual].tipo = TipoSala.Loja;
+        indexAtual++;
     }
 
-        if (indexAtual < salasValidas.Count && RunManager.Instance.currentRun.layer > 2)
+        if (indexAtual < salasValidas.Count  /*&& RunManager.Instance.currentRun.layer > 2*/)
         {
             salasValidas[indexAtual].tipo = TipoSala.SalasMiniBoss;   
         }

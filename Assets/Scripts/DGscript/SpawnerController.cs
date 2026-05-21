@@ -5,89 +5,107 @@ public class SpawnerController : MonoBehaviour
 {
     public Vector2 areaMin;
     public Vector2 areaMax;
+
     private SalaController sc;
     private DungeonGeneratortest dg;
-    private RunInfos ri;
 
+    public int quantidadeSpawn;
 
     public void Start()
     {
-        ri = GetComponentInParent<RunInfos>();
         dg = GetComponentInParent<DungeonGeneratortest>();
         sc = GetComponent<SalaController>();
     }
 
-
-public int SpawnarInimigos()
-{
-    int total = 0;
-
-    if (dg != null)
+    public int SpawnarInimigos()
     {
-        SalaController sala = GetComponentInParent<SalaController>();
+        int total = 0;
 
-        for (int i = 0; i < dg.qtdInimigos; i++)
+        if (dg != null)
         {
-            GameObject prefab;
+            SalaController sala = GetComponentInParent<SalaController>();
 
-            //MINIBOSS
+            //define quantidade dependendo do tipo da sala
             if (sala.tipoSala == TipoSala.SalasMiniBoss)
             {
-                int indiceMiniBoss =
-                    Random.Range(0, sc.dg.catalogoInimigos.miniBosses.Count);
-
-                prefab =
-                    sc.dg.catalogoInimigos.miniBosses[indiceMiniBoss];
+                quantidadeSpawn = 1;
             }
-
-        
             else
             {
-                int indice =
-                    Random.Range(0, sc.dg.catalogoInimigos.inimigos.Count);
+                quantidadeSpawn = dg.qtdInimigos;
+            }
 
-                int indiceElite =
-                    Random.Range(0, sc.dg.catalogoInimigos.inimigosDeElite.Count);
+            for (int i = 0; i < quantidadeSpawn; i++)
+            {
+                GameObject prefab;
 
-                int peso = Random.Range(1, 10);
-
-                if (peso >= 7)
+                //mini boss
+                if (sala.tipoSala == TipoSala.SalasMiniBoss)
                 {
+                    int indiceMiniBoss =
+                        Random.Range(
+                            0,
+                            sc.dg.catalogoInimigos.miniBosses.Count
+                        );
+
                     prefab =
-                        sc.dg.catalogoInimigos.inimigosDeElite[indiceElite];
+                        sc.dg.catalogoInimigos.miniBosses[indiceMiniBoss];
                 }
+
+                //bixo normal
                 else
                 {
-                    prefab =
-                        sc.dg.catalogoInimigos.inimigos[indice];
+                    int indice =
+                        Random.Range(
+                            0,
+                            sc.dg.catalogoInimigos.inimigos.Count
+                        );
+
+                    int indiceElite =
+                        Random.Range(
+                            0,
+                            sc.dg.catalogoInimigos.inimigosDeElite.Count
+                        );
+
+                    int peso = Random.Range(1, 10);
+
+                    if (peso >= 7)
+                    {
+                        prefab =
+                            sc.dg.catalogoInimigos.inimigosDeElite[indiceElite];
+                    }
+                    else
+                    {
+                        prefab =
+                            sc.dg.catalogoInimigos.inimigos[indice];
+                    }
                 }
+
+                float x = Random.Range(areaMin.x, areaMax.x);
+                float y = Random.Range(areaMin.y, areaMax.y);
+
+                Vector3 posicaoFinal =
+                    transform.position + new Vector3(x, y, 0);
+
+                GameObject inimigo = Instantiate(
+                    prefab,
+                    posicaoFinal,
+                    Quaternion.identity,
+                    transform
+                );
+
+                InimigoController ic =
+                    inimigo.GetComponent<InimigoController>();
+
+                if (ic != null)
+                {
+                    ic.DefinirSalaOrigem(sala);
+                }
+
+                total++;
             }
-
-            float x = Random.Range(areaMin.x, areaMax.x);
-            float y = Random.Range(areaMin.y, areaMax.y);
-
-            Vector3 posicaoFinal =
-                transform.position + new Vector3(x, y, 0);
-
-            GameObject inimigo = Instantiate(
-                prefab,
-                posicaoFinal,
-                Quaternion.identity,
-                transform
-            );
-
-            InimigoController ic = inimigo.GetComponent<InimigoController>();
-
-            if (ic != null)
-            {
-                ic.DefinirSalaOrigem(sala);
-            }
-
-            total++;
         }
-    }
 
-    return total;
+        return total;
+    }
 }
-
-    }

@@ -2502,6 +2502,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalas.salasMiniBoss.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'CatalogoInimigos.inimigos.Array.data[0]'
       value: 
       objectReference: {fileID: 2062505989534390462, guid: 583dcb361338e404c83d8693eb376fb0, type: 3}
@@ -2561,6 +2565,10 @@ PrefabInstance:
       propertyPath: 'catalogoSalas.salasIniciais.Array.data[1]'
       value: 
       objectReference: {fileID: 582236416703253144, guid: c0bddc8c87e665d47aea4fe9834e4960, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalas.salasMiniBoss.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8998249644244355023, guid: 39fcadec67ce91548bd004ecc0746116, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salasProxLayer.Array.data[0]'
       value: 

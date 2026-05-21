@@ -54,7 +54,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
        
         if (RunManager.Instance.currentRun.layer >= 5)
         {
-            //RunManager.Instance.currentRun.layer = 0;
+            //RunManager.Instance.currentRun.layer = 0; // colocar quando poder descer de andar
             RunManager.Instance.currentRun.andar +=1;
             dg.qtdInimigos =1;
             dg.qtdmaxSalas+=1;
