@@ -8777,7 +8777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7074318028186995892
 Transform:
   m_ObjectHideFlags: 0
@@ -14804,6 +14804,7 @@ MonoBehaviour:
   - {fileID: 6573821330143774682}
   currentState: 0
   "telaDeConclus\xE3o": {fileID: 0}
+  salaBoss: {fileID: 0}
   cooldownTrap: 1.5
   danoTrap: 1
   tempoAtivarTrap: 0.5
@@ -14843,7 +14844,7 @@ MonoBehaviour:
   ultimoDanoRecebido: 0
   xpDrop: 1
   danoParaTrocaDeFase: 25
-  danoParaProximoBuff: 10
+  danoParaProximoBuff: 20
   boss: {fileID: 0}
   pauseMenu: {fileID: 0}
 --- !u!114 &6892868287229239034
@@ -15841,6 +15842,9 @@ MonoBehaviour:
   salaLimpa: 0
   qtdInimigosVivos: 0
   dg: {fileID: 0}
+  bossFightIniciada: 0
+  bossDerrotado: 0
+  boss: {fileID: 0}
 --- !u!114 &708271126844680037
 MonoBehaviour:
   m_ObjectHideFlags: 0

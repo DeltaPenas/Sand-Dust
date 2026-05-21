@@ -15,10 +15,6 @@ public class TriggerSala : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Entrou no trigger: " + transform.parent.name);
-        Debug.Log("Quantidade de inimigos: " + sala.qtdInimigosVivos);
-
-        
-        
 
         if (!other.CompareTag("Player"))
             return;
@@ -28,26 +24,19 @@ public class TriggerSala : MonoBehaviour
             Debug.LogError("Sala não encontrada");
             return;
         }
-        /*
-        if (sala.salaLimpa)
+
+        Debug.Log("Tipo da sala: " + sala.tipoSala);
+
+        if (sala.tipoSala == TipoSala.SalaBoss)
         {
-            sala.LiberarPortas();
+            Debug.Log("Iniciando boss fight");
+            sala.IniciarBossFight();
+            return;
         }
-        Temporario*/
-        if (sala.entrou)return;
 
-
-        if (sala.entrou || sala.salaLimpa) return;
+        if (sala.entrou || sala.salaLimpa)
+            return;
 
         sala.AtivarSala();
-        /*
-        if (sala.salaLimpa)
-        {
-        sala.LiberarPortas();
-        }
-        Temporario*/
-
-        
-
     }
 }

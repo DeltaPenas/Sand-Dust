@@ -17,6 +17,7 @@ public class ChestMimicController : MonoBehaviour
     private PlayerController player;
     private ArtfatoManager artfatoManager;
     private CardSelectionUI cardSelectionUI;
+    private CaixaDeDialogoUI caixaDeDialogoUI;
     
 
     
@@ -26,6 +27,7 @@ public class ChestMimicController : MonoBehaviour
         player = FindAnyObjectByType<PlayerController>();
         artfatoManager = FindAnyObjectByType<ArtfatoManager>();
         cardSelectionUI = FindAnyObjectByType<CardSelectionUI>();
+        caixaDeDialogoUI = FindAnyObjectByType<CaixaDeDialogoUI>();
         collider2D = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         definirMimico();
@@ -51,7 +53,7 @@ public class ChestMimicController : MonoBehaviour
 
     private void definirMimico()
     {
-        int definirMimico = UnityEngine.Random.Range(9,10);
+        int definirMimico = UnityEngine.Random.Range(0,10);
         Debug.Log(definirMimico);
 
         if(definirMimico >= 9)
@@ -87,6 +89,7 @@ public class ChestMimicController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             taDentro = true;
+            caixaDeDialogoUI.interactText.SetActive(true);
             Debug.Log("Jogador entrou na área!");
         }
     }
@@ -97,6 +100,8 @@ public class ChestMimicController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             taDentro = false;
+            caixaDeDialogoUI.interactText.SetActive(false);
+
             Debug.Log("Jogador saiu da área!");
         }
     }

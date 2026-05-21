@@ -36,6 +36,12 @@ public class SalaController : MonoBehaviour
     
     private PropSpawner[] props;
     public DungeonGeneratortest dg;
+
+    [Header("Boss")]
+
+    public bool bossFightIniciada = false;
+    public bool bossDerrotado = false;
+    [SerializeField] private FirstBossController boss;
    
     
     
@@ -52,7 +58,7 @@ public class SalaController : MonoBehaviour
         spawner = GetComponentInChildren<SpawnerController>();
         portas = GetComponentsInChildren<PortaTrigger>();
         soundController = FindAnyObjectByType<SoundController>();
-        
+        boss = GetComponentInChildren<FirstBossController>();
 
     }
     
@@ -63,12 +69,21 @@ public class SalaController : MonoBehaviour
     posicaoGrid = sala.Posicao; 
 
     if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || 
-       tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer || 
-       tipoSala == TipoSala.SalaAntesDoBoss || tipoSala == TipoSala.SalaBoss)
+   tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer || 
+   tipoSala == TipoSala.SalaAntesDoBoss)
     {
         salaLimpa = true;
-
         LiberarPortas();
+    }
+    else if(tipoSala == TipoSala.SalaBoss)
+    {
+    salaLimpa = false;
+
+    foreach (PortaTrigger porta in portas)
+    {
+        porta.podeTeleportar = false;
+        AlterarTransparenciaPortal(porta, 0.2f);
+    }
     }
     else
     {
@@ -178,6 +193,32 @@ public class SalaController : MonoBehaviour
         Color cor = spriteRender.color;
         cor.a = alpha;
         spriteRender.color = cor;
+    }
+
+    public void IniciarBossFight()
+    {
+        if (bossFightIniciada) return;
+
+        bossFightIniciada = true;
+
+        foreach (PortaTrigger porta in portas)
+        {
+            porta.podeTeleportar = false;
+            AlterarTransparenciaPortal(porta, 0.2f);
+        }
+
+        boss.IniciarBoss();
+
+        Debug.Log("Boss fight iniciada");
+    }
+    public void BossDerrotado()
+    {
+        bossDerrotado = true;
+        salaLimpa = true;
+
+        LiberarPortas();
+
+        Debug.Log("Boss derrotado");
     }
 
 }

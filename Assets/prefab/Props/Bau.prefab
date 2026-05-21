@@ -157,8 +157,12 @@ MonoBehaviour:
   vidaTotal: 1
   vidaAtual: 0
   morreu: 0
+  invuneravel: 0
   pegandoFogo: 0
   dv: {fileID: 0}
+  danoAcumulado: 0
+  ultimoDanoRecebido: 0
+  xpDrop: 1
 --- !u!50 &8550674468625118206
 Rigidbody2D:
   serializedVersion: 5

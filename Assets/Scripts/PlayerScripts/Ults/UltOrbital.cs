@@ -6,16 +6,11 @@ public class UltOrbital : UltBase
 
     protected override bool TentaUsarUlt()
     {
-      return true;
+        SpawnarOrbital();
+        return true;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SpawnarOrbital();
-        }
-    }
+
 
     void SpawnarOrbital()
     {

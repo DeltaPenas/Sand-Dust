@@ -16,6 +16,7 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private List<Transform> pontosDeTp = new List<Transform>();
     [SerializeField] public BossState currentState = BossState.Idle;
     [SerializeField] private GameObject telaDeConclusão;
+    [SerializeField] public SalaController salaBoss;
 
 
 
