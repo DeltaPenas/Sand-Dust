@@ -66,6 +66,8 @@ public class ChestMimicController : MonoBehaviour
     {
         var opcoes = artfatoManager.GerarOpções(3);
         cardSelectionUI.MostrarArtefatos(opcoes);
+        jaAbriu = true;
+        caixaDeDialogoUI.interactText.SetActive(false);
     }
     private void invocarMimico()
     {

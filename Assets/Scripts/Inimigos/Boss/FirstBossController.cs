@@ -59,6 +59,7 @@ public class FirstBossController : MonoBehaviour
         ic = GetComponent<InimigoController>();
         anim = GetComponent<Animator>();
         vidaBoss = GetComponent<VidaBoss>();
+        salaBoss = FindAnyObjectByType<SalaController>();
 
         if (player == null)
         {
@@ -194,6 +195,7 @@ public class FirstBossController : MonoBehaviour
     void FicarMorto()
     {
         vidaBoss.invuneravel = true;
+        salaBoss.LiberarPortas();
     }
 
     public void TeleportarPontoAleatorio()

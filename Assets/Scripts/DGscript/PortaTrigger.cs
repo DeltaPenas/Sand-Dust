@@ -5,10 +5,6 @@ using UnityEngine;
 public class PortaTrigger : MonoBehaviour
 {
     public DirecaoPorta direcao;
-    public float distanciaEntreSalas;
-    public float distanciaEntreSalasVertical;
-    public float offsetPlayer = 1.5f;
-
     public bool podeTeleportar;
     private SalaController salaAtual;
     private DungeonGeneratortest dungeon;
@@ -22,7 +18,7 @@ public class PortaTrigger : MonoBehaviour
     {
         tt = FindAnyObjectByType<TriggerDeTransicao>();
         salaAtual = GetComponentInParent<SalaController>();
-        dungeon = FindObjectOfType<DungeonGeneratortest>();
+        dungeon =  FindAnyObjectByType<DungeonGeneratortest>();
         player = FindAnyObjectByType<PlayerController>();
         Debug.Log("Sala atual: " + salaAtual);
         Debug.Log("Dungeon: " + dungeon);
@@ -32,11 +28,13 @@ public class PortaTrigger : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        if (!podeTeleportar) return;
+
         if (playerDentro) return;
 
-        playerDentro = true;
-
         if (!salaAtual.salaLimpa) return;
+
+        playerDentro = true;
 
         Vector2Int direcaoGrid = ObterDirecaoGrid();
         Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
@@ -44,6 +42,8 @@ public class PortaTrigger : MonoBehaviour
         if (!dungeon.ExisteSalaNessaDirecao(proximaSala))
         {
             Debug.Log("Não existe sala nessa direção");
+
+            playerDentro = false;
             return;
         }
 
@@ -134,8 +134,8 @@ public class PortaTrigger : MonoBehaviour
         
     }
 
-    private void ReativarTrigger()
+    private void OnDestroy()
     {
-        podeTeleportar = true;
+        Debug.Log("Porta destruída: " + gameObject.name);
     }
 }

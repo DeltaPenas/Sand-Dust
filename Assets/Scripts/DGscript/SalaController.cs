@@ -59,6 +59,7 @@ public class SalaController : MonoBehaviour
         portas = GetComponentsInChildren<PortaTrigger>();
         soundController = FindAnyObjectByType<SoundController>();
         boss = GetComponentInChildren<FirstBossController>();
+        
 
     }
     
@@ -149,21 +150,25 @@ public class SalaController : MonoBehaviour
     }
 
     public void LiberarPortas()
+{
+    foreach (PortaTrigger porta in portas)
     {
-        foreach (PortaTrigger porta in portas)
+        if (porta == null) continue;
+
+        porta.podeTeleportar = true;
+
+        AlterarTransparenciaPortal(porta, 1f);
+
+        Light2D luz = porta.GetComponentInChildren<Light2D>(true);
+
+        if (luz != null)
         {
-            porta.podeTeleportar = true;
-
-            AlterarTransparenciaPortal(porta, 1f);
+            luz.gameObject.SetActive(true);
         }
-
-        foreach (GameObject porta in portasIluminaçao)
-        {
-            porta.SetActive(true);
-        }
-
-        Debug.Log("Portas reativadas");
     }
+
+    Debug.Log("Portas reativadas");
+}
 
     public Transform ObterSpawnEntrada(DirecaoPorta direcao)
 {
@@ -186,31 +191,43 @@ public class SalaController : MonoBehaviour
 }
     private void AlterarTransparenciaPortal(PortaTrigger porta, float alpha)
     {
-        SpriteRenderer spriteRender = porta.GetComponent<SpriteRenderer>();
+    if (porta == null) return;
 
-        if (spriteRender == null) return;
+    SpriteRenderer spriteRender = porta.GetComponent<SpriteRenderer>();
 
-        Color cor = spriteRender.color;
-        cor.a = alpha;
-        spriteRender.color = cor;
+    if (spriteRender == null) return;
+
+    Color cor = spriteRender.color;
+    cor.a = alpha;
+    spriteRender.color = cor;
     }
 
     public void IniciarBossFight()
+{
+    if (bossFightIniciada) return;
+
+    bossFightIniciada = true;
+
+    foreach (PortaTrigger porta in portas)
     {
-        if (bossFightIniciada) return;
+        if (porta == null) continue;
 
-        bossFightIniciada = true;
+        porta.podeTeleportar = false;
 
-        foreach (PortaTrigger porta in portas)
+        AlterarTransparenciaPortal(porta, 0.2f);
+
+        Light2D luz = porta.GetComponentInChildren<Light2D>(true);
+
+        if (luz != null)
         {
-            porta.podeTeleportar = false;
-            AlterarTransparenciaPortal(porta, 0.2f);
+            luz.gameObject.SetActive(false);
         }
-
-        boss.IniciarBoss();
-
-        Debug.Log("Boss fight iniciada");
     }
+
+    boss.IniciarBoss();
+
+    Debug.Log("Boss fight iniciada");
+}
     public void BossDerrotado()
     {
         bossDerrotado = true;
@@ -220,5 +237,6 @@ public class SalaController : MonoBehaviour
 
         Debug.Log("Boss derrotado");
     }
+
 
 }
