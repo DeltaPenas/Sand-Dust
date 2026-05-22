@@ -58,7 +58,7 @@ public class DungeonGeneratortest : MonoBehaviour
     {
         AtualizarTemaDungeon();
 
-        if (RunManager.Instance.currentRun.layer >= 2)
+        if (RunManager.Instance.currentRun.layer >= 5)
         {
             Debug.Log("gerando sala do boss");
 
@@ -276,7 +276,7 @@ public class DungeonGeneratortest : MonoBehaviour
                     esquerda,
                     direita
                 );
-                if (sala.tipo == TipoSala.Inicial)
+                if (sala.tipo == TipoSala.Inicial || sala.tipo == TipoSala.SalaAntesDoBoss)
                 {
                     salaInicial = controller;
                 }

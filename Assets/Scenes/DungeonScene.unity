@@ -2463,11 +2463,11 @@ PrefabInstance:
       objectReference: {fileID: 3269178551249686298, guid: e8468999cf29ebb4592ef13ac2ce7b3d, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salaLojas.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasBoss.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: CatalogoInimigos.inimigos.Array.size
@@ -2475,7 +2475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoInimigos.inimigos.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salaLojas.Array.data[0]'
@@ -2487,23 +2487,23 @@ PrefabInstance:
       objectReference: {fileID: 8313177479609684576, guid: d53b765906b326642b64b60eb42a57e8, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasNormais.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasTesouro.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoInimigos.miniBosses.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasIniciais.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasMiniBoss.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'CatalogoInimigos.inimigos.Array.data[0]'
@@ -2535,7 +2535,7 @@ PrefabInstance:
       objectReference: {fileID: 8410869851090521574, guid: 20a42be06eb611d4ca5eca2165cd455c, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasProxLayer.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salasNormais.Array.data[0]'
@@ -2574,8 +2574,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7704557349156059628, guid: 43951ca863ef9ee43aacfdc9e48b6de4, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasFloresta.salaLojas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasFloresta.salasBoss.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoInimigos.inimigosDeElite.Array.size
-      value: 3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoInimigosFloresta.inimigos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salaLojas.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5895272119734155765, guid: 09ea45f7f029b6741a1fb18e19a4c987, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salasBoss.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8313177479609684576, guid: d53b765906b326642b64b60eb42a57e8, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasFloresta.salasNormais.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasFloresta.salasTesouro.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoInimigos.inimigosDeElite.Array.data[0]'
@@ -2606,19 +2634,111 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8410869851090521574, guid: 20a42be06eb611d4ca5eca2165cd455c, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoInimigosFloresta.miniBosses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasFloresta.salasIniciais.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasFloresta.salasMiniBoss.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasFloresta.salasSecretas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigosFloresta.inimigos.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5844461690707922050, guid: 2863aaedce4d78d44a5b272b3c63c611, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigosFloresta.inimigos.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1479567358585270357, guid: e28098a563d29514f8710ad94276ced5, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasFloresta.salasProxLayer.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salasNormais.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8998249644244355023, guid: 9acd0442fe39b7a4693cce531a46bcdb, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salasNormais.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8998249644244355023, guid: 847acd6374022a343a1acc70df879ff7, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salasTesouro.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1245119275456731571, guid: 3490daee7e2b3634f9c3d7e9810c6e5a, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigosFloresta.miniBosses.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8410869851090521574, guid: 20a42be06eb611d4ca5eca2165cd455c, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasIniciaisAntesDoBoss.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salasIniciais.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2287618084281850724, guid: d33f04048b0ee7941b0e572f21e9d14f, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salasMiniBoss.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8998249644244355023, guid: 39fcadec67ce91548bd004ecc0746116, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salasSecretas.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2287618084281850724, guid: d33f04048b0ee7941b0e572f21e9d14f, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salasProxLayer.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7704557349156059628, guid: 43951ca863ef9ee43aacfdc9e48b6de4, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoInimigosFloresta.inimigosDeElite.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salasIniciaisAntesDoBoss.Array.data[0]'
       value: 
       objectReference: {fileID: 2287618084281850724, guid: b3261cd4ffe54854f8692e63f402e6bf, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
-      propertyPath: catalogoInimigos.inimigosInvocaveisPeloInvocadordeInimigos.Array.size
+      propertyPath: 'catalogoInimigosFloresta.inimigosDeElite.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1821935942732819040, guid: d0b6b80ed22d59b499cbac6135f603c9, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigosFloresta.inimigosDeElite.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2579995069041856734, guid: 76a5457d315c88d4785bb60488d78cb4, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigosFloresta.inimigosDeElite.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6350164024126544244, guid: 71240aeadc08b6b46a167cdf082e9a1b, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasFloresta.salasIniciaisAntesDoBoss.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasFloresta.salasIniciaisAntesDoBoss.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2287618084281850724, guid: b3261cd4ffe54854f8692e63f402e6bf, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoInimigos.inimigosInvocaveisPeloInvocadordeInimigos.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoInimigos.inimigosInvocaveisPeloInvocadordeInimigos.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5844461690707922050, guid: 2863aaedce4d78d44a5b272b3c63c611, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoInimigosFloresta.inimigosInvocaveisPeloInvocadordeInimigos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigosFloresta.inimigosInvocaveisPeloInvocadordeInimigos.Array.data[0]'
       value: 
       objectReference: {fileID: 5844461690707922050, guid: 2863aaedce4d78d44a5b272b3c63c611, type: 3}
     - target: {fileID: 8252068834370362281, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
