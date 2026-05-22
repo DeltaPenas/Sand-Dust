@@ -2447,7 +2447,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ba965bcb394fc2f4bb7a9699397b5616, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoProps.props.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoProps.props.Array.data[0]'
@@ -2478,6 +2478,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoPropsSertao.props.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salaLojas.Array.data[0]'
       value: 
       objectReference: {fileID: 5895272119734155765, guid: 09ea45f7f029b6741a1fb18e19a4c987, type: 3}
@@ -2496,6 +2500,10 @@ PrefabInstance:
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoInimigos.miniBosses.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoPropsFloresta.props.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasIniciais.Array.size
@@ -2534,6 +2542,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8410869851090521574, guid: 20a42be06eb611d4ca5eca2165cd455c, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoPropsSertao.props.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4082962856676249247, guid: 98b139adc41898845aca80b0c77eed9f, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoPropsSertao.props.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3269178551249686298, guid: e8468999cf29ebb4592ef13ac2ce7b3d, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoPropsSertao.props.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4695602646284803510, guid: 308e31d85a83d0343a6c1c838fd2df32, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasProxLayer.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -2557,6 +2577,18 @@ PrefabInstance:
       propertyPath: 'catalogoInimigos.miniBosses.Array.data[0]'
       value: 
       objectReference: {fileID: 8410869851090521574, guid: 20a42be06eb611d4ca5eca2165cd455c, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoPropsFloresta.props.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3269178551249686298, guid: e8468999cf29ebb4592ef13ac2ce7b3d, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoPropsFloresta.props.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4695602646284803510, guid: 308e31d85a83d0343a6c1c838fd2df32, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoPropsFloresta.props.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4082962856676249247, guid: 98b139adc41898845aca80b0c77eed9f, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salasIniciais.Array.data[0]'
       value: 
@@ -2679,7 +2711,7 @@ PrefabInstance:
       objectReference: {fileID: 8410869851090521574, guid: 20a42be06eb611d4ca5eca2165cd455c, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalas.salasIniciaisAntesDoBoss.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalasFloresta.salasIniciais.Array.data[0]'

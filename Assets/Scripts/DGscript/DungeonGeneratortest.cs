@@ -8,7 +8,6 @@ public class DungeonGeneratortest : MonoBehaviour
     public int qtdminSalas = 5;
     public int qtdmaxSalas = 10;
     public int totalSalasCombate;
-    public int andar = 0;
     [SerializeField] private GameObject bg;
     [SerializeField] public AudioClip efeitoSonoroDeAbrirPorta;
     
@@ -55,49 +54,50 @@ public class DungeonGeneratortest : MonoBehaviour
 
 
     private void GerarDungeon()
+{
+    AtualizarTemaDungeon();
+
+    Debug.Log("Layer atual: " + RunManager.Instance.currentRun.layer);
+    Debug.Log("Andar atual: " + RunManager.Instance.currentRun.andar);
+
+    salas.Clear();
+
+    // MINI DUNGEON BOSS
+    if (RunManager.Instance.currentRun.layer == 5)
     {
-        AtualizarTemaDungeon();
+        Debug.Log("GERANDO MINI DUNGEON BOSS");
 
-        if (RunManager.Instance.currentRun.layer >= 5)
-        {
-            Debug.Log("gerando sala do boss");
+        GerarMiniDungeonBoss();
 
-            salas.Clear();
+        InstanciarSalas();
 
-            GerarMiniDungeonBoss();
+        DebugSalas();
 
-            InstanciarSalas();
+        TeleportarPlayerSalaInicial();
 
-            DebugSalas();
+        CalcularSalasCombate();
 
-            TeleportarPlayerSalaInicial();
+        return;
+    }
 
-            CalcularSalasCombate();
-
-    return;
-        }
-        else
-        {
-        if (!ValidarParametros())
+    // DUNGEON NORMAL
+    if (!ValidarParametros())
         return;
 
-        
-        salas.Clear();
-       
-        andar++;
+    GerarLayout();
 
-        Debug.Log("Andar atual: " + andar);
+    DefinirSalaFinal();
 
-        GerarLayout();
-        DefinirSalaFinal();
-        DefinirSalasEspeciais();
-        InstanciarSalas();
-        DebugSalas();
-        TeleportarPlayerSalaInicial();
-        CalcularSalasCombate(); 
-        }
-        
-    }
+    DefinirSalasEspeciais();
+
+    InstanciarSalas();
+
+    DebugSalas();
+
+    TeleportarPlayerSalaInicial();
+
+    CalcularSalasCombate();
+}
 
     public void LimparDungeon()
 {
@@ -112,24 +112,24 @@ public class DungeonGeneratortest : MonoBehaviour
 }
 
     private void AtualizarTemaDungeon()
-{
-    if (andar <= 1)
     {
-        catalogoSalas = catalogoSalasFloresta;
-        catalogoInimigos = catalogoInimigosFloresta;
-        catalogoProps = catalogoPropsFloresta;
+        if (RunManager.Instance.currentRun.andar <= 1)
+        {
+            catalogoSalas = catalogoSalasFloresta;
+            catalogoInimigos = catalogoInimigosFloresta;
+            catalogoProps = catalogoPropsFloresta;
 
-        Debug.Log("Tema atual: Floresta");
-    }
-    else
-    {
-        catalogoSalas = catalogoSalasSertao;
-        catalogoInimigos = catalogoInimigosSertao;
-        catalogoProps = catalogoPropsSertao;
+            Debug.Log("Tema atual: Floresta");
+        }
+        else
+        {
+            catalogoSalas = catalogoSalasSertao;
+            catalogoInimigos = catalogoInimigosSertao;
+            catalogoProps = catalogoPropsSertao;
 
-        Debug.Log("Tema atual: Sertão");
+            Debug.Log("Tema atual: Sertão");
+        }
     }
-}
 
     private bool ValidarParametros()
     {
@@ -283,23 +283,19 @@ public class DungeonGeneratortest : MonoBehaviour
             }
         }
     }
-        private void GerarMiniDungeonBoss(){
-            salas.Clear();
+    private void GerarMiniDungeonBoss()
+    {
+        SalaNode salaInicialBoss = new SalaNode(Vector2Int.zero);
+        salaInicialBoss.tipo = TipoSala.SalaAntesDoBoss;
 
-            andar++;
+        salas.Add(salaInicialBoss);
 
-            SalaNode salasIniciaisAntesDoBoss = new SalaNode(Vector2Int.zero);
-            salasIniciaisAntesDoBoss.tipo = TipoSala.SalaAntesDoBoss;
-            salas.Add(salasIniciaisAntesDoBoss);
+        SalaNode salaBoss = new SalaNode(Vector2Int.right);
+        salaBoss.tipo = TipoSala.SalaBoss;
 
-            Vector2Int posBoss = new Vector2Int(1, 0);
-
-            SalaNode salaBoss = new SalaNode(posBoss);
-            salaBoss.tipo = TipoSala.SalaBoss;
-
-            salas.Add(salaBoss);
-        }
-    
+        salas.Add(salaBoss);
+    }
+        
         private GameObject EscolherPrefabSala(TipoSala tipo)
         {
             List<GameObject> lista = null;
@@ -432,19 +428,12 @@ public class DungeonGeneratortest : MonoBehaviour
     }
     private Vector3 ObterPosicaoMundo(SalaNode sala)
     {
-        float distancia = distanciaEntreSalas;
-
-        if (sala.tipo == TipoSala.SalaBoss)
-        {
-            distancia = distanciaEntreSalas * 2.5f;
-        }
-
         return new Vector3(
-            sala.Posicao.x * distancia,
-            sala.Posicao.y * distancia,
+            sala.Posicao.x * distanciaEntreSalas,
+            sala.Posicao.y * distanciaEntreSalas,
             0
         );
     }
-    
+        
 
 }

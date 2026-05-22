@@ -44,26 +44,42 @@ public class PontoDeDecidaDeSala : MonoBehaviour
   
     
     public void PodeDescer()
-    {
-            dg.LimparDungeon();
-            RunManager.Instance.currentRun.layer+=1;
-       
-        if (RunManager.Instance.currentRun.layer >= 5)
-        {
-            //RunManager.Instance.currentRun.layer = 0; // colocar quando poder descer de andar
-            RunManager.Instance.currentRun.andar +=1;
-            dg.qtdInimigos =1;
-            dg.qtdmaxSalas+=1;
-            dg.qtdminSalas+=1;
-        }
+{
+    RunManager.Instance.currentRun.layer++;
 
-        if (RunManager.Instance.currentRun.layer <= 4)
-        {
-            dg.qtdInimigos +=1;
-        }
-        
+    // CHEGOU NO BOSS
+    if (RunManager.Instance.currentRun.layer == 5)
+    {
+        Debug.Log("INDO PRA MINI DUNGEON DO BOSS");
+
+        dg.LimparDungeon();
+
         RunManager.Instance.currentRun.salasConcluidas = 0;
+
+        return;
     }
+
+    // PASSOU DO BOSS -> NOVO ANDAR
+    if (RunManager.Instance.currentRun.layer > 5)
+    {
+        Debug.Log("NOVO ANDAR");
+
+        RunManager.Instance.currentRun.layer = 1;
+        RunManager.Instance.currentRun.andar++;
+
+        dg.qtdInimigos = 1;
+        dg.qtdmaxSalas += 1;
+        dg.qtdminSalas += 1;
+    }
+    else
+    {
+        dg.qtdInimigos += 1;
+    }
+
+    dg.LimparDungeon();
+
+    RunManager.Instance.currentRun.salasConcluidas = 0;
+}
     
 
 }
