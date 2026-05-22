@@ -5,14 +5,21 @@ public class PauseMenu : MonoBehaviour
 {
     
     [SerializeField] GameObject Painel;
-     [SerializeField] GameObject Conclusao;
+    [SerializeField] GameObject Conclusao;
     [SerializeField] GameObject TelaArtefatos;
-    
+    private ShopManager shop;
+    private CaixaDeDialogoUI caixaDeDialogoUI;
 
 
+    void Start()
+    {
+        shop = FindAnyObjectByType<ShopManager>();
+        caixaDeDialogoUI = FindAnyObjectByType<CaixaDeDialogoUI>();
+
+    }
 
     void Update()
-{
+    {
     if (Input.GetKeyDown(KeyCode.Escape))
     {
         ToggleMenu();
@@ -45,6 +52,10 @@ public class PauseMenu : MonoBehaviour
     {
         RunManager.Instance.currentState = RunState.Paused;
         Painel.SetActive(true);
+        caixaDeDialogoUI.FecharDialogoUI();
+        shop.FecharLoja();
+        caixaDeDialogoUI.interactText.SetActive(false);
+        
         Time.timeScale = 0f;
     }
 

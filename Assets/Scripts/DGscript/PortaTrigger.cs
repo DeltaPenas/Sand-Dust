@@ -11,11 +11,13 @@ public class PortaTrigger : MonoBehaviour
     private PlayerController player;
     private TriggerDeTransicao tt;
     private bool playerDentro;
+    private CaixaDeDialogoUI caixaDeDialogoUI;
     
 
     [System.Obsolete]
     private void Start()
     {
+        caixaDeDialogoUI = FindAnyObjectByType<CaixaDeDialogoUI>();
         tt = FindAnyObjectByType<TriggerDeTransicao>();
         salaAtual = GetComponentInParent<SalaController>();
         dungeon =  FindAnyObjectByType<DungeonGeneratortest>();
@@ -33,6 +35,9 @@ public class PortaTrigger : MonoBehaviour
         if (playerDentro) return;
 
         if (!salaAtual.salaLimpa) return;
+
+        caixaDeDialogoUI.interactText.SetActive(true);
+
 
         playerDentro = true;
 
@@ -54,6 +59,7 @@ public class PortaTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         playerDentro = false;
+        caixaDeDialogoUI.interactText.SetActive(false);
     }
 
     private Vector2Int ObterDirecaoGrid()

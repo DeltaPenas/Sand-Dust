@@ -31,7 +31,7 @@ public class CaixaDeDialogoUI : MonoBehaviour
         npcControllerAtual = controller;
 
         indexDialogo = 0;
-
+        interactText.SetActive(false);
         caixaDeDialogo.SetActive(true);
 
         AtualizarDialogo();
@@ -77,11 +77,13 @@ public class CaixaDeDialogoUI : MonoBehaviour
     public void AbrirLoja()
     {
         npcControllerAtual.AbrirLoja();
+        interactText.SetActive(false);
     }
 
     public void FecharDialogoUI()
     {
         Time.timeScale =1;
+        interactText.SetActive(true);
         caixaDeDialogo.SetActive(false);
     }
 }

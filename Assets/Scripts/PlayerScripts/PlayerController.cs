@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
 
     currentStatus = baseStatus.Clone();
 
-    AplicarBonusPermanentes();
+    AplicarBonusPermanentes(); //aqui o outro uso
 
     foreach (var mod in activeModifiers)
     {

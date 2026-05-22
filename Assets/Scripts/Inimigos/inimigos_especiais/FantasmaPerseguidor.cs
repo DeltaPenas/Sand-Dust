@@ -30,7 +30,7 @@ public class FantasmaPerseguidor : InimigoBase
     [Header("Visual / Colisão")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Collider2D colliderFantasma;
-    [SerializeField] private Animator anim;
+    
 
     private EstadoFantasma estadoAtual;
     private float proximoAtaque;
@@ -44,9 +44,6 @@ public class FantasmaPerseguidor : InimigoBase
 
         if (colliderFantasma == null)
             colliderFantasma = GetComponent<Collider2D>();
-
-        if (anim == null)
-            anim = GetComponent<Animator>();
 
         cicloFantasmaCoroutine = StartCoroutine(CicloFantasma());
     }

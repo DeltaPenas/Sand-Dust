@@ -15,7 +15,7 @@ public class OrbitalProjetil : MonoBehaviour
     private void Start()
     {
        ultOrbital = FindAnyObjectByType<UltOrbital>(); 
-       Destroy(gameObject, ultOrbital.ultCooldown/2); 
+       Destroy(gameObject, 30f); 
        dano = ultOrbital.ultDmg;
        
     }
