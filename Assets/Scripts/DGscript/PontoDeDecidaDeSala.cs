@@ -32,10 +32,6 @@ public class PontoDeDecidaDeSala : MonoBehaviour
             tt.FadeOut();
             Invoke(nameof(PodeDescer), 0.8f);
             dg.LimparInimigos();
-            if(dg.isDevMode && pv.playerVidaAtual < pv.playerVidaTotal)
-            {
-                pv.CurarPlayer(1);
-            }
             
         }
     }
