@@ -27,7 +27,19 @@ public class DungeonGeneratortest : MonoBehaviour
     public PlayerController pc;
     private SalaController salaInicial;
     private TriggerDeTransicao tt;
-    public bool isDevMode;
+
+
+    [Header("Prefabs da geração de salas")]
+
+    public CatalogoSalas catalogoSalasFloresta;
+    public CatalogoSalas catalogoSalasSertao;
+
+    public CatalogoInimigos catalogoInimigosFloresta;
+    public CatalogoInimigos catalogoInimigosSertao;
+
+    public CatalogoProps catalogoPropsFloresta;
+    public CatalogoProps catalogoPropsSertao;
+   
     
 
 
@@ -44,6 +56,8 @@ public class DungeonGeneratortest : MonoBehaviour
 
     private void GerarDungeon()
     {
+        AtualizarTemaDungeon();
+
         if (RunManager.Instance.currentRun.layer >= 2)
         {
             Debug.Log("gerando sala do boss");
@@ -95,6 +109,26 @@ public class DungeonGeneratortest : MonoBehaviour
     salas.Clear();
     GerarDungeon();
 
+}
+
+    private void AtualizarTemaDungeon()
+{
+    if (andar <= 1)
+    {
+        catalogoSalas = catalogoSalasFloresta;
+        catalogoInimigos = catalogoInimigosFloresta;
+        catalogoProps = catalogoPropsFloresta;
+
+        Debug.Log("Tema atual: Floresta");
+    }
+    else
+    {
+        catalogoSalas = catalogoSalasSertao;
+        catalogoInimigos = catalogoInimigosSertao;
+        catalogoProps = catalogoPropsSertao;
+
+        Debug.Log("Tema atual: Sertão");
+    }
 }
 
     private bool ValidarParametros()
@@ -200,7 +234,7 @@ public class DungeonGeneratortest : MonoBehaviour
         indexAtual++;
     }
 
-        if (indexAtual < salasValidas.Count  /*&& RunManager.Instance.currentRun.layer > 2*/)
+        if (indexAtual < salasValidas.Count  && RunManager.Instance.currentRun.layer > 1)
         {
             salasValidas[indexAtual].tipo = TipoSala.SalasMiniBoss;   
         }

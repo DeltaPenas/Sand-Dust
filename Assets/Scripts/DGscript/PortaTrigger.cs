@@ -15,6 +15,32 @@ public class PortaTrigger : MonoBehaviour
     
 
     [System.Obsolete]
+
+    private void Update()
+{
+    if (!playerDentro) return;
+
+    if (!podeTeleportar) return;
+
+    if (!salaAtual.salaLimpa) return;
+
+    if (Input.GetKeyDown(KeyCode.F))
+    {
+        Vector2Int direcaoGrid = ObterDirecaoGrid();
+        Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
+
+        if (!dungeon.ExisteSalaNessaDirecao(proximaSala))
+        {
+            Debug.Log("Não existe sala nessa direção");
+            return;
+        }
+
+        caixaDeDialogoUI.interactText.SetActive(false);
+
+        StartCoroutine(SequenciaTeleporte(player.transform));
+    }
+}
+
     private void Start()
     {
         caixaDeDialogoUI = FindAnyObjectByType<CaixaDeDialogoUI>();
@@ -27,33 +53,17 @@ public class PortaTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player")) return;
+{
+    if (!other.CompareTag("Player")) return;
 
-        if (!podeTeleportar) return;
+    if (!podeTeleportar) return;
 
-        if (playerDentro) return;
+    if (!salaAtual.salaLimpa) return;
 
-        if (!salaAtual.salaLimpa) return;
+    playerDentro = true;
 
-        caixaDeDialogoUI.interactText.SetActive(true);
-
-
-        playerDentro = true;
-
-        Vector2Int direcaoGrid = ObterDirecaoGrid();
-        Vector2Int proximaSala = salaAtual.posicaoGrid + direcaoGrid;
-
-        if (!dungeon.ExisteSalaNessaDirecao(proximaSala))
-        {
-            Debug.Log("Não existe sala nessa direção");
-
-            playerDentro = false;
-            return;
-        }
-
-        StartCoroutine(SequenciaTeleporte(other.transform));
-    }
+    caixaDeDialogoUI.interactText.SetActive(true);
+}
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
