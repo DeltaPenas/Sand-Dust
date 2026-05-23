@@ -5,7 +5,6 @@ using UnityEngine;
 public class PontoDeDecidaDeSala : MonoBehaviour
 {
     private DungeonGeneratortest dg;
-    private RunInfos runInfos;
     private TriggerDeTransicao tt;
     private PlayerVida pv;
     public GameObject portalAtivo;
@@ -20,13 +19,13 @@ public class PontoDeDecidaDeSala : MonoBehaviour
         tt = FindAnyObjectByType<TriggerDeTransicao>();
         dg = FindAnyObjectByType<DungeonGeneratortest>();
         pv = FindAnyObjectByType<PlayerVida>();
-        runInfos = FindAnyObjectByType<RunInfos>();
+       
         
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && dg != null && runInfos != null && RunManager.Instance.currentRun.salasConcluidas >= dg.totalSalasCombate)
+        if (collision.CompareTag("Player") && dg != null && RunManager.Instance.currentRun.salasConcluidas >= dg.totalSalasCombate)
         {
 
             tt.FadeOut();

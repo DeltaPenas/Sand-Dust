@@ -17,6 +17,7 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] public BossState currentState = BossState.Idle;
     [SerializeField] private GameObject telaDeConclusão;
     [SerializeField] public SalaController salaBoss;
+    
 
 
 
@@ -60,6 +61,7 @@ public class FirstBossController : MonoBehaviour
         anim = GetComponent<Animator>();
         vidaBoss = GetComponent<VidaBoss>();
         salaBoss = FindAnyObjectByType<SalaController>();
+
 
         if (player == null)
         {
@@ -195,7 +197,6 @@ public class FirstBossController : MonoBehaviour
     void FicarMorto()
     {
         vidaBoss.invuneravel = true;
-        salaBoss.LiberarPortas();
     }
 
     public void TeleportarPontoAleatorio()

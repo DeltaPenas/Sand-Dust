@@ -113,7 +113,7 @@ public class DungeonGeneratortest : MonoBehaviour
 
     private void AtualizarTemaDungeon()
     {
-        if (RunManager.Instance.currentRun.andar <= 1)
+        if (RunManager.Instance.currentRun.andar <= 0)
         {
             catalogoSalas = catalogoSalasFloresta;
             catalogoInimigos = catalogoInimigosFloresta;
@@ -396,7 +396,8 @@ public class DungeonGeneratortest : MonoBehaviour
     return tipo != TipoSala.Inicial &&
            tipo != TipoSala.Loja &&
            tipo != TipoSala.Tesouro &&
-           tipo != TipoSala.SalaProxLayer;
+           tipo != TipoSala.SalaProxLayer &&
+           tipo != TipoSala.SalaAntesDoBoss;
     }
     private void CalcularSalasCombate()
     {
