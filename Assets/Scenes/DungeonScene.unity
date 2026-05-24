@@ -2611,7 +2611,7 @@ PrefabInstance:
       objectReference: {fileID: 8998249644244355023, guid: 39fcadec67ce91548bd004ecc0746116, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoInimigosSertao.inimigos.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalas.salasProxLayer.Array.data[0]'
@@ -2669,6 +2669,10 @@ PrefabInstance:
       propertyPath: 'catalogoInimigosSertao.inimigos.Array.data[1]'
       value: 
       objectReference: {fileID: 1479567358585270357, guid: e28098a563d29514f8710ad94276ced5, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigosSertao.inimigos.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4810502868381127165, guid: 02c5fb4177196864fa78c7aae155cccf, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalasFloresta.salaLojas.Array.data[0]'
       value: 

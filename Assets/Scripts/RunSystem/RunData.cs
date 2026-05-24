@@ -3,6 +3,8 @@ using System.Collections.Generic;
 public class RunData
 {
     public int inimigosMortos;
+    public float inimigoLifeBuff;
+    public float inimigoBuffDano;
     public int salasConcluidas;
     public int PlayerScore;
     public float tempoDeRun;
@@ -16,6 +18,8 @@ public class RunData
     public void reset()
     {
         inimigosMortos = 0;
+        inimigoLifeBuff = 0;
+        inimigoBuffDano = 0;
         salasConcluidas = 0;
         PlayerScore = 0;
         tempoDeRun = 0;

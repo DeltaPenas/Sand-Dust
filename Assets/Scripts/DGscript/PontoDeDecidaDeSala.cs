@@ -45,6 +45,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
     public void PodeDescer()
 {
     RunManager.Instance.currentRun.layer++;
+    RunManager.Instance.currentRun.inimigoLifeBuff += 0.25f;
 
     // CHEGOU NO BOSS
     if (RunManager.Instance.currentRun.layer == 5)
@@ -65,6 +66,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
 
         RunManager.Instance.currentRun.layer = 1;
         RunManager.Instance.currentRun.andar++;
+        RunManager.Instance.currentRun.inimigoBuffDano++;
 
         dg.qtdInimigos = 1;
         dg.qtdmaxSalas += 1;
