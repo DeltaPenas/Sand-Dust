@@ -26,30 +26,22 @@ protected override void Comportamento()
     }
 }
 void Atirar()
+{
+    if (projetilPrefab == null || pontoDisparo == null || vida.vidaAtual <= 0) return;
+
+    Vector2 direcao = (player.position - pontoDisparo.position).normalized;
+
+    Vector2 spawnPos = (Vector2)pontoDisparo.position + direcao * 0.6f;
+
+    GameObject tiro = Instantiate(projetilPrefab, spawnPos, Quaternion.identity);
+
+    ProjetilInimigo proj = tiro.GetComponent<ProjetilInimigo>();
+
+    if (proj != null)
     {
-        if (projetilPrefab == null || pontoDisparo == null || vida.vidaAtual <= 0) return;
-
-        Vector2 direcao = (player.position - pontoDisparo.position).normalized;
-
-        Vector2 spawnPos = (Vector2)pontoDisparo.position + direcao * 0.6f;
-
-        GameObject tiro = Instantiate(projetilPrefab, spawnPos, Quaternion.identity);
-
-        Collider2D colProjetil = tiro.GetComponent<Collider2D>();
-        Collider2D colInimigo = GetComponent<Collider2D>();
-
-        if (colProjetil != null && colInimigo != null)
-        {
-            Physics2D.IgnoreCollision(colProjetil, colInimigo);
-        }
-
-        ProjetilInimigo proj = tiro.GetComponent<ProjetilInimigo>();
-
-        if (proj != null)
-        {
-            proj.Inicializar(direcao, velocidadeProjetil, dano);
-        }
+        proj.Inicializar(direcao, velocidadeProjetil, dano);
     }
+}
 bool TemLinhaDeVisao()
     {
         Vector2 origem = pontoDisparo.position;
@@ -71,34 +63,45 @@ protected override bool DeveParar()
         return false;// o atirador nunca para de se mover, ele pode atirar mesmo se estiver se movendo
     }
 protected override Vector2 DirecaoBase()
+{
+    Vector2 direcaoPlayer = (player.position - transform.position).normalized;
+
+    // Muito perto -> foge
+    if (distanciaPlayer < distanciaMinima)
     {
-        Vector2 direcaoPlayer = (player.position - transform.position).normalized;
-
-        // Muito perto ele foge
-        if (distanciaPlayer < distanciaMinima)
-        {
-            return -direcaoPlayer;
-        }
-
-        // Muito longe ele se aproxima
-        if (distanciaPlayer > distanciaAtaque)
-        {
-            return direcaoPlayer;
-        }
-
-        if (Time.time > tempoTrocaStrafe)
-        {
-            direcaoStrafe *= -1f;
-            tempoTrocaStrafe = Time.time + Random.Range(1f, 2.5f);
-        //  Distância ideal para strafe (movimento lateral)
-        // troca direção a cada X segundos
-        }
-
-        // vetor perpendicular
-        Vector2 perpendicular = new Vector2(-direcaoPlayer.y, direcaoPlayer.x);
-
-        Vector2 ajuste = direcaoPlayer * 0.3f;// ajuste para manter distância ideal
-
-        return (perpendicular * direcaoStrafe + ajuste).normalized;
+        return -direcaoPlayer;
     }
+
+    // Muito longe -> aproxima
+    if (distanciaPlayer > distanciaAtaque)
+    {
+        return direcaoPlayer;
+    }
+
+    // Troca direção do strafe
+    if (Time.time > tempoTrocaStrafe)
+    {
+        direcaoStrafe *= -1f;
+        tempoTrocaStrafe = Time.time + Random.Range(1f, 2.5f);
+    }
+
+    // Movimento lateral
+    Vector2 perpendicular = new Vector2(-direcaoPlayer.y, direcaoPlayer.x);
+
+    // Mantém distância ideal
+    float distanciaIdeal = (distanciaMinima + distanciaAtaque) * 0.5f;
+
+    Vector2 ajusteDistancia = Vector2.zero;
+
+    if (distanciaPlayer < distanciaIdeal)
+    {
+        ajusteDistancia = -direcaoPlayer;
+    }
+    else if (distanciaPlayer > distanciaIdeal)
+    {
+        ajusteDistancia = direcaoPlayer;
+    }
+
+    return (perpendicular * direcaoStrafe + ajusteDistancia * 0.5f).normalized;
+}
 }
