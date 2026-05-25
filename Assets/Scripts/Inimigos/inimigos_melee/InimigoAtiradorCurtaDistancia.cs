@@ -11,7 +11,7 @@ public float anguloTotal = 60f;
 public float tempoEntreAtaques = 2f;
 
 public float distanciaAtaque = 5f;
-public float velocidadeProjetil;
+public float velocidadeProjetil = 10;
 public int dano;
 
 private float tempoProximoAtaque;

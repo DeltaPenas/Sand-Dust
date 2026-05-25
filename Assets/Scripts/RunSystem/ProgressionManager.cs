@@ -31,13 +31,6 @@ public class ProgressionManager : MonoBehaviour
         a run com mais salas concluidas e xp total, além dos status
     
     */
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            AddXPTotal(1);
-        }
-    }
 
 
     void Awake()

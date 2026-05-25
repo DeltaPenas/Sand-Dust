@@ -42,7 +42,7 @@ void Atirar()
         proj.Inicializar(direcao, velocidadeProjetil, (int)(dano+RunManager.Instance.currentRun.inimigoBuffDano));
     }
 }
-bool TemLinhaDeVisao()
+protected bool TemLinhaDeVisao()
     {
         Vector2 origem = pontoDisparo.position;
         Vector2 direcao = (player.position - pontoDisparo.position).normalized;

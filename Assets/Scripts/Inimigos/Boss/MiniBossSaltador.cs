@@ -6,6 +6,7 @@ public class MiniBossSaltador : InimigoBase
     [Header("Referencias")]
     [SerializeField] private Transform spriteVisual;
     [SerializeField] private GameObject sombra;
+   
 
     [Header("Salto")]
     [SerializeField] private float alturaSalto = 2f;
@@ -31,6 +32,9 @@ public class MiniBossSaltador : InimigoBase
     private bool ocupado;
     private float proximoAtaque;
 
+
+    
+
     protected override void Comportamento()
 {
     if (player == null || ocupado)
@@ -38,6 +42,7 @@ public class MiniBossSaltador : InimigoBase
 
     if (Time.time < proximoAtaque)
         return;
+     if(vida.morreu) return;
 
     if (distanciaPlayer <= distanciaAtaqueSalto)
     {

@@ -2647,7 +2647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoInimigosFloresta.inimigos.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoInimigosSertao.miniBosses.Array.size
@@ -2753,6 +2753,10 @@ PrefabInstance:
       propertyPath: 'catalogoInimigosFloresta.inimigos.Array.data[1]'
       value: 
       objectReference: {fileID: 4810502868381127165, guid: 02c5fb4177196864fa78c7aae155cccf, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoInimigosFloresta.inimigos.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4878653022338402190, guid: f6f213966bb0e2a4397d73ed90c3ebe4, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoInimigosSertao.miniBosses.Array.data[0]'
       value: 
@@ -8851,6 +8855,8 @@ MonoBehaviour:
   currentState: 0
   currentRun:
     inimigosMortos: 0
+    inimigoLifeBuff: 0
+    inimigoBuffDano: 0
     salasConcluidas: 0
     PlayerScore: 0
     tempoDeRun: 0

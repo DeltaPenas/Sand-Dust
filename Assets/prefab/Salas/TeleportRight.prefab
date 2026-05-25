@@ -154,9 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PortaTrigger
   direcao: 3
-  distanciaEntreSalas: 6.5
-  distanciaEntreSalasVertical: 14
-  offsetPlayer: 1.5
   podeTeleportar: 0
 --- !u!95 &5308471106071684559
 Animator:

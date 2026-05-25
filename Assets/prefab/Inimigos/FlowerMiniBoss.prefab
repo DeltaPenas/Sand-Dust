@@ -236,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 8410869851090521574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.347, y: 0.86, z: 0}
+  m_LocalPosition: {x: 4.0718713, y: -1.1829834, z: 0}
   m_LocalScale: {x: 5.615226, y: 5.615226, z: 5.615226}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4c9e9d4eba00843b7e8fb458d67968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vida
-  vidaTotal: 20
+  vidaTotal: 50
   vidaAtual: 0
   morreu: 0
   invuneravel: 0
@@ -403,6 +403,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InimigoController
   vidaInimigo: {fileID: 2771502812641767259}
   scoreDoInimigo: 0
-  anim: {fileID: 0}
+  anim: {fileID: 4493702721791929805}
   gemas:
   - {fileID: 3219365059758621533, guid: 17dd472cfd1b41e4880da889914ee76f, type: 3}
