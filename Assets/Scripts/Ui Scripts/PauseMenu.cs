@@ -85,6 +85,7 @@ public class PauseMenu : MonoBehaviour
     {
         TelaArtefatos.SetActive(false);
     }
+    
 
 
 

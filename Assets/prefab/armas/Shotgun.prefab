@@ -125,7 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WepShotgun
   quantidadePelotas: 5
   anguloAbertura: 50
-  tempoProximoTiro: 0
+  tirosPorRajada: 2
+  intervaloEntreTiros: 0.5
+  cooldownAposRajada: 1.2
   prefabTiro: {fileID: 3293566582396280618, guid: 87da0a09542dcc24b8eb3a34d106c248, type: 3}
   pontoInicialDoTiro: {fileID: 2017153540290562551}
   fireSoundEffect: {fileID: 8300000, guid: 4c7a375b7c15c404b9ef36f685428082, type: 3}

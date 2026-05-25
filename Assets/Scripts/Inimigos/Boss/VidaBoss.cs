@@ -48,7 +48,7 @@ public class VidaBoss : Vida
         SoundController.instance.PlayDungeonMusic();
         boss.TrocarEstado(BossState.Morreu);
         boss.salaBoss.BossDerrotado();
-        //pauseMenu.ChamarConclusao();
+        pauseMenu.ChamarConclusao();
         
     }
 
