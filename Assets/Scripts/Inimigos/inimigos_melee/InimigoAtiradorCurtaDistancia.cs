@@ -60,7 +60,7 @@ void AtirarEmCone()
 
             if (p != null)
             {
-                p.Inicializar(direcaoRotacionada, velocidadeProjetil, dano);
+                p.Inicializar(direcaoRotacionada, velocidadeProjetil, (int)(dano+RunManager.Instance.currentRun.inimigoBuffDano));
             }
         }
         Debug.Log("ATIROU");

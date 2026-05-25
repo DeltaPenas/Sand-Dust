@@ -191,7 +191,7 @@ public class FantasmaPerseguidor : InimigoBase
         if (vidaDoPlayer == null) return;
 
         anim.SetTrigger("Ataque");
-        vidaDoPlayer.DarDanoPlayer(dano);
+        vidaDoPlayer.DarDanoPlayer(dano+RunManager.Instance.currentRun.inimigoBuffDano);
 
         Debug.Log("Fantasma atingiu o player!");
 

@@ -47,7 +47,7 @@ void Atirar()
 
         if (proj != null)
         {
-            proj.Inicializar(direcao, velocidadeProjetil, dano);
+            proj.Inicializar(direcao, velocidadeProjetil, (int)(dano+RunManager.Instance.currentRun.inimigoBuffDano));
         }
     }
 bool TemLinhaDeVisao()
