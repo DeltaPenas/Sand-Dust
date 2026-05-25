@@ -65,8 +65,8 @@ public class PlayerVida : MonoBehaviour
             playerVidaAtual +=diferenca;    
         }
 
-        //playerVidaAtual = Mathf.Clamp(playerVidaAtual, 0, playerVidaTotal);
-        playerVidaAtual = playerVidaTotal;
+        playerVidaAtual = Mathf.Clamp(playerVidaAtual, 0, playerVidaTotal);
+        //playerVidaAtual = playerVidaTotal;
         heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
 
         Debug.Log("Vida atualizada!");

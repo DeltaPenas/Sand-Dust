@@ -12,12 +12,15 @@ public class PortaTrigger : MonoBehaviour
     private TriggerDeTransicao tt;
     private bool playerDentro;
     private CaixaDeDialogoUI caixaDeDialogoUI;
+    private bool teleportando;
     
 
     [System.Obsolete]
 
-    private void Update()
+private void Update()
 {
+    if (teleportando) return;
+
     if (!playerDentro) return;
 
     if (!podeTeleportar) return;
@@ -130,25 +133,29 @@ public class PortaTrigger : MonoBehaviour
 
         return dungeon.BuscarSalaPorPosicao(posicaoDestino);
     }
-   IEnumerator SequenciaTeleporte(Transform alvo)
-    {
-        player.iframeAtivo = true;
-        player.podeMover = false;
+IEnumerator SequenciaTeleporte(Transform alvo)
+{
+    teleportando = true;
 
-        player.rig.linearVelocity = Vector2.zero;
+    player.iframeAtivo = true;
+    player.podeMover = false;
 
-        tt.FadeOut();
+    player.rig.linearVelocity = Vector2.zero;
 
-        yield return new WaitForSeconds(1f);
+    tt.FadeOut();
 
-        Teleportar(alvo);
-        player.podeMover = true;
+    yield return new WaitForSeconds(1f);
 
-        yield return new WaitForSeconds(3f);
+    Teleportar(alvo);
 
-        player.iframeAtivo = false;
-        
-    }
+    player.podeMover = true;
+
+    yield return new WaitForSeconds(0.2f);
+
+    player.iframeAtivo = false;
+
+    teleportando = false;
+}
 
     private void OnDestroy()
     {
