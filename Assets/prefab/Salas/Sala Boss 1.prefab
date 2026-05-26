@@ -15401,6 +15401,7 @@ MonoBehaviour:
   bossFightIniciada: 0
   bossDerrotado: 0
   boss: {fileID: 0}
+  pontoDeDecidaDeSala: {fileID: 0}
 --- !u!114 &708271126844680037
 MonoBehaviour:
   m_ObjectHideFlags: 0

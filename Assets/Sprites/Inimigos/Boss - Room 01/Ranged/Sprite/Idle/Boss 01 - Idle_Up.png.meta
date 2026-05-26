@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: ecd3f69b4d2ca084ead38f3de59ec2c5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9154574595708524055
+    second: Boss 01 - Idle_Up_0
+  - first:
+      213: -4917339441070926635
+    second: Boss 01 - Idle_Up_1
+  - first:
+      213: 51417149904502804
+    second: Boss 01 - Idle_Up_2
+  - first:
+      213: 6854867177829852890
+    second: Boss 01 - Idle_Up_3
+  - first:
+      213: 5439050016912016563
+    second: Boss 01 - Idle_Up_4
+  - first:
+      213: -3783390347828744619
+    second: Boss 01 - Idle_Up_5
+  - first:
+      213: 4619830756745455721
+    second: Boss 01 - Idle_Up_6
+  - first:
+      213: -8225473591903220447
+    second: Boss 01 - Idle_Up_7
+  - first:
+      213: -310278747082715655
+    second: Boss 01 - Idle_Up_8
+  - first:
+      213: 6344360527878566475
+    second: Boss 01 - Idle_Up_9
+  - first:
+      213: -8765263744470427460
+    second: Boss 01 - Idle_Up_10
+  - first:
+      213: 1085267446093940481
+    second: Boss 01 - Idle_Up_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 5
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e96af088ea64f080800000000000000
+      internalID: -9154574595708524055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 4
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d413fed4d912cbb0800000000000000
+      internalID: -4917339441070926635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_2
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 4
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 410cb6b10aba6b000800000000000000
+      internalID: 51417149904502804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_3
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 4
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad6680d2161612f50800000000000000
+      internalID: 6854867177829852890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_4
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 5
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b48f9d4c236b7b40800000000000000
+      internalID: 5439050016912016563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_5
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 5
+        width: 60
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55ea60f1682be7bc0800000000000000
+      internalID: -3783390347828744619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_6
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 5
+        width: 60
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968ac3aa89fec1040800000000000000
+      internalID: 4619830756745455721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_7
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 5
+        width: 60
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d804d395f39dd80800000000000000
+      internalID: -8225473591903220447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_8
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 5
+        width: 60
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fd08ca9f1ba1bbf0800000000000000
+      internalID: -310278747082715655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_9
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 5
+        width: 60
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4236374942bb0850800000000000000
+      internalID: 6344360527878566475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_10
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 5
+        width: 60
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8da3490178b5680800000000000000
+      internalID: -8765263744470427460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss 01 - Idle_Up_11
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 5
+        width: 60
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10789b20ef4af0f00800000000000000
+      internalID: 1085267446093940481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss 01 - Idle_Up_0: -9154574595708524055
+      Boss 01 - Idle_Up_1: -4917339441070926635
+      Boss 01 - Idle_Up_10: -8765263744470427460
+      Boss 01 - Idle_Up_11: 1085267446093940481
+      Boss 01 - Idle_Up_2: 51417149904502804
+      Boss 01 - Idle_Up_3: 6854867177829852890
+      Boss 01 - Idle_Up_4: 5439050016912016563
+      Boss 01 - Idle_Up_5: -3783390347828744619
+      Boss 01 - Idle_Up_6: 4619830756745455721
+      Boss 01 - Idle_Up_7: -8225473591903220447
+      Boss 01 - Idle_Up_8: -310278747082715655
+      Boss 01 - Idle_Up_9: 6344360527878566475
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

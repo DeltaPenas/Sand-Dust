@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -17,9 +18,6 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] public BossState currentState = BossState.Idle;
     [SerializeField] private GameObject telaDeConclusão;
     [SerializeField] public SalaController salaBoss;
-    
-
-
 
     [Header("Trap")]
 
@@ -89,6 +87,24 @@ public class FirstBossController : MonoBehaviour
     void FixedUpdate()
     {
         if (player == null) return;
+
+        Vector2 direcaoOlhar = (player.position - transform.position).normalized;
+        float moveX = 0;
+        float moveY = 0;
+        if (Mathf.Abs(direcaoOlhar.x) > Mathf.Abs(direcaoOlhar.y))
+        {
+         moveX = Mathf.Sign(direcaoOlhar.x);
+         moveY = 0;
+        }
+        else
+        {
+         moveY = Mathf.Sign(direcaoOlhar.y);
+         moveX = 0;   
+        }
+        anim.SetFloat("Horizontal", moveX);
+        anim.SetFloat("Vertical", moveY);
+
+
 
         switch (currentState)
         {

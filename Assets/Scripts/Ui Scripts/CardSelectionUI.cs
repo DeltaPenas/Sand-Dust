@@ -14,11 +14,13 @@ public class CardSelectionUI : MonoBehaviour
     }
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.L))
     {   
         var manager = FindAnyObjectByType<ArtfatoManager>();
         MostrarArtefatos(manager.GerarOpções(3));
     }
+    */
     }
 
     public void MostrarArtefatos(List<Artefato> artefatos)
