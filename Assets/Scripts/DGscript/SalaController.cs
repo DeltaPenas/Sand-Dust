@@ -136,7 +136,14 @@ public class SalaController : MonoBehaviour
     {
         Debug.Log("Sala limpa! Liberando portas.");
         salaLimpa = true;
-        soundController.TocarSom(dg.efeitoSonoroDeAbrirPorta);
+        if (soundController != null && dg != null && dg.efeitoSonoroDeAbrirPorta != null)
+        {
+            soundController.TocarSom(dg.efeitoSonoroDeAbrirPorta);
+        }
+        else
+        {
+            Debug.LogWarning("Som de porta não tocado: referência ausente.");
+        }
 
 
         if (RunManager.Instance != null)

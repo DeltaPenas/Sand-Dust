@@ -19,6 +19,11 @@ public class TriggerSala : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
+        if (MinimapManager.Instance != null)
+            MinimapManager.Instance.RevelarSala(sala);
+        
+        MinimapManager.Instance.RevelarSala(sala);
+
         if (sala == null)
         {
             Debug.LogError("Sala não encontrada");

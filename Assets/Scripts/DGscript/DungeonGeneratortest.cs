@@ -264,6 +264,10 @@ public class DungeonGeneratortest : MonoBehaviour
             if (controller != null) 
             {
                 controller.ConfigurarSala(sala);
+
+                if (MinimapManager.Instance != null)
+                    MinimapManager.Instance.RegistrarSala(controller);
+
                 //definr as portas
                 bool cima = ExisteSala(sala.Posicao + Vector2Int.up);
                 bool baixo = ExisteSala(sala.Posicao + Vector2Int.down);
