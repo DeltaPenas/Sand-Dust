@@ -94,6 +94,7 @@ public class MiniBossSaltador : InimigoBase
         spriteVisual.localPosition = Vector3.zero;
 
         ImpactoArea();
+        Camera.main.GetComponent<CameraShake>().ShakeCamera(0.5f, 0.1f);
 
         ocupado = false;
     }
