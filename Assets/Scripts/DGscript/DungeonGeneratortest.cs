@@ -61,6 +61,7 @@ public class DungeonGeneratortest : MonoBehaviour
     Debug.Log("Andar atual: " + RunManager.Instance.currentRun.andar);
 
     salas.Clear();
+    MinimapManager.Instance.ResetarMapa();
 
     // MINI DUNGEON BOSS
     if (RunManager.Instance.currentRun.layer == 5)

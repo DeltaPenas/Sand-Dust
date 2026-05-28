@@ -56,35 +56,55 @@ public class MinimapManager : MonoBehaviour
     }
 
     private Color CorPorTipo(TipoSala tipo)
+{
+    switch (tipo)
     {
-        switch (tipo)
+       
+        case TipoSala.Inicial:
+            return new Color(0.85f, 0.85f, 0.85f);
+
+     
+        case TipoSala.SalaBoss:
+            return new Color(0.15f, 0.15f, 0.15f);
+
+      
+        case TipoSala.Tesouro:
+            return new Color(1f, 0.85f, 0.2f);
+
+
+        case TipoSala.Loja:
+            return new Color(0.95f, 0.75f, 0.15f);
+
+ 
+        case TipoSala.SalasMiniBoss:
+            return new Color(0.45f, 0.45f, 0.45f);
+
+   
+        case TipoSala.SalaAntesDoBoss:
+            return new Color(0.3f, 0.3f, 0.3f);
+
+        case TipoSala.SalaProxLayer:
+            return new Color(1f, 0.95f, 0.5f);
+
+     
+        case TipoSala.Secreta:
+            return new Color(0.6f, 0.6f, 0.6f);
+
+        default:
+            return new Color(0.75f, 0.75f, 0.75f);
+    }
+}
+
+public void ResetarMapa()
+{
+    foreach (Image imagem in salasNoMinimap.Values)
+    {
+        if (imagem != null)
         {
-            case TipoSala.Inicial:
-                return Color.green;
-
-            case TipoSala.SalaBoss:
-                return Color.red;
-
-            case TipoSala.Tesouro:
-                return Color.yellow;
-
-            case TipoSala.Loja:
-                return Color.cyan;
-
-            case TipoSala.SalasMiniBoss:
-                return new Color(0.7f, 0f, 1f);
-
-            case TipoSala.SalaAntesDoBoss:
-                return new Color(1f, 0.5f, 0f);
-
-            case TipoSala.SalaProxLayer:
-                return Color.blue;
-
-            case TipoSala.Secreta:
-                return Color.magenta;
-
-            default:
-                return Color.white;
+            Destroy(imagem.gameObject);
         }
     }
+
+    salasNoMinimap.Clear();
+}
 }
