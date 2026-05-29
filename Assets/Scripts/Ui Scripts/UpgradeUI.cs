@@ -18,6 +18,7 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] private GameObject telaDeMelhorias;
     [SerializeField] private GameObject telaDeOpções;
     [SerializeField] private GameObject telaDeCredito;
+    [SerializeField] private GameObject painelDeProg;
     
 
 
@@ -66,6 +67,16 @@ public class UpgradeUI : MonoBehaviour
     {
         telaInicial.SetActive(false);
         telaDeCredito.SetActive(true);
+    }
+    public void ChamarTelaDeProg()
+    {
+        painelDeProg.SetActive(true);
+        telaDeOpções.SetActive(false);
+    }
+    public void TirarTelaDeProg()
+    {
+        painelDeProg.SetActive(false);
+        telaDeOpções.SetActive(true);
     }
 
 

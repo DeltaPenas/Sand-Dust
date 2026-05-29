@@ -119,4 +119,19 @@ public class ProgressionManager : MonoBehaviour
         velocidadeBonus+=0.5f;
         pontosDisponiveis--;
     }
+    public void ResetarProgresso()
+    {
+        SaveSystem.DeleteProgSave();
+        xpTotal = 0;
+        xpAtual = 0;
+        level = 1;
+        pontosDisponiveis = 0;
+
+        vidaBonus = 0;
+        danoRangedBonus = 0;
+        danoMeleeBonus = 0;
+        danoSkillBonus = 0;
+        danoUltBonus = 0;
+        velocidadeBonus = 0;
+    }
 }
