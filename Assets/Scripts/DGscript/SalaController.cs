@@ -116,7 +116,7 @@ public class SalaController : MonoBehaviour
         return;
 
         entrou = true;
-        qtdInimigosVivos = spawner.SpawnarInimigos();
+        spawner.IniciarSpawn();
 
         foreach (PropSpawner prop in props)
             {
