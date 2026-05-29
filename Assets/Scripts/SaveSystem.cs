@@ -106,4 +106,12 @@ public static class SaveSystem
             Debug.Log("Save da run apagado.");
         }
     }
+    public static void DeleteProgSave()
+    {
+        if (File.Exists(progressionPath))
+        {
+            File.Delete(progressionPath);
+            Debug.Log("Save do jogador apagado.");
+        }
+    }
 }

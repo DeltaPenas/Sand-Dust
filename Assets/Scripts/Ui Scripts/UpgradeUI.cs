@@ -14,7 +14,11 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI danoUltText;
     [SerializeField] private TextMeshProUGUI velocidadeText;
     [SerializeField] private TextMeshProUGUI proximoLvlText;
-
+    [SerializeField] private GameObject telaInicial;
+    [SerializeField] private GameObject telaDeMelhorias;
+    [SerializeField] private GameObject telaDeOpções;
+    [SerializeField] private GameObject telaDeCredito;
+    
 
 
     void Update()
@@ -40,6 +44,33 @@ public class UpgradeUI : MonoBehaviour
         RunManager.Instance.StartRun();
         
     }
+
+    public void ChamarTelaInicial()
+    {
+        telaInicial.SetActive(true);
+        telaDeMelhorias.SetActive(false);
+        telaDeOpções.SetActive(false);
+        telaDeCredito.SetActive(false);
+    }
+    public void chamarTelaMelhorias()
+    {
+        telaInicial.SetActive(false);
+        telaDeMelhorias.SetActive(true);
+    }
+    public void chamarTelaDeOpções()
+    {
+        telaInicial.SetActive(false);
+        telaDeOpções.SetActive(true);
+    }
+    public void ChamarTelaDeCreditos()
+    {
+        telaInicial.SetActive(false);
+        telaDeCredito.SetActive(true);
+    }
+
+
+
+
       public void Fechar()
     {
        Application.Quit();
