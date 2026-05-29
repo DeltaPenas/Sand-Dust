@@ -445,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxLoop
   spriteA: {fileID: 414393747}
   spriteB: {fileID: 632400145}
-  velocidade: 6
+  velocidade: 4
 --- !u!1 &136933695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxLoop
   spriteA: {fileID: 1816761991}
   spriteB: {fileID: 687168700}
-  velocidade: 10
+  velocidade: 8
 --- !u!1 &195116320
 GameObject:
   m_ObjectHideFlags: 0
@@ -4823,7 +4823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxLoop
   spriteA: {fileID: 1247191221}
   spriteB: {fileID: 842235502}
-  velocidade: 2
+  velocidade: 0.25
 --- !u!1 &842235501
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,7 +5058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxLoop
   spriteA: {fileID: 853583119}
   spriteB: {fileID: 439449202}
-  velocidade: 8
+  velocidade: 6
 --- !u!1 &873718191
 GameObject:
   m_ObjectHideFlags: 0
@@ -12145,7 +12145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxLoop
   spriteA: {fileID: 136933696}
   spriteB: {fileID: 557884269}
-  velocidade: 3
+  velocidade: 0.5
 --- !u!1 &2038115436
 GameObject:
   m_ObjectHideFlags: 0
@@ -12335,7 +12335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxLoop
   spriteA: {fileID: 971461765}
   spriteB: {fileID: 496557977}
-  velocidade: 4
+  velocidade: 1
 --- !u!1 &2084337795
 GameObject:
   m_ObjectHideFlags: 0
@@ -12388,7 +12388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxLoop
   spriteA: {fileID: 2147238029}
   spriteB: {fileID: 616775572}
-  velocidade: 5
+  velocidade: 2
 --- !u!1 &2107157710
 GameObject:
   m_ObjectHideFlags: 0
