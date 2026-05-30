@@ -6,10 +6,7 @@ public class MiniBossFogo : InimigoAtirador
     public float tempoEntreAtaques = 3f;
     public int quantidadeTiros = 5;
     public float anguloTotal = 60f;
-    
     [SerializeField] private GameObject boomerangPrefab;
-
-
     private float proximoAtaque;
 
  

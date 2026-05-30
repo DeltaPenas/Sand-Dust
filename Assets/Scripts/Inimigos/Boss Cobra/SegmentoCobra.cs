@@ -12,7 +12,7 @@ public class SegmentoCobra : MonoBehaviour
 
     void Start()
     {
-        bossCobra = GetComponent<BossCobra>();
+        bossCobra = FindAnyObjectByType<BossCobra>();
     }
     void Update()
     {
@@ -23,7 +23,7 @@ public class SegmentoCobra : MonoBehaviour
         if (direcao.magnitude > distancia)
         {
             transform.position += direcao.normalized *
-                                  velocidadeFollow *
+                                  bossCobra.velocidadeBoss *
                                   Time.deltaTime;
         }
 

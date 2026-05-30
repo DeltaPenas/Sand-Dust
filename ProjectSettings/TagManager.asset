@@ -10,6 +10,7 @@ TagManager:
   - Items
   - ProjetilPlayer
   - ProjetilInimigo
+  - WayPoint
   layers:
   - Default
   - TransparentFX

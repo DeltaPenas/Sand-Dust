@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ProjetilInimgioExplosivo : MonoBehaviour // fiz mudanças para o projetil evitar depender do inimigo e 
@@ -5,18 +7,27 @@ public class ProjetilInimgioExplosivo : MonoBehaviour // fiz mudanças para o pr
 {
 private Vector2 direcao;
 [SerializeField]private GameObject explosionVFX;
+[SerializeField]private GameObject fogoObj;
 [SerializeField]private AudioClip explosionSFX;
+
 
 private float velocidade;
 private int dano = 2;
 private float tempoIgnorarColisao = 0.1f;
 public float areaExpo = 1; 
 private float tempoSpawn;
+public bool deixaRastro;
 
 private void Start()
 {
     tempoSpawn = Time.time;
+        if (deixaRastro)
+        {
+           StartCoroutine(SpawnarFogo());
+        }
+   
     Invoke(nameof(Explodir), 3);
+    
 
         
 }
@@ -30,7 +41,8 @@ public void Inicializar(Vector2 direcaoInicial, float velocidadeProjetil, int da
 
 private void Update()
 {
-        transform.Translate(direcao * velocidade * Time.deltaTime);
+    transform.Translate(direcao * velocidade * Time.deltaTime);
+       
 }
 
 private void OnTriggerEnter2D(Collider2D alvo)
@@ -72,7 +84,11 @@ private void Explodir()
                 pv.DarDanoPlayer(dano);
             }
         } 
-        soundController.TocarSom(explosionSFX);
+        if(soundController != null)
+        {
+            soundController.TocarSom(explosionSFX);
+        }
+        
         Camera.main.GetComponent<CameraShake>().ShakeCamera(0.1f, 0.001f);
         Destroy(gameObject);
         
@@ -81,4 +97,17 @@ private void Explodir()
 
 
     }
+    IEnumerator SpawnarFogo()
+        {   
+        for (int i = 0; i < 8; i++)
+            {
+                yield return new WaitForSeconds (0.25f);
+                GameObject fogo = Instantiate(
+                    fogoObj,
+                    transform.position,
+                    quaternion.identity
+                ); 
+            }
+            
+            }  
 }
