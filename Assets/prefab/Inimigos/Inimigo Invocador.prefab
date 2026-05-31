@@ -229,12 +229,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   tempoDesvio: 0.7
+  atrasoAntesDeInvocar: 1.2
+  intervaloEntreInvocados: 0.6
   inimigoPrefab: {fileID: 5844461690707922050, guid: 2863aaedce4d78d44a5b272b3c63c611, type: 3}
   pontoInvocacao: {fileID: 6127230995236851080}
   quantidadeInvocada: 3
   maxInimigos: 3
   intervaloInvocacao: 2
-  distanciaInvocacao: 4
+  distanciaDeteccao: 25
+  distanciaFuga: 4
 --- !u!95 &6027502616502243667
 Animator:
   serializedVersion: 7
