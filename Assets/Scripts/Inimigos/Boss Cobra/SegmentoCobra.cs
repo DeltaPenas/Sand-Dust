@@ -22,9 +22,7 @@ public class SegmentoCobra : MonoBehaviour
 
         if (direcao.magnitude > distancia)
         {
-            transform.position += direcao.normalized *
-                                  bossCobra.velocidadeBoss *
-                                  Time.deltaTime;
+            transform.position += direcao.normalized * bossCobra.velocidadeMovimento * Time.deltaTime;
         }
 
         float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
@@ -34,7 +32,7 @@ public class SegmentoCobra : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D alvo)
     {
-        if (alvo.gameObject.CompareTag("Player"))
+        if (alvo.gameObject.CompareTag("Player") && bossCobra.currentState != BossState.Idle && bossCobra.currentState != BossState.Morreu)
         {
             PlayerVida playerVida = alvo.gameObject.GetComponent<PlayerVida>();
 

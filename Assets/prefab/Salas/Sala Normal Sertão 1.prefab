@@ -2792,7 +2792,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 8
       m_TileObjectToInstantiateIndex: 65535
@@ -2959,14 +2959,14 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1898054008, guid: 75c4089b7f5be1241b04cdfdd9abc72f, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 1609580034, guid: 75c4089b7f5be1241b04cdfdd9abc72f, type: 3}
   - m_RefCount: 2
@@ -5468,6 +5468,8 @@ MonoBehaviour:
   bossFightIniciada: 0
   bossDerrotado: 0
   boss: {fileID: 0}
+  bossCobra: {fileID: 0}
+  pontoDeDecidaDeSala: {fileID: 0}
 --- !u!114 &5152712534925504520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5483,6 +5485,7 @@ MonoBehaviour:
   areaMin: {x: -2, y: -2}
   areaMax: {x: 2, y: 2}
   quantidadeSpawn: 0
+  delaySpawn: 0.5
 --- !u!1001 &23738277736120105
 PrefabInstance:
   m_ObjectHideFlags: 0

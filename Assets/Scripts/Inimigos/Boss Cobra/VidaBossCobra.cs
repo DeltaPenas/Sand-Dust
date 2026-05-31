@@ -4,11 +4,11 @@ public class VidaBossCobra : Vida
 {
     [Header("Fase/Buff")]
 
-    public float danoParaTrocaDeFase;
-    public float danoParaProximoBuff;
 
     [SerializeField] private BossCobra boss;
     [SerializeField] private PauseMenu pauseMenu;
+    [SerializeField] private float vidaParaTrocaDeFase;
+    
 
     private float danoAcumuladoBuff;
 
@@ -19,27 +19,20 @@ public class VidaBossCobra : Vida
 
 
         vidaAtual = vidaTotal;
+        vidaParaTrocaDeFase = vidaTotal/2;
     }
 
     protected override void AoReceberDano()
     {
-        danoAcumuladoBuff += ultimoDanoRecebido;
-
-        // troca de fase apos dano acumulado
-        if (danoAcumulado >= danoParaTrocaDeFase)
+        if (vidaAtual <= 0)
         {
-            danoAcumulado = 0;
-
-            boss.TrocarEstado(BossState.FaseDois);
+            boss.TrocarEstado(BossState.Morreu);
         }
-
-       
-        if (danoAcumuladoBuff >= danoParaProximoBuff)
+        if (vidaAtual <= vidaParaTrocaDeFase && boss.currentState == BossState.FaseUm)
         {
-            danoAcumuladoBuff = 0;
-
-            AplicarBuff();
+            boss.EntrarNaFaseDois();
         }
+        
     }
 
     protected override void morrer()

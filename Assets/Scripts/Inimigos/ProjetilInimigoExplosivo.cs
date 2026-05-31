@@ -99,9 +99,9 @@ private void Explodir()
     }
     IEnumerator SpawnarFogo()
         {   
-        for (int i = 0; i < 8; i++)
+        while (true)
             {
-                yield return new WaitForSeconds (0.25f);
+                yield return new WaitForSeconds (0.15f);
                 GameObject fogo = Instantiate(
                     fogoObj,
                     transform.position,

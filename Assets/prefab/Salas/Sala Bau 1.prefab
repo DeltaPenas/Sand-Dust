@@ -1218,6 +1218,11 @@ MonoBehaviour:
   salaLimpa: 0
   qtdInimigosVivos: 0
   dg: {fileID: 0}
+  bossFightIniciada: 0
+  bossDerrotado: 0
+  boss: {fileID: 0}
+  bossCobra: {fileID: 0}
+  pontoDeDecidaDeSala: {fileID: 0}
 --- !u!114 &9013958765493089902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,6 +1237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
   areaMin: {x: -2, y: -2}
   areaMax: {x: 2, y: 2}
+  quantidadeSpawn: 0
+  delaySpawn: 0.5
 --- !u!1 &1606568780228724707
 GameObject:
   m_ObjectHideFlags: 0

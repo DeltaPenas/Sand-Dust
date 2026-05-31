@@ -172,5 +172,5 @@ MonoBehaviour:
   explosionVFX: {fileID: 2326974340402274077, guid: 08c8aa5a28c9367429f98190104eed02, type: 3}
   fogoObj: {fileID: 7566871062168443071, guid: 23e1f2423b384664cabd0397971b67c4, type: 3}
   explosionSFX: {fileID: 8300000, guid: e8a6b41d42ed4704189c6e12b2e997d9, type: 3}
-  areaExpo: 10
+  areaExpo: 2
   deixaRastro: 1

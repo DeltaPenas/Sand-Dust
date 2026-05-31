@@ -3248,6 +3248,8 @@ MonoBehaviour:
   bossFightIniciada: 0
   bossDerrotado: 0
   boss: {fileID: 0}
+  bossCobra: {fileID: 0}
+  pontoDeDecidaDeSala: {fileID: 0}
 --- !u!114 &7915541333736820225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3263,6 +3265,7 @@ MonoBehaviour:
   areaMin: {x: -2, y: -2}
   areaMax: {x: 2, y: 2}
   quantidadeSpawn: 0
+  delaySpawn: 0.5
 --- !u!1 &8812249220977794903
 GameObject:
   m_ObjectHideFlags: 0

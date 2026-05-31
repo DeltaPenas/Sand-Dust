@@ -42,6 +42,7 @@ public class SalaController : MonoBehaviour
     public bool bossFightIniciada = false;
     public bool bossDerrotado = false;
     [SerializeField] private FirstBossController boss;
+    [SerializeField] private BossCobra bossCobra;
     [SerializeField] private PontoDeDecidaDeSala pontoDeDecidaDeSala;
    
     
@@ -60,6 +61,7 @@ public class SalaController : MonoBehaviour
         portas = GetComponentsInChildren<PortaTrigger>();
         soundController = FindAnyObjectByType<SoundController>();
         boss = GetComponentInChildren<FirstBossController>();
+        bossCobra = GetComponentInChildren<BossCobra>();
         pontoDeDecidaDeSala = FindAnyObjectByType<PontoDeDecidaDeSala>();
         
 
@@ -232,8 +234,15 @@ public class SalaController : MonoBehaviour
             luz.gameObject.SetActive(false);
         }
     }
-
-    boss.IniciarBoss();
+        if (boss != null)
+        {
+            boss.IniciarBoss();
+        }
+        if (bossCobra !=null)
+        {
+            bossCobra.IniciarBoss();
+        }
+    
 
     Debug.Log("Boss fight iniciada");
 }

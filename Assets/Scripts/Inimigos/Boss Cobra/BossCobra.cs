@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BossCobra : InimigoBase
 {
     [Header("Referencias")]
+    [SerializeField] private VidaBossCobra vidaBossCobra;
     [SerializeField] private List<GameObject> segmentos;
     [SerializeField] private List<Transform> posPonto;
     [SerializeField] private Transform pontoAtual;
@@ -13,32 +15,32 @@ public class BossCobra : InimigoBase
     [SerializeField] private GameObject bolaDeFogo;
     [SerializeField] private float velocidadeProjetil = 7f;
 
+    [Header("Status")]
 
-    public float distanciaAtaque = 1.5f;
     public float tempoEntreAtaques = 3f;
     public int dano = 2;
     public int danoBolaDeFogo = 1;
     private float proximoAtaque;
 
     public float velocidadeBoss = 1f;
+    public float velocidadeMovimento;
 
     protected override void Start()
     {
+        vidaBossCobra = GetComponent<VidaBossCobra>();
         pontoAtual = posPonto[0];
         base.Start();
+        TrocarEstado(BossState.Idle);
 
         proximoAtaque = Time.time + 0.5f;
 
-        velocidade = velocidadeBoss;
+        velocidadeMovimento = velocidadeBoss;
     }
 
     private void Update()
     {
-        Vector2 direcao = (pontoAtual.position - transform.position).normalized;
-
-        transform.position += (Vector3)direcao * velocidadeBoss * Time.deltaTime;
-        float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angulo);
+        
+        Mover();
         Comportamento();
 
         if(Vector2.Distance(transform.position, pontoAtual.position) < 0.2f)
@@ -49,7 +51,7 @@ public class BossCobra : InimigoBase
 
      void OnCollisionEnter2D(Collision2D alvo)
     {
-        if (alvo.gameObject.CompareTag("Player"))
+        if (alvo.gameObject.CompareTag("Player") && currentState != BossState.Idle && currentState != BossState.Morreu)
         {
             PlayerVida playerVida = alvo.gameObject.GetComponent<PlayerVida>();
 
@@ -74,16 +76,34 @@ public class BossCobra : InimigoBase
         }
     }
 
+    private void Mover()
+{
+    if (currentState == BossState.Idle || currentState == BossState.Morreu) return;
+
+    Vector2 direcao = (pontoAtual.position - transform.position).normalized;
+
+    transform.position += (Vector3)direcao * velocidadeMovimento * Time.deltaTime;
+
+    float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
+
+    transform.rotation = Quaternion.Euler(0, 0, angulo);
+
+    if (Vector2.Distance(transform.position, pontoAtual.position) < 0.2f)
+    {
+        DefinirProximoLocal();
+    }
+}
+
 
     public void DefinirProximoLocal()
     {
        refPontoAtual++;
-       velocidadeBoss = 5f;
+       velocidadeMovimento = velocidadeBoss;
        
         if(refPontoAtual >= posPonto.Count)
         {
             refPontoAtual = 0;
-            velocidadeBoss = 30f;
+            velocidadeMovimento *=6;
             
         } 
        pontoAtual = posPonto[refPontoAtual];
@@ -98,6 +118,7 @@ public class BossCobra : InimigoBase
     void EscolherAtaque()
     {
         int ataque = UnityEngine.Random.Range(0, 2);
+        if(currentState == BossState.Idle || currentState == BossState.Morreu) return;
 
         switch (ataque)
         {
@@ -134,6 +155,21 @@ public class BossCobra : InimigoBase
             proj.Inicializar(direcao, velocidadeProjetil, (int)(dano+RunManager.Instance.currentRun.inimigoBuffDano));
         }
         Debug.Log("Atirou");
+    }
+
+    public void EntrarNaFaseDois()
+    {
+        TrocarEstado(BossState.FaseDois);
+        velocidadeBoss *=2;
+        tempoEntreAtaques /=2;
+    }
+
+    public void IniciarBoss()
+    {
+        
+        TrocarEstado(BossState.FaseUm);
+        SoundController.instance.PlayBossMusic();
+
     }
 
     
