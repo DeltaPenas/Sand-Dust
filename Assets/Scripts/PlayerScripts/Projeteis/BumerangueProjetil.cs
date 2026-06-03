@@ -21,7 +21,7 @@ public class BumerangueProjetil : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         skillBumerangue = FindAnyObjectByType<SkillBumerangue>();
         dono = skillBumerangue.pc.transform;
-
+        
         Invoke(nameof(IniciarRetorno), tempoIda);
     }
 
@@ -48,6 +48,11 @@ public class BumerangueProjetil : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Vida vida = other.GetComponent<Vida>();
+
+        if (other.CompareTag("Parede"))
+        {
+            IniciarRetorno();
+        }
 
         if (vida != null)
         {
