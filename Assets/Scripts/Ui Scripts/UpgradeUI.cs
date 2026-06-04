@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class UpgradeUI : MonoBehaviour
 {
@@ -15,12 +16,21 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI velocidadeText;
     [SerializeField] private TextMeshProUGUI proximoLvlText;
     [SerializeField] private GameObject telaInicial;
+    [SerializeField] private GameObject version;
     [SerializeField] private GameObject telaDeMelhorias;
     [SerializeField] private GameObject telaDeOpções;
     [SerializeField] private GameObject telaDeCredito;
     [SerializeField] private GameObject painelDeProg;
-    
+    [SerializeField] private CarroController carroController;
+    [SerializeField] private FadeController fadeController;
 
+
+
+    void Start()
+    {
+        carroController = FindAnyObjectByType<CarroController>();
+        fadeController = FindAnyObjectByType<FadeController>();
+    }
 
     void Update()
     {
@@ -42,8 +52,20 @@ public class UpgradeUI : MonoBehaviour
 
     public void IniciarRun()
     {
-        RunManager.Instance.StartRun();
+        StartCoroutine(SequenciaInicial());
         
+    }
+
+    public IEnumerator SequenciaInicial()
+    {
+        carroController.IniciarMove();
+        telaInicial.SetActive(false);
+        version.SetActive(false);
+        yield return new WaitForSeconds (1.5f);
+        fadeController.ChamarFade();
+        yield return new WaitForSeconds (1f);
+
+        RunManager.Instance.StartRun();
     }
 
     public void ChamarTelaInicial()
