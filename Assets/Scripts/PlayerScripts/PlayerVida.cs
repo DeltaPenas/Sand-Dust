@@ -40,17 +40,17 @@ public class PlayerVida : MonoBehaviour
     }
 
     public void definirVida()
-{
-    playerVidaTotal = player.currentStatus.vidaMax;
-
-    // Só define vida cheia se ainda não existir save/carregamento
-    if (!vidaJaCarregada)
     {
-        playerVidaAtual = playerVidaTotal;
-    }
+        playerVidaTotal = player.currentStatus.vidaMax;
 
-    heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
-}
+        // Só define vida cheia se ainda não existir save/carregamento
+        if (!vidaJaCarregada)
+        {
+            playerVidaAtual = playerVidaTotal;
+        }
+
+        heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
+    }
     void AtualizarVida(float novaVidaMax)
     {
         float vidaMaxAntiga = playerVidaTotal;
@@ -70,9 +70,11 @@ public class PlayerVida : MonoBehaviour
         heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
 
         Debug.Log("Vida atualizada!");
-
-
-
+    }
+    public void RestaurarVida()
+    {
+        playerVidaAtual = playerVidaTotal;
+        heartUi.UpdateHearts((int)playerVidaAtual, (int)playerVidaTotal);
     }
 
     public void DarDanoPlayer(float dano)
