@@ -24,6 +24,10 @@ public class InimigoController : MonoBehaviour
         vidaInimigo = GetComponent<Vida>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
         
     
     }
