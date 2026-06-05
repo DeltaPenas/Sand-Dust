@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class VidaBoss : Vida
@@ -9,6 +10,7 @@ public class VidaBoss : Vida
 
     [SerializeField] private FirstBossController boss;
     [SerializeField] private PauseMenu pauseMenu;
+    [SerializeField] private GameObject posFight;
 
     private float danoAcumuladoBuff;
 
@@ -48,6 +50,7 @@ public class VidaBoss : Vida
         SoundController.instance.PlayDungeonMusic();
         boss.TrocarEstado(BossState.Morreu);
         boss.salaBoss.BossDerrotado();
+        GameObject dialogoPosFight = Instantiate(posFight, boss.transform.position, quaternion.identity, boss.transform);
         
         
     }

@@ -115,7 +115,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
         }
 
         // PASSOU DO BOSS -> NOVO ANDAR
-        if (RunManager.Instance.currentRun.layer > 1)
+        if (RunManager.Instance.currentRun.layer > 5)
         {
             Debug.Log("NOVO ANDAR");
 

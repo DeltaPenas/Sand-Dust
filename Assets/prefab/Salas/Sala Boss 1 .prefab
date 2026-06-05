@@ -15231,6 +15231,7 @@ MonoBehaviour:
   danoParaProximoBuff: 20
   boss: {fileID: 0}
   pauseMenu: {fileID: 0}
+  posFight: {fileID: 7885908008672014073, guid: 3d7633d7f92cf584a93c4f891aaba904, type: 3}
 --- !u!114 &6892868287229239034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15312,6 +15313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractSystem
   nPController: {fileID: 470597612728880023}
+  caixaDeDialogoUI: {fileID: 0}
 --- !u!114 &4316242420978742432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16487,7 +16489,7 @@ Transform:
   m_GameObject: {fileID: 8313177479609684576}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9394305, y: 1.540015, z: 0}
+  m_LocalPosition: {x: 0.7273183, y: 1.114398, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
