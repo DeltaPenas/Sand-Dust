@@ -15344,7 +15344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2f6253a67b3d6479df020d9c5bd7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPController
-  firstBossController: {fileID: 0}
   playerDentro: 0
 --- !u!1 &6427504478104862537
 GameObject:
@@ -16473,7 +16472,7 @@ GameObject:
   - component: {fileID: 8790020141785582450}
   - component: {fileID: 708271126844680037}
   m_Layer: 0
-  m_Name: Sala Boss 1
+  m_Name: 'Sala Boss 1 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16488,7 +16487,7 @@ Transform:
   m_GameObject: {fileID: 8313177479609684576}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.194932, y: 1.2971476, z: 0}
+  m_LocalPosition: {x: 0.9394305, y: 1.540015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16534,6 +16533,7 @@ MonoBehaviour:
   - {fileID: 7541923136787040145}
   - {fileID: 927206152937319049}
   - {fileID: 7045529075420790879}
+  iniciarBossAoEntrar: 0
   tipoSala: 6
   posicaoGrid: {x: 0, y: 0}
   entrou: 0

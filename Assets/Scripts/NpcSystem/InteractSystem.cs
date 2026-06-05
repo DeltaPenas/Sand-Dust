@@ -5,7 +5,7 @@ public class InteractSystem : MonoBehaviour
 
     
     public NPController nPController;
-    private CaixaDeDialogoUI caixaDeDialogoUI;
+    public CaixaDeDialogoUI caixaDeDialogoUI;
 
     void Start()
     {

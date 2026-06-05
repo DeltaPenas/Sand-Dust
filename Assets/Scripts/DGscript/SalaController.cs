@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -19,6 +20,9 @@ public class SalaController : MonoBehaviour
     public Transform spawnEsquerda;
     public Transform spawnDireita;
     public GameObject[] portasIluminaçao;
+
+    [Header("Boss")]
+    public bool iniciarBossAoEntrar = true;
 
 
 
@@ -60,7 +64,7 @@ public class SalaController : MonoBehaviour
         spawner = GetComponentInChildren<SpawnerController>();
         portas = GetComponentsInChildren<PortaTrigger>();
         soundController = FindAnyObjectByType<SoundController>();
-        boss = GetComponentInChildren<FirstBossController>();
+        boss = GetComponentInChildren<FirstBossController>(true);
         bossCobra = GetComponentInChildren<BossCobra>();
         pontoDeDecidaDeSala = FindAnyObjectByType<PontoDeDecidaDeSala>();
         
@@ -213,15 +217,22 @@ public class SalaController : MonoBehaviour
     spriteRender.color = cor;
     }
 
-    public void IniciarBossFight()
+public void IniciarBossFight()
 {
-    if (bossFightIniciada) return;
+    Debug.Log("Entrou em IniciarBossFight");
+
+    if (bossFightIniciada)
+    {
+        Debug.Log("Boss fight já iniciada");
+        return;
+    }
 
     bossFightIniciada = true;
 
     foreach (PortaTrigger porta in portas)
     {
-        if (porta == null) continue;
+        if (porta == null)
+            continue;
 
         porta.podeTeleportar = false;
 
@@ -234,18 +245,33 @@ public class SalaController : MonoBehaviour
             luz.gameObject.SetActive(false);
         }
     }
-        if (boss != null)
-        {
-            //boss.IniciarBoss();
-        }
-        if (bossCobra !=null)
-        {
-            bossCobra.IniciarBoss();
-        }
+
     
+
+    Debug.Log("Boss encontrado? " + (boss != null));
+
+    if (boss != null)
+    {
+        Debug.Log("Chamando IniciarBoss");
+        boss.IniciarBoss();
+        
+    }
+
+    if (bossCobra != null)
+    {
+        bossCobra.IniciarBoss();
+    }
 
     Debug.Log("Boss fight iniciada");
 }
+
+
+
+
+
+
+
+
     public void BossDerrotado()
     {
         if(pontoDeDecidaDeSala == null)

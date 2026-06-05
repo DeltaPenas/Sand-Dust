@@ -7,7 +7,7 @@ public class NPController : MonoBehaviour
     private CaixaDeDialogoUI dialogoUI;
     private ShopManager shopManager;
     private bool jaGerouLoja = false;
-    [SerializeField]private FirstBossController firstBossController;
+    
 
     [Header("caso seja o boss")]
 
@@ -16,18 +16,11 @@ public class NPController : MonoBehaviour
     public bool playerDentro;
 
     void Awake()
-    {
-        npcData = GetComponent<NPCData>();
-        dialogoUI = FindAnyObjectByType<CaixaDeDialogoUI>();
-        shopManager = FindAnyObjectByType<ShopManager>();
-        firstBossController = FindAnyObjectByType<FirstBossController>();
-
-        if (npcData.tipoNPC == NPCtype.boss)
-        {
-            firstBossController = GetComponent<FirstBossController>();
-            Debug.Log("Achou o fistBossController");
-        }
-    }
+{
+    npcData = GetComponent<NPCData>();
+    dialogoUI = FindAnyObjectByType<CaixaDeDialogoUI>();
+    shopManager = FindAnyObjectByType<ShopManager>();
+}
 
     void Update()
     {
@@ -45,19 +38,21 @@ public class NPController : MonoBehaviour
         dialogoUI.IniciarDialogo(npcData, this);
     }
 
-    public void FecharDialogo()
+public void FecharDialogo()
 {
     Time.timeScale = 1f;
 
     dialogoUI.FecharDialogoUI();
+    
 
-    if(npcData.tipoNPC == NPCtype.boss)
+        if (npcData.tipoNPC == NPCtype.boss)
     {
-        Debug.Log("Chamando IniciarBoss");
+        SalaController sala = GetComponentInParent<SalaController>();
 
-        firstBossController.IniciarBoss();
-
-        Debug.Log("Retornou do IniciarBoss");
+        if (sala != null)
+        {
+            sala.IniciarBossFight();
+        }
 
         Destroy(this);
     }

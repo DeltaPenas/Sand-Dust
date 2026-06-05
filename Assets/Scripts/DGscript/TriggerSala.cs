@@ -34,8 +34,12 @@ public class TriggerSala : MonoBehaviour
 
         if (sala.tipoSala == TipoSala.SalaBoss)
         {
-            Debug.Log("Iniciando boss fight");
-            sala.IniciarBossFight();
+            if (sala.iniciarBossAoEntrar)
+            {
+                Debug.Log("Iniciando boss fight");
+                sala.IniciarBossFight();
+            }
+
             return;
         }
 

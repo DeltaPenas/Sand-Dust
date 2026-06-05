@@ -83,7 +83,12 @@ public class CaixaDeDialogoUI : MonoBehaviour
     public void FecharDialogoUI()
     {
         Time.timeScale =1;
+        
         interactText.SetActive(true);
         caixaDeDialogo.SetActive(false);
+    }
+    public void BotaoSair()
+    {
+        npcControllerAtual?.FecharDialogo();
     }
 }

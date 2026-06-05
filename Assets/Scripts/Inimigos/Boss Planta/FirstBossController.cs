@@ -18,6 +18,7 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] public BossState currentState = BossState.Idle;
     [SerializeField] private GameObject telaDeConclusão;
     [SerializeField] public SalaController salaBoss;
+    
    
 
     [Header("Trap")]
@@ -59,7 +60,8 @@ public class FirstBossController : MonoBehaviour
         ic = GetComponent<InimigoController>();
         anim = GetComponent<Animator>();
         vidaBoss = GetComponent<VidaBoss>();
-        salaBoss = FindAnyObjectByType<SalaController>();
+        salaBoss = GetComponentInParent<SalaController>();
+        
 
 
         if (player == null)
@@ -86,17 +88,20 @@ public class FirstBossController : MonoBehaviour
 
     Debug.Log("Estado depois: " + currentState);
 
-    // GetComponent<InteractSystem>().enabled = false;
-    //SoundController.instance.PlayBossMusic();
+    InteractSystem interact = GetComponent<InteractSystem>();
+
+    if (interact != null)
+    {
+        interact.caixaDeDialogoUI.interactText.SetActive(false);
+        Destroy(interact);
+    }
+
+    SoundController.instance?.PlayBossMusic();
 }
-   
+        
 
     void FixedUpdate()
     {
-        if (player == null) return;
-        Debug.Log(currentState);
-
-
         Vector2 direcaoOlhar = (player.position - transform.position).normalized;
         float moveX = 0;
         float moveY = 0;
@@ -137,6 +142,8 @@ public class FirstBossController : MonoBehaviour
 
     public void TrocarEstado(BossState novoEstado)
     {
+        Debug.Log($"TrocarEstado: {currentState} -> {novoEstado}");
+
         currentState = novoEstado;
     }
 
