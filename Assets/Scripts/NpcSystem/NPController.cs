@@ -1,12 +1,16 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NPController : MonoBehaviour
 {
     private NPCData npcData;
-
     private CaixaDeDialogoUI dialogoUI;
     private ShopManager shopManager;
     private bool jaGerouLoja = false;
+    [SerializeField]private FirstBossController firstBossController;
+
+    [Header("caso seja o boss")]
+
 
 
     public bool playerDentro;
@@ -14,10 +18,15 @@ public class NPController : MonoBehaviour
     void Awake()
     {
         npcData = GetComponent<NPCData>();
-
         dialogoUI = FindAnyObjectByType<CaixaDeDialogoUI>();
-
         shopManager = FindAnyObjectByType<ShopManager>();
+        firstBossController = FindAnyObjectByType<FirstBossController>();
+
+        if (npcData.tipoNPC == NPCtype.boss)
+        {
+            firstBossController = GetComponent<FirstBossController>();
+            Debug.Log("Achou o fistBossController");
+        }
     }
 
     void Update()
@@ -37,11 +46,22 @@ public class NPController : MonoBehaviour
     }
 
     public void FecharDialogo()
-    {
-        Time.timeScale = 1f;
+{
+    Time.timeScale = 1f;
 
-        dialogoUI.FecharDialogoUI();
+    dialogoUI.FecharDialogoUI();
+
+    if(npcData.tipoNPC == NPCtype.boss)
+    {
+        Debug.Log("Chamando IniciarBoss");
+
+        firstBossController.IniciarBoss();
+
+        Debug.Log("Retornou do IniciarBoss");
+
+        Destroy(this);
     }
+}
 
     public void AbrirLoja()
     {

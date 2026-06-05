@@ -14982,6 +14982,10 @@ GameObject:
   - component: {fileID: 2931495912102570010}
   - component: {fileID: 6892868287229239034}
   - component: {fileID: 3533858708610876678}
+  - component: {fileID: 7841200720136299057}
+  - component: {fileID: 3956219327210779882}
+  - component: {fileID: 4316242420978742432}
+  - component: {fileID: 470597612728880023}
   m_Layer: 3
   m_Name: Boss
   m_TagString: inimigo
@@ -15052,7 +15056,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 9098732032525641942, guid: 8a6da5ee2ebffb042ad61e795b2f1cef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15098,7 +15102,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.022252217, y: -0.0040873587}
+  m_Offset: {x: -0.022252217, y: -0.20574296}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15108,7 +15112,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.48785862, y: 0.89428836}
+  m_Size: {x: 0.48785862, y: 0.49097717}
   m_EdgeRadius: 0
 --- !u!50 &4517889111331205783
 Rigidbody2D:
@@ -15259,6 +15263,89 @@ MonoBehaviour:
   anim: {fileID: 0}
   gemas:
   - {fileID: 3219365059758621533, guid: 17dd472cfd1b41e4880da889914ee76f, type: 3}
+--- !u!58 &7841200720136299057
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306946325708813928}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.0018159746, y: 0}
+  m_Radius: 0.6144075
+--- !u!114 &3956219327210779882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306946325708813928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c036486976703f044857aa1fb6c06f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractSystem
+  nPController: {fileID: 470597612728880023}
+--- !u!114 &4316242420978742432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306946325708813928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eee3da932f903841a42223a147817b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  tipoNPC: 3
+  nome: Circia
+  falasNPC:
+  - 'Humano tolo, acha que pode chegar no nucleo desse mundo? '
+  - "Ent\xE3o me enfrente, s\xF3 assim provar\xE1 digno do seu objetivo!"
+  falasPlayer:
+  - Eu preciso...
+  - Sai do meu caminho!
+--- !u!114 &470597612728880023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306946325708813928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2f6253a67b3d6479df020d9c5bd7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPController
+  firstBossController: {fileID: 0}
+  playerDentro: 0
 --- !u!1 &6427504478104862537
 GameObject:
   m_ObjectHideFlags: 0
@@ -16401,7 +16488,7 @@ Transform:
   m_GameObject: {fileID: 8313177479609684576}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6548576, y: 1.5071839, z: 0}
+  m_LocalPosition: {x: 1.194932, y: 1.2971476, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

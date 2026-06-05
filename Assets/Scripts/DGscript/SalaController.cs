@@ -236,7 +236,7 @@ public class SalaController : MonoBehaviour
     }
         if (boss != null)
         {
-            boss.IniciarBoss();
+            //boss.IniciarBoss();
         }
         if (bossCobra !=null)
         {

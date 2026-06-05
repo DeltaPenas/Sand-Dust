@@ -18,6 +18,7 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] public BossState currentState = BossState.Idle;
     [SerializeField] private GameObject telaDeConclusão;
     [SerializeField] public SalaController salaBoss;
+   
 
     [Header("Trap")]
 
@@ -71,22 +72,30 @@ public class FirstBossController : MonoBehaviour
             }
         }
 
-        
+   
         
     }
 
     public void IniciarBoss()
-    {
-        if (currentState == BossState.Idle)
-        {
-            TrocarEstado(BossState.FaseUm);
-            SoundController.instance.PlayBossMusic();
-        }
-    }
+{
+    Debug.Log("IniciarBoss executado");
+
+    Debug.Log("Estado antes: " + currentState);
+
+    TrocarEstado(BossState.FaseUm);
+
+    Debug.Log("Estado depois: " + currentState);
+
+    // GetComponent<InteractSystem>().enabled = false;
+    //SoundController.instance.PlayBossMusic();
+}
+   
 
     void FixedUpdate()
     {
         if (player == null) return;
+        Debug.Log(currentState);
+
 
         Vector2 direcaoOlhar = (player.position - transform.position).normalized;
         float moveX = 0;
@@ -103,6 +112,7 @@ public class FirstBossController : MonoBehaviour
         }
         anim.SetFloat("Horizontal", moveX);
         anim.SetFloat("Vertical", moveY);
+
 
 
 
