@@ -8551,6 +8551,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6694609044088538448, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
   m_PrefabInstance: {fileID: 6746662210614326325}
   m_PrefabAsset: {fileID: 0}
+--- !u!210 &1677619406
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603751598}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 99
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &1703475396
 GameObject:
   m_ObjectHideFlags: 0
@@ -11384,9 +11397,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 380796090}
     - target: {fileID: 935692737591054824, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 2127301304}
+    - target: {fileID: 935692737591054824, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
       propertyPath: Painel
       value: 
       objectReference: {fileID: 1603751598}
+    - target: {fileID: 935692737591054824, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+      propertyPath: minimapa
+      value: 
+      objectReference: {fileID: 1375008077}
     - target: {fileID: 935692737591054824, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
       propertyPath: Conclusao
       value: 
@@ -11594,6 +11615,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6309195156791985138, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6746662210614326331}
+    - targetCorrespondingSourceObject: {fileID: 7171869241472556637, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1677619406}
     - targetCorrespondingSourceObject: {fileID: 4013136225703034843, guid: 7a709d44876fb8b4bb7ebace37f77bc2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6746662210614326329}

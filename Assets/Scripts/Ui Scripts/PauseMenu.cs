@@ -4,11 +4,15 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     
-    [SerializeField] GameObject Painel;
-    [SerializeField] GameObject Conclusao;
-    [SerializeField] GameObject TelaArtefatos;
+    [SerializeField] private GameObject Painel;
+    [SerializeField] private GameObject Conclusao;
+    [SerializeField] private GameObject TelaArtefatos;
+    [SerializeField] private GameObject hud;
+    [SerializeField] private GameObject minimapa;
+
     private ShopManager shop;
     private CaixaDeDialogoUI caixaDeDialogoUI;
+    
 
 
     void Start()
@@ -55,7 +59,7 @@ public class PauseMenu : MonoBehaviour
         caixaDeDialogoUI.FecharDialogoUI();
         shop.FecharLoja();
         caixaDeDialogoUI.interactText.SetActive(false);
-        
+        RemoverHud();
         Time.timeScale = 0f;
     }
 
@@ -64,6 +68,7 @@ public class PauseMenu : MonoBehaviour
         RunManager.Instance.currentState = RunState.Running;
         Painel.SetActive(false);
         TelaArtefatos.SetActive(false);
+        AtivarHud();
         Time.timeScale = 1f;
     }
 
@@ -84,6 +89,15 @@ public class PauseMenu : MonoBehaviour
     public void TirarTelaDosArtefatos()
     {
         TelaArtefatos.SetActive(false);
+    }
+    public void RemoverHud(){
+        hud.SetActive(false);
+        minimapa.SetActive(false);
+    }
+    public void AtivarHud()
+    {
+        hud.SetActive(true);
+        minimapa.SetActive(true);
     }
     
 

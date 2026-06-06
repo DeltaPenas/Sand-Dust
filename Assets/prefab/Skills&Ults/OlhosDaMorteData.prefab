@@ -49,5 +49,5 @@ MonoBehaviour:
   prefab: {fileID: 8680024975146839694, guid: 74dc0cca877047c4a88d5db42b6daef1, type: 3}
   descricao: "Acerta todos os alvos com uma precis\xE3o perfeita"
   icone: {fileID: 21300000, guid: 45b953d6e6dcaeb4a864f118d0999170, type: 3}
-  preco: 15
+  preco: 25
   tipo: 2
