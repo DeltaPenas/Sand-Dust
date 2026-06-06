@@ -2769,7 +2769,7 @@ PrefabInstance:
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalasSertao.salasBoss.Array.data[0]'
       value: 
-      objectReference: {fileID: 4337063223668953421, guid: 0468b695b884ceb4399e163f68a479b5, type: 3}
+      objectReference: {fileID: 4337063223668953421, guid: c96c0755e9aa05e4b9570d1c3b1c5462, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: catalogoSalasSertao.salasNormais.Array.size
       value: 1

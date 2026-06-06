@@ -21,6 +21,8 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] private GameObject telaDeOpções;
     [SerializeField] private GameObject telaDeCredito;
     [SerializeField] private GameObject painelDeProg;
+     [SerializeField] private GameObject painelDeReset;
+
     [SerializeField] private CarroController carroController;
     [SerializeField] private FadeController fadeController;
 
@@ -99,6 +101,16 @@ public class UpgradeUI : MonoBehaviour
     {
         painelDeProg.SetActive(false);
         telaDeOpções.SetActive(true);
+    }
+    public void ChamarTelaDeReset()
+    {
+        painelDeReset.SetActive(true);
+        telaDeMelhorias.SetActive(false);
+    }
+    public void TirarTelaDeReset()
+    {
+        painelDeReset.SetActive(false);
+        telaDeMelhorias.SetActive(true);
     }
 
 

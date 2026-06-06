@@ -149,7 +149,8 @@ MonoBehaviour:
   - {fileID: 3337305962870924366}
   - {fileID: 3852803368232962969}
   - {fileID: 2353193691072490272}
-  tipoSala: 0
+  iniciarBossAoEntrar: 1
+  tipoSala: 8
   posicaoGrid: {x: 0, y: 0}
   entrou: 0
   salaLimpa: 0

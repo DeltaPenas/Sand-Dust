@@ -134,4 +134,17 @@ public class ProgressionManager : MonoBehaviour
         danoUltBonus = 0;
         velocidadeBonus = 0;
     }
+    public void RecuperarPontos()
+    {
+        xpTotal = 0;
+        xpAtual = 0;
+        pontosDisponiveis = level;
+        vidaBonus = 0;
+        danoRangedBonus = 0;
+        danoMeleeBonus = 0;
+        danoSkillBonus = 0;
+        danoUltBonus = 0;
+        velocidadeBonus = 0;
+
+    }
 }
