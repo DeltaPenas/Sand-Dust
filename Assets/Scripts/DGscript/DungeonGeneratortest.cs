@@ -64,7 +64,7 @@ public class DungeonGeneratortest : MonoBehaviour
     MinimapManager.Instance.ResetarMapa();
 
     // MINI DUNGEON BOSS
-    if (RunManager.Instance.currentRun.layer == 0)
+    if (RunManager.Instance.currentRun.layer == 5)
     {
         Debug.Log("GERANDO MINI DUNGEON BOSS");
 

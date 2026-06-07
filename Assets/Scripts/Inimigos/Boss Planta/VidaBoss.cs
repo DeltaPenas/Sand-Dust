@@ -53,7 +53,7 @@ public class VidaBoss : Vida
         SoundController.instance.PlayDungeonMusic();
         boss.TrocarEstado(BossState.Morreu);
         boss.salaBoss.BossDerrotado();
-        
+        healthBarUi.DesativarBarraDeVidaBoss();
         GameObject dialogoPosFight = Instantiate(posFight, boss.transform.position, quaternion.identity, boss.transform);
         
         

@@ -166,7 +166,7 @@ public class BossCobra : InimigoBase
 
     public void IniciarBoss()
     {
-        
+        vidaBossCobra.healthBarUi.AtivarBarraDeVidaBoss();
         TrocarEstado(BossState.FaseUm);
         SoundController.instance.PlayBossMusic();
 

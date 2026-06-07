@@ -8,6 +8,7 @@ public class VidaBossCobra : Vida
     [SerializeField] private BossCobra boss;
     [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] private float vidaParaTrocaDeFase;
+    [SerializeField] public HealthBarUi healthBarUi;
     
 
     private float danoAcumuladoBuff;
@@ -16,6 +17,7 @@ public class VidaBossCobra : Vida
     {
         boss = GetComponent<BossCobra>();
         pauseMenu = FindAnyObjectByType<PauseMenu>();
+        healthBarUi = FindAnyObjectByType<HealthBarUi>();
 
 
         vidaAtual = vidaTotal;
@@ -32,6 +34,8 @@ public class VidaBossCobra : Vida
         {
             boss.EntrarNaFaseDois();
         }
+
+        healthBarUi.AtualizarVida(vidaAtual, vidaTotal);
         
     }
 
@@ -39,6 +43,7 @@ public class VidaBossCobra : Vida
     {
         SoundController.instance.PlayDungeonMusic();
         pauseMenu.ChamarConclusao();
+        healthBarUi.DesativarBarraDeVidaBoss();
         
     }
 

@@ -19,6 +19,7 @@ public class FirstBossController : MonoBehaviour
     [SerializeField] private GameObject telaDeConclusão;
     [SerializeField] public SalaController salaBoss;
     
+    
    
 
     [Header("Trap")]
@@ -97,6 +98,7 @@ public class FirstBossController : MonoBehaviour
     }
 
     SoundController.instance?.PlayBossMusic();
+    vidaBoss.healthBarUi.AtivarBarraDeVidaBoss();
     
 }
         

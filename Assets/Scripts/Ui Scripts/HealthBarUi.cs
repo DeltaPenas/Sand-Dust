@@ -4,6 +4,7 @@ using System.Collections;
 
 public class HealthBarUi : MonoBehaviour
 {
+    [SerializeField] private GameObject container;
     [SerializeField] private Image barraVida;
     [SerializeField] private Image barraDano;
 
@@ -11,6 +12,19 @@ public class HealthBarUi : MonoBehaviour
     [SerializeField] private float velocidadeDescida = 1.5f;
 
     private Coroutine animacaoDano;
+
+
+
+    public void AtivarBarraDeVidaBoss()
+    {
+        container.SetActive(true);
+        barraVida.fillAmount = 1;
+        barraDano.fillAmount = 1;
+    }
+    public void DesativarBarraDeVidaBoss()
+    {
+        container.SetActive(false);
+    }
 
     public void AtualizarVida(float vidaAtual, float vidaMaxima)
     {
