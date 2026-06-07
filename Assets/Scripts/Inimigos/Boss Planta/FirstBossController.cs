@@ -97,6 +97,7 @@ public class FirstBossController : MonoBehaviour
     }
 
     SoundController.instance?.PlayBossMusic();
+    
 }
         
 

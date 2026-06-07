@@ -9,6 +9,7 @@ public class VidaBoss : Vida
     public float danoParaProximoBuff;
 
     [SerializeField] private FirstBossController boss;
+    [SerializeField] public HealthBarUi healthBarUi;
     [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] private GameObject posFight;
 
@@ -16,6 +17,7 @@ public class VidaBoss : Vida
 
     protected override void Start()
     {
+        healthBarUi = FindAnyObjectByType<HealthBarUi>();
         boss = GetComponent<FirstBossController>();
         pauseMenu = FindAnyObjectByType<PauseMenu>();
 
@@ -43,6 +45,7 @@ public class VidaBoss : Vida
 
             AplicarBuff();
         }
+        healthBarUi.AtualizarVida(vidaAtual, vidaTotal);
     }
 
     protected override void morrer()
@@ -50,6 +53,7 @@ public class VidaBoss : Vida
         SoundController.instance.PlayDungeonMusic();
         boss.TrocarEstado(BossState.Morreu);
         boss.salaBoss.BossDerrotado();
+        
         GameObject dialogoPosFight = Instantiate(posFight, boss.transform.position, quaternion.identity, boss.transform);
         
         
