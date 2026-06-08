@@ -14,7 +14,8 @@ public class Wisp : MonoBehaviour
     public float raioDeDetacção = 20f;
     public LayerMask layerInimigos;
     [Header("Referencias")]
-
+    public AudioClip somDisparo;
+    public AudioClip SpawnSound;
     public Transform player;
     public SkillWisp skillWisp;
     public GameObject projetilObj;
@@ -23,10 +24,11 @@ public class Wisp : MonoBehaviour
     [System.Obsolete]
     private void Start()
     {
+        SoundController.instance.TocarSom(SpawnSound);
         skillWisp = FindAnyObjectByType<SkillWisp>();
         Destroy(gameObject, 30f);
         dano = skillWisp.skillDmg;
-         StartCoroutine(AutoAtaque());
+        StartCoroutine(AutoAtaque());
     }
 
     private void Update()
@@ -110,6 +112,7 @@ public class Wisp : MonoBehaviour
             if (proj !=null)
             {
                 proj.Inicializar(dirInimigo, dano);
+                SoundController.instance.TocarSom(somDisparo);
             }
         }
     }

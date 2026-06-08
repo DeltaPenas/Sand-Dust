@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7384480280703474677}
   - component: {fileID: 186008861113408810}
   - component: {fileID: 8662771158019664546}
+  - component: {fileID: 3999643747698354559}
   m_Layer: 0
   m_Name: Wisp
   m_TagString: Wisp
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3878753660179839615}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.34148, y: 0.91701, z: 0}
+  m_LocalPosition: {x: -1.7624832, y: 0.8764199, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -3453464007156309444, guid: 4d09171cd229e6e4bbccbf29562bfe87, type: 3}
+  m_Sprite: {fileID: 8713120321045492238, guid: e3913fab464de2e48a1ef7fadd1cc818, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,9 +115,11 @@ MonoBehaviour:
   layerInimigos:
     serializedVersion: 2
     m_Bits: 8
+  somDisparo: {fileID: 8300000, guid: fa468b7e3d45a80479b45633a3dbcffa, type: 3}
+  SpawnSound: {fileID: 8300000, guid: ad611749f7f17b54fa5b8187807ca8c6, type: 3}
   player: {fileID: 0}
   skillWisp: {fileID: 0}
-  projetilObj: {fileID: 1311244421423578220, guid: 407fbe2bb1a2a4044aa7eaeb4375371a, type: 3}
+  projetilObj: {fileID: 3293566582396280618, guid: 72025136e223bff4dbe9db0630109624, type: 3}
   resultados:
   - {fileID: 0}
   - {fileID: 0}
@@ -176,7 +179,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.375, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.375, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -211,3 +214,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3999643747698354559
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878753660179839615}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3568e84327a768e4ab719c770db60f3c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
