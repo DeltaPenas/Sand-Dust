@@ -91,7 +91,7 @@ public class WepShotgun : MonoBehaviour
             Projetil proj = projetil.GetComponent<Projetil>();
             proj.Inicializar(direcaoTiro, danoBase);
 
-            Destroy(projetil, 0.3f);
+            Destroy(projetil, 0.5f);
         }
 
         if (soundController != null)

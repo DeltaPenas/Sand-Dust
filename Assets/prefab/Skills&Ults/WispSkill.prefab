@@ -50,7 +50,7 @@ MonoBehaviour:
   skillRange: 0
   skillDmg: 0
   cooldown: 0
-  cooldownBase: 0
+  cooldownBase: 30
   ultimoUso: 0
   stacksAtual: 0
   maxStacks: 0

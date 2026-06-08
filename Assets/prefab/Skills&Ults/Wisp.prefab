@@ -110,8 +110,34 @@ MonoBehaviour:
   distancia: 1.5
   dano: 0
   angulo: 0
+  "raioDeDetac\xE7\xE3o": 20
+  layerInimigos:
+    serializedVersion: 2
+    m_Bits: 8
   player: {fileID: 0}
   skillWisp: {fileID: 0}
+  projetilObj: {fileID: 1311244421423578220, guid: 407fbe2bb1a2a4044aa7eaeb4375371a, type: 3}
+  resultados:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &186008861113408810
 BoxCollider2D:
   m_ObjectHideFlags: 0
