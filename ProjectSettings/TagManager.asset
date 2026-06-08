@@ -11,6 +11,7 @@ TagManager:
   - ProjetilPlayer
   - ProjetilInimigo
   - WayPoint
+  - Wisp
   layers:
   - Default
   - TransparentFX
