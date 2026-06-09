@@ -9588,12 +9588,14 @@ MonoBehaviour:
   - {fileID: 497242149787163411, guid: 8482fe553493d034fb25517800308e6e, type: 3}
   - {fileID: 6800494929938442123, guid: b19517a20a7239d44b4ab7b54c40f644, type: 3}
   - {fileID: 5557948998350535190, guid: 5ce1e0acd2894d24792107a49163cb51, type: 3}
+  itemCura: {fileID: 5557948998350535190, guid: 09820adfd977851479b850803ec2b1d9, type: 3}
   weaponManager: {fileID: 1722042942}
   skillManager: {fileID: 1722042943}
   ultManager: {fileID: 1722042944}
   heartUi: {fileID: 472266548}
   player: {fileID: 1722042939}
-  QuantidadeItensLoja: 4
+  QuantidadeItensLoja: 3
+  PlayerVida: {fileID: 1722042927}
 --- !u!1 &1761539073
 GameObject:
   m_ObjectHideFlags: 0

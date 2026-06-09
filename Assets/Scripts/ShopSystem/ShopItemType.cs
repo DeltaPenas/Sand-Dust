@@ -2,5 +2,6 @@ public enum ShopItemType
 {
     Weapon,
     Skill,
-    Ult
+    Ult,
+    Item
 }
