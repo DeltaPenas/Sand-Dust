@@ -13,6 +13,10 @@ public class FadeController : MonoBehaviour
     {
         anim.SetTrigger("AtivarFade");
     }
+    public void TirarFade()
+    {
+        anim.SetTrigger("DesativarFade");
+    }
 
 
 }

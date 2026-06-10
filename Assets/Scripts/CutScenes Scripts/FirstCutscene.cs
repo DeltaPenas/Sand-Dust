@@ -18,10 +18,12 @@ public class FirstCutscene : MonoBehaviour
     void Start()
     {
         fade = FindAnyObjectByType<FadeController>();
+        fade.TirarFade();
 
-        Invoke(nameof(AtivarMovimento), 1);
+        Invoke(nameof(AtivarMovimento), 0.5f);
         Invoke(nameof(DesativarMovimento), 5.5f);
         Invoke(nameof(ChamarOFade), 5.6f);
+        Invoke(nameof(IniciarRun), 6.9f);
     }
 
     
@@ -65,6 +67,10 @@ public class FirstCutscene : MonoBehaviour
     void ChamarOFade()
     {
         fade.ChamarFade();
+    }
+    void IniciarRun()
+    {
+        RunManager.Instance.StartRun();
     }
 
     
