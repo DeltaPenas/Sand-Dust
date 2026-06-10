@@ -68,6 +68,7 @@ public class UpgradeUI : MonoBehaviour
         yield return new WaitForSeconds (1f);
 
         RunManager.Instance.StartRun();
+      
     }
 
     public void ChamarTelaInicial()

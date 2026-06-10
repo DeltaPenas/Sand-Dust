@@ -56,8 +56,8 @@ public class RunManager : MonoBehaviour
         currentState = RunState.Running;
 
         Debug.Log("Iniciando run");
-
-        SceneManager.LoadScene("DungeonScene");
+        SceneManager.LoadScene("Cutscene");
+        //SceneManager.LoadScene("DungeonScene");
     }
 
     void OnEnable()
