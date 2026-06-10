@@ -6,8 +6,10 @@ public class FirstCutscene : MonoBehaviour
 {
 
     [Header("Objetos da cena")]
+    
     [SerializeField] private FadeController fade;
     [SerializeField] private GameObject carro;
+    [SerializeField] private GameObject primeiroCenario;
     [SerializeField] private GameObject mili;
     [SerializeField] private float velocidadeMili = 3;
     [SerializeField] private AudioClip somDePassos;
@@ -18,12 +20,15 @@ public class FirstCutscene : MonoBehaviour
     void Start()
     {
         fade = FindAnyObjectByType<FadeController>();
-        fade.TirarFade();
+        TirarOFade();
 
         Invoke(nameof(AtivarMovimento), 0.5f);
         Invoke(nameof(DesativarMovimento), 5.5f);
         Invoke(nameof(ChamarOFade), 5.6f);
-        Invoke(nameof(IniciarRun), 6.9f);
+        Invoke(nameof(ChamarSegundoCenario),6.5f);
+        Invoke(nameof(TirarOFade),6.5f);
+        
+        //Invoke(nameof(IniciarRun), 6.9f);
     }
 
     
@@ -67,6 +72,14 @@ public class FirstCutscene : MonoBehaviour
     void ChamarOFade()
     {
         fade.ChamarFade();
+    }
+    void TirarOFade()
+    {
+        fade.TirarFade();
+    }
+    void ChamarSegundoCenario()
+    {
+        primeiroCenario.SetActive(false);
     }
     void IniciarRun()
     {
