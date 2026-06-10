@@ -31,6 +31,11 @@ public class FirstCutscene : MonoBehaviour
         {
            moverMili(); 
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            RunManager.Instance.StartRun();
+        }
     }
 
 

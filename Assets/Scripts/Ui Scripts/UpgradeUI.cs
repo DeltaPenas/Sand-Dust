@@ -67,7 +67,7 @@ public class UpgradeUI : MonoBehaviour
         fadeController.ChamarFade();
         yield return new WaitForSeconds (1f);
 
-        RunManager.Instance.StartRun();
+        RunManager.Instance.IniciarCutscene();
       
     }
 
