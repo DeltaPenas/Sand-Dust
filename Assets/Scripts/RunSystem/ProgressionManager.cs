@@ -159,4 +159,8 @@ public class ProgressionManager : MonoBehaviour
         Debug.LogWarning("Tentou recuperar Pontos");
         
     }
+    private void OnApplicationQuit()
+    {
+        SaveSystem.SaveProgression(this);
+    }
 }

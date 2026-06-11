@@ -27,12 +27,17 @@ public float tempoDesvio = 0.7f;
 protected Vector2 direcaoDesvioAtual;
 protected float fimDesvio;
 
-protected Animator anim;
+[SerializeField]protected Animator anim;
 protected Vector2 ultimaDirecao;
 
 protected virtual void Start()
     {
         anim = GetComponent<Animator>();
+        if(anim == null)
+        {
+            anim = GetComponentInChildren<Animator>();
+        }
+        
         rb = GetComponent<Rigidbody2D>();
         vida = GetComponent<Vida>();
 

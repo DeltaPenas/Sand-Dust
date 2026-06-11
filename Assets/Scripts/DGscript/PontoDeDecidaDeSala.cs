@@ -79,7 +79,7 @@ public class PontoDeDecidaDeSala : MonoBehaviour
 
         tt.FadeOut();
 
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1f);
 
         dg.LimparInimigos();
 
