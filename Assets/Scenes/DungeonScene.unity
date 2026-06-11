@@ -2850,6 +2850,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: catalogoSalasSertao.salasSecretas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoInimigosSertao.inimigos.Array.data[0]'
       value: 
       objectReference: {fileID: 5844461690707922050, guid: 2863aaedce4d78d44a5b272b3c63c611, type: 3}
@@ -2981,6 +2985,10 @@ PrefabInstance:
       propertyPath: 'catalogoSalasSertao.salasMiniBoss.Array.data[0]'
       value: 
       objectReference: {fileID: 8998249644244355023, guid: 50f5e030ce0e4b6438c57b6701b44553, type: 3}
+    - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
+      propertyPath: 'catalogoSalasSertao.salasSecretas.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5895272119734155765, guid: eff2b6c6fc3bf064580c426119d0146b, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: 'catalogoSalasFloresta.salasNormais.Array.data[0]'
       value: 
