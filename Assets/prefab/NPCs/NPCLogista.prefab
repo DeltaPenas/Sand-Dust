@@ -207,7 +207,7 @@ MonoBehaviour:
   - "Apenas.... um vendedor... oque fa\xE7o aqui? nada de interessante, por enquanto."
   - "Mais cedo ou mais tarde voc\xEA vai entender."
   falasPlayer:
-  - "Quem \xE9 voc\xEA? e oque faz aqui?"
+  - "Quem \xE9 voc\xEA?"
   - Esquisito...
 --- !u!1001 &1485596862177584591
 PrefabInstance:
@@ -345,3 +345,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractSystem
   nPController: {fileID: 0}
+  caixaDeDialogoUI: {fileID: 0}

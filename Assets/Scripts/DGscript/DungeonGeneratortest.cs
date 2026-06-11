@@ -200,6 +200,8 @@ public class DungeonGeneratortest : MonoBehaviour
     private void DefinirSalasEspeciais()
 {
     List<SalaNode> salasValidas = new List<SalaNode>();
+    int valorSalaSecreta = Random.Range(0, 20);
+    if(valorSalaSecreta == 20) Debug.Log("TEM SALA SECRETAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
     foreach (SalaNode sala in salas)
     {
@@ -235,9 +237,14 @@ public class DungeonGeneratortest : MonoBehaviour
         indexAtual++;
     }
 
-        if (indexAtual < salasValidas.Count  && RunManager.Instance.currentRun.layer > 1)
+    if (indexAtual < salasValidas.Count  && RunManager.Instance.currentRun.layer > 1)
+    {
+        salasValidas[indexAtual].tipo = TipoSala.SalasMiniBoss;   
+    }
+
+        if (indexAtual < salasValidas.Count && valorSalaSecreta >=17)
         {
-            salasValidas[indexAtual].tipo = TipoSala.SalasMiniBoss;   
+            salasValidas[indexAtual].tipo = TipoSala.Secreta;
         }
 
 }

@@ -79,7 +79,7 @@ public class SalaController : MonoBehaviour
 
     if(tipoSala == TipoSala.Inicial || tipoSala == TipoSala.Loja || 
    tipoSala == TipoSala.Tesouro || tipoSala == TipoSala.SalaProxLayer || 
-   tipoSala == TipoSala.SalaAntesDoBoss)
+   tipoSala == TipoSala.SalaAntesDoBoss || tipoSala == TipoSala.Secreta)
     {
         salaLimpa = true;
         LiberarPortas();
