@@ -84,6 +84,7 @@ public class ProgressionManager : MonoBehaviour
 
         vidaBonus+=1;
         pontosDisponiveis--;
+        SaveSystem.SaveProgression(this);
     }
 
     public void AddDanoRanged()
@@ -92,6 +93,7 @@ public class ProgressionManager : MonoBehaviour
 
         danoRangedBonus+= 0.25f;
         pontosDisponiveis--;
+        SaveSystem.SaveProgression(this);
     }
     public void AddDanoMelee()
     {
@@ -99,6 +101,7 @@ public class ProgressionManager : MonoBehaviour
 
         danoMeleeBonus +=0.25f;
         pontosDisponiveis--;
+        SaveSystem.SaveProgression(this);
     }
     public void AddDanoSkill()
     {
@@ -106,18 +109,21 @@ public class ProgressionManager : MonoBehaviour
 
         danoSkillBonus +=0.25f;
         pontosDisponiveis--;
+        SaveSystem.SaveProgression(this);
     }
     public void AddDanoUlt()
     {
         if(pontosDisponiveis <= 0) return;
         danoUltBonus+=0.25f;
         pontosDisponiveis--;
+        SaveSystem.SaveProgression(this);
     }
     public void AddVelocidade()
     {
         if(pontosDisponiveis <= 0) return;
         velocidadeBonus+=0.5f;
         pontosDisponiveis--;
+        SaveSystem.SaveProgression(this);
     }
     public void ResetarProgresso()
     {
@@ -133,9 +139,12 @@ public class ProgressionManager : MonoBehaviour
         danoSkillBonus = 0;
         danoUltBonus = 0;
         velocidadeBonus = 0;
+        
     }
     public void RecuperarPontos()
     {
+        
+        
         xpTotal = 0;
         xpAtual = 0;
         pontosDisponiveis = level;
@@ -145,6 +154,9 @@ public class ProgressionManager : MonoBehaviour
         danoSkillBonus = 0;
         danoUltBonus = 0;
         velocidadeBonus = 0;
-
+        SaveSystem.SaveProgression(this);
+        
+        Debug.LogWarning("Tentou recuperar Pontos");
+        
     }
 }

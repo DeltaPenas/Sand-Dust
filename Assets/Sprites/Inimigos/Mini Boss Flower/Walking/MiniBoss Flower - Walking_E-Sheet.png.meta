@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 83c130f239422f44793a1c8fd471a941
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5113422054219919404
+    second: MiniBoss Flower - Walking_E-Sheet_0
+  - first:
+      213: 6215248056595399941
+    second: MiniBoss Flower - Walking_E-Sheet_1
+  - first:
+      213: -8704871012364107374
+    second: MiniBoss Flower - Walking_E-Sheet_2
+  - first:
+      213: -4545568961469561032
+    second: MiniBoss Flower - Walking_E-Sheet_3
+  - first:
+      213: -8350580977955321614
+    second: MiniBoss Flower - Walking_E-Sheet_4
+  - first:
+      213: 3536528989420781800
+    second: MiniBoss Flower - Walking_E-Sheet_5
+  - first:
+      213: -7421722336835220436
+    second: MiniBoss Flower - Walking_E-Sheet_6
+  - first:
+      213: 7352612887812196008
+    second: MiniBoss Flower - Walking_E-Sheet_7
+  - first:
+      213: 6922038591817419210
+    second: MiniBoss Flower - Walking_E-Sheet_8
+  - first:
+      213: -1872835441893855082
+    second: MiniBoss Flower - Walking_E-Sheet_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 8
+        width: 54
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c203d68244686f640800000000000000
+      internalID: 5113422054219919404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 9
+        width: 54
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5054e4c7d2ff04650800000000000000
+      internalID: 6215248056595399941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 10
+        width: 54
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29141744fe5123780800000000000000
+      internalID: -8704871012364107374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 13
+        width: 54
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 837c09dec15eae0c0800000000000000
+      internalID: -4545568961469561032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 10
+        width: 54
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f8c6d408d6cc1c80800000000000000
+      internalID: -8350580977955321614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 9
+        width: 54
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e00c48e066441130800000000000000
+      internalID: 3536528989420781800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 8
+        width: 54
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2cca5b4bdeb00990800000000000000
+      internalID: -7421722336835220436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 8
+        width: 54
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a64105377ab90660800000000000000
+      internalID: 7352612887812196008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 8
+        width: 54
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac982dabc65001060800000000000000
+      internalID: 6922038591817419210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss Flower - Walking_E-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 8
+        width: 54
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 690b72b961a5206e0800000000000000
+      internalID: -1872835441893855082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MiniBoss Flower - Walking_E-Sheet_0: 5113422054219919404
+      MiniBoss Flower - Walking_E-Sheet_1: 6215248056595399941
+      MiniBoss Flower - Walking_E-Sheet_2: -8704871012364107374
+      MiniBoss Flower - Walking_E-Sheet_3: -4545568961469561032
+      MiniBoss Flower - Walking_E-Sheet_4: -8350580977955321614
+      MiniBoss Flower - Walking_E-Sheet_5: 3536528989420781800
+      MiniBoss Flower - Walking_E-Sheet_6: -7421722336835220436
+      MiniBoss Flower - Walking_E-Sheet_7: 7352612887812196008
+      MiniBoss Flower - Walking_E-Sheet_8: 6922038591817419210
+      MiniBoss Flower - Walking_E-Sheet_9: -1872835441893855082
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
