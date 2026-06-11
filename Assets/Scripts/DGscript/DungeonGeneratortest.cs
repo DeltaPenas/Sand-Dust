@@ -230,10 +230,15 @@ public class DungeonGeneratortest : MonoBehaviour
         indexAtual++;
     }
 
-    
     if (indexAtual < salasValidas.Count)
     {
         salasValidas[indexAtual].tipo = TipoSala.Loja;
+        indexAtual++;
+    }
+
+    if (indexAtual < salasValidas.Count && valorSalaSecreta >=19)
+    {
+        salasValidas[indexAtual].tipo = TipoSala.Secreta;
         indexAtual++;
     }
 
@@ -242,10 +247,7 @@ public class DungeonGeneratortest : MonoBehaviour
         salasValidas[indexAtual].tipo = TipoSala.SalasMiniBoss;   
     }
 
-        if (indexAtual < salasValidas.Count && valorSalaSecreta >=17)
-        {
-            salasValidas[indexAtual].tipo = TipoSala.Secreta;
-        }
+        
 
 }
 
@@ -409,6 +411,7 @@ public class DungeonGeneratortest : MonoBehaviour
            tipo != TipoSala.Loja &&
            tipo != TipoSala.Tesouro &&
            tipo != TipoSala.SalaProxLayer &&
+           tipo != TipoSala.Secreta &&
            tipo != TipoSala.SalaAntesDoBoss;
     }
     private void CalcularSalasCombate()

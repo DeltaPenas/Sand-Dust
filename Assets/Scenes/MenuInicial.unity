@@ -6058,7 +6058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Apagar progresso '
+  m_text: Distribuir Status
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cae323e1ccb34f24892ccb44b986350c, type: 2}
   m_sharedMaterial: {fileID: 2729767793624632929, guid: cae323e1ccb34f24892ccb44b986350c, type: 2}

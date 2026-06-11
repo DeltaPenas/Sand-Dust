@@ -2627,7 +2627,7 @@ PrefabInstance:
       objectReference: {fileID: 582236416703253144, guid: c27d9c71ec113cf4eb436e470fccfac2, type: 3}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: distanciaEntreSalas
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3315116795303101843, guid: 9e57057168e8ede4a95eab04da3a05cc, type: 3}
       propertyPath: efeitoSonoroDeAbrirPorta
@@ -3259,7 +3259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CaixaDeDialogoUI
   caixaDeDialogo: {fileID: 1936504787}
-  nomeNPCText: {fileID: 0}
+  nomeNPCText: {fileID: 1995019492}
   falaNPCText: {fileID: 127623496}
   falaPlayerText: {fileID: 1612265946}
   continuarButton: {fileID: 1909859422}
@@ -5987,8 +5987,8 @@ RectTransform:
   m_LocalScale: {x: 1.2909774, y: 1.2909774, z: 1.2909774}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 993982351}
   - {fileID: 199781984}
+  - {fileID: 993982351}
   - {fileID: 433520318}
   m_Father: {fileID: 2127301305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9442,11 +9442,9 @@ MonoBehaviour:
   cardsContainer: {fileID: 504561712}
   cardPrefab: {fileID: 472651858707344026, guid: 9dda3fa61a6a8a2478e4054434da5cf3, type: 3}
   itensLoja:
-  - {fileID: 1000121258977834918, guid: e3911d62fcfe3b0458ab8f59b94a8a13, type: 3}
   - {fileID: 5329819136225178555, guid: 17201d1d6b7a8e0499aa535c17fccd80, type: 3}
   - {fileID: 497242149787163411, guid: cacaa266df56d90458c2e81fec82e627, type: 3}
   - {fileID: 5557948998350535190, guid: 40176aea9f624f3459b7f74e2da70994, type: 3}
-  - {fileID: 6800494929938442123, guid: 275dc8c000d01c043b44b442572d38b9, type: 3}
   - {fileID: 528472854395907263, guid: 57028a004ebfc874c8cce41c495447dc, type: 3}
   - {fileID: 497242149787163411, guid: 8482fe553493d034fb25517800308e6e, type: 3}
   - {fileID: 6800494929938442123, guid: b19517a20a7239d44b4ab7b54c40f644, type: 3}
@@ -10561,7 +10559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1936504788
 RectTransform:
   m_ObjectHideFlags: 0

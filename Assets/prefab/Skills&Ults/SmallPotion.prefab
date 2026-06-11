@@ -48,6 +48,6 @@ MonoBehaviour:
   itemNome: cura pequena
   prefab: {fileID: 0}
   descricao: Uma pequena cura para ajudar os aventureiros em suas jornadas.
-  icone: {fileID: -2035371991, guid: 8ff057da4bb55ae428f19f44dbf9fb14, type: 3}
+  icone: {fileID: -1456302071, guid: 8ca4b71b931a0da4b8762214d5db1edb, type: 3}
   preco: 3
   tipo: 3

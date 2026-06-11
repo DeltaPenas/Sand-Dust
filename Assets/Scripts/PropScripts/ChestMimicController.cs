@@ -56,7 +56,7 @@ public class ChestMimicController : MonoBehaviour
         int definirMimico = UnityEngine.Random.Range(0,10);
         Debug.Log(definirMimico);
 
-        if(definirMimico >= 9)
+        if(definirMimico == 10)
         {
             éMimico = true;
         }

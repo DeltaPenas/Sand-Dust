@@ -65,7 +65,7 @@ public class UpgradeUI : MonoBehaviour
         version.SetActive(false);
         yield return new WaitForSeconds (1.5f);
         fadeController.ChamarFade();
-        SoundController.instance.PlaySomFloresta();
+        //SoundController.instance.PlaySomFloresta();
         yield return new WaitForSeconds (1f);
 
         RunManager.Instance.IniciarCutscene();

@@ -20,6 +20,7 @@ public class FirstCutscene : MonoBehaviour
 
     void Start()
     {
+        SoundController.instance.PlaySomFloresta();
         fade = FindAnyObjectByType<FadeController>();
         cameraAnimator = FindAnyObjectByType<CameraAnimator>();
         TirarOFade();
