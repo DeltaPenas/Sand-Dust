@@ -5902,11 +5902,11 @@ Transform:
   m_GameObject: {fileID: 998647108}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960.0127, y: -541.2778, z: 0}
-  m_LocalScale: {x: 13.106608, y: 7.405179, z: 1}
+  m_LocalPosition: {x: -0.0126953125, y: 0.0837438, z: 10}
+  m_LocalScale: {x: 13.106608, y: 8.585715, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1763136320}
+  m_Father: {fileID: 1406269274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &998647110
 Animator:
@@ -8235,7 +8235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: V 1.0.4
+  m_text: V 1.0.5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90a585ac1cc7da54bbab719cee629ef5, type: 2}
   m_sharedMaterial: {fileID: -6683196310931681371, guid: 90a585ac1cc7da54bbab719cee629ef5, type: 2}
@@ -9330,7 +9330,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.35, z: -10}
   m_LocalScale: {x: 1, y: 0.8625, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 998647109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1406269275
@@ -10159,9 +10160,10 @@ MonoBehaviour:
   musicVolume: 1
   sfxVolume: 2
   menuTheme: {fileID: 8300000, guid: 833547a6baa4d384c91722c0ae386b72, type: 3}
+  somDeFloresta: {fileID: 8300000, guid: 41f7a00f8ab028541b5b132f58ffdbb1, type: 3}
   dungeonTheme: {fileID: 8300000, guid: 95601ccf140394e4b8cab2d858599b01, type: 3}
   bossTheme: {fileID: 8300000, guid: 3761f251de5aa2046bded636f0da73fd, type: 3}
-  fadeDuration: 2
+  fadeDuration: 1
 --- !u!4 &1570210924
 Transform:
   m_ObjectHideFlags: 0
@@ -11675,7 +11677,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 998647109}
   - {fileID: 1115669898}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

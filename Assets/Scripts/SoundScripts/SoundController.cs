@@ -16,10 +16,11 @@ public class SoundController : MonoBehaviour
 
     [Header("Musicas")]
     [SerializeField] private AudioClip menuTheme;
+    [SerializeField] private AudioClip somDeFloresta;
     [SerializeField] private AudioClip dungeonTheme;
     [SerializeField] private AudioClip bossTheme;
 
-    [SerializeField] private float fadeDuration = 1f;
+    [SerializeField] private float fadeDuration = 0.5f;
 
     public void TocarSom(AudioClip som)
     {
@@ -56,6 +57,10 @@ public class SoundController : MonoBehaviour
     public void PlayBossMusic()
     {
         PlayMusic(bossTheme);
+    }
+    public void PlaySomFloresta()
+    {
+        PlayMusic(somDeFloresta);
     }
 
     public void PlayMusic(AudioClip novaMusica)

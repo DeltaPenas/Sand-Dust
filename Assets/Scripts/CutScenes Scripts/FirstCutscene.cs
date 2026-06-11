@@ -6,8 +6,9 @@ public class FirstCutscene : MonoBehaviour
 {
 
     [Header("Objetos da cena")]
-    
+
     [SerializeField] private FadeController fade;
+    [SerializeField] private CameraAnimator cameraAnimator;
     [SerializeField] private GameObject carro;
     [SerializeField] private GameObject primeiroCenario;
     [SerializeField] private GameObject mili;
@@ -20,6 +21,7 @@ public class FirstCutscene : MonoBehaviour
     void Start()
     {
         fade = FindAnyObjectByType<FadeController>();
+        cameraAnimator = FindAnyObjectByType<CameraAnimator>();
         TirarOFade();
 
         Invoke(nameof(AtivarMovimento), 0.5f);
@@ -27,8 +29,9 @@ public class FirstCutscene : MonoBehaviour
         Invoke(nameof(ChamarOFade), 5.6f);
         Invoke(nameof(ChamarSegundoCenario),6.5f);
         Invoke(nameof(TirarOFade),6.5f);
-        
-        //Invoke(nameof(IniciarRun), 6.9f);
+        Invoke(nameof(SubirACamera),7.5f);
+        Invoke(nameof(ChamarOFade), 15f);
+        Invoke(nameof(IniciarRun), 17f);
     }
 
     
@@ -64,8 +67,11 @@ public class FirstCutscene : MonoBehaviour
 
         if (timerPassos <= 0f)
         {
+            
             SoundController.instance.TocarSom(somDePassos);
             timerPassos = intervaloPassos;
+            
+            
         }
     }
 
@@ -80,6 +86,10 @@ public class FirstCutscene : MonoBehaviour
     void ChamarSegundoCenario()
     {
         primeiroCenario.SetActive(false);
+    }
+    void SubirACamera()
+    {
+        cameraAnimator.SubirATela();
     }
     void IniciarRun()
     {
