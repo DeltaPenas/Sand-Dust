@@ -75,14 +75,14 @@ public class ShopManager : MonoBehaviour
     {
         Destroy(child.gameObject);
     }
-       // Card de cura sempre presente
+    
     GameObject cardCura = Instantiate(cardPrefab, cardsContainer);
     cardCura.GetComponent<ShopCardUI>().Setup(itemCura, this);
 
     foreach (ShopItemData item in itensSelecionados)
     {
 
-        // Evita duplicar o item de cura
+        
         if (item == itemCura)
         continue;
         

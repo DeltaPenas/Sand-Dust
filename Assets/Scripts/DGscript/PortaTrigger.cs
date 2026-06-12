@@ -142,19 +142,26 @@ IEnumerator SequenciaTeleporte(Transform alvo)
 
     player.rig.linearVelocity = Vector2.zero;
 
+    bool fadeTerminou = false;
+
+    tt.OnFadeCompleto = () =>
+    {
+        Teleportar(alvo);
+        fadeTerminou = true;
+    };
+
     tt.FadeOut();
 
-    yield return new WaitForSeconds(1f);
-
-    Teleportar(alvo);
+    yield return new WaitUntil(() => fadeTerminou);
 
     player.podeMover = true;
 
     yield return new WaitForSeconds(0.2f);
 
-    player.iframeAtivo = false;
 
     teleportando = false;
+    yield return new WaitForSeconds(1f);
+    player.iframeAtivo = false;
 }
 
     private void OnDestroy()

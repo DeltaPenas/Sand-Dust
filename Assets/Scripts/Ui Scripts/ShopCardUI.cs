@@ -39,7 +39,7 @@ public class ShopCardUI : MonoBehaviour
     {
         bool comprou = shopManager.Comprar(itemData);
         
-        shopManager.Comprar(itemData);
+        //shopManager.Comprar(itemData);
         if (comprou)
         {
             Destroy(gameObject);

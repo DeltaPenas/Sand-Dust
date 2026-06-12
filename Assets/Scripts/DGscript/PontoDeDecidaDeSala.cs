@@ -77,13 +77,20 @@ public class PontoDeDecidaDeSala : MonoBehaviour
         if (caixaDeDialogoUI != null)
             caixaDeDialogoUI.interactText.SetActive(false);
 
+        bool fadeTerminou = false;
+
+        tt.OnFadeCompleto = () =>
+        {
+            dg.LimparInimigos();
+
+            PodeDescer();
+
+            fadeTerminou = true;
+        };
+
         tt.FadeOut();
 
-        yield return new WaitForSeconds(1f);
-
-        dg.LimparInimigos();
-
-        PodeDescer();
+        yield return new WaitUntil(() => fadeTerminou);
 
         cooldownInteracao = 0.5f;
 

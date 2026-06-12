@@ -15230,6 +15230,7 @@ MonoBehaviour:
   danoParaTrocaDeFase: 25
   danoParaProximoBuff: 20
   boss: {fileID: 0}
+  healthBarUi: {fileID: 0}
   pauseMenu: {fileID: 0}
   posFight: {fileID: 7885908008672014073, guid: 3d7633d7f92cf584a93c4f891aaba904, type: 3}
 --- !u!114 &6892868287229239034

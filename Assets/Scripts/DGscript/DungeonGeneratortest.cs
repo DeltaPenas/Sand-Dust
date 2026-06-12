@@ -16,6 +16,7 @@ public class DungeonGeneratortest : MonoBehaviour
     public Transform DungeonParent;
     public float distanciaEntreSalas = 10f;
 
+
     public List<SalaNode> salas = new List<SalaNode>();
     public CatalogoSalas catalogoSalas;
     [Header("Objetos das salas")]
@@ -38,6 +39,7 @@ public class DungeonGeneratortest : MonoBehaviour
 
     public CatalogoProps catalogoPropsFloresta;
     public CatalogoProps catalogoPropsSertao;
+
    
     
 
@@ -50,6 +52,7 @@ public class DungeonGeneratortest : MonoBehaviour
         pc = FindAnyObjectByType<PlayerController>();
         GerarDungeon();
         GameObject background = Instantiate(bg, transform.position, Quaternion.identity);
+        
     }
 
 
