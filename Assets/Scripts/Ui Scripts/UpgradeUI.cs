@@ -46,7 +46,6 @@ public class UpgradeUI : MonoBehaviour
     {
         vidaText.text = "Vida: "+ ProgressionManager.Instance.vidaBonus;
         danoRangedText.text = "Dano: " + ProgressionManager.Instance.danoRangedBonus;
-        danoMeleeText.text = "Dano Melee: " + ProgressionManager.Instance.danoMeleeBonus;
         danoSkillText.text = "Dano Skill: " + ProgressionManager.Instance.danoSkillBonus;
         danoUltText.text = "Dano Ultimate: " + ProgressionManager.Instance.danoUltBonus;
         velocidadeText.text = "Velocidade: " + ProgressionManager.Instance.velocidadeBonus;

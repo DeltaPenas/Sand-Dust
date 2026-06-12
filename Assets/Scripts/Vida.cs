@@ -25,8 +25,11 @@ public class Vida : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         ic = GetComponent<InimigoController>();
         dv = GetComponent<DanoVisual>();
+        if (ic != null)
+        {
+            vidaTotal += RunManager.Instance.currentRun.inimigoLifeBuff;
+        }
         
-        vidaTotal += RunManager.Instance.currentRun.inimigoLifeBuff;
         
         vidaAtual = vidaTotal;
     }

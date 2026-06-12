@@ -168,11 +168,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4c9e9d4eba00843b7e8fb458d67968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaTotal: 1
+  vidaTotal: 0.1
   vidaAtual: 0
   morreu: 0
+  invuneravel: 0
   pegandoFogo: 0
   dv: {fileID: 0}
+  danoAcumulado: 0
+  ultimoDanoRecebido: 0
   xpDrop: 1
 --- !u!50 &6716359554009425196
 Rigidbody2D:

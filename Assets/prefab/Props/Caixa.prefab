@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4834575475436430398}
   - component: {fileID: 3701870429731512009}
   - component: {fileID: 2136773300967085473}
+  - component: {fileID: -3353989312090126223}
   - component: {fileID: 5711489985126079446}
   m_Layer: 6
   m_Name: Caixa
@@ -152,12 +153,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4c9e9d4eba00843b7e8fb458d67968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaTotal: 1
+  vidaTotal: 0.1
   vidaAtual: 0
   morreu: 0
+  invuneravel: 0
   pegandoFogo: 0
   dv: {fileID: 0}
+  danoAcumulado: 0
+  ultimoDanoRecebido: 0
   xpDrop: 1
+--- !u!114 &-3353989312090126223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4695602646284803510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b0af7103c4e3341a783f6751ff77ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CaixaDrop
+  hearth: {fileID: 2229121111001174234, guid: 50717b5d3b6a31b469efbef037efeaf6, type: 3}
 --- !u!50 &5711489985126079446
 Rigidbody2D:
   serializedVersion: 5
