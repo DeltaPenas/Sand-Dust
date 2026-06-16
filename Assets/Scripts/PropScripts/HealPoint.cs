@@ -18,7 +18,7 @@ public class HealPoint : MonoBehaviour
             pv = FindAnyObjectByType<PlayerVida>();
             if(pv == null) return;
 
-            if(pv.playerVidaAtual <= pv.playerVidaTotal)
+            if(pv.playerVidaAtual < pv.playerVidaTotal)
             {
                 pv.CurarPlayer(1);
                 SoundController.instance.TocarSom(som);

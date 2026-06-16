@@ -50,6 +50,14 @@ public class UpgradeUI : MonoBehaviour
         danoUltText.text = "Dano Ultimate: " + ProgressionManager.Instance.danoUltBonus;
         velocidadeText.text = "Velocidade: " + ProgressionManager.Instance.velocidadeBonus;
     }
+    public void ApagarProgressão()
+    {
+        ProgressionManager.Instance.ResetarProgresso();
+    }
+    public void ResetarProgressão()
+    {
+       ProgressionManager.Instance.RecuperarPontos();
+    }
 
     public void IniciarRun()
     {

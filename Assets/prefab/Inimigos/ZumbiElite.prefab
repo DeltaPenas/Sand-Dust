@@ -86,7 +86,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2276719787535603637, guid: 6872d7a779121b243b80eda97d3b6fa7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -132,7 +132,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.000000029802322, y: 0.003955491}
+  m_Offset: {x: -0.0036904737, y: -0.036640108}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -142,7 +142,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.27251464, y: 0.4777242}
+  m_Size: {x: 0.20977603, y: 0.3264135}
   m_EdgeRadius: 0
 --- !u!114 &273243696828693258
 MonoBehaviour:
@@ -159,8 +159,11 @@ MonoBehaviour:
   vidaTotal: 10
   vidaAtual: 0
   morreu: 0
+  invuneravel: 0
   pegandoFogo: 0
   dv: {fileID: 0}
+  danoAcumulado: 0
+  ultimoDanoRecebido: 0
   xpDrop: 1
 --- !u!114 &1382301633568046709
 MonoBehaviour:

@@ -491,9 +491,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 938229314}
-        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
-        m_MethodName: RecuperarPontos
+      - m_Target: {fileID: 1998197920}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
+        m_MethodName: "ResetarProgress\xE3o"
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13057,9 +13057,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 938229314}
-        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
-        m_MethodName: ResetarProgresso
+      - m_Target: {fileID: 1998197920}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
+        m_MethodName: "ApagarProgress\xE3o"
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
