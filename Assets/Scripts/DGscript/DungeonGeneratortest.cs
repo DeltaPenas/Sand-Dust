@@ -204,7 +204,7 @@ public class DungeonGeneratortest : MonoBehaviour
 {
     List<SalaNode> salasValidas = new List<SalaNode>();
     int valorSalaSecreta = Random.Range(0, 20);
-    if(valorSalaSecreta == 20) Debug.Log("TEM SALA SECRETAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    if(valorSalaSecreta == 20) Debug.Log("TEM SALA SECRETA");
 
     foreach (SalaNode sala in salas)
     {
